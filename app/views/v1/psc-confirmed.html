@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+PSC confirmed – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/user-bar.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+      {{ govukPanel({
+              titleText: "PSC confirmed",
+              html: "Your reference number<br><strong>HDJ2123F</strong>"
+            }) }}
+
+            <p class="govuk-body">We have sent a confirmation email to <span class="govuk-body govuk-!-font-weight-bold">{{ data['signin-email'] }}</span>.</p>
+
+            <h2 class="govuk-heading-m">What happens next</h2>
+
+            <p class="govuk-body">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dignissim quam ipsum, vel tempor felis condimentum vel. Nam pharetra, lacus ullamcorper placerat dictum, purus nulla maximus nisi, vitae venenatis neque arcu non metus. Nullam lacus nunc, rutrum eget erat ut, facilisis rhoncus felis. Nam vulputate turpis augue, in sagittis arcu tincidunt at. Nulla venenatis eget purus vulputate pulvinar. 
+            </p>
+            <p class="govuk-body">
+              Suspendisse porta, tortor ac egestas feugiat, lacus dolor convallis risus, non aliquam dolor sem bibendum felis. Ut consequat orci ac libero mattis luctus. Curabitur hendrerit suscipit erat eget varius. Vestibulum eget neque vitae purus ultricies aliquam.
+            </p>
+
+            <p class="govuk-body">
+              <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+            </p>
+
+  </div>
+</div>
+
+{% endblock %}
