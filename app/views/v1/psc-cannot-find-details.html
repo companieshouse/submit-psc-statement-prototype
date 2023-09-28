@@ -1,0 +1,32 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+We can't find a PSC with the details you've entered – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/user-bar.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+            <h1 class="govuk-heading-l">We can't find a PSC with the details you've entered</h1>
+
+            <p class="govuk-body">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dignissim quam ipsum, vel tempor felis condimentum vel. Nam pharetra, lacus ullamcorper placerat dictum, purus nulla maximus nisi, vitae venenatis neque arcu non metus. Nullam lacus nunc, rutrum eget erat ut, facilisis rhoncus felis. Nam vulputate turpis augue, in sagittis arcu tincidunt at. Nulla venenatis eget purus vulputate pulvinar. 
+            </p>
+            
+               {{ govukButton({
+                text: "Continue"
+              }) }}
+
+  </div>
+</div>
+
+{% endblock %}

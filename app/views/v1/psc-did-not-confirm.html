@@ -1,0 +1,37 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+You didn't confirm a person with significant control – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/user-bar.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="{{currentUrl}}" method="post">
+
+
+      <h1 class="govuk-heading-l">You didn't confirm a person with significant control</h1>
+
+      <p class="govuk-body">Lorem ipsum dolor sit amet, consectetur 
+        adipiscing elit. Vestibulum non euismod quam, eu mattis 
+        turpis. Praesent hendrerit dapibus arcu. Morbi volutpat 
+        nibh ligula, eget feugiat tortor aliquam vitae.</p>
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}
