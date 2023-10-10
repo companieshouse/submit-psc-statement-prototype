@@ -16,7 +16,6 @@ router.post('/v1/sign-in-email', function (req, res) {
   // Create empty array and set error variables to false
   var errors = []
 
-  // Check if user has filled out a email
   if (req.session.data['signin-email'] === '') {
     // No value so add error to array
     errors.push({
@@ -25,8 +24,6 @@ router.post('/v1/sign-in-email', function (req, res) {
     })
   }
 
-
-  // Check if eother filed not filled out
   if (req.session.data['signin-email'] === '') {
     // Re-show page with error value as true so errors will show
     res.render('v1/sign-in-email', {
@@ -52,7 +49,6 @@ router.post('/v1/sign-in-password', function (req, res) {
   // Create empty array and set error variables to false
   var errors = []
 
-  // Check if user has filled out a email
   if (req.session.data['signin-password'] === '') {
     // No value so add error to array
     errors.push({
@@ -61,8 +57,6 @@ router.post('/v1/sign-in-password', function (req, res) {
     })
   }
 
-
-  // Check if eother filed not filled out
   if (req.session.data['signin-password'] === '') {
     // Re-show page with error value as true so errors will show
     res.render('v1/sign-in-password', {
@@ -88,14 +82,12 @@ router.post('/v1/confirm-for', function (req, res) {
   // Create empty array
   var errors = []
 
-  // Check if user has filled out a value
   if (typeof req.session.data['confirmFor'] === 'undefined') {
     // No value so add error to array
     errors.push({
       text: 'Select if you need to confirm yourself as a PSC',
       href: '#confirmFor'
     })
-    
 
     // Re-show page with error value as true so errors will show
     res.render('v1/confirm-for', {
@@ -124,7 +116,6 @@ router.post('/v1/company-number', function (req, res) {
   // Create empty array and set error variables to false
   var errors = [];
 
-  // Check if user has filled out a email
   if (req.session.data['companyNumber'] === '') {
     // No value so add error to array
     errors.push({
@@ -159,7 +150,6 @@ router.post('/v1/confirm-company', function (req, res) {
   } else if ((req.session.data['companyNumber'] == '44445555')) {
     res.redirect('/v1/how-name-recorded')
 
-  //  multiple dob matches
   } else {
     res.redirect('/v1/psc-cannot-find-details')
   }
@@ -178,7 +168,6 @@ router.post('/v1/confirm-psc', function (req, res) {
   // Create empty array
   var errors = []
 
-  // Check if user has filled out a value
   if (typeof req.session.data['confirmPsc'] === 'undefined') {
     // No value so add error to array
     errors.push({
@@ -230,7 +219,6 @@ router.post('/v1/psc-statement', function (req, res) {
   // Create empty array
   var errors = []
 
-  // Check if user has filled out a value
   if (typeof req.session.data['verificationStatement'] === 'undefined') {
     // No value so add error to array
     errors.push({
@@ -261,7 +249,6 @@ router.post('/v1/why-this-name', function (req, res) {
   // Create empty array
   var errors = []
 
-  // Check if user has filled out a value
   if (typeof req.session.data['whyThisName'] === 'undefined') {
     // No value so add error to array
     errors.push({
@@ -290,7 +277,46 @@ router.get('/v1/how-name-recorded', function (req, res) {
 })
 
 router.post('/v1/how-name-recorded', function (req, res) {
+  var errors = []
+  var firstNameError = false
+  var lastNameError = false
+
+  var nameError = false
+
+  // Check if user has filled out first name
+  if (req.session.data['firstName'] === '') {
+    // No value so add error to array
+    firstNameError = true
+    nameError = true
+    errors.push({
+      text: 'Enter the first name',
+      href: '#firstName'
+    })
+  }
+
+  // Check if user has filled out last name
+  if (req.session.data['lastName'] === '') {
+    // No value so add error to array
+    lastNameError = true
+    nameError = true
+    errors.push({
+      text: 'Enter the last name',
+      href: '#lastName'
+    })
+  }
+
+  if (nameError) {
+    // Re-show page with error value as true so errors will show
+    res.render('v1/how-name-recorded', {
+      errorFirstName: firstNameError,
+      errorLastName: lastNameError,
+      errorNameRecorded: nameError,
+      errorList: errors
+    })
+  } else {
     res.redirect('/v1/confirm-psc')
+  }
+
 })
 
 
@@ -306,7 +332,6 @@ router.post('/v1/personal-code', function (req, res) {
 // Create empty array and set error variables to false
 var errors = []
 
-// Check if user has filled out a email
 if (req.session.data['personalCode'] === '') {
   // No value so add error to array
   errors.push({
@@ -315,7 +340,6 @@ if (req.session.data['personalCode'] === '') {
   })
 }
 
-// Check if eother filed not filled out
 if (req.session.data['personalCode'] === '') {
   // Re-show page with error value as true so errors will show
   res.render('v1/personal-code', {
@@ -323,7 +347,6 @@ if (req.session.data['personalCode'] === '') {
     errorList: errors
   })
 } else {
-  // User inputted value so move to next page
   res.redirect('/v1/company-number')
 }
 })

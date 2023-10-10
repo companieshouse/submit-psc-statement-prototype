@@ -52,7 +52,7 @@ Director details
     <form action="{{currentUrl}}" method="post">
 
       <!-- Check for error -->
-      {% if errorFirstName%}
+      {% if errorFirstName %}
         <div class="govuk-form-group govuk-form-group--error">
       {% else %}
         <div class="govuk-form-group">
@@ -63,7 +63,7 @@ Director details
           <!-- Check for error -->
         {% if errorFirstName %}
           <p id="firstNameOne-error" class="govuk-error-message">
-            <span class="govuk-visually-hidden">Error:</span> Enter the director's full first name.
+            <span class="govuk-visually-hidden">Error:</span> Enter the first name
           </p>
         {% endif %} 
           <input class="govuk-input govuk-!-width-two-thirds" id="firstName" name="firstName" type="text">
@@ -77,7 +77,7 @@ Director details
       </div>
 
       <!-- Check for error -->
-      {% if errorLastName%}
+      {% if errorLastName %}
         <div class="govuk-form-group govuk-form-group--error">
       {% else %}
         <div class="govuk-form-group">
@@ -87,7 +87,7 @@ Director details
           </label>
         {% if errorLastName %}
           <p id="lastName-error" class="govuk-error-message">
-            <span class="govuk-visually-hidden">Error:</span> Enter the director's full last name
+            <span class="govuk-visually-hidden">Error:</span> Enter the last name
           </p>
         {% endif %} 
           <input class="govuk-input govuk-!-width-two-thirds" id="lastName" name="lastName" type="text">
