@@ -92,7 +92,7 @@ router.post('/v1/confirm-for', function (req, res) {
   if (typeof req.session.data['confirmFor'] === 'undefined') {
     // No value so add error to array
     errors.push({
-      text: 'Select which person of significant control you are confirming',
+      text: 'Select if you need to confirm yourself as a PSC',
       href: '#confirmFor'
     })
     
@@ -103,10 +103,8 @@ router.post('/v1/confirm-for', function (req, res) {
       errorList: errors
     })
   } else {
-    if (req.session.data['confirmFor'] == 'myself') {
+    if (req.session.data['confirmFor'] == 'yes') {
       res.redirect('/v1/company-number')
-    } else if (req.session.data['confirmFor'] == 'myself-someone') {
-      res.redirect('/v1/confirm-you-first')
     } else {
       res.redirect('/v1/personal-code')
     }
@@ -292,46 +290,7 @@ router.get('/v1/how-name-recorded', function (req, res) {
 })
 
 router.post('/v1/how-name-recorded', function (req, res) {
-  // Create empty array and set error variables to false
-  var errors = []
-  var firstNameError = false
-  var lastNameError = false
-  var nameError = false
-
-  // Check if user has filled out first name
-  if (req.session.data['firstName'] === '') {
-    // No value so add error to array
-    firstNameError = true
-    nameError = true
-    errors.push({
-      text: 'Enter the first name in full',
-      href: '#firstName'
-    })
-  }
-
-  // Check if user has filled out last name
-  if (req.session.data['lastName'] === '') {
-    // No value so add error to array
-    lastNameError = true
-    nameError = true
-    errors.push({
-      text: 'Enter the last name in full',
-      href: '#lastNameOne'
-    })
-  }
-
-  // Check if eother filed not filled out
-  if (nameError) {
-    // Re-show page with error value as true so errors will show
-    res.render('v1/how-name-recorded', {
-      errorFirstName: firstNameError,
-      errorLastName: lastNameError,
-      errorNameRecorded: nameError,
-      errorList: errors
-    })
-  } else {
     res.redirect('/v1/confirm-psc')
-  }
 })
 
 
@@ -367,4 +326,17 @@ if (req.session.data['personalCode'] === '') {
   // User inputted value so move to next page
   res.redirect('/v1/company-number')
 }
+})
+
+
+// ******* how-name-recorded validation ********************************
+router.get('/v1/psc-confirmed', function (req, res) {
+  // Set URl
+  res.render('v1/psc-confirmed', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/v1/psc-confirmed', function (req, res) {
+    res.redirect('/v1/personal-code')
 })

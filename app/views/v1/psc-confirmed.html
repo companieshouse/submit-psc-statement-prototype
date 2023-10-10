@@ -29,7 +29,7 @@ PSC confirmed – {{ serviceName }} – GOV.UK Prototype Kit
       {% elif data['companyNumber'] == '23232323'%}
         Lisa Robinson
       {% elif data['companyNumber'] =='44445555'%}
-        Frank Bush
+      {{data['firstName']}} {{data['middleName']}} {{data['lastName']}}
       {% endif %}
       </b>. 
       We have sent a confirmation email to <span class="govuk-body govuk-!-font-weight-bold">{{ data['signin-email'] }}</span>.</p>
@@ -39,15 +39,14 @@ PSC confirmed – {{ serviceName }} – GOV.UK Prototype Kit
     <p class="govuk-body">You will need the Companies House personal code in order to confirm any other PSCs.  
 
       If they don’t already have one, they need to <a href="#" class="govuk-link">verify their identity</a> to get one. </p>
-    
-    {{ govukButton({
-      text: "Confirm another PSC",
-      href: "personal-code"
-    }) }}
-    
-    
 
-
+    <form action="{{currentUrl}}" method="post">
+      <input type="hidden" name="confirmFor" id="confirmFor" value="no" />
+      {{ govukButton({
+        text: "Confirm another PSC"
+      }) }}
+    </form>
+    
   </div>
 </div>
 

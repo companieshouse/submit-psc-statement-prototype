@@ -35,7 +35,7 @@ How would you like to verify your identity with Companies House?
           {% elif data['companyNumber'] == '23232323'%}
             Lisa Robinson
           {% elif data['companyNumber'] =='44445555'%}
-            Frank Bush
+            {{data['firstName']}} {{data['middleName']}} {{data['lastName']}}
           {% endif %}
           </h2>
         </div>
@@ -53,7 +53,7 @@ How would you like to verify your identity with Companies House?
               {% elif data['companyNumber'] == '23232323'%}
                 Dance Warehouse ltd
               {% elif data['companyNumber'] =='44445555'%}
-              Bush and Sons Landscaping ltd
+                Landscaping ltd
               {% endif %}
               </dd>
             </div>

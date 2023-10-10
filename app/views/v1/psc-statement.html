@@ -32,7 +32,11 @@
           <fieldset class="govuk-fieldset" aria-describedby="verificationStatement-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
               <h1 class="govuk-fieldset__heading">
-                Confirm you are a PSC
+                {% if data['confirmFor'] == 'yes' %}
+                  Confirm you are a PSC
+                {% else %}
+                  Confirm they are a PSC
+                {% endif %}
               </h1>
             </legend>
             {% if errorStatement %}
@@ -44,19 +48,34 @@
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="verificationStatement" name="verificationStatement" type="checkbox">
                 <label class="govuk-label govuk-checkboxes__label" for="verificationStatement">
-                  I confirm I, 
+                  I confirm 
+                  
+                  {% if data['confirmFor'] == 'yes' %}
+                    I,
+                  {% else %}
+                    that 
+                  {% endif %}
+                  
                   <strong>          
                   {% if data['companyNumber'] == '12345678' %}
-                    Amanda Carr
+                    Amanda Carr,
                   {% elif data['companyNumber'] == '11112222' %}
-                    Bob Smith
+                    Bob Smith,
                   {% elif data['companyNumber'] == '23232323'%}
-                    Lisa Robinson
+                    Lisa Robinson,
                   {% elif data['companyNumber'] =='44445555'%}
-                    Frank Bush
+                  {{data['firstName']}} {{data['middleName']}} {{data['lastName']}},
                   {% endif %}
-                  </strong>, 
-                  am a person with significant control (PSC) for
+                  </strong>
+
+                  {% if data['confirmFor'] == 'yes' %}
+                    am
+                  {% else %}
+                    is
+                  {% endif %}
+                   
+                  
+                  a person with significant control (PSC) for
 
                   {% if data['companyNumber'] == '12345678' %}
                     Big Shop ltd
@@ -65,7 +84,7 @@
                   {% elif data['companyNumber'] == '23232323'%}
                     Dance Warehouse ltd
                   {% elif data['companyNumber'] =='44445555'%}
-                   Frank Bush
+                    Landscaping ltd
                   {% endif %} 
 
                   with company number 

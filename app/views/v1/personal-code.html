@@ -21,10 +21,6 @@ Director details
         errorList: errorList
       }) }}
     {% endif %}
-    <h1 class="govuk-heading-l">Enter the PSC’s Companies House personal code </h1>
-
-    <p class="govuk-body">This code confirms their verified identity on our records.</p>
-
 
     <form action="{{currentUrl}}" method="post">
 
@@ -34,9 +30,14 @@ Director details
       {% else %}
         <div class="govuk-form-group">
       {% endif %} 
-          <label class="govuk-label" for="personalCode">
-            Companies House personal code
-          </label>
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="event-name">
+          Enter the PSC’s Companies House personal code
+        </label>
+      </h1>
+      <div id="event-name-hint" class="govuk-hint">
+        This code confirms their verified identity on our records.
+      </div>
           <!-- Check for error -->
         {% if errorCode %}
           <p id="personalCode-error" class="govuk-error-message">

@@ -21,7 +21,14 @@ Director details
         errorList: errorList
       }) }}
     {% endif %}
-    <h1 class="govuk-heading-l">How is your name recorded on the Companies House register?</h1>
+    <h1 class="govuk-heading-l">
+    {% if data['confirmFor'] == 'yes' %}
+      How is your name recorded on the Companies House register?
+    {% else %}
+      How is their name recorded on the Companies House register?
+    {% endif %}
+      
+    </h1>
 
     <p class="govuk-body">We don’t have anyone on the register with the verified name of 
       {% if data['companyNumber'] == '12345678' %}
@@ -33,7 +40,13 @@ Director details
       {% elif data['companyNumber'] =='44445555'%}
         Frank Bush
       {% endif %}. 
-      Tell us how their name is recorded on the register.</p>
+
+      {% if data['confirmFor'] == 'yes' %}
+        Tell us how your name is recorded on the register.
+      {% else %}
+        Tell us how their name is recorded on the register.
+      {% endif %}
+      </p>
 
 
     <form action="{{currentUrl}}" method="post">

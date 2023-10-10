@@ -14,20 +14,28 @@ How would you like to verify your identity with Companies House?
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <!-- Check for error -->
-    {% if errorwhyThisName %}
-      {{ govukErrorSummary({
-        titleText: "There is a problem",
-        errorList: errorList
-      }) }}
-    {% endif %}
     <form action="{{currentUrl}}" method="post">
 
-      <h1 class="govuk-heading-l">Your verified name is different to the company’s PSC record</h1>
+      <h1 class="govuk-heading-l">
+        {% if data['confirmFor'] == 'yes' %}
+          Your verified name is different to the company’s PSC record
+        {% else %}
+          Their verified name is different to the company’s PSC record
+        {% endif %}
+      </h1>
 
-      <p class="govuk-body">You may be contacted by Companies House as part of our 
+      <p class="govuk-body">
+      {% if data['confirmFor'] == 'yes' %}
+        You may be contacted by Companies House as part of our 
+        security process if your verified identity and PSC name on the register, 
+        don’t match. 
+      {% else %}
+        They may be contacted by Companies House as part of our 
         security process if their verified identity and PSC name on the register, 
-        don’t match. </p>
+        don’t match. 
+      {% endif %}
+
+      </p>
 
         <details class="govuk-details" data-module="govuk-details">
           <summary class="govuk-details__summary">
@@ -40,24 +48,11 @@ How would you like to verify your identity with Companies House?
           </div>
         </details>
 
-
-      <!-- Check for error -->
-      {% if errorwhyThisName %}
-      <div class="govuk-form-group govuk-form-group--error">
-      {% else %}
       <div class="govuk-form-group">
-      {% endif %} 
-        <fieldset class="govuk-fieldset" aria-describedby="whyThisName-hint">
-          <!-- Check for error -->
-          {% if errorwhyThisName %}
-          <p id="whyThisName-error" class="govuk-error-message">
-            <span class="govuk-visually-hidden">Error:</span> Select why you use this name
-          </p>
-          {% endif %} 
-        
+        <fieldset class="govuk-fieldset" aria-describedby="whyThisName-hint">       
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m ">
             <h3 class="govuk-fieldset__heading govuk-!-margin-top-5">
-              Why do you use this name
+              Why do you use this name? (optional)
             </h3>
           </legend>
           <div class="govuk-radios" data-module="govuk-radios">
