@@ -1,0 +1,132 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+How would you like to verify your identity with Companies House?
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/account-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- Check for error -->
+    {% if errorwhyThisName %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+    {% endif %}
+    <form action="{{currentUrl}}" method="post">
+
+      <h1 class="govuk-heading-l">Your verified name is different to the company’s PSC record</h1>
+
+      <p class="govuk-body">You may be contacted by Companies House as part of our 
+        security process if their verified identity and PSC name on the register, 
+        don’t match. </p>
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              How to change the name on the register 
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            ***
+          </div>
+        </details>
+
+
+      <!-- Check for error -->
+      {% if errorwhyThisName %}
+      <div class="govuk-form-group govuk-form-group--error">
+      {% else %}
+      <div class="govuk-form-group">
+      {% endif %} 
+        <fieldset class="govuk-fieldset" aria-describedby="whyThisName-hint">
+          <!-- Check for error -->
+          {% if errorwhyThisName %}
+          <p id="whyThisName-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Select why you use this name
+          </p>
+          {% endif %} 
+        
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m ">
+            <h3 class="govuk-fieldset__heading govuk-!-margin-top-5">
+              Why do you use this name
+            </h3>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whyThisName" name="whyThisName" type="radio" value="informal">
+              <label class="govuk-label govuk-radios__label" for="whyThisName">
+                Informal usage (James/Jim/Jamie)
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whyThisName-2" name="whyThisName" type="radio" value="preferred">
+              <label class="govuk-label govuk-radios__label" for="whyThisName-2">
+                Preferred name  
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whyThisName-3" name="whyThisName" type="radio" value="marriage">
+              <label class="govuk-label govuk-radios__label" for="whyThisName-3">
+                Marriage or civil partnership  
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whyThisName-4" name="whyThisName" type="radio" value="spelling">
+              <label class="govuk-label govuk-radios__label" for="whyThisName-4">
+                Spelling resulting from translation    
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whyThisName-5" name="whyThisName" type="radio" value="traditional">
+              <label class="govuk-label govuk-radios__label" for="whyThisName-5">
+                Traditional use of middle names as first name  
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whyThisName-6" name="whyThisName" type="radio" value="gender">
+              <label class="govuk-label govuk-radios__label" for="whyThisName-6">
+                Changed gender    
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whyThisName-7" name="whyThisName" type="radio" value="stage">
+              <label class="govuk-label govuk-radios__label" for="whyThisName-7">
+                Stage name or pen name    
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whyThisName-8" name="whyThisName" type="radio" value="protection">
+              <label class="govuk-label govuk-radios__label" for="whyThisName-8">
+                Reasons relating to protecting individuals from harm    
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

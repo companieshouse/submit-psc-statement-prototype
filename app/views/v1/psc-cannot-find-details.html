@@ -6,7 +6,7 @@ We can't find a PSC with the details you've entered – {{ serviceName }} – GO
 
 {% block beforeContent %}
   {% include "includes/phase-banner.html" %}
-  {% include "includes/user-bar.html" %}
+  {% include "includes/account-banner.html" %}
   {% include "includes/back-link.html" %}
 {% endblock %}
 
@@ -15,16 +15,48 @@ We can't find a PSC with the details you've entered – {{ serviceName }} – GO
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
+    <h1 class="govuk-heading-l">We can’t find a PSC for that company with these details </h1>
 
-            <h1 class="govuk-heading-l">We can't find a PSC with the details you've entered</h1>
+    <p class="govuk-body">
+      We couldn’t find a match for a PSC with these exact details:  
+    </p>
 
-            <p class="govuk-body">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dignissim quam ipsum, vel tempor felis condimentum vel. Nam pharetra, lacus ullamcorper placerat dictum, purus nulla maximus nisi, vitae venenatis neque arcu non metus. Nullam lacus nunc, rutrum eget erat ut, facilisis rhoncus felis. Nam vulputate turpis augue, in sagittis arcu tincidunt at. Nulla venenatis eget purus vulputate pulvinar. 
-            </p>
-            
-               {{ govukButton({
-                text: "Continue"
-              }) }}
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Company name</dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['companyNumber'] == '12345678' %}
+          Big Shop ltd
+        {% elif data['companyNumber'] == '11112222' %}
+          Contruction 123 ltd
+        {% elif data['companyNumber'] == '23232323'%}
+          Dance Warehouse ltd
+        {% elif data['companyNumber'] =='44445555'%}
+          Bush and Sons Landscaping ltd
+        {% else%} 
+          A N Other Company ltd
+        {% endif %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Company number</dt>
+        <dd class="govuk-summary-list__value">{{ data['companyNumber'] }}</dd>
+      </div>
+    </dl>
+
+    <p class="govuk-body">
+      This could be due to a few reasons. Before you try again, please check: 
+    </p>
+
+    <p class="govuk-body">You can buy:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>If the company number is correct</li>
+      <li>If the company’s PSC records held by Companies House are up to date</li>
+    </ul>
+    
+    {{ govukButton({
+      text: "Continue"
+    }) }}
 
   </div>
 </div>

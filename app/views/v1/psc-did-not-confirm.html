@@ -6,7 +6,7 @@ You didn't confirm a person with significant control – {{ serviceName }} – G
 
 {% block beforeContent %}
   {% include "includes/phase-banner.html" %}
-  {% include "includes/user-bar.html" %}
+  {% include "includes/account-banner.html" %}
   {% include "includes/back-link.html" %}
 {% endblock %}
 
@@ -18,13 +18,11 @@ You didn't confirm a person with significant control – {{ serviceName }} – G
     <form action="{{currentUrl}}" method="post">
 
 
-      <h1 class="govuk-heading-l">You didn't confirm a person with significant control</h1>
+      <h1 class="govuk-heading-l">You did not confirm a PSC</h1>
 
-      <p class="govuk-body">Lorem ipsum dolor sit amet, consectetur 
-        adipiscing elit. Vestibulum non euismod quam, eu mattis 
-        turpis. Praesent hendrerit dapibus arcu. Morbi volutpat 
-        nibh ligula, eget feugiat tortor aliquam vitae.</p>
+      <p class="govuk-body">You can try again at a later date, before the due date for the verification statement.</p>
 
+      <p class="govuk-body">If you are no longer a PSC, a director of the company will need to update the company records. </p>
 
       {{ govukButton({
         text: "Continue"

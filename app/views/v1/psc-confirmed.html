@@ -6,7 +6,7 @@ PSC confirmed – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block beforeContent %}
   {% include "includes/phase-banner.html" %}
-  {% include "includes/user-bar.html" %}
+  {% include "includes/account-banner.html" %}
   {% include "includes/back-link.html" %}
 {% endblock %}
 
@@ -16,25 +16,37 @@ PSC confirmed – {{ serviceName }} – GOV.UK Prototype Kit
   <div class="govuk-grid-column-two-thirds">
 
 
-      {{ govukPanel({
-              titleText: "PSC confirmed",
-              html: "Your reference number<br><strong>HDJ2123F</strong>"
-            }) }}
+    {{ govukPanel({
+      titleText: "PSC confirmation has been submitted "
+    }) }}
 
-            <p class="govuk-body">We have sent a confirmation email to <span class="govuk-body govuk-!-font-weight-bold">{{ data['signin-email'] }}</span>.</p>
+    <p class="govuk-body">Thank you for confirming 
+      <b>
+      {% if data['companyNumber'] == '12345678' %}
+        Amanda Carr
+      {% elif data['companyNumber'] == '11112222' %}
+        Bob Smith
+      {% elif data['companyNumber'] == '23232323'%}
+        Lisa Robinson
+      {% elif data['companyNumber'] =='44445555'%}
+        Frank Bush
+      {% endif %}
+      </b>. 
+      We have sent a confirmation email to <span class="govuk-body govuk-!-font-weight-bold">{{ data['signin-email'] }}</span>.</p>
 
-            <h2 class="govuk-heading-m">What happens next</h2>
+    <h2 class="govuk-heading-m">Want to confirm another PSC? </h2>
+  
+    <p class="govuk-body">You will need the Companies House personal code in order to confirm any other PSCs.  
 
-            <p class="govuk-body">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dignissim quam ipsum, vel tempor felis condimentum vel. Nam pharetra, lacus ullamcorper placerat dictum, purus nulla maximus nisi, vitae venenatis neque arcu non metus. Nullam lacus nunc, rutrum eget erat ut, facilisis rhoncus felis. Nam vulputate turpis augue, in sagittis arcu tincidunt at. Nulla venenatis eget purus vulputate pulvinar. 
-            </p>
-            <p class="govuk-body">
-              Suspendisse porta, tortor ac egestas feugiat, lacus dolor convallis risus, non aliquam dolor sem bibendum felis. Ut consequat orci ac libero mattis luctus. Curabitur hendrerit suscipit erat eget varius. Vestibulum eget neque vitae purus ultricies aliquam.
-            </p>
+      If they don’t already have one, they need to <a href="#" class="govuk-link">verify their identity</a> to get one. </p>
+    
+    {{ govukButton({
+      text: "Confirm another PSC",
+      href: "personal-code"
+    }) }}
+    
+    
 
-            <p class="govuk-body">
-              <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
-            </p>
 
   </div>
 </div>

@@ -1,0 +1,72 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Director details
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- Check for error -->
+    {% if errorCode %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+    {% endif %}
+    <h1 class="govuk-heading-l">Enter the PSC’s Companies House personal code </h1>
+
+    <p class="govuk-body">This code confirms their verified identity on our records.</p>
+
+
+    <form action="{{currentUrl}}" method="post">
+
+      <!-- Check for error -->
+      {% if errorCode%}
+        <div class="govuk-form-group govuk-form-group--error">
+      {% else %}
+        <div class="govuk-form-group">
+      {% endif %} 
+          <label class="govuk-label" for="personalCode">
+            Companies House personal code
+          </label>
+          <!-- Check for error -->
+        {% if errorCode %}
+          <p id="personalCode-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Enter the Companies House personal code.
+          </p>
+        {% endif %} 
+          <input class="govuk-input govuk-input--width-10" id="personalCode" name="personalCode" type="text">
+        </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }} 
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Don’t have their Companies House personal code?  
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p>Ask them to provide it in order for you to continue. If they have 
+            lost it, they could retrieve it by searching their email inbox for 
+            “Companies House personal code”.</p>
+          
+          <p>If they don’t have one at all, they need to <a href="#" class="govuk-link">verify their identity</a> to get a new personal code. </p>
+        </div>
+      </details>
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -6,7 +6,7 @@ User verifies identity – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block beforeContent %}
   {% include "includes/phase-banner.html" %}
-  {% include "includes/user-bar.html" %}
+  {% include "includes/account-banner.html" %}
   {% include "includes/back-link.html" %}
 {% endblock %}
 
@@ -14,34 +14,60 @@ User verifies identity – {{ serviceName }} – GOV.UK Prototype Kit
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+      <!-- Check for error -->
+      {% if errorConfirmFor %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+      {% endif %}
 
     <form action="{{currentUrl}}" method="post">
 
-      {{ govukRadios({
-        name: "confirmingFor",
-        fieldset: {
-          legend: {
-            text: "Who are you confirming for?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        items: [
-          {
-            value: "Myself",
-            text: "Myself"
-          },
-          {
-            value: "Myself and someone else",
-            text: "Myself and someone else"
-          },
-          {
-            value: "Someone else",
-            text: "Someone else"
-          }
-        ]
-      }) }}
+      <!-- Check for error -->
+      {% if errorConfirmFor %}
+      <div class="govuk-form-group govuk-form-group--error">
+      {% else %}
+      <div class="govuk-form-group">
+      {% endif %} 
+        <fieldset class="govuk-fieldset" aria-describedby="confirmFor-hint">
+          <!-- Check for error -->
+          {% if errorConfirmFor %}
+          <p id="confirmFor-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Select which person of significant control you are confirming
+          </p>
+          {% endif %} 
+        
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l ">
+            <h3 class="govuk-fieldset__heading govuk-!-margin-top-5">
+              Which Person(s) of Significant Control (PSC) are you confirming? 
+            </h3>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="confirmFor" name="confirmFor" type="radio" value="myself">
+              <label class="govuk-label govuk-radios__label" for="confirmFor">
+                Myself
+              </label>
+            </div>
 
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="confirmFor-2" name="confirmFor" type="radio" value="myself-someone">
+              <label class="govuk-label govuk-radios__label" for="confirmFor-2">
+                Myself and someone else 
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="confirmFor-3" name="confirmFor" type="radio" value="someone">
+              <label class="govuk-label govuk-radios__label" for="confirmFor-3">
+                Someone else 
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
 
       {{ govukButton({
         text: "Continue"

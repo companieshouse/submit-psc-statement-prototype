@@ -1,0 +1,146 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+How would you like to verify your identity with Companies House?
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/account-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- Check for error -->
+    {% if errorConfirmPsc %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+    {% endif %}
+    <form action="{{currentUrl}}" method="post">
+
+      <h1 class="govuk-heading-l">We found the following PSC </h1>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+          {% if data['companyNumber'] == '12345678' %}
+            Amanda Carr
+          {% elif data['companyNumber'] == '11112222' %}
+            Bob Smith
+          {% elif data['companyNumber'] == '23232323'%}
+            Lisa Robinson
+          {% elif data['companyNumber'] =='44445555'%}
+            Frank Bush
+          {% endif %}
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Company name
+              </dt>
+              <dd class="govuk-summary-list__value">
+              {% if data['companyNumber'] == '12345678' %}
+                Big Shop ltd
+              {% elif data['companyNumber'] == '11112222' %}
+                Contruction 123 ltd
+              {% elif data['companyNumber'] == '23232323'%}
+                Dance Warehouse ltd
+              {% elif data['companyNumber'] =='44445555'%}
+              Bush and Sons Landscaping ltd
+              {% endif %}
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Company number
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['companyNumber'] }}
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Date of birth
+              </dt>
+              <dd class="govuk-summary-list__value">
+              {% if data['companyNumber'] == '12345678' %}
+                December 1995
+              {% elif data['companyNumber'] == '11112222' %}
+                November 1980
+              {% elif data['companyNumber'] == '23232323'%}
+                October 1988
+              {% elif data['companyNumber'] =='44445555'%}
+                October 1970
+              {% endif %}
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Statement due
+              </dt>
+              <dd class="govuk-summary-list__value">
+              {% if data['companyNumber'] == '11112222' %}
+                20 July 2024
+              {% else %}
+                5 November 2023
+              {% endif %}
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <!-- Check for error -->
+      {% if errorConfirmPsc %}
+      <div class="govuk-form-group govuk-form-group--error">
+      {% else %}
+      <div class="govuk-form-group">
+      {% endif %} 
+        <fieldset class="govuk-fieldset" aria-describedby="confirmPsc-hint">
+          <!-- Check for error -->
+          {% if errorConfirmPsc %}
+          <p id="confirmPsc-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Select if this is the correct PSC
+          </p>
+          {% endif %} 
+        
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l ">
+            <h3 class="govuk-fieldset__heading govuk-!-margin-top-5">
+              Is this the PSC you want to confirm?
+            </h3>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="confirmPsc" name="confirmPsc" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="confirmPsc">
+                Yes
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="confirmPsc-2" name="confirmPsc" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="confirmPsc-2">
+                No 
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

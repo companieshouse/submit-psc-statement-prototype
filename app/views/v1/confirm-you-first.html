@@ -6,7 +6,7 @@ Confirm yourself first – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block beforeContent %}
   {% include "includes/phase-banner.html" %}
-  {% include "includes/user-bar.html" %}
+  {% include "includes/account-banner.html" %}
   {% include "includes/back-link.html" %}
 {% endblock %}
 
@@ -18,16 +18,17 @@ Confirm yourself first – {{ serviceName }} – GOV.UK Prototype Kit
     <form action="{{currentUrl}}" method="post">
 
 
-      <h1 class="govuk-heading-l">Confirm yourself first</h1>
+      <h1 class="govuk-heading-l">Let’s confirm you first</h1>
 
-      <p class="govuk-body">Lorem ipsum dolor sit amet, consectetur 
-        adipiscing elit. Vestibulum non euismod quam, eu mattis 
-        turpis. Praesent hendrerit dapibus arcu. Morbi volutpat 
-        nibh ligula, eget feugiat tortor aliquam vitae.</p>
+      <p class="govuk-body">You will be able to confirm the other 
+        PSC after this. In order to confirm someone else, you need their Companies House personal code.</p>
+
+      <p class="govuk-body">If they don’t already have one, they need to verify their identity to get one.</p>
 
 
       {{ govukButton({
-        text: "Continue"
+        text: "Continue",
+        href: "company-number"
       }) }}
 
     </form>
