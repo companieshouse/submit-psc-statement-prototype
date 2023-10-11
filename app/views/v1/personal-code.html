@@ -36,7 +36,10 @@ Director details
         </label>
       </h1>
       <div id="event-name-hint" class="govuk-hint">
-        This code confirms their verified identity on our records.
+        This is the code they received when they verified their 
+        identity. If they don’t have it to hand, they can search 
+        their inbox for ‘Companies House personal code’. If they 
+        lost it, they will have to <a href="#" class="govuk-link">verify their identity</a> again.
       </div>
           <!-- Check for error -->
         {% if errorCode %}
@@ -50,21 +53,6 @@ Director details
       {{ govukButton({
         text: "Continue"
       }) }} 
-
-      <details class="govuk-details" data-module="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            Don’t have their Companies House personal code?  
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          <p>Ask them to provide it in order for you to continue. If they have 
-            lost it, they could retrieve it by searching their email inbox for 
-            “Companies House personal code”.</p>
-          
-          <p>If they don’t have one at all, they need to <a href="#" class="govuk-link">verify their identity</a> to get a new personal code. </p>
-        </div>
-      </details>
 
     </form>
   </div>
