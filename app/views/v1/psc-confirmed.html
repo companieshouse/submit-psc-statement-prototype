@@ -24,10 +24,12 @@ PSC confirmed – {{ serviceName }} – GOV.UK Prototype Kit
         Amanda Carr
       {% elif data['companyNumber'] == '11112222' %}
         Bob Smith
-      {% elif data['companyNumber'] == '23232323'%}
+      {% elif data['companyNumber'] == '23232323' %}
         Lisa Robinson
-      {% elif data['companyNumber'] =='44445555'%}
-      {{data['firstName']}} {{data['middleName']}} {{data['lastName']}}
+      {% elif data['companyNumber'] =='44445555' %}
+        {{data['firstName']}} {{data['middleName']}} {{data['lastName']}}
+      {% elif data['companyNumber'] =='10101010' %}
+        Amir Malik
       {% endif %}
       </b>. 
       We have sent a confirmation email to <span class="govuk-body govuk-!-font-weight-bold">{{ data['signin-email'] }}</span>.</p>

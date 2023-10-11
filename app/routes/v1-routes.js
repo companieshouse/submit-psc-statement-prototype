@@ -95,9 +95,14 @@ router.post('/v1/confirm-for', function (req, res) {
       errorList: errors
     })
   } else {
-    if (req.session.data['confirmFor'] == 'yes') {
+    if (req.session.data['signin-email'] == 'happy@path.com') {
+      //  happy path
+      res.redirect('/v1/confirm-psc')
+    } else if ((req.session.data['confirmFor'] == 'yes')) {
+      //  company number needed
       res.redirect('/v1/company-number')
     } else {
+      //  Confirming someone else
       res.redirect('/v1/personal-code')
     }
   }
@@ -184,7 +189,8 @@ router.post('/v1/confirm-psc', function (req, res) {
   } else {
     if (req.session.data['confirmPsc'] == 'yes') {
       //  happy path
-      if ((req.session.data['companyNumber'] == '12345678')) {
+      if ((req.session.data['companyNumber'] == '12345678')
+      || (req.session.data['companyNumber'] == '10101010')) {
         res.redirect('/v1/psc-statement')
         
       //  confirmation statement not due yet

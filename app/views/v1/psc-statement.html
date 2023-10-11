@@ -58,13 +58,15 @@
                   
                   <strong>          
                   {% if data['companyNumber'] == '12345678' %}
-                    Amanda Carr,
+                    Amanda Carr
                   {% elif data['companyNumber'] == '11112222' %}
-                    Bob Smith,
-                  {% elif data['companyNumber'] == '23232323'%}
-                    Lisa Robinson,
-                  {% elif data['companyNumber'] =='44445555'%}
-                  {{data['firstName']}} {{data['middleName']}} {{data['lastName']}},
+                    Bob Smith
+                  {% elif data['companyNumber'] == '23232323' %}
+                    Lisa Robinson
+                  {% elif data['companyNumber'] =='44445555' %}
+                    {{data['firstName']}} {{data['middleName']}} {{data['lastName']}}
+                  {% elif data['companyNumber'] =='10101010' %}
+                    Amir Malik
                   {% endif %}
                   </strong>
 
@@ -74,21 +76,21 @@
                     is
                   {% endif %}
                    
-                  
                   a person with significant control (PSC) for
 
                   {% if data['companyNumber'] == '12345678' %}
                     Big Shop ltd
                   {% elif data['companyNumber'] == '11112222' %}
                     Contruction 123 ltd
-                  {% elif data['companyNumber'] == '23232323'%}
+                  {% elif data['companyNumber'] == '23232323' %}
                     Dance Warehouse ltd
-                  {% elif data['companyNumber'] =='44445555'%}
+                  {% elif data['companyNumber'] =='44445555' %}
                     Landscaping ltd
-                  {% endif %} 
+                  {% elif data['companyNumber'] =='10101010' %}
+                    Crazy Cuts hairdressing ltd
+                  {% endif %}
 
-                  with company number 
-                  {{ data['companyNumber'] }}.
+                  with company number {{ data['companyNumber'] }}
                 </label>
               </div>
             </div>
