@@ -97,7 +97,7 @@ router.post('/v1/confirm-for', function (req, res) {
   } else {
    
     if ((req.session.data['confirmFor'] == 'yes')) {
-      if (req.session.data['signin-email'] == 'happy@path.com') {
+      if (req.session.data['signin-email'] == 'email@server.com') {
         //  happy path
         res.redirect('/v1/confirm-psc')
       } else {

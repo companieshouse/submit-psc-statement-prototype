@@ -52,7 +52,11 @@ How would you like to verify your identity with Companies House?
         <fieldset class="govuk-fieldset" aria-describedby="whyThisName-hint">       
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m ">
             <h3 class="govuk-fieldset__heading govuk-!-margin-top-5">
-              Why do you use this name? (optional)
+              {% if data['confirmFor'] == 'yes' %}
+                Why do you use this name? (optional)
+              {% else %}
+                Why do they use this name? (optional)
+              {% endif %}
             </h3>
           </legend>
           <div class="govuk-radios" data-module="govuk-radios">
@@ -60,13 +64,6 @@ How would you like to verify your identity with Companies House?
               <input class="govuk-radios__input" id="whyThisName" name="whyThisName" type="radio" value="informal">
               <label class="govuk-label govuk-radios__label" for="whyThisName">
                 Informal usage (James/Jim/Jamie)
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="whyThisName-2" name="whyThisName" type="radio" value="preferred">
-              <label class="govuk-label govuk-radios__label" for="whyThisName-2">
-                Preferred name  
               </label>
             </div>
 
@@ -109,6 +106,13 @@ How would you like to verify your identity with Companies House?
               <input class="govuk-radios__input" id="whyThisName-8" name="whyThisName" type="radio" value="protection">
               <label class="govuk-label govuk-radios__label" for="whyThisName-8">
                 Reasons relating to protecting individuals from harm    
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whyThisName-2" name="whyThisName" type="radio" value="preferred">
+              <label class="govuk-label govuk-radios__label" for="whyThisName-2">
+                Preferred name  
               </label>
             </div>
 
