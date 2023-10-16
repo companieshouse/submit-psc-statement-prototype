@@ -22,31 +22,10 @@ Director details
       }) }}
     {% endif %}
     <h1 class="govuk-heading-l">
-    {% if data['confirmFor'] == 'yes' %}
-      How is your name recorded on the Companies House register?
-    {% else %}
-      How is their name recorded on the Companies House register?
-    {% endif %}
-      
+      How is the PSC name recorded on the Companies House register?
     </h1>
 
-    <p class="govuk-body">We don’t have anyone on the register with the verified name of 
-      {% if data['companyNumber'] == '12345678' %}
-        Amanda Carr
-      {% elif data['companyNumber'] == '11112222' %}
-        Bob Smith
-      {% elif data['companyNumber'] == '23232323'%}
-        Lisa Robinson
-      {% elif data['companyNumber'] =='44445555'%}
-        Frank Bush
-      {% endif %}. 
-
-      {% if data['confirmFor'] == 'yes' %}
-        Tell us how your name is recorded on the register.
-      {% else %}
-        Tell us how their name is recorded on the register.
-      {% endif %}
-      </p>
+    <p class="govuk-body">Tell us how the PSC name is recorded on the register.</p>
 
 
     <form action="{{currentUrl}}" method="post">
@@ -71,7 +50,7 @@ Director details
 
       <div class="govuk-form-group">
         <label class="govuk-label" for="middleName">
-          Middle names
+          Middle names (optional)
         </label>
           <input class="govuk-input govuk-!-width-two-thirds" id="middleName" name="middleName" type="text">
       </div>

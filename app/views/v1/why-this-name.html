@@ -26,13 +26,11 @@ How would you like to verify your identity with Companies House?
 
       <p class="govuk-body">
       {% if data['confirmFor'] == 'yes' %}
-        You may be contacted by Companies House as part of our 
-        security process if your verified identity and PSC name on the register, 
-        don’t match. 
+        You may be contacted by Companies House for security reasons if 
+        the verified identity and PSC name on the register don’t match. 
       {% else %}
-        They may be contacted by Companies House as part of our 
-        security process if their verified identity and PSC name on the register, 
-        don’t match. 
+        The PSC may be contacted by Companies House for security reasons if 
+        the verified identity and PSC name on the register don’t match.
       {% endif %}
 
       </p>
@@ -40,7 +38,7 @@ How would you like to verify your identity with Companies House?
         <details class="govuk-details" data-module="govuk-details">
           <summary class="govuk-details__summary">
             <span class="govuk-details__summary-text">
-              How to change the name on the register 
+              How to change the PSC name on the register 
             </span>
           </summary>
           <div class="govuk-details__text">
@@ -60,17 +58,11 @@ How would you like to verify your identity with Companies House?
             </h3>
           </legend>
           <div class="govuk-radios" data-module="govuk-radios">
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="whyThisName" name="whyThisName" type="radio" value="informal">
-              <label class="govuk-label govuk-radios__label" for="whyThisName">
-                Informal usage (James/Jim/Jamie)
-              </label>
-            </div>
 
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="whyThisName-3" name="whyThisName" type="radio" value="marriage">
               <label class="govuk-label govuk-radios__label" for="whyThisName-3">
-                Marriage or civil partnership  
+                Marriage, civil partnership or divorce 
               </label>
             </div>
 
@@ -81,31 +73,11 @@ How would you like to verify your identity with Companies House?
               </label>
             </div>
 
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="whyThisName-5" name="whyThisName" type="radio" value="traditional">
-              <label class="govuk-label govuk-radios__label" for="whyThisName-5">
-                Traditional use of middle names as first name  
-              </label>
-            </div>
 
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="whyThisName-6" name="whyThisName" type="radio" value="gender">
-              <label class="govuk-label govuk-radios__label" for="whyThisName-6">
-                Changed gender    
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="whyThisName-7" name="whyThisName" type="radio" value="stage">
-              <label class="govuk-label govuk-radios__label" for="whyThisName-7">
-                Stage name or pen name    
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="whyThisName-8" name="whyThisName" type="radio" value="protection">
-              <label class="govuk-label govuk-radios__label" for="whyThisName-8">
-                Reasons relating to protecting individuals from harm    
+              <input class="govuk-radios__input" id="whyThisName-4" name="whyThisName" type="radio" value="legal">
+              <label class="govuk-label govuk-radios__label" for="whyThisName-4">
+                Legally changed name    
               </label>
             </div>
 
