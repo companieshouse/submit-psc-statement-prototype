@@ -1,0 +1,84 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Director details
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- Check for error -->
+    {% if errorNameRecorded %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+    {% endif %}
+    <h1 class="govuk-heading-l">
+      How is the PSC name recorded on the Companies House register?
+    </h1>
+
+    <p class="govuk-body">Tell us how the PSC name is recorded on the register.</p>
+
+
+    <form action="{{currentUrl}}" method="post">
+
+      <!-- Check for error -->
+      {% if errorFirstName %}
+        <div class="govuk-form-group govuk-form-group--error">
+      {% else %}
+        <div class="govuk-form-group">
+      {% endif %} 
+          <label class="govuk-label" for="firstName">
+            First name
+          </label>
+          <!-- Check for error -->
+        {% if errorFirstName %}
+          <p id="firstNameOne-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Enter the first name
+          </p>
+        {% endif %} 
+          <input class="govuk-input govuk-!-width-two-thirds" id="firstName" name="firstName" type="text">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="middleName">
+          Middle names (optional)
+        </label>
+          <input class="govuk-input govuk-!-width-two-thirds" id="middleName" name="middleName" type="text">
+      </div>
+
+      <!-- Check for error -->
+      {% if errorLastName %}
+        <div class="govuk-form-group govuk-form-group--error">
+      {% else %}
+        <div class="govuk-form-group">
+      {% endif %} 
+          <label class="govuk-label" for="lastName">
+            Last name
+          </label>
+        {% if errorLastName %}
+          <p id="lastName-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Enter the last name
+          </p>
+        {% endif %} 
+          <input class="govuk-input govuk-!-width-two-thirds" id="lastName" name="lastName" type="text">
+      </div>
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

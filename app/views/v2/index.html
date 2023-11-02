@@ -1,0 +1,419 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+  {{ govukTag({
+    classes: "govuk-tag--blue govuk-!-margin-bottom-4",
+    text: "version 2"
+  }) }}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">
+       {{serviceName}}<span class="govuk-caption-xl"></span>
+      </h1>
+
+      <a href="start" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+        Start now
+      </a>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-6">
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l">Prototype data</h2>
+
+      <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+        <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                Happy path
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                  Email - email@server.com
+                </h2>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Company number
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      10101010
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Company name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Crazy Cuts hairdressing ltd
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      PSC name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Amir Malik
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Statement due
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      01 November 2023
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                Name mismatch
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                  Company number - 12345678
+                </h2>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Company name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Big Shop ltd
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      PSC name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Amanda Carr
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Statement due
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      01 November 2023
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                Confirmation statement not due yet
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                  Company number - 11112222 
+                </h2>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Company name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Contruction 123 ltd
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      PSC name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Bob Smith 
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Statement due
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      20 July 2024
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+                Name mismatch within company
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                  Company number - 23232323
+                </h2>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Company name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Dance Warehouse ltd
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      PSC name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Lisa Robinson 
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Statement due
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      5 November 2023
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+                Multiple matches against DOB
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                  Company number - 44445555
+                </h2>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Company name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                       Landscaping ltd
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      PSC name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Frank Bush 
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Statement due
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      5 November 2023
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-6">
+      <h2 class="govuk-heading-m" id="individualScreenLinks">Individual screen links</h2>
+
+      <h2 class="govuk-heading-s" id="individualScreenLinks">Happy path</h2>
+      <ul class="govuk-list govuk-list--bullet">
+    
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="start">Start</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="create-or-sign-in">Create or sign in</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="sign-in-email">sign-in-email</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="sign-in-password">sign-in-password</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="confirm-for">confirm-for</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="company-number">company-number</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="confirm-company">confirm-company</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="confirm-psc">confirm-psc</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="psc-statement">psc-statement</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="psc-statement">psc-statement</a>
+        </li> 
+      </ul>
+
+      <h2 class="govuk-heading-s" id="individualScreenLinks">Cannot confirm yet</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="psc-cannot-confirm-yet">psc-cannot-confirm-yet</a>
+        </li> 
+      </ul>
+
+      <h2 class="govuk-heading-s" id="individualScreenLinks">Name mismatch</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="why-this-name">why-this-name</a>
+        </li> 
+      </ul>
+
+      <h2 class="govuk-heading-s" id="individualScreenLinks">Matching dob in same company</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="how-name-recorded">how-name-recorded</a>
+        </li> 
+      </ul>
+
+      
+      <h2 class="govuk-heading-s" id="emails">Emails</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="emails/application-received">Application received</a>
+        </li>
+          <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="emails/application-accepted">Application accepted</a>
+        </li>
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="emails/application-rejected">Application rejected</a>
+        </li>
+      </ul>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-6">
+
+      <h2 class="govuk-heading-m" id="authScreens">User research</h2>
+      <ul class="govuk-list govuk-list--bullet">      
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" target="_blank" href="#">TBD</a>
+        </li>
+      </ul>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-6">
+
+      <h2 class="govuk-heading-m" id="authScreens">Journey flow</h2>
+      <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" target="_blank" href="#">tbd</a></p>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-6">
+
+      <h2 class="govuk-heading-m">
+        IDV services
+      </h2>
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col">Links</th>
+
+            <th class="govuk-table__header" scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="https://register-an-acsp-prototype.herokuapp.com/">Register as an Authorised Corporate Service Provider</a>
+            </td>
+          
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">
+                PROTOTYPE
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="https://prove-your-identity-prototype.herokuapp.com/">How people verify prototype</a>
+            </td>
+          
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">
+                PROTOTYPE
+              </strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+
+        
+    </div>
+  </div>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+How would you like to verify your identity with Companies House?
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/account-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="{{currentUrl}}" method="post">
+
+      <h1 class="govuk-heading-l">
+        {% if data['confirmFor'] == 'yes' %}
+          Your verified name is different to the company’s PSC record
+        {% else %}
+          Their verified name is different to the company’s PSC record
+        {% endif %}
+      </h1>
+
+      <p class="govuk-body">
+      {% if data['confirmFor'] == 'yes' %}
+        You may be contacted by Companies House for security reasons if 
+        the verified identity and PSC name on the register don’t match. 
+      {% else %}
+        The PSC may be contacted by Companies House for security reasons if 
+        the verified identity and PSC name on the register don’t match.
+      {% endif %}
+
+      </p>
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              How to change the PSC name on the register 
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p class="govuk-body">You can <a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" target="_blank">make changes to PSC information</a> with this service.</p>
+          </div>
+        </details>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="whyThisName-hint">       
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m ">
+            <h3 class="govuk-fieldset__heading govuk-!-margin-top-5">
+              {% if data['confirmFor'] == 'yes' %}
+                Why do you use this name? (optional)
+              {% else %}
+                Why do they use this name? (optional)
+              {% endif %}
+            </h3>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whyThisName-3" name="whyThisName" type="radio" value="marriage">
+              <label class="govuk-label govuk-radios__label" for="whyThisName-3">
+                Marriage, civil partnership or divorce 
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whyThisName-4" name="whyThisName" type="radio" value="spelling">
+              <label class="govuk-label govuk-radios__label" for="whyThisName-4">
+                Spelling resulting from translation    
+              </label>
+            </div>
+
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whyThisName-4" name="whyThisName" type="radio" value="legal">
+              <label class="govuk-label govuk-radios__label" for="whyThisName-4">
+                Legally changed name    
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whyThisName-2" name="whyThisName" type="radio" value="preferred">
+              <label class="govuk-label govuk-radios__label" for="whyThisName-2">
+                Preferred name  
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

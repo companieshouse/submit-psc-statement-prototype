@@ -1,0 +1,35 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+You cannot confirm this person with significant control yet – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="{{currentUrl}}" method="post">
+
+
+      <h1 class="govuk-heading-l">You cannot confirm this PSC yet</h1>
+
+      <p class="govuk-body">You can only confirm the PSC within 14 days 
+        of the verification statement due date, which is 20 July 2024.
+      </p>
+
+      <p class="govuk-body">
+        <a href="personal-code" class="govuk-link">Back to start</a>.
+      </p>
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}
