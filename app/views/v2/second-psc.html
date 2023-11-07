@@ -15,7 +15,7 @@ User verifies identity – {{ serviceName }} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
       <!-- Check for error -->
-      {% if errorConfirmFor %}
+      {% if errorSecondPsc %}
       {{ govukErrorSummary({
         titleText: "There is a problem",
         errorList: errorList
@@ -25,39 +25,36 @@ User verifies identity – {{ serviceName }} – GOV.UK Prototype Kit
     <form action="{{currentUrl}}" method="post">
 
       <!-- Check for error -->
-      {% if errorConfirmFor %}
+      {% if errorSecondPsc %}
       <div class="govuk-form-group govuk-form-group--error">
       {% else %}
       <div class="govuk-form-group">
       {% endif %} 
-      <fieldset class="govuk-fieldset" aria-describedby="confirmFor-hint">
+      <fieldset class="govuk-fieldset" aria-describedby="secondPsc-hint">
         <!-- Check for error -->
-        {% if errorConfirmFor %}
-        <p id="confirmFor-error" class="govuk-error-message">
-          <span class="govuk-visually-hidden">Error:</span> Select if you need to confirm yourself as a PSC
+        {% if errorSecondPsc %}
+        <p id="secondPsc-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Select if you are confirming another PSC for this company
         </p>
         {% endif %} 
       
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l ">
           <h3 class="govuk-fieldset__heading govuk-!-margin-top-5">
-            Which PSC are you confirming? 
+            Do you want to confirm another PSC for the same company? 
           </h3>
         </legend>
-        <div id="changedName-hint" class="govuk-hint">
-          You can only confirm one PSC at a time in this service.
-        </div>
         <div class="govuk-radios" data-module="govuk-radios">
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="confirmFor" name="confirmFor" type="radio" value="myself">
-            <label class="govuk-label govuk-radios__label" for="confirmFor">
-              Myself
+            <input class="govuk-radios__input" id="secondPsc" name="secondPsc" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="secondPsc">
+              Yes
             </label>
           </div>
 
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="confirmFor-2" name="confirmFor" type="radio" value="someone">
-            <label class="govuk-label govuk-radios__label" for="confirmFor-2">
-              Someone else 
+            <input class="govuk-radios__input" id="secondPsc-2" name="secondPsc" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="secondPsc-2">
+              No
             </label>
           </div>
 

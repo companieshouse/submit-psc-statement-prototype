@@ -47,15 +47,19 @@
                   I confirm that
       
                   {% if data['companyNumber'] == '12345678' %}
-                    Amanda Carr
+
+                    {% if data['personalCode'] == '44tt78ff' %}
+                    Matt Robinson
+                    {% elif data['personalCode'] == '99oo43gg' %}
+                      Lin Zhang
+                    {% else %}
+                      Amanda Carr
+                    {% endif %}
+                    
                   {% elif data['companyNumber'] == '11112222' %}
                     Bob Smith
                   {% elif data['companyNumber'] == '23232323' %}
                     Lisa Robinson
-                  {% elif data['companyNumber'] =='44445555' %}
-                    {{data['firstName']}} {{data['middleName']}} {{data['lastName']}}
-                  {% elif data['companyNumber'] =='10101010' %}
-                    Amir Malik
                   {% endif %}
 
                   is a Person with Significant Control (PSC) for
@@ -67,10 +71,6 @@
                       Contruction 123 ltd
                     {% elif data['companyNumber'] == '23232323' %}
                       Dance Warehouse ltd
-                    {% elif data['companyNumber'] =='44445555' %}
-                      Landscaping ltd
-                    {% elif data['companyNumber'] =='10101010' %}
-                      Crazy Cuts hairdressing ltd
                     {% endif %}
                   </strong>.
                 </label>

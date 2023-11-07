@@ -29,15 +29,19 @@ How would you like to verify your identity with Companies House?
         <div class="govuk-summary-card__title-wrapper">
           <h2 class="govuk-summary-card__title">
           {% if data['companyNumber'] == '12345678' %}
-            Amanda Carr
+
+            {% if data['personalCode'] == '44tt78ff' %}
+              Matt Robinson
+            {% elif data['personalCode'] == '99oo43gg' %}
+              Lin Zhang
+            {% else %}
+              Amanda Carr
+            {% endif %}
+
           {% elif data['companyNumber'] == '11112222' %}
             Bob Smith
           {% elif data['companyNumber'] == '23232323' %}
             Lisa Robinson
-          {% elif data['companyNumber'] =='44445555' %}
-            {{data['firstName']}} {{data['middleName']}} {{data['lastName']}}
-          {% elif data['companyNumber'] =='10101010' %}
-            Amir Malik
           {% endif %}
           </h2>
         </div>
@@ -54,10 +58,6 @@ How would you like to verify your identity with Companies House?
                 Contruction 123 ltd
               {% elif data['companyNumber'] == '23232323' %}
                 Dance Warehouse ltd
-              {% elif data['companyNumber'] =='44445555' %}
-                Landscaping ltd
-              {% elif data['companyNumber'] =='10101010' %}
-                Crazy Cuts hairdressing ltd
               {% endif %}
               </dd>
             </div>
