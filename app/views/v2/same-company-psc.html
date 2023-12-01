@@ -15,56 +15,25 @@ User verifies identity – {{ serviceName }} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
       <!-- Check for error -->
-      {% if errorSecondPsc %}
+      {% if errorSameCompanyPsc %}
       {{ govukErrorSummary({
         titleText: "There is a problem",
         errorList: errorList
       }) }}
       {% endif %}
 
-      <h1 class="govuk-heading-l">You have added two PSCs for ACME ltd</h1>
-
-      <dl class="govuk-summary-list">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            PSC one
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Amanda Carr
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
-              Remove<span class="govuk-visually-hidden"> name</span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            PSC two
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Matt Robinson
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
-              Remove<span class="govuk-visually-hidden"> name</span>
-            </a>
-          </dd>
-        </div>
-      </dl>
-
     <form action="{{currentUrl}}" method="post">
 
       <!-- Check for error -->
-      {% if errorAnotherPsc %}
+      {% if errorSameCompanyPsc %}
       <div class="govuk-form-group govuk-form-group--error">
       {% else %}
       <div class="govuk-form-group">
       {% endif %} 
-      <fieldset class="govuk-fieldset" aria-describedby="anotherPsc-hint">
+      <fieldset class="govuk-fieldset" aria-describedby="sameCompanyPsc-hint">
         <!-- Check for error -->
-        {% if errorAnotherPsc %}
-        <p id="anotherPsc-error" class="govuk-error-message">
+        {% if errorSameCompanyPsc %}
+        <p id="sameCompanyPsc-error" class="govuk-error-message">
           <span class="govuk-visually-hidden">Error:</span> Select if you are confirming another PSC for this company
         </p>
         {% endif %} 
@@ -76,15 +45,15 @@ User verifies identity – {{ serviceName }} – GOV.UK Prototype Kit
         </legend>
         <div class="govuk-radios" data-module="govuk-radios">
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="anotherPsc" name="anotherPsc" type="radio" value="yes">
-            <label class="govuk-label govuk-radios__label" for="anotherPsc">
+            <input class="govuk-radios__input" id="sameCompanyPsc" name="sameCompanyPsc" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="sameCompanyPsc">
               Yes
             </label>
           </div>
 
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="anotherPsc-2" name="anotherPsc" type="radio" value="no">
-            <label class="govuk-label govuk-radios__label" for="anotherPsc-2">
+            <input class="govuk-radios__input" id="sameCompanyPsc-2" name="sameCompanyPsc" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="sameCompanyPsc-2">
               No
             </label>
           </div>

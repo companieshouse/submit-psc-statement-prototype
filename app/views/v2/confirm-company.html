@@ -15,7 +15,10 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      <form action="{{currentUrl}}" method="post">
+
       <h1 class="govuk-heading-l">Confirm this is the correct company</h1>
+      <p class="govuk-body">The company number you provided matched the following result on the Companies House register.</p>
 
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
@@ -23,12 +26,10 @@
           <dd class="govuk-summary-list__value">
           {% if data['companyNumber'] == '12345678' %}
             Big Shop ltd
+            <input type="hidden" name="companyName" value="Big Shop ltd">
           {% elif data['companyNumber'] == '11112222' %}
             Contruction 123 ltd
-          {% elif data['companyNumber'] == '23232323'%}
-            Dance Warehouse ltd
-          {% else%} 
-            A N Other Company ltd
+            <input type="hidden" name="companyName" value="Contruction 123 ltd">
           {% endif %}
           </dd>
         </div>
@@ -55,8 +56,6 @@
           <dd class="govuk-summary-list__value">72 Guild Street <br> London <br> SE23 6FH</dd>
         </div>
       </dl>
-
-      <form action="{{currentUrl}}" method="post">
 
         {{ govukButton({
           text: "Confirm and continue"

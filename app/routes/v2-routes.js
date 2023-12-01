@@ -65,50 +65,10 @@ router.post('/v2/sign-in-password', function (req, res) {
     })
   } else {
     // User inputted value so move to next page
-    res.redirect('/v2/confirm-for')
+    res.redirect('/v2/company-number')
   }
 })
 
-
-// ******* confirm-for javascript ********************************
-router.get('/v2/confirm-for', function (req, res) {
-  // Set URl
-  res.render('v2/confirm-for', {
-    currentUrl: req.originalUrl
-  })
-})
-
-router.post('/v2/confirm-for', function (req, res) {
-  // Create empty array
-  var errors = []
-
-  if (typeof req.session.data['confirmFor'] === 'undefined') {
-    // No value so add error to array
-    errors.push({
-      text: 'Select if you need to confirm yourself as a PSC',
-      href: '#confirmFor'
-    })
-
-    // Re-show page with error value as true so errors will show
-    res.render('v2/confirm-for', {
-      errorConfirmFor: true,
-      errorList: errors
-    })
-  } else {
-   
-    if ((req.session.data['confirmFor'] == 'myself')) {
-      if (req.session.data['signin-email'] == 'email@server.com') {
-        //  happy path
-        res.redirect('/v2/confirm-psc')
-      } else {
-        res.redirect('/v2/company-number')
-      }
-    } else {
-      //  Confirming someone else
-      res.redirect('/v2/personal-code')
-    }
-  }
-})
 
 
 // ******* name javascript ********************************
@@ -149,127 +109,170 @@ router.get('/v2/confirm-company', function (req, res) {
 })
 
 router.post('/v2/confirm-company', function (req, res) {
-  if ((req.session.data['companyNumber'] == '12345678') 
-  || (req.session.data['companyNumber'] == '11112222')
-  || (req.session.data['companyNumber'] == '23232323')) {
-    res.redirect('/v2/confirm-psc')
-    
-  } else {
-    res.redirect('/v2/psc-cannot-find-details')
+  if (req.session.data['companyNumber'] == '12345678') {
+    res.redirect('/v2/psc-list')
+  } else if (req.session.data['companyNumber'] == '11112222'){
+    res.redirect('/v2/psc-cannot-confirm-yet')
   }
 })
 
 
-// ******* confirm-psc javascript ********************************
-router.get('/v2/confirm-psc', function (req, res) {
+// ******* psc-list javascript ********************************
+router.get('/v2/psc-list', function (req, res) {
   // Set URl
-  res.render('v2/confirm-psc', {
+  res.render('v2/psc-list', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v2/confirm-psc', function (req, res) {
+router.post('/v2/psc-list', function (req, res) {
   // Create empty array
   var errors = []
 
-  if (typeof req.session.data['confirmPsc'] === 'undefined') {
+  if (typeof req.session.data['psc'] === 'undefined') {
     // No value so add error to array
     errors.push({
-      text: 'Select if this is the correct PSC',
-      href: '#confirmPsc'
+      text: 'Select which PSC you want to link',
+      href: '#psc'
     })
     
 
     // Re-show page with error value as true so errors will show
-    res.render('v2/confirm-psc', {
-      errorConfirmPsc: true,
+    res.render('v2/psc-list', {
+      errorPscList: true,
       errorList: errors
     })
   } else {
-    if (req.session.data['confirmPsc'] == 'yes') {
-      
-      //  happy path
-      if ((req.session.data['companyNumber'] == '12345678')) {
-          //  happy path
-          res.redirect('/v2/psc-statement')
+    res.redirect('/v2/personal-code')
+  }
+})
 
-      //  confirmation statement not due yet
-      } else if ((req.session.data['companyNumber'] == '11112222')) {
-        res.redirect('/v2/psc-cannot-confirm-yet')
 
-      //  name mismatch
-      } else if ((req.session.data['companyNumber'] == '23232323')) {
+// ******* personal-code validation ********************************
+router.get('/v2/personal-code', function (req, res) {
+  // Set URl
+  res.render('v2/personal-code', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/v2/personal-code', function (req, res) {
+// Create empty array and set error variables to false
+var errors = []
+
+if (req.session.data['personalCode'] === '') {
+  // No value so add error to array
+  errors.push({
+    text: 'Enter the Companies House personal code',
+    href: '#personalCode'
+  })
+}
+
+if (req.session.data['personalCode'] === '') {
+  // Re-show page with error value as true so errors will show
+  res.render('v2/personal-code', {
+    errorCode: true,
+    errorList: errors
+  })
+  } else {
+      if (req.session.data['psc'] == 'Anne Bereton') {
+        res.redirect('/v2/psc-statement-anne')
+      } else if (req.session.data['psc'] == 'Bob Smith') {
         res.redirect('/v2/why-this-name')
-      }
-    
-      } else {
-        res.redirect('/v2/psc-did-not-confirm')
+      } else if (req.session.data['psc'] == 'Paul Robinson') {
+        res.redirect('/v2/psc-statement-paul')
       }
   }
 })
 
 
-// ******* second-psc javascript ********************************
-router.get('/v2/second-psc', function (req, res) {
+
+// ******* psc-statement-anne javascript ********************************
+router.get('/v2/psc-statement-anne', function (req, res) {
   // Set URl
-  res.render('v2/second-psc', {
+  res.render('v2/psc-statement-anne', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v2/second-psc', function (req, res) {
+router.post('/v2/psc-statement-anne', function (req, res) {
   // Create empty array
   var errors = []
 
-  if (typeof req.session.data['secondPsc'] === 'undefined') {
-    // No value so add error to array
-    errors.push({
-      text: 'Select if you are confirming another PSC for this company',
-      href: '#secondPsc'
-    })
-
-    // Re-show page with error value as true so errors will show
-    res.render('v2/second-psc', {
-      errorSecondPsc: true,
-      errorList: errors
-    })
-  } else {
-   
-    if ((req.session.data['secondPsc'] == 'yes')) {
-        res.redirect('/v2/personal-code')
-      } else {
-        res.redirect('/v2/psc-confirmed')
-      }
-    }
-})
-
-
-// ******* psc-statement javascript ********************************
-router.get('/v2/psc-statement', function (req, res) {
-  // Set URl
-  res.render('v2/psc-statement', {
-    currentUrl: req.originalUrl
-  })
-})
-
-router.post('/v2/psc-statement', function (req, res) {
-  // Create empty array
-  var errors = []
-
-  if (typeof req.session.data['verificationStatement'] === 'undefined') {
+  if (typeof req.session.data['statementAnne'] === 'undefined') {
     // No value so add error to array
     errors.push({
       text: 'Confirm if the verification statement is correct',
-      href: '#verificationStatement'
+      href: '#statementAnne'
     })
 
     // Re-show page with error value as true so errors will show
-    res.render('v2/psc-statement', {
-      errorStatement: true,
+    res.render('v2/psc-statement-anne', {
+      errorStatementAnne: true,
       errorList: errors
     })
   } else {
-    res.redirect('/v2/second-psc')
+      res.redirect('/v2/psc-linked')
+  }
+})
+
+
+// ******* psc-statement-bob javascript ********************************
+router.get('/v2/psc-statement-bob', function (req, res) {
+  // Set URl
+  res.render('v2/psc-statement-bob', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/v2/psc-statement-bob', function (req, res) {
+  // Create empty array
+  var errors = []
+
+  if (typeof req.session.data['statementBob'] === 'undefined') {
+    // No value so add error to array
+    errors.push({
+      text: 'Confirm if the verification statement is correct',
+      href: '#statementBob'
+    })
+
+    // Re-show page with error value as true so errors will show
+    res.render('v2/psc-statement-bob', {
+      errorStatementBob: true,
+      errorList: errors
+    })
+  } else {
+    res.redirect('/v2/psc-linked')
+  }
+})
+
+
+// ******* psc-statement-paul javascript ********************************
+router.get('/v2/psc-statement-paul', function (req, res) {
+  // Set URl
+  res.render('v2/psc-statement-paul', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/v2/psc-statement-paul', function (req, res) {
+  // Create empty array
+  var errors = []
+
+  if (typeof req.session.data['statementPaul'] === 'undefined') {
+    // No value so add error to array
+    errors.push({
+      text: 'Confirm if the verification statement is correct',
+      href: '#statementPaul'
+    })
+
+    // Re-show page with error value as true so errors will show
+    res.render('v2/psc-statement-paul', {
+      errorStatementPaul: true,
+      errorList: errors
+    })
+  } else {
+    res.redirect('/v2/psc-linked')
   }
 })
 
@@ -300,109 +303,49 @@ router.post('/v2/why-this-name', function (req, res) {
       errorList: errors
     })
   } else {
-      res.redirect('/v2/psc-statement')
+      res.redirect('/v2/psc-statement-bob')
   }
 })
 
 
-// ******* how-name-recorded validation ********************************
-router.get('/v2/how-name-recorded', function (req, res) {
+// ******* second-psc javascript ********************************
+router.get('/v2/psc-linked', function (req, res) {
   // Set URl
-  res.render('v2/how-name-recorded', {
+  res.render('v2/psc-linked', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v2/how-name-recorded', function (req, res) {
+router.post('/v2/psc-linked', function (req, res) {
+  // Create empty array
   var errors = []
-  var firstNameError = false
-  var lastNameError = false
 
-  var nameError = false
-
-  // Check if user has filled out first name
-  if (req.session.data['firstName'] === '') {
+  if (typeof req.session.data['anotherPsc'] === 'undefined') {
     // No value so add error to array
-    firstNameError = true
-    nameError = true
     errors.push({
-      text: 'Enter the first name',
-      href: '#firstName'
+      text: 'Select if you want to link another PSC',
+      href: '#anotherPsc'
     })
-  }
 
-  // Check if user has filled out last name
-  if (req.session.data['lastName'] === '') {
-    // No value so add error to array
-    lastNameError = true
-    nameError = true
-    errors.push({
-      text: 'Enter the last name',
-      href: '#lastName'
-    })
-  }
-
-  if (nameError) {
     // Re-show page with error value as true so errors will show
-    res.render('v2/how-name-recorded', {
-      errorFirstName: firstNameError,
-      errorLastName: lastNameError,
-      errorNameRecorded: nameError,
+    res.render('v2/psc-linked', {
+      errorAnotherPsc: true,
       errorList: errors
     })
   } else {
-    res.redirect('/v2/confirm-psc')
+
+    if (req.session.data['anotherPsc'] == 'same') {
+      
+      if ((req.session.data['statementAnne']) 
+      && (req.session.data['statementBob'])
+      && (req.session.data['statementPaul'])) {
+        res.redirect('/v2/all-psc-linked')
+      } else {
+        res.redirect('/v2/psc-list')
+      }
+
+    } else {
+      res.redirect('/v2/company-number')
+    }
   }
-
-})
-
-
-// ******* Sign in email validation ********************************
-router.get('/v2/personal-code', function (req, res) {
-  // Set URl
-  res.render('v2/personal-code', {
-    currentUrl: req.originalUrl
-  })
-})
-
-router.post('/v2/personal-code', function (req, res) {
-// Create empty array and set error variables to false
-var errors = []
-
-if (req.session.data['personalCode'] === '') {
-  // No value so add error to array
-  errors.push({
-    text: 'Enter the Companies House personal code',
-    href: '#personalCode'
-  })
-}
-
-if (req.session.data['personalCode'] === '') {
-  // Re-show page with error value as true so errors will show
-  res.render('v2/personal-code', {
-    errorCode: true,
-    errorList: errors
-  })
-} else {
-
-  if ((req.session.data['secondPsc'] == 'yes')) {
-    res.redirect('/v2/confirm-psc')
-  } else {
-    res.redirect('/v2/company-number')
-  }
-}
-
-})
-
-
-// ******* how-name-recorded validation ********************************
-router.get('/v2/psc-confirmed', function (req, res) {
-  // Set URl
-  res.render('v2/psc-confirmed', {
-    currentUrl: req.originalUrl
-  })
-})
-
-router.post('/v2/psc-confirmed', function (req, res) {
-    res.redirect('/v2/personal-code')
 })

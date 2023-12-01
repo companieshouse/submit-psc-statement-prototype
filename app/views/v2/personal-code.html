@@ -14,40 +14,25 @@ Director details
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <!-- Check for error -->
-    {% if errorCode %}
-      {{ govukErrorSummary({
-        titleText: "There is a problem",
-        errorList: errorList
-      }) }}
-    {% endif %}
-
     <form action="{{currentUrl}}" method="post">
 
-      <!-- Check for error -->
-      {% if errorCode%}
-        <div class="govuk-form-group govuk-form-group--error">
-      {% else %}
-        <div class="govuk-form-group">
-      {% endif %} 
+      <div class="govuk-form-group">
       <h1 class="govuk-label-wrapper">
         <label class="govuk-label govuk-label--l" for="personalCode">
-          Enter the PSC’s Companies House personal code
+          Enter the Companies House personal code for {{ data['psc']}}
         </label>
       </h1>
       <div id="personalCode-hint" class="govuk-hint">
         This is the code they received when they verified their 
-        identity. If they don’t have it to hand, they can search 
-        their inbox for ‘Companies House personal code’. If they 
-        lost it, they will have to <a href="#" class="govuk-link">verify their identity</a> again.
+        identity.
       </div>
-          <!-- Check for error -->
-        {% if errorCode %}
-          <p id="personalCode-error" class="govuk-error-message">
-            <span class="govuk-visually-hidden">Error:</span> Enter the Companies House personal code.
-          </p>
-        {% endif %} 
-          <input class="govuk-input govuk-input--width-10" id="personalCode" name="personalCode" type="text">
+          <div class="govuk-form-group">
+            <input class="govuk-input govuk-input--width-3 govuk-input--extra-letter-spacing" id="personalCode" name="personalCode" type="text" aria-describedby="personalCode-hint">
+            -
+            <input class="govuk-input govuk-input--width-4 govuk-input--extra-letter-spacing" id="personalCode" name="personalCode" type="text" aria-describedby="personalCode-hint">
+            -
+            <input class="govuk-input govuk-input--width-4 govuk-input--extra-letter-spacing" id="personalCode" name="personalCode" type="text" aria-describedby="personalCode-hint">
+          </div>
         </div>
 
       {{ govukButton({
