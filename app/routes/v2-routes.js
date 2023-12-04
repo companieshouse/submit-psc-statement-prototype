@@ -286,25 +286,7 @@ router.get('/v2/why-this-name', function (req, res) {
 })
 
 router.post('/v2/why-this-name', function (req, res) {
-  // Create empty array
-  var errors = []
-
-  if (typeof req.session.data['whyThisName'] === 'undefined') {
-    // No value so add error to array
-    errors.push({
-      text: 'Select why you use this name',
-      href: '#whyThisName'
-    })
-    
-
-    // Re-show page with error value as true so errors will show
-    res.render('v2/why-this-name', {
-      errorwhyThisName: true,
-      errorList: errors
-    })
-  } else {
-      res.redirect('/v2/psc-statement-bob')
-  }
+  res.redirect('/v2/psc-statement-bob')
 })
 
 
