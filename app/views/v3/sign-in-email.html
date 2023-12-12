@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Enter your one login email
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- Check for error -->
+    {% if errorSigninEmail %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+    {% endif %}
+    <form action="{{currentUrl}}" method="post">
+
+        <!-- Check for error -->
+        {% if errorSigninEmail %}
+          <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
+          <div class="govuk-form-group">
+        {% endif %} 
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="signin-email">
+              Enter your email address to sign in to your GOV.UK One Login
+            </label>
+          </h1>
+            <!-- Check for error -->
+          {% if errorSigninEmail %}
+            <p id="signin-email-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Enter your email address
+            </p>
+          {% endif %} 
+            <input class="govuk-input" id="signin-email" name="signin-email" type="text">
+        </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

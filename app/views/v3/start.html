@@ -1,0 +1,80 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirm a person with significant control over a company – {{ serviceName }} – GOV.UK Prototype Kite
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Link a Person with Significant Control (PSC) to a verified identity
+      </h1>
+
+      <p class="govuk-body">Use this service to provide the identity verification 
+        details for a company’s Person with Significant Control (PSC). This needs 
+        to be done within 14 days of the anniversary of the company’s incorporation 
+        date. For newly appointed PSCs this has to be done within 14 days of the appointment.
+      </p>
+
+      <h2 class="govuk-heading-m">What is a PSC</h2>
+      
+      <p class="govuk-body">A PSC owns or controls a company. They’re sometimes called 
+        ‘beneficial owners’. A PSC has at least one of the following: </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>more than 25% of shares in the company</li>
+        <li>more than 25% of voting rights in the company</li>
+        <li>the right to appoint or remove the majority of the board of directors</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Who can use this service</h2>
+
+      <p class="govuk-body">Every PSC in a company needs to be linked to a verified identity. 
+        This is why this service is for individuals who are:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>setting up a new company and need to link their verified identity with the PSC record</li>
+        <li>existing PSCs</li>
+        <li>linking another PSC’s verified identity with the company record</li>
+      </ul>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            What is a Companies House personal code?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          This is a unique code that is received once a person's identity is verified with Companies House. 
+        </div>
+      </details>
+
+      <h2 class="govuk-heading-m">What you'll need</h2>
+
+      <p class="govuk-body">To complete this task, you’ll you will need to: </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>verify your identity, if you haven’t already </li>
+        <li>have the Companies House personal code for each PSC (if confirming someone else)</li>
+      </ul>
+
+      <p class="govuk-body">You may also need the company registration number for which you are confirming a PSC.</p>
+
+      {{ govukButton({
+        text: "Start",
+        href: "create-or-sign-in",
+        isStartButton: true
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}

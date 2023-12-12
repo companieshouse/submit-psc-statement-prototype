@@ -1,0 +1,33 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+You cannot confirm this person with significant control yet – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="{{currentUrl}}" method="post">
+
+
+      <h1 class="govuk-heading-l">All PSCs for {{ data['companyName'] }} have been linked</h1>
+
+      <p class="govuk-body">All the PSCs for {{ data['companyName'] }} have been successfully linked to verified identities. </p>
+
+      <p class="govuk-body">
+        <a href="company-number" class="govuk-link">Select a different company</a>.
+      </p>
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}
