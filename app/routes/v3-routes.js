@@ -175,11 +175,11 @@ if (req.session.data['personalCode'] === '') {
     errorList: errors
   })
   } else {
-      if (req.session.data['psc'] == 'Anne Bereton') {
+      if (!(req.session.data['statementAnne'])) {
         res.redirect('/v3/psc-statement-anne')
-      } else if (req.session.data['psc'] == 'Bob Smith') {
+      } else if (!(req.session.data['statementBob'])) {
         res.redirect('/v3/why-this-name')
-      } else if (req.session.data['psc'] == 'Paul Robinson') {
+      } else if (!(req.session.data['statementPaul'])) {
         res.redirect('/v3/psc-statement-paul')
       }
   }
@@ -212,7 +212,7 @@ router.post('/v3/psc-statement-anne', function (req, res) {
       errorList: errors
     })
   } else {
-      res.redirect('/v3/psc-linked')
+    res.redirect('/v3/this-psc-linked')
   }
 })
 
@@ -242,7 +242,13 @@ router.post('/v3/psc-statement-bob', function (req, res) {
       errorList: errors
     })
   } else {
-    res.redirect('/v3/psc-linked')
+    if ((req.session.data['statementAnne']) 
+    && (req.session.data['statementBob'])
+    && (req.session.data['statementPaul'])) {
+      res.redirect('/v3/psc-linked')
+    } else {
+      res.redirect('/v3/this-psc-linked')
+    }
   }
 })
 
@@ -272,7 +278,13 @@ router.post('/v3/psc-statement-paul', function (req, res) {
       errorList: errors
     })
   } else {
-    res.redirect('/v3/psc-linked')
+    if ((req.session.data['statementAnne']) 
+    && (req.session.data['statementBob'])
+    && (req.session.data['statementPaul'])) {
+      res.redirect('/v3/psc-linked')
+    } else {
+      res.redirect('/v3/this-psc-linked')
+    }
   }
 })
 
@@ -290,44 +302,23 @@ router.post('/v3/why-this-name', function (req, res) {
 })
 
 
-// ******* second-psc javascript ********************************
-router.get('/v3/psc-linked', function (req, res) {
+// ******* this-psc-link javascript ********************************
+router.get('/v3/this-psc-linked', function (req, res) {
   // Set URl
-  res.render('v3/psc-linked', {
+  res.render('v3/this-psc-linked', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v3/psc-linked', function (req, res) {
-  // Create empty array
-  var errors = []
+router.post('/v3/this-psc-linked', function (req, res) {
 
-  if (typeof req.session.data['anotherPsc'] === 'undefined') {
-    // No value so add error to array
-    errors.push({
-      text: 'Select if you want to link another PSC',
-      href: '#anotherPsc'
-    })
-
-    // Re-show page with error value as true so errors will show
-    res.render('v3/psc-linked', {
-      errorAnotherPsc: true,
-      errorList: errors
-    })
-  } else {
-
-    if (req.session.data['anotherPsc'] == 'same') {
-      
       if ((req.session.data['statementAnne']) 
       && (req.session.data['statementBob'])
       && (req.session.data['statementPaul'])) {
         res.redirect('/v3/all-psc-linked')
       } else {
-        res.redirect('/v3/psc-list')
+        res.redirect('/v3/personal-code')
       }
 
-    } else {
-      res.redirect('/v3/company-number')
-    }
-  }
 })
+

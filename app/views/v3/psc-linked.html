@@ -25,30 +25,22 @@ PSC confirmed – {{ serviceName }} – GOV.UK Prototype Kit
         <form action="{{currentUrl}}" method="post">
 
           {{ govukPanel({
-            titleText: "Person with Significant Control (PSC) linked to a verified identity"
+            titleText: "All PSCs are now linked with a verified identity "
           }) }}
       
           <p class="govuk-body">We have sent a confirmation email to  
             <b> {{ data['signin-email']}}</b>.</p>   
             
-          <h2 class="govuk-heading-m">How to link another PSC to a verified identity</h2>
+          <h2 class="govuk-heading-m">Next steps</h2>
 
-          <p class="govuk-body">Every PSC for a company will need to be linked to a verified identity.</p> 
+          <p class="govuk-body">You have successfully linked all the verified identities 
+            of PSCs in <b>Big Shop ltd</b>. If you would like to do the same for PSCs of 
+            another company, go back to start and go through the process. You will need 
+            the Companies House personal codes for each PSC. </p> 
 
-          <p class="govuk-body">You will need a Companies House personal code for every 
-            PSC that you want to link to a verified identity. The PSC will receive this code when they verify their identity for Companies House.</p> 
+          <p class="govuk-body">If you are finished, simply close and exit this window.</p> 
 
-            <p class="govuk-body">You can:</p>
-            <ul class="govuk-list govuk-list--bullet">
-              {% if data['statementAnne']  
-                and data['statementBob'] 
-                and data['statementPaul'] %}
-                <li><a href="all-psc-linked" class="govuk-link">link another PSC for {{ data ['companyName'] }}</a></li>
-              {% else %}
-                <li><a href="psc-list" class="govuk-link">link another PSC for {{ data ['companyName'] }}</a></li>
-              {% endif %}
-              <li><a href="company-number" class="govuk-link">link a PSC for another company</a></li>
-            </ul>
+          <p class="govuk-body"><a href="company-number" class="govuk-link">Link a PSC for another company</a></p>
 
         </form>
     
