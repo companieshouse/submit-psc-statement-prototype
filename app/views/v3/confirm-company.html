@@ -43,7 +43,13 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Incorporation date</dt>
-          <dd class="govuk-summary-list__value">10 December 1978</dd>
+          <dd class="govuk-summary-list__value">
+          {% if data['companyNumber'] == '12345678' %}
+            17 December 1999
+          {% elif data['companyNumber'] == '11112222' %}
+            1 February 1978
+          {% endif %}
+          </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Company type</dt>
