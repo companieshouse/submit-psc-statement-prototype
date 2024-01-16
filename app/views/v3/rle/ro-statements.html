@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Verification statements – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/account-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="{{currentUrl}}" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="rleStatements-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Confirm all of the relevant officer statements
+              </h1>
+            </legend>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="rleStatements" name="rleStatements" type="checkbox">
+                <label class="govuk-label govuk-checkboxes__label" for="rleStatements">
+                  I confirm that {{ data['roName']}} has verified their identity</strong>.
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="rleStatements" name="rleStatements-2" type="checkbox">
+                <label class="govuk-label govuk-checkboxes__label" for="rleStatements-2">
+                  Big Shop ltd has confirmed that {{ data['roName']}} is the relevant officer for {{ data['rle']}}.
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="rleStatements" name="rleStatements-3" type="checkbox">
+                <label class="govuk-label govuk-checkboxes__label" for="rleStatements-3">
+                  {{ data['roName']}} has confirmed that they are a relevant officer of {{ data['rle']}}.
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Confirm and continue
+        </button> 
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

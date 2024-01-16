@@ -1,0 +1,32 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+PSC confirmed – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Verification details for {{ data['rle']}} have been provided
+      </h1>
+    </div>
+  
+      <p class="govuk-body">We have sent a confirmation email to  
+        <b> {{ data['signin-email']}}</b>.</p>   
+        
+      <h2 class="govuk-heading-m">Next steps</h2>
+
+      <p class="govuk-body">...</p> 
+  </div>
+</div>
+
+{% endblock %}
