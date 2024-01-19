@@ -62,7 +62,7 @@ router.post('/v3/psc-type', function (req, res) {
   if (typeof req.session.data['pscType'] === 'undefined') {
     // No value so add error to array
     errors.push({
-      text: 'Select which PSC you want to link',
+      text: 'Select the type of PSC',
       href: '#pscType'
     })
     

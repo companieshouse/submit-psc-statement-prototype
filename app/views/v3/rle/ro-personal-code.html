@@ -35,7 +35,8 @@
             </label>
           </h1>
           <div id="roPersonalCode-hint" class="govuk-hint">
-            A registered officer is ...
+            This is the code they received when they verified their 
+            identity. 
           </div>
           <!-- Check for error -->
           {% if errorRoPersonalCode %}
@@ -45,11 +46,6 @@
           {% endif %} 
           <input class="govuk-input govuk-input--width-10" id="roPersonalCode" name="roPersonalCode" type="text" aria-describedby="roPersonalCode-hint">
         </div>      
-
-        {{ govukDetails({
-          summaryText: "I don't know the personal code",
-          html: '...'
-        }) }}
               
         {{ govukButton({
           text: "Continue"
