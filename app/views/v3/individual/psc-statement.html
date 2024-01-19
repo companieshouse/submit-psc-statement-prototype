@@ -15,7 +15,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
     <!-- Check for error -->
-    {% if errorStatementAnne %}
+    {% if errorStatement %}
       {{ govukErrorSummary({
         titleText: "There is a problem",
         errorList: errorList
@@ -24,27 +24,27 @@
       <form action="{{currentUrl}}" method="post">
 
         <!-- Check for error -->
-        {% if errorStatementAnne %}
+        {% if errorStatement %}
         <div class="govuk-form-group govuk-form-group--error">
         {% else %}
         <div class="govuk-form-group">
         {% endif %} 
-          <fieldset class="govuk-fieldset" aria-describedby="statementAnne-hint">
+          <fieldset class="govuk-fieldset" aria-describedby="individualStatement-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
-                Confirm link between the verified ID and the company PSC record
+                Confirm the verification statement
               </h1>
             </legend>
-            {% if errorStatementAnne %}
-            <p id="statementAnne-error" class="govuk-error-message">
+            {% if errorStatement %}
+            <p id="individualStatement-error" class="govuk-error-message">
               <span class="govuk-visually-hidden">Error:</span>Confirm if the verification statement is correct
             </p>
             {% endif %}
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="statementAnne" name="statementAnne" type="checkbox">
-                <label class="govuk-label govuk-checkboxes__label" for="statementAnne">
-                  I confirm that Anne Bereton has verified their identity and is a Person with Significant Control (PSC) for
+                <input class="govuk-checkboxes__input" id="individualStatement" name="individualStatement" type="checkbox">
+                <label class="govuk-label govuk-checkboxes__label" for="individualStatement">
+                  I confirm that {{ data['pscType']}} has verified their identity and is a Person with Significant Control (PSC) for
                   <strong>Big Shop ltd</strong>.
                 </label>
               </div>

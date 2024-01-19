@@ -19,15 +19,7 @@ Director details
       <div class="govuk-form-group">
       <h1 class="govuk-label-wrapper">
         <label class="govuk-label govuk-label--l" for="personalCode">
-          Enter the Companies House personal code for 
-          
-          {% if not data['statementAnne']  %}
-            Anne Bereton
-          {% elif not data['statementBob'] %}
-            Bob Smith
-          {% elif not data['statementPaul'] %}
-            Paul Robinson
-          {% endif %}
+          Enter the Companies House personal code for {{ data ['pscType']}}
         </label>
       </h1>
       <div id="personalCode-hint" class="govuk-hint">

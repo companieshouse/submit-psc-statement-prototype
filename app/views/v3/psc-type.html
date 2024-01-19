@@ -32,7 +32,7 @@
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
-                What type of PSC are you providing verification details for?
+                What PSC are you providing verification details for?
               </h1>
             </legend>
             <!-- Check for error -->
@@ -41,19 +41,52 @@
               <span class="govuk-visually-hidden">Error:</span> Select the type of PSC
             </p>
             {% endif %} 
+            <div id="changedName-hint" class="govuk-hint">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            </div>
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-5">Relevant Legal Entities (RLE)</h2>
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="pscType" name="pscType" type="radio" value="individual">
+                <input class="govuk-radios__input" id="pscType" name="pscType" type="radio" value="Megacorp Ltd">
                 <label class="govuk-label govuk-radios__label" for="pscType">
-                  Individual PSC
+                  Megacorp Ltd
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="pscType-2" name="pscType" type="radio" value="rle">
+                <input class="govuk-radios__input" id="pscType-2" name="pscType" type="radio" value="Omega Trading Group">
                 <label class="govuk-label govuk-radios__label" for="pscType-2">
-                  Relevant Legal Entity (RLE)
+                  Omega Trading Group
                 </label>
               </div>
+              <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-7">Individual PSC</h2>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscType-3" name="pscType" type="radio" value="Paul Smith">
+                  <label class="govuk-label govuk-radios__label" for="pscType-3">
+                    Paul Smith
+                  </label>
+                  <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                    Born April 1968
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscType-4" name="pscType" type="radio" value="Susan Robinson">
+                  <label class="govuk-label govuk-radios__label" for="pscType-4">
+                    Susan Robinson
+                  </label>
+                  <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                    Born April 1990
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscType-5" name="pscType" type="radio" value="Matthew Gant">
+                  <label class="govuk-label govuk-radios__label" for="pscType-5">
+                    Matthew Gant
+                  </label>
+                  <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                    Born April 1980
+                  </div>
+                </div>
             </div>
           </fieldset>
         </div>

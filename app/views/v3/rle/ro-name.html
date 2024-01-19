@@ -40,14 +40,14 @@
           <!-- Check for error -->
           {% if errorRoName %}
           <p id="roName-error" class="govuk-error-message">
-            <span class="govuk-visually-hidden">Error:</span> Enter the auth code
+            <span class="govuk-visually-hidden">Error:</span> Enter the name of the relevant officer
           </p>
           {% endif %} 
           <input class="govuk-input" id="roName" name="roName" type="text" spellcheck="false" autocomplete="name">
         </div>      
 
         {{ govukDetails({
-          summaryText: "What is the registered officer?",
+          summaryText: "What is the relevant officer?",
           html: '...'
         }) }}
               
