@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  What is the auth code? – {{ serviceName }} – GOV.UK Prototype Kit
+  What is the personal code? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -31,7 +31,7 @@
         {% endif %} 
           <h1 class="govuk-label-wrapper">
             <label class="govuk-label govuk-label--l" for="roPersonalCode">
-              What is the Companies House personal code for the new Registered Officer?
+              What is the Companies House personal code for the new Relevant Officer?
             </label>
           </h1>
           <div id="roPersonalCode-hint" class="govuk-hint">
@@ -41,7 +41,7 @@
           <!-- Check for error -->
           {% if errorRoPersonalCode %}
           <p id="roPersonalCode-error" class="govuk-error-message">
-            <span class="govuk-visually-hidden">Error:</span> Enter the personal code for the registered officer
+            <span class="govuk-visually-hidden">Error:</span> Enter the personal code for the relevant officer
           </p>
           {% endif %} 
           <input class="govuk-input govuk-input--width-10" id="roPersonalCode" name="roPersonalCode" type="text" aria-describedby="roPersonalCode-hint">

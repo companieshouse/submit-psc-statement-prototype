@@ -216,7 +216,7 @@ router.post('/v3/rle/ro-personal-code', function (req, res) {
   if (req.session.data['roPersonalCode'] === '') {
     // No value so add error to array
     errors.push({
-      text: 'Enter the personal code for the registered officer',
+      text: 'Enter the personal code for the relevant officer',
       href: '#roPersonalCode'
     })
 
