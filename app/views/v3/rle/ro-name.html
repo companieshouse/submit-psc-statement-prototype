@@ -31,11 +31,13 @@
         {% endif %} 
           <h1 class="govuk-label-wrapper">
             <label class="govuk-label govuk-label--l" for="roName">
-              What is the relevant officer's full name?
+              What is the relevant officer’s full name 
             </label>
           </h1>
           <div id="roName-hint" class="govuk-hint">
-            ...
+            Relevant legal entities (RLEs) are now required to provide 
+            information about a relevant officer. Enter this person’s 
+            full name, below.  
           </div>
           <!-- Check for error -->
           {% if errorRoName %}
@@ -48,7 +50,8 @@
 
         {{ govukDetails({
           summaryText: "What is the relevant officer?",
-          html: '...'
+          html: 'A relevant officer is a senior officer at the entity, for example a company director or equivalent. 
+          They will need to verify their identity as part of this process.  '
         }) }}
               
         {{ govukButton({

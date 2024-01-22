@@ -4,6 +4,72 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 module.exports=router;
 
+// ******* Sign in email validation ********************************
+router.get('/v3/sign-in-email', function (req, res) {
+  // Set URl
+  res.render('v3/sign-in-email', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/v3/sign-in-email', function (req, res) {
+// Create empty array and set error variables to false
+var errors = []
+
+if (req.session.data['signin-email'] === '') {
+  // No value so add error to array
+  errors.push({
+    text: 'Enter your email address',
+    href: '#signin-email'
+  })
+}
+
+if (req.session.data['signin-email'] === '') {
+  // Re-show page with error value as true so errors will show
+  res.render('v3/sign-in-email', {
+    errorSigninEmail: true,
+    errorList: errors
+  })
+} else {
+  // User inputted value so move to next page
+  res.redirect('/v3/sign-in-password')
+}
+})
+
+
+// ******* Sign in password validation ********************************
+router.get('/v3/sign-in-password', function (req, res) {
+// Set URl
+res.render('v3/sign-in-password', {
+  currentUrl: req.originalUrl
+})
+})
+
+router.post('/v3/sign-in-password', function (req, res) {
+// Create empty array and set error variables to false
+var errors = []
+
+if (req.session.data['signin-password'] === '') {
+  // No value so add error to array
+  errors.push({
+    text: 'Enter your password',
+    href: '#signin-password'
+  })
+}
+
+if (req.session.data['signin-password'] === '') {
+  // Re-show page with error value as true so errors will show
+  res.render('v3/sign-in-password', {
+    errorSigninPassword: true,
+    errorList: errors
+  })
+} else {
+  // User inputted value so move to next page
+  res.redirect('/v3/company-number')
+}
+})
+
+
 // ******* company-number javascript *********************
 router.get('/v3/company-number', function (req, res) {
   // Set URl
@@ -113,9 +179,6 @@ router.post('/v3/rle/employee', function (req, res) {
   } else {
     if (req.session.data['employee'] === 'yes') {
       res.redirect('/v3/rle/ro-name')
-    } else {
-      // User inputted value so move to next page
-      res.redirect('/v3/rle/not-employee-stop')
     }
   }
 })
@@ -242,7 +305,7 @@ router.get('/v3/rle/ro-statements', function (req, res) {
 })
 
 router.post('/v3/rle/ro-statements', function (req, res) {
-  res.redirect('/v3/verified')
+  res.redirect('/v3/rle/rle-verified')
 })
 
 
@@ -307,41 +370,8 @@ router.post('/v3/individual/psc-statement', function (req, res) {
       errorList: errors
     })
   } else {
-      res.redirect('/v3/verified')
+      res.redirect('/v3/individual/psc-verified')
   }
 })
 
-
-// ******* why-this-name javascript ********************************
-router.get('/v3/individual/why-this-name', function (req, res) {
-  // Set URl
-  res.render('v3/individual/why-this-name', {
-    currentUrl: req.originalUrl
-  })
-})
-
-router.post('/v3/individual/why-this-name', function (req, res) {
-  res.redirect('/v3/individual/psc-statement-bob')
-})
-
-
-// ******* this-psc-link javascript ********************************
-router.get('/v3/individual/this-psc-linked', function (req, res) {
-  // Set URl
-  res.render('v3/individual/this-psc-linked', {
-    currentUrl: req.originalUrl
-  })
-})
-
-router.post('/v3/individual/this-psc-linked', function (req, res) {
-
-      if ((req.session.data['statementAnne']) 
-      && (req.session.data['statementBob'])
-      && (req.session.data['statementPaul'])) {
-        res.redirect('/v3/individual/all-psc-linked')
-      } else {
-        res.redirect('/v3/individual/personal-code')
-      }
-
-})
 

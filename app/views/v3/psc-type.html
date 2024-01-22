@@ -32,7 +32,7 @@
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
-                What PSC are you providing verification details for?
+                What PSC or RLE are you providing verification details for? 
               </h1>
             </legend>
             <!-- Check for error -->
@@ -42,7 +42,7 @@
             </p>
             {% endif %} 
             <div id="changedName-hint" class="govuk-hint">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+              The confirmed company is linked with the following PSCs / RLEs. Select the result you would like to provide verification details for.  
             </div>
             <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-5">Relevant Legal Entities (RLE)</h2>
             <div class="govuk-radios" data-module="govuk-radios">
@@ -92,8 +92,11 @@
         </div>
 
         {{ govukDetails({
-          summaryText: "What are the types of PSC?",
-          html: '...'
+          summaryText: "What is the difference between a PSC and an RLE? ",
+          html: 'A PSC is a term used to describe an individual who has 
+          significant control over a company. An RLE is a term used to 
+          describe a corporate entity that would qualify as a PSC of 
+          another company if it were an individual.'
         }) }}
               
         {{ govukButton({

@@ -19,13 +19,13 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Provide verification details for a PSC
+        Provide verification details for a person or relevant legal entity with significant control (PSC / RLE) 
       </h1>
 
-      <p class="govuk-body">Use this service to provide the identity verification 
-        details for a company’s Person with Significant Control (PSC). This needs 
-        to be done within 14 days of the anniversary of the company’s incorporation 
-        date. For newly appointed PSCs this has to be done within 14 days of the appointment.
+      <p class="govuk-body">Use this service to provide the identity verification details for a company’s 
+        person with significant control (PSC) or relevant legal entity (RLE). This needs to be done within 
+        14 days of the anniversary of the company’s incorporation date. For newly appointed PSCs this has to 
+        be done within 28 days of the appointment. 
       </p>
 
       <h2 class="govuk-heading-m">What is a PSC</h2>
@@ -38,22 +38,41 @@
         <li>the right to appoint or remove the majority of the board of directors</li>
       </ul>
 
+      <h2 class="govuk-heading-m">What is a RLE</h2>
+      
+      <p class="govuk-body">A Relevant Legal Entity (RLE) is a corporate entity, like a limited 
+        liability partnership, or limited company, that exercises significant influence or 
+        control over a company, much like a PSC. In fact, an RLE would qualify as a Person 
+        with significant control (PSC) of another company if it were an individual. Essentially, 
+        it is a corporate PSC.  
+      </p>
+
+      <p class="govuk-body">OR</p>
+
+      <p class="govuk-body">This type of person with significant control (PSC) is a corporate 
+        body or firm that owns or controls a company. This can be determined by a number of 
+        different criteria including voting rights, rights to share in surplus assets, or the 
+        right to appoint or remove the members of the company.  
+      </p>
+
       <h2 class="govuk-heading-m">Who can use this service</h2>
 
-      <p class="govuk-body">Every PSC in a company needs to be linked to a verified identity. 
-        This is why this service is for individuals who are:</p>
+      <p class="govuk-body">Every PSC in a company and the relevant officer of the RLE need to provide 
+        verification details, confirming that they have verified their ID. This is why this service 
+        is for individuals who are: </p>
       <ul class="govuk-list govuk-list--bullet">
         <li>setting up a new company and need to link their verified identity with the PSC record</li>
         <li>existing PSCs</li>
         <li>linking another PSC’s verified identity with the company record</li>
+        <li>relevant officers of a relevant legal entity (usually a company director, or similar)</li>
       </ul>
 
       <h2 class="govuk-heading-m">What you'll need</h2>
 
-      <p class="govuk-body">To complete this task for each PSC, you will need: </p>
+      <p class="govuk-body">To complete this task for each PSC or relevant officer, you will need to: </p>
       <ul class="govuk-list govuk-list--bullet">
         <li>verify your identity, if you haven’t already </li>
-        <li>have the Companies House personal code for each PSC (if confirming someone else)</li>
+        <li>have the Companies House personal code for each PSC and relevant officier of the RLE (if confirming someone else)</li>
         <li>the company registration number</li>
       </ul>
 
@@ -70,7 +89,7 @@
 
       {{ govukButton({
         text: "Start",
-        href: "company-number",
+        href: "sign-in-email",
         isStartButton: true
       }) }}
 
