@@ -289,11 +289,27 @@ router.post('/v3/rle/ro-personal-code', function (req, res) {
       errorList: errors
     })
   } else {
+    if (req.session.data['roPersonalCode'] === '01010101') {
+      res.redirect('/v3/rle/ro-why-this-name')
+    } else {
+      // User inputted value so move to next page
       res.redirect('/v3/rle/ro-statements')
+    }
   }
 })
 
 
+// ******* ro-why-this-name javascript ********************************
+router.get('/v3/rle/ro-why-this-name', function (req, res) {
+  // Set URl
+  res.render('v3/rle/ro-why-this-name', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/v3/rle/ro-why-this-name', function (req, res) {
+  res.redirect('/v3/rle/ro-statements')
+})
 
 
 // ******* ro-statements javascript ********************************

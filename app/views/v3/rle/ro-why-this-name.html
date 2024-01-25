@@ -1,0 +1,79 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+How would you like to verify your identity with Companies House?
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/account-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="{{currentUrl}}" method="post">
+
+      <h1 class="govuk-heading-l">Why is the verified name different?</h1>
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-visually-hidden">Warning</span>
+          The relevant officer’s verified name is different to the name you’ve provided. 
+          You should consider whether you need to <a href="ro-name" class="govuk-link">update the name you've provided</a>. 
+          If you do not update the name we may contact you if we need more information.
+        </strong>
+      </div>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="whyThisName-hint">       
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m ">
+            <h3 class="govuk-fieldset__heading">Why is the name you've provided different to the verified name? (Optional)</h3>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whyThisName-3" name="whyThisName" type="radio" value="marriage">
+              <label class="govuk-label govuk-radios__label" for="whyThisName-3">
+                Legally changed name (for example, marriage or divorce)
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whyThisName-4" name="whyThisName" type="radio" value="spelling">
+              <label class="govuk-label govuk-radios__label" for="whyThisName-4">
+                Prefer not to say    
+              </label>
+            </div>
+
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whyThisName-4" name="whyThisName" type="radio" value="legal">
+              <label class="govuk-label govuk-radios__label" for="whyThisName-4">
+                Translation or a different naming convention 
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whyThisName-2" name="whyThisName" type="radio" value="prefer">
+              <label class="govuk-label govuk-radios__label" for="whyThisName-2">
+                  Prefer not to say
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}
