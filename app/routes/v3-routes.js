@@ -355,8 +355,26 @@ if (req.session.data['personalCode'] === '') {
     errorList: errors
   })
   } else {
+    if (req.session.data['personalCode'] === '01010101') {
+      res.redirect('/v3/individual/psc-why-this-name')
+    } else {
+      // User inputted value so move to next page
       res.redirect('/v3/individual/psc-statement')
+    }
   }
+})
+
+
+// ******* psc-why-this-name javascript ********************************
+router.get('/v3/individual/psc-why-this-name', function (req, res) {
+  // Set URl
+  res.render('v3/individual/psc-why-this-name', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/v3/individual/psc-why-this-name', function (req, res) {
+  res.redirect('/v3/individual/psc-statement')
 })
 
 

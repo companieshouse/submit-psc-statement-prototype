@@ -45,21 +45,24 @@
               The confirmed company is linked with the following PSCs / RLEs. Select the result you would like to provide verification details for.  
             </div>
             <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-5">Relevant Legal Entities (RLE)</h2>
-            <div class="govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="pscType" name="pscType" type="radio" value="Megacorp Ltd">
-                <label class="govuk-label govuk-radios__label" for="pscType">
-                  Megacorp Ltd
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="pscType-2" name="pscType" type="radio" value="Omega Trading Group">
-                <label class="govuk-label govuk-radios__label" for="pscType-2">
-                  Omega Trading Group
-                </label>
-              </div>
-              <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-7">Individual PSC</h2>
+            
+              {% if data['companyNumber'] == '12345678' %}
               <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscType" name="pscType" type="radio" value="Megacorp Ltd">
+                  <label class="govuk-label govuk-radios__label" for="pscType">
+                    Megacorp Ltd
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscType-2" name="pscType" type="radio" value="Omega Trading Group">
+                  <label class="govuk-label govuk-radios__label" for="pscType-2">
+                    Omega Trading Group
+                  </label>
+                </div>
+
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-7">Individual PSC</h2>
+
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="pscType-3" name="pscType" type="radio" value="Paul Smith">
                   <label class="govuk-label govuk-radios__label" for="pscType-3">
@@ -87,7 +90,39 @@
                     Born April 1980
                   </div>
                 </div>
-            </div>
+              </div>
+
+              {% elif data['companyNumber'] == '11112222' %}
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscType" name="pscType" type="radio" value="Alpha Trading Group">
+                  <label class="govuk-label govuk-radios__label" for="pscType">
+                    Alpha Trading Group
+                  </label>
+                </div>
+
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-7">Individual PSC</h2>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscType-2" name="pscType" type="radio" value="Cho Ying">
+                  <label class="govuk-label govuk-radios__label" for="pscType-2">
+                    Cho Ying
+                  </label>
+                  <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                    Born April 2000
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscType-3" name="pscType" type="radio" value="Josh Wood">
+                  <label class="govuk-label govuk-radios__label" for="pscType-3">
+                    Josh Wood
+                  </label>
+                  <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                    Born April 1997
+                  </div>
+                </div>
+              </div>
+              {% endif %}
           </fieldset>
         </div>
 
