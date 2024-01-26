@@ -45,7 +45,13 @@
                 <input class="govuk-checkboxes__input" id="individualStatement" name="individualStatement" type="checkbox">
                 <label class="govuk-label govuk-checkboxes__label" for="individualStatement">
                   I confirm that <b>{{ data['pscType']}}</b> has verified their identity and is a Person with Significant Control (PSC) for
-                  <b>Big Shop ltd</b>.
+                  <b>
+                    {% if data['companyNumber'] == '12345678' %}
+                    Big Shop ltd
+                  {% elif data['companyNumber'] == '11112222' %}
+                    Contruction 123 ltd
+                  {% endif %}
+                  </b>.
                 </label>
               </div>
             </div>
