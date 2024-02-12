@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What is the Personal code – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="{{currentUrl}}" method="post">
+
+      <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="personalCode">
+          Enter the Companies House personal code for {{ data ['pscType']}}
+        </label>
+      </h1>
+      <div id="personalCode-hint" class="govuk-hint">
+        This is the code they received when they verified their 
+        identity. 
+      </div>
+          <div class="govuk-form-group">
+            <input class="govuk-input govuk-input--width-20 govuk-input--extra-letter-spacing" id="personalCode" name="personalCode" type="text" aria-describedby="personalCode-hint">
+          </div>
+        </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }} 
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

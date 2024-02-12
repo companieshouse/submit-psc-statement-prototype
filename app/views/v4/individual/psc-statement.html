@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Verification statement – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/account-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    <!-- Check for error -->
+    {% if errorStatement %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+    {% endif %}
+      <form action="{{currentUrl}}" method="post">
+
+        <!-- Check for error -->
+        {% if errorStatement %}
+        <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
+        <div class="govuk-form-group">
+        {% endif %} 
+          <fieldset class="govuk-fieldset" aria-describedby="individualStatement-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Confirm the verification statement
+              </h1>
+            </legend>
+            {% if errorStatement %}
+            <p id="individualStatement-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span>Confirm if the verification statement is correct
+            </p>
+            {% endif %}
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="individualStatement" name="individualStatement" type="checkbox">
+                <label class="govuk-label govuk-checkboxes__label" for="individualStatement">
+                  I confirm that <b>{{ data['pscType']}}</b> has verified their identity and is a Person with Significant Control (PSC) for
+                  <b>
+                    {% if data['companyNumber'] == '12345678' %}
+                    Big Shop ltd
+                  {% elif data['companyNumber'] == '11112222' %}
+                    Contruction 123 ltd
+                  {% endif %}
+                  </b>.
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Confirm and continue
+        </button> 
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

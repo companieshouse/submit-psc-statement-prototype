@@ -1,0 +1,64 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  What is the name of the RO? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- Check for error -->
+      {% if errorRoName %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+      {% endif %}
+
+      <form action="{{currentUrl}}" method="post">
+
+        <!-- Check for error -->
+        {% if errorRoName %}
+          <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
+          <div class="govuk-form-group">
+        {% endif %} 
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="roName">
+              What is the relevant officer’s full name 
+            </label>
+          </h1>
+          <div id="roName-hint" class="govuk-hint">
+            Relevant legal entities (RLEs) are now required to provide 
+            information about a relevant officer. Enter this person’s 
+            full name, below.  
+          </div>
+          <!-- Check for error -->
+          {% if errorRoName %}
+          <p id="roName-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Enter the name of the relevant officer
+          </p>
+          {% endif %} 
+          <input class="govuk-input" id="roName" name="roName" type="text" spellcheck="false" autocomplete="name">
+        </div>      
+
+        {{ govukDetails({
+          summaryText: "What is the relevant officer?",
+          html: 'A relevant officer is a senior officer at the entity, for example a company director or equivalent. 
+          They will need to verify their identity as part of this process.  '
+        }) }}
+              
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

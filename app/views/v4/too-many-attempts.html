@@ -1,0 +1,30 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Are you a director? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">There is a problem</h1>
+
+    <p class="govuk-body">You have entered the incorrcet verification details too many times for this PSC.  
+    </p>
+
+    <h2 class="govuk-heading-s">Next steps</h2>
+
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

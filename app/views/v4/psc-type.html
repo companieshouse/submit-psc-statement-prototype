@@ -1,0 +1,387 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  PSC type – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- Check for error -->
+      {% if errorPscType %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+      {% endif %}
+
+      <form action="{{currentUrl}}" method="post">
+
+        <!-- Check for error -->
+        {% if errorPscType %}
+          <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
+          <div class="govuk-form-group">
+        {% endif %} 
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                What PSC or RLE are you providing verification details for? 
+              </h1>
+            </legend>
+            <!-- Check for error -->
+            {% if errorPscType %}
+            <p id="psc-type-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Select the type of PSC
+            </p>
+            {% endif %} 
+            <div id="changedName-hint" class="govuk-hint">
+              The confirmed company is linked with the following PSCs / RLEs. Select the result you would like to provide verification details for.  
+            </div>
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-5">Relevant Legal Entities (RLE)</h2>
+            
+              {% if data['companyNumber'] == '12345678' %}
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscType" name="pscType" type="radio" value="Megacorp Ltd">
+                  <label class="govuk-label govuk-radios__label" for="pscType">
+                    Megacorp Ltd
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscType-2" name="pscType" type="radio" value="Omega Trading Group">
+                  <label class="govuk-label govuk-radios__label" for="pscType-2">
+                    Omega Trading Group
+                  </label>
+                </div>
+
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-7">Individual PSC</h2>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscType-3" name="pscType" type="radio" value="Paul Smith">
+                  <label class="govuk-label govuk-radios__label" for="pscType-3">
+                    Paul Smith
+                  </label>
+                  <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                    Born April 1968
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscType-4" name="pscType" type="radio" value="Susan Robinson">
+                  <label class="govuk-label govuk-radios__label" for="pscType-4">
+                    Susan Robinson
+                  </label>
+                  <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                    Born April 1990
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscType-5" name="pscType" type="radio" value="Matthew Gant">
+                  <label class="govuk-label govuk-radios__label" for="pscType-5">
+                    Matthew Gant
+                  </label>
+                  <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                    Born April 1980
+                  </div>
+                </div>
+              </div>
+
+              {% elif data['companyNumber'] == '11112222' %}
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscType" name="pscType" type="radio" value="Alpha Trading Group">
+                  <label class="govuk-label govuk-radios__label" for="pscType">
+                    Alpha Trading Group
+                  </label>
+                </div>
+
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-7">Individual PSC</h2>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscType-2" name="pscType" type="radio" value="Cho Ying">
+                  <label class="govuk-label govuk-radios__label" for="pscType-2">
+                    Cho Ying
+                  </label>
+                  <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                    Born April 2000
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscType-3" name="pscType" type="radio" value="Josh Wood">
+                  <label class="govuk-label govuk-radios__label" for="pscType-3">
+                    Josh Wood
+                  </label>
+                  <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                    Born April 1997
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+          </fieldset>
+        </div>
+
+        {{ govukDetails({
+          summaryText: "What is the difference between a PSC and an RLE? ",
+          html: 'A PSC is a term used to describe an individual who has 
+          significant control over a company. An RLE is a term used to 
+          describe a corporate entity that would qualify as a PSC of 
+          another company if it were an individual.'
+        }) }}
+              
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+        <!-- <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Which PSCs are you providing verification details for? 
+              </h1>
+            </legend>
+
+            <div id="changedName-hint" class="govuk-hint">
+              {% if data['companyNumber'] == '12345678' %}
+                Big Shop Ltd
+              {% elif data['companyNumber'] == '11112222' %}
+                Contruction 123 ltd
+              {% endif %}
+                is linked with the following PSCs / RLEs. Select all the PSCs you would like to provide verification details for.  
+            </div>
+
+            {{ govukDetails({
+              summaryText: "What is the difference between a PSC and an RLE? ",
+              html: 'A PSC is a term used to describe an individual who has 
+              significant control over a company. An RLE is a term used to 
+              describe a corporate entity that would qualify as a PSC of 
+              another company if it were an individual.'
+            }) }}
+
+            {% if data['companyNumber'] == '12345678' %}
+            <table class="govuk-table" data-module="moj-multi-select" data-multi-select-checkbox="#select-all">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="col" id="select-all"></th>
+                  <th class="govuk-table__header" scope="col">Name</th>
+                  <th class="govuk-table__header" scope="col">PSC type</th>
+                  <th class="govuk-table__header" scope="col">Date of birth</th>
+                  <th class="govuk-table__header" scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="pscType" name="pscType" value="Megacorp Ltd">
+                      <label class="govuk-label govuk-checkboxes__label" for="pscType">
+                        <span class="govuk-visually-hidden">Select Megacorp Ltd</span>
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Megacorp Ltd</td>
+                  <td class="govuk-table__cell">RLE</td>
+                  <td class="govuk-table__cell"></td>
+                  <td class="govuk-table__cell">        
+                    <strong class="govuk-tag govuk-tag--red">
+                      Unverified
+                    </strong>
+                  </td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="pscType-2" name="pscType" value="Omega Trading Group">
+                      <label class="govuk-label govuk-checkboxes__label" for="pscType-2">
+                        <span class="govuk-visually-hidden">Select Omega Trading Group</span>
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Omega Trading Group</td>
+                  <td class="govuk-table__cell">RLE</td>
+                  <td class="govuk-table__cell"></td>
+                  <td class="govuk-table__cell">        
+                    <strong class="govuk-tag govuk-tag--red">
+                      Unverified
+                    </strong>
+                  </td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="pscType-3" name="pscType" value="Paul Smith">
+                      <label class="govuk-label govuk-checkboxes__label" for="pscType-3">
+                        <span class="govuk-visually-hidden">Select Paul Smith</span>
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Paul Smith</td>
+                  <td class="govuk-table__cell">Individual PSC</td>
+                  <td class="govuk-table__cell">April 1968</td>
+                  <td class="govuk-table__cell">        
+                    <strong class="govuk-tag govuk-tag--red">
+                      Unverified
+                    </strong>
+                  </td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="pscType-4" name="pscType" value="Susan Robinson">
+                      <label class="govuk-label govuk-checkboxes__label" for="pscType-4">
+                        <span class="govuk-visually-hidden">Select Susan Robinson</span>
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Susan Robinson</td>
+                  <td class="govuk-table__cell">Individual PSC</td>
+                  <td class="govuk-table__cell">June 2000</td>
+                  <td class="govuk-table__cell">        
+                    <strong class="govuk-tag govuk-tag--red">
+                      Unverified
+                    </strong>
+                  </td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="pscType-5" name="pscType" value="Matthew Gant">
+                      <label class="govuk-label govuk-checkboxes__label" for="pscType-5">
+                        <span class="govuk-visually-hidden">Select Matthew Gant</span>
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Matthew Gant</td>
+                  <td class="govuk-table__cell">Individual PSC</td>
+                  <td class="govuk-table__cell">November 1996</td>
+                  <td class="govuk-table__cell">        
+                    <strong class="govuk-tag govuk-tag--red">
+                      Unverified
+                    </strong>
+                  </td>
+                </tr>
+              </tbody>
+            </table> 
+
+              {% elif data['companyNumber'] == '11112222' %}
+              <table class="govuk-table" data-module="moj-multi-select" data-multi-select-checkbox="#select-all">
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-5">Relevant Legal Entities (RLE)</h2>
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="col" id="select-all"></th>
+                    <th class="govuk-table__header" scope="col">Name</th>
+                    <th class="govuk-table__header" scope="col">PSC type</th>
+                    <th class="govuk-table__header" scope="col">Date of birth</th>
+                    <th class="govuk-table__header" scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                      <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                        <input type="checkbox" class="govuk-checkboxes__input" id="psc-type" value="Megacorp Ltd">
+                        <label class="govuk-label govuk-checkboxes__label" for="psc-type">
+                          <span class="govuk-visually-hidden">Select Megacorp Ltd</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td class="govuk-table__cell">Megacorp Ltd</td>
+                    <td class="govuk-table__cell">RLE</td>
+                    <td class="govuk-table__cell"></td>
+                    <td class="govuk-table__cell">        
+                      <strong class="govuk-tag govuk-tag--red">
+                        Unverified
+                      </strong>
+                    </td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                      <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                        <input type="checkbox" class="govuk-checkboxes__input" id="psc-type-2" value="Omega Tradin Group">
+                        <label class="govuk-label govuk-checkboxes__label" for="psc-type-2">
+                          <span class="govuk-visually-hidden">Select Omega Tradin Group</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td class="govuk-table__cell">Omega Tradin Group</td>
+                    <td class="govuk-table__cell">RLE</td>
+                    <td class="govuk-table__cell"></td>
+                    <td class="govuk-table__cell">        
+                      <strong class="govuk-tag govuk-tag--red">
+                        Unverified
+                      </strong>
+                    </td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                      <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                        <input type="checkbox" class="govuk-checkboxes__input" id="psc-type-3" value="Paul Smith">
+                        <label class="govuk-label govuk-checkboxes__label" for="psc-type-3">
+                          <span class="govuk-visually-hidden">Select Paul Smith</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td class="govuk-table__cell">Paul Smith</td>
+                    <td class="govuk-table__cell">Individual PSC</td>
+                    <td class="govuk-table__cell">April 1968</td>
+                    <td class="govuk-table__cell">        
+                      <strong class="govuk-tag govuk-tag--red">
+                        Unverified
+                      </strong>
+                    </td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                      <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                        <input type="checkbox" class="govuk-checkboxes__input" id="psc-type-4" value="Susan Robinson">
+                        <label class="govuk-label govuk-checkboxes__label" for="psc-type-4">
+                          <span class="govuk-visually-hidden">Select Susan Robinson</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td class="govuk-table__cell">Susan Robinson</td>
+                    <td class="govuk-table__cell">Individual PSC</td>
+                    <td class="govuk-table__cell">June 2000</td>
+                    <td class="govuk-table__cell">        
+                      <strong class="govuk-tag govuk-tag--red">
+                        Unverified
+                      </strong>
+                    </td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                      <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                        <input type="checkbox" class="govuk-checkboxes__input" id="matthew_gant" value="Matthew Gant">
+                        <label class="govuk-label govuk-checkboxes__label" for="matthew_gant">
+                          <span class="govuk-visually-hidden">Select Matthew Gant</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td class="govuk-table__cell">Matthew Gant</td>
+                    <td class="govuk-table__cell">Individual PSC</td>
+                    <td class="govuk-table__cell">November 1996</td>
+                    <td class="govuk-table__cell">        
+                      <strong class="govuk-tag govuk-tag--red">
+                        Unverified
+                      </strong>
+                    </td>
+                  </tr>
+                </tbody>
+              </table> 
+              {% endif %}
+          </fieldset>
+        </div> 
+              
+        {{ govukButton({
+          text: "Continue"
+        }) }} -->
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
