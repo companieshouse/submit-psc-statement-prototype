@@ -31,20 +31,21 @@
         {% endif %} 
           <fieldset class="govuk-fieldset" aria-describedby="individualStatement-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <span class="govuk-caption-xl">{{ data ['pscType']}}</span>
               <h1 class="govuk-fieldset__heading">
-                Confirm the verification statement
+                Confirm the identity verification statement
               </h1>
             </legend>
             {% if errorStatement %}
             <p id="individualStatement-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span>Confirm if the verification statement is correct
+              <span class="govuk-visually-hidden">Error:</span>Confirm if the identity verification statement is correct
             </p>
             {% endif %}
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="individualStatement" name="individualStatement" type="checkbox">
                 <label class="govuk-label govuk-checkboxes__label" for="individualStatement">
-                  I confirm that <b>{{ data['pscType']}}</b> has verified their identity and is a Person with Significant Control (PSC) for
+                  I confirm that <b>{{ data['pscType']}}</b> has verified their identity and is a person with significant control (PSC) for
                   <b>
                     {% if data['companyNumber'] == '12345678' %}
                     Big Shop ltd

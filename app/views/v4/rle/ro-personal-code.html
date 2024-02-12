@@ -30,14 +30,23 @@
           <div class="govuk-form-group">
         {% endif %} 
           <h1 class="govuk-label-wrapper">
+            <span class="govuk-caption-xl">{{ data['roName']}}</span>
             <label class="govuk-label govuk-label--l" for="roPersonalCode">
-              Enter the Companies House personal code for the new relevant officer?
+              What is their Companies House personal code?
             </label>
           </h1>
-          <div id="roPersonalCode-hint" class="govuk-hint">
-            This is the code they received when they verified their 
-            identity. 
-          </div>
+
+                <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Where to find the Companies House personal code
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          This is an 11 character code that is given to a person after they have verified their identity with Companies House. 
+        </div>
+      </details>
+
           <!-- Check for error -->
           {% if errorRoPersonalCode %}
           <p id="roPersonalCode-error" class="govuk-error-message">

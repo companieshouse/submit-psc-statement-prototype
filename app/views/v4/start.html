@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Confirm a person with significant control over a company – {{ serviceName }} – GOV.UK Prototype Kite
+  Provide identity verification details for a PSC or relevant legal entity – {{ serviceName }} – GOV.UK Prototype Kite
 {% endblock %}
 
 {% block header %}
@@ -19,54 +19,31 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Provide verification details for a PSC or relevant legal entity 
+        Provide identity verification details for a PSC or relevant legal entity 
       </h1>
 
-      <p class="govuk-body">Use this service to provide the identity verification 
-        details for a company’s person with significant control (PSC) or relevant legal entity (RLE).  
+      <p class="govuk-body">Use this service to provide verification 
+        details for a company's person with significant control (PSC), or a relevant legal entity's (RLE) relevant officer.  
       </p>
 
-      <h2 class="govuk-heading-m">Who this service is for</h2>
+      <h2 class="govuk-heading-m">Who can use this service</h2>
       
+      <p class="govuk-body">This service is for:</p>
+
       <ul class="govuk-list govuk-list--bullet">
         <li>new PSCs of a new or existing company</li>
-        <li>existing PSCs</li>
-        <li>providing verified details on behalf of someone else who is a PSC 
-          or a relevant officer of an RLE (provided they are also employees of the RLE) </li>
+        <li>current PSCs that are already on the Companies House register</li>
+        <li>people providing verification details on behalf of a PSC, or the relevant officer of an RLE – provided they are also employees of the RLE</li>
       </ul>
 
-
-      <h2 class="govuk-heading-m">When to provide verification details </h2>
-      
-      <p class="govuk-body">For PSCs, verification details need to be provided within 14 
-        days of the anniversary of the company’s incorporation date.  </p>
-
-      <p class="govuk-body">For newly appointed PSCs who are RLEs this has to be done 
-        within 28 days of the appointment. </p>
-
-
-      <h2 class="govuk-heading-m">What you'll need</h2>
-
-      <p class="govuk-body">To complete this task for each PSC or relevant officer, you will need to: </p>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>verify your identity, if you haven’t already </li>
-        <li>have the Companies House personal code for each PSC and relevant officer of the RLE 
-          (if confirming someone else) </li>
-        <li>the company registration number </li>
-      </ul>
-
-      <details class="govuk-details" data-module="govuk-details">
+            <details class="govuk-details" data-module="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
-            What is a Companies House personal code?
+            Learn more about PSCs, RLEs and relevant officers
           </span>
         </summary>
         <div class="govuk-details__text">
-          This is a unique code that is received once a person's identity is verified with Companies House. 
-        </div>
-      </details>
-
-      <h2 class="govuk-heading-m">What is a PSC?</h2>
+        <p class="govuk-body"><strong>People with significant control (PSCs)</strong></p>
       
       <p class="govuk-body">A PSC owns or controls a company. They’re sometimes called ‘beneficial owners’. 
         A PSC has at least one of the following: 
@@ -78,8 +55,7 @@
         <li>the right to appoint or remove the majority of the board of directors </li>
       </ul>
 
-
-      <h2 class="govuk-heading-m">What is a RLE</h2>
+      <p class="govuk-body"><strong>Relevant legal entities (RLEs)</p>
       
       <p class="govuk-body">A corporate body or firm that owns or controls a company can also be a ‘person 
         with significant control’ (PSC) known as a relevant legal entity (RLE).   
@@ -94,7 +70,7 @@
         <li>the right to appoint or remove the members of the company </li>
       </ul>
 
-      <h2 class="govuk-heading-m">What is a relevant officer?</h2>
+      <p class="govuk-body"><strong>Relevant officers</strong></p>
       
       <p class="govuk-body">'Relevant legal entities (RLEs) are now required to provide 
         information about a relevant officer. A relevant officer needs to be:  
@@ -105,6 +81,39 @@
         <li>aged 16 years or over</li>
         <li>have a personal code from verifying </li>
       </ul>
+
+        </div>
+      </details>
+
+
+      <h2 class="govuk-heading-m">When to provide verification details </h2>
+      
+      <p class="govuk-body">This depends on when you became a PSC or relevant officer. Find out more about <a href="#">when you need to verify your identity.</a></p>
+
+
+      <h2 class="govuk-heading-m">Before you start</h2>
+      
+      <p class="govuk-body">The PSC or relevant officer must <a href="#">verify their identity</a>, if they haven’t already.</p>
+
+      <p class="govuk-body">For this service, you'll need the:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Companies House personal code for the PSC or relevant officer</li>
+        <li>company number</li>
+      </ul>
+
+      <p class="govuk-body">If you're providing verification details for a relevant officer, you'll need their full name and date of birth.</p> 
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            What is a Companies House personal code?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          This is an 11 character code that is given to a person after they have verified their identity with Companies House. 
+        </div>
+      </details>
 
 
       {{ govukButton({

@@ -32,19 +32,20 @@
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
-                What PSC or RLE are you providing verification details for? 
+                Which PSC or RLE are you providing verification details for? 
               </h1>
             </legend>
+
             <!-- Check for error -->
             {% if errorPscType %}
             <p id="psc-type-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span> Select the type of PSC
+              <span class="govuk-visually-hidden">Error:</span> Select a PSC or RLE
             </p>
             {% endif %} 
             <div id="changedName-hint" class="govuk-hint">
-              The confirmed company is linked with the following PSCs / RLEs. Select the result you would like to provide verification details for.  
+              This company has the following PSCs and RLEs. 
             </div>
-            <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-5">Relevant Legal Entities (RLE)</h2>
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-5">Relevant legal entities (RLEs)</h2>
             
               {% if data['companyNumber'] == '12345678' %}
               <div class="govuk-radios" data-module="govuk-radios">
@@ -61,7 +62,7 @@
                   </label>
                 </div>
 
-                <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-7">Individual PSC</h2>
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-7">People with significant control (PSCs)</h2>
 
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="pscType-3" name="pscType" type="radio" value="Paul Smith">
@@ -101,7 +102,7 @@
                   </label>
                 </div>
 
-                <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-7">Individual PSC</h2>
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-7">People with significant control (PSCs)</h2>
 
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="pscType-2" name="pscType" type="radio" value="Cho Ying">
@@ -128,9 +129,8 @@
 
         {{ govukDetails({
           summaryText: "What is the difference between a PSC and an RLE? ",
-          html: 'A PSC is a term used to describe an individual who has 
-          significant control over a company. An RLE is a term used to 
-          describe a corporate entity that would qualify as a PSC of 
+          html: 'A person with significant control (PSC) is an individual who has 
+          significant control over a company. A relevant legal entity (RLE) is a corporate entity that would qualify as a PSC of 
           another company if it were an individual.'
         }) }}
               

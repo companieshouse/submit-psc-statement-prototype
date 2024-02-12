@@ -17,13 +17,14 @@ What is the Personal code – {{ serviceName }} – GOV.UK Prototype Kit
     <form action="{{currentUrl}}" method="post">
 
       <div class="govuk-form-group">
+      <span class="govuk-caption-xl">{{ data ['pscType']}}</span>
       <h1 class="govuk-label-wrapper">
         <label class="govuk-label govuk-label--l" for="personalCode">
-          Enter the Companies House personal code for {{ data ['pscType']}}
+          What is their Companies House personal code?
         </label>
       </h1>
       <div id="personalCode-hint" class="govuk-hint">
-        This is the code they received when they verified their 
+        This is the 11 character code they received when they verified their 
         identity. 
       </div>
           <div class="govuk-form-group">
