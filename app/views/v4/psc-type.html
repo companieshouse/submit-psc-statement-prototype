@@ -43,7 +43,13 @@
             </p>
             {% endif %} 
             <div id="changedName-hint" class="govuk-hint">
-              This company has the following PSCs and RLEs. You can only provide verification details for one PSC or RLE at a time. 
+              {% if data['companyNumber'] == '12345678' %}
+                Big Shop ltd
+              {% elif data['companyNumber'] == '11112222' %}
+                Contruction 123 ltd
+              {% endif %}
+              
+              has the following PSCs and RLEs. You can only provide verification details for one PSC or RLE at a time. 
             </div>
 
             {% if data['companyNumber'] == '12345678' %}

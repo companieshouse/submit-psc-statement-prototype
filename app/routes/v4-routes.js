@@ -109,7 +109,13 @@ router.get('/v4/confirm-company', function (req, res) {
 })
 
 router.post('/v4/confirm-company', function (req, res) {
-  res.redirect('/v4/psc-type')
+  if ((req.session.data['companyNumber'] == '22223333')) {
+    res.redirect('/v4/super-secure')
+  } else {
+    res.redirect('/v4/psc-type')
+  }
+
+  
 })
 
 
