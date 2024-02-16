@@ -32,14 +32,14 @@
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
-                Which PSC or RLE are you providing verification details for? 
+                Are you providing verification details for a PSC of an RLE? 
               </h1>
             </legend>
 
             <!-- Check for error -->
             {% if errorPscType %}
             <p id="psc-type-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span> Select a PSC or RLE
+              <span class="govuk-visually-hidden">Error:</span> Select if your providing verification details for a PSC or RLE
             </p>
             {% endif %} 
             <div id="changedName-hint" class="govuk-hint">
@@ -49,91 +49,21 @@
                 Contruction 123 ltd
               {% endif %}
               
-              has the following PSCs and RLEs. You can only provide verification details for one PSC or RLE at a time. 
+              has the individual PSCs and RLEs. 
             </div>
-
-            {% if data['companyNumber'] == '12345678' %}
-            <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-7">People with significant control (PSCs)</h2>
 
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="pscType-3" name="pscType" type="radio" value="Paul Smith">
-              <label class="govuk-label govuk-radios__label" for="pscType-3">
-                Paul Smith
+              <input class="govuk-radios__input" id="pscType" name="pscType" type="radio" value="psc">
+              <label class="govuk-label govuk-radios__label" for="pscType">
+                Person of significant control (PSC)
               </label>
-              <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
-                Born April 1968
-              </div>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="pscType-4" name="pscType" type="radio" value="Susan Robinson">
-              <label class="govuk-label govuk-radios__label" for="pscType-4">
-                Susan Robinson
+              <input class="govuk-radios__input" id="pscType-2" name="pscType" type="radio" value="rle">
+              <label class="govuk-label govuk-radios__label" for="pscType-2">
+                Relevant legal entity (RLE)
               </label>
-              <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
-                Born April 1990
-              </div>
             </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="pscType-5" name="pscType" type="radio" value="Matthew Gant">
-              <label class="govuk-label govuk-radios__label" for="pscType-5">
-                Matthew Gant
-              </label>
-              <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
-                Born April 1980
-              </div>
-            </div>
-
-            <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-5">Relevant legal entities (RLEs)</h2>
-              
-            <div class="govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="pscType" name="pscType" type="radio" value="Megacorp Ltd">
-                <label class="govuk-label govuk-radios__label" for="pscType">
-                  Megacorp Ltd
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="pscType-2" name="pscType" type="radio" value="Omega Trading Group">
-                <label class="govuk-label govuk-radios__label" for="pscType-2">
-                  Omega Trading Group
-                </label>
-              </div>
-            </div>
-
-            {% elif data['companyNumber'] == '11112222' %}
-            <div class="govuk-radios" data-module="govuk-radios">
-              <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-7">People with significant control (PSCs)</h2>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="pscType-2" name="pscType" type="radio" value="Cho Ying">
-                <label class="govuk-label govuk-radios__label" for="pscType-2">
-                  Cho Ying
-                </label>
-                <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
-                  Born April 2000
-                </div>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="pscType-3" name="pscType" type="radio" value="Josh Wood">
-                <label class="govuk-label govuk-radios__label" for="pscType-3">
-                  Josh Wood
-                </label>
-                <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
-                  Born April 1997
-                </div>
-              </div>
-
-              <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-5">Relevant legal entities (RLEs)</h2>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="pscType" name="pscType" type="radio" value="Alpha Trading Group">
-                <label class="govuk-label govuk-radios__label" for="pscType">
-                  Alpha Trading Group
-                </label>
-              </div>
-
-            </div>
-            {% endif %}
           </fieldset>
         </div>
 

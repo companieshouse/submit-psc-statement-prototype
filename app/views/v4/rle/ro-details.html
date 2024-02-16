@@ -1,0 +1,160 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  What is the relevant officer's full name? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- Check for error -->
+    {% if roDetailsError %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+    {% endif %}
+    <h1 class="govuk-heading-l">Relevant officer's details</h1>
+
+    <form action="{{currentUrl}}" method="post">
+
+      <!-- Check for error -->
+      {% if errorRoName%}
+        <div class="govuk-form-group govuk-form-group--error">
+      {% else %}
+        <div class="govuk-form-group">
+      {% endif %} 
+          <label class="govuk-label" for="roName">
+            Relevant officer full name
+          </label>
+          <!-- Check for error -->
+        {% if errorRoName %}
+          <p id="roName-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Enter the relevant officer's name.
+          </p>
+          <input class="govuk-input govuk-!-width-two-thirds govuk-input--error" id="roName" name="roName" type="text" value="{{ data['roName']}}">
+        {% else %}
+          <input class="govuk-input govuk-!-width-two-thirds" id="roName" name="roName" type="text" value="{{ data['roName']}}">
+        {% endif %} 
+      </div>
+
+      <!-- Check for error -->
+      {% if errorRoDobDay or errorRoDobMonth or errorRoDobYear %}
+      <div class="govuk-form-group govuk-form-group--error">
+      {% else %}
+      <div class="govuk-form-group">
+      {% endif %} 
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="Dob-hint">
+          <label class="govuk-label" for="dob">
+            Date of birth
+          </label>
+          <div id="Dob-hint" class="govuk-hint">
+            The director must be at least 16 years of age.<br>
+            For example, 27 3 1992
+          </div>
+          {% if matchError %}
+            <p id="Dob-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Enter the correct date of birth and Companies House personal code.
+            </p>
+          {% elif errorRoDobDay or errorRoDobMonth or errorRoDobYear%} 
+            <p id="Dob-error" class="govuk-error-message">
+              {% if yearError %}
+              <span class="govuk-visually-hidden">Error:</span> The director must be at least 16 years of age
+              {% else %}
+              <span class="govuk-visually-hidden">Error:</span> The date must include a day, month and year
+              {% endif %} 
+            </p>
+          {% endif %}
+          <div class="govuk-date-input" id="Dob">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="Dob-day">
+                  Day
+                </label>
+                <!-- Check for error -->
+                {% if errorRoDobDay %}
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="Dob-day" name="Dob-day" type="text" value="{{ data['Dob-day']}}">
+                {% else %}
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="Dob-day-one" name="Dob-day" type="text" value="{{ data['Dob-day']}}">
+                {% endif %} 
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="Dob-month">
+                  Month
+                </label>
+                <!-- Check for error -->
+                {% if errorRoDobMonth %}
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="Dob-month" name="Dob-month" type="text" value="{{ data['Dob-month']}}">
+                {% else %}
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="Dob-month" name="Dob-month" type="text" value="{{ data['Dob-month']}}">
+                {% endif %} 
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="Dob-year">
+                  Year
+                </label>
+                <!-- Check for error -->
+                {% if errorRoDobYear %}
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="Dob-year" name="Dob-year" type="text" value="{{ data['Dob-year']}}">
+                {% else %}
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="Dob-year" name="Dob-year" type="text" value="{{ data['Dob-year']}}">
+                {% endif %} 
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- Check for error -->
+      {% if errorRoPersonalCode or matchError %}
+        <div class="govuk-form-group govuk-form-group--error">
+      {% else %}
+        <div class="govuk-form-group">
+      {% endif %} 
+          <label class="govuk-label govuk-date-input__label" for="roPersonalCode">
+            Companies House personal code
+          </label>
+
+          <!-- Check for error -->
+          {% if errorRoPersonalCode %}
+            <p id="roPersonalCode-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> Enter the personal code for the relevant officer
+            </p>
+          {% endif %} 
+          {% if errorRoPersonalCode or matchError %}
+            <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing govuk-input--error" id="roPersonalCode" name="roPersonalCode" type="text" aria-describedby="roPersonalCode-hint" value="{{ data['roPersonalCode']}}">
+          {% else %}
+            <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing" id="roPersonalCode" name="roPersonalCode" type="text" aria-describedby="roPersonalCode-hint" value="{{ data['roPersonalCode']}}">
+          {% endif %} 
+      </div> 
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Where to find the Companies House personal code
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          This is an 11 character code that is given to a person after they have verified their identity with Companies House. 
+        </div>
+      </details>
+
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+{% endblock %}

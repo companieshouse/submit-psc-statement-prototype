@@ -19,7 +19,7 @@
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="rleStatements-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <span class="govuk-caption-xl">{{ data['roName']}}</span>
+              <span class="govuk-caption-xl">{{ data ['roName']}}</span>
               <h1 class="govuk-fieldset__heading">
                 Confirm all of the relevant officer statements
               </h1>
@@ -34,13 +34,13 @@
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="rleStatements" name="rleStatements-2" type="checkbox">
                 <label class="govuk-label govuk-checkboxes__label" for="rleStatements-2">
-                  <b>{{ data['pscType']}}</b> has confirmed that <b>{{ data['roName']}}</b> is the relevant officer.
+                  <b>{{ data['rleList']}}</b> has confirmed that <b>{{ data['roName']}}</b> is the relevant officer.
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="rleStatements" name="rleStatements-3" type="checkbox">
                 <label class="govuk-label govuk-checkboxes__label" for="rleStatements-3">
-                  <b>{{ data['roName']}}</b> has confirmed that they are the relevant officer of <b>{{ data['pscType']}}</b>.
+                  <b>{{ data['roName']}}</b> has confirmed that they are the relevant officer of <b>{{ data['rleList']}}</b>.
                 </label>
               </div>
             </div>

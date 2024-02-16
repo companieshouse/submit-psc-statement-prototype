@@ -1,0 +1,120 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  PSC type – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- Check for error -->
+      {% if errorPscList %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+      {% endif %}
+
+      <form action="{{currentUrl}}" method="post">
+
+        <!-- Check for error -->
+        {% if errorPscList %}
+          <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
+          <div class="govuk-form-group">
+        {% endif %} 
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Which PSC are you providing verification details for? 
+              </h1>
+            </legend>
+
+            <!-- Check for error -->
+            {% if errorPscList %}
+            <p id="psc-type-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Select the PSC you providing verification details for
+            </p>
+            {% endif %} 
+            <div id="pscList-hint" class="govuk-hint">
+              {% if data['companyNumber'] == '12345678' %}
+                Big Shop ltd
+              {% elif data['companyNumber'] == '11112222' %}
+                Contruction 123 ltd
+              {% endif %}
+              
+              has the following PSCs. You can only provide verification details for one PSC at a time. 
+            </div>
+
+            {% if data['companyNumber'] == '12345678' %}
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="pscList" name="pscList" type="radio" value="Paul Smith">
+                <label class="govuk-label govuk-radios__label" for="pscList">
+                  Paul Smith
+                </label>
+                <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                  Born in April 1968
+                </div>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="pscList-2" name="pscList" type="radio" value="Susan Robinson">
+                <label class="govuk-label govuk-radios__label" for="pscList-2">
+                  Susan Robinson
+                </label>
+                <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                  Born in May 1989
+                </div>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="pscList-3" name="pscList" type="radio" value="Matthew Gant">
+                <label class="govuk-label govuk-radios__label" for="pscList-3">
+                  Matthew Gant
+                </label>
+                <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                  Born in June 1988
+                </div>
+              </div>
+            </div>
+
+            {% elif data['companyNumber'] == '11112222' %}
+            <div class="govuk-radios" data-module="govuk-radios">
+              <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-7">People with significant control (PSCs)</h2>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="pscList" name="pscList" type="radio" value="Cho Ying">
+                <label class="govuk-label govuk-radios__label" for="pscList">
+                  Cho Ying
+                </label>
+                <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                  Born April 2000
+                </div>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="pscList-2" name="pscList" type="radio" value="Josh Wood">
+                <label class="govuk-label govuk-radios__label" for="pscList-2">
+                  Josh Wood
+                </label>
+                <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                  Born April 1997
+                </div>
+              </div>
+            </div>
+            {% endif %}
+          </fieldset>
+        </div>
+              
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

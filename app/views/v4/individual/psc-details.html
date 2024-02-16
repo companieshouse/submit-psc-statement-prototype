@@ -1,0 +1,136 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  What is the relevant officer's full name? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- Check for error -->
+    {% if pscDetailsError %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+    {% endif %}
+    <span class="govuk-caption-xl">{{ data ['pscList']}}</span>
+    <h1 class="govuk-heading-l">Person of significant control's details</h1>
+
+    <form action="{{currentUrl}}" method="post">
+
+      <!-- Check for error -->
+      {% if errorPscDobDay or errorPscDobMonth or errorPscDobYear %}
+      <div class="govuk-form-group govuk-form-group--error">
+      {% else %}
+      <div class="govuk-form-group">
+      {% endif %} 
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="pscDob-hint">
+          <label class="govuk-label" for="pscDob">
+            Date of birth
+          </label>
+          <div id="pscDob-hint" class="govuk-hint">
+            For example, 27 3 1992
+          </div>
+          {% if pscMatchError %}
+            <p id="pscDob-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Enter the correct date of birth and Companies House personal code.
+            </p>
+          {% elif errorPscDobDay or errorPscDobMonth or errorPscDobYear%} 
+            <p id="pscDob-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> The date must include a day, month and year
+            </p>
+          {% endif %}
+          <div class="govuk-date-input" id="pscDob">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="pscDob-day">
+                  Day
+                </label>
+                <!-- Check for error -->
+                {% if errorPscDobDay %}
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="pscDob-day" name="pscDob-day" type="text" value="{{ data['pscDob-day']}}">
+                {% else %}
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="pscDob-day" name="pscDob-day" type="text" value="{{ data['pscDob-day']}}">
+                {% endif %} 
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="pscDob-month">
+                  Month
+                </label>
+                <!-- Check for error -->
+                {% if errorPscDobMonth %}
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="pscDob-month" name="pscDob-month" type="text" value="{{ data['pscDob-month']}}">
+                {% else %}
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="pscDob-month" name="pscDob-month" type="text" value="{{ data['pscDob-month']}}">
+                {% endif %} 
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="pscDob-year">
+                  Year
+                </label>
+                <!-- Check for error -->
+                {% if errorPscDobYear %}
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="pscDob-year" name="pscDob-year" type="text" value="{{ data['pscDob-year']}}">
+                {% else %}
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="pscDob-year" name="pscDob-year" type="text" value="{{ data['pscDob-year']}}">
+                {% endif %} 
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- Check for error -->
+      {% if errorPscPersonalCode or pscMatchError %}
+        <div class="govuk-form-group govuk-form-group--error">
+      {% else %}
+        <div class="govuk-form-group">
+      {% endif %} 
+          <label class="govuk-label govuk-date-input__label" for="pscPersonalCode">
+            Companies House personal code
+          </label>
+
+          <!-- Check for error -->
+          {% if errorPscPersonalCode %}
+            <p id="pscPersonalCode-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> Enter the personal code for the PSC
+            </p>
+          {% endif %} 
+          {% if errorPscPersonalCode or pscMatchError %}
+            <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing govuk-input--error" id="pscPersonalCode" name="pscPersonalCode" type="text" aria-describedby="pscPersonalCode-hint" value="{{ data['pscPersonalCode']}}">
+          {% else %}
+            <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing" id="pscPersonalCode" name="pscPersonalCode" type="text" aria-describedby="pscPersonalCode-hint" value="{{ data['pscPersonalCode']}}">
+          {% endif %} 
+      </div> 
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Where to find the Companies House personal code
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          This is an 11 character code that is given to a person after they have verified their identity with Companies House. 
+        </div>
+      </details>
+
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+{% endblock %}

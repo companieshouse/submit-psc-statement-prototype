@@ -110,12 +110,14 @@ router.get('/v4/confirm-company', function (req, res) {
 
 router.post('/v4/confirm-company', function (req, res) {
   if ((req.session.data['companyNumber'] == '22223333')) {
+    // Super secure
     res.redirect('/v4/super-secure')
+  } else if ((req.session.data['companyNumber'] == '66667777')){
+    // No PSCs or RLEs
+    res.redirect('/v4/no-pscs')
   } else {
     res.redirect('/v4/psc-type')
   }
-
-  
 })
 
 
@@ -128,59 +130,165 @@ router.get('/v4/psc-type', function (req, res) {
 })
 
 router.post('/v4/psc-type', function (req, res) {
-    if ((req.session.data['pscType'] == 'Megacorp Ltd') 
-    || (req.session.data['pscType'] == 'Omega Trading Group')) {
-      res.redirect('/v4/rle/ro-name')
+  var errors = []
+
+  if (typeof req.session.data['pscType'] === 'undefined') {
+    errors.push({
+      text: 'Select if your providing verification details for a PSC or RLE',
+      href: '#pscType'
+    })
+    
+    res.render('v4/psc-type', {
+      errorPscType: true,
+      errorList: errors
+    })
+  } else {
+    if ((req.session.data['pscType'] == 'rle')) {
+      res.redirect('/v4/rle/rle-list')
     } else {
-      res.redirect('/v4/individual/personal-code')
+      res.redirect('/v4/individual/psc-list')
     }
-  
+  }
 })
 
 
 // ******* rle javascript *******************************************************************
 
-
-// ******* ro-name javascript *********************
-router.get('/v4/rle/ro-name', function (req, res) {
-  // Set URl
-  res.render('v4/rle/ro-name', {
+// ******* rle-list javascript ********************************
+router.get('/v4/rle/rle-list', function (req, res) {
+  res.render('v4/rle/rle-list', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v4/rle/ro-name', function (req, res) {
+router.post('/v4/rle/rle-list', function (req, res) {
+  var errors = []
+
+  if (typeof req.session.data['rleList'] === 'undefined') {
+    errors.push({
+      text: 'Select the RLE you providing verification details for',
+      href: '#rleList'
+    })
+    
+    res.render('v4/rle/rle-list', {
+      errorRleList: true,
+      errorList: errors
+    })
+  } else {
+      res.redirect('/v4/rle/ro-details')
+    }
+})
+
+// ******* ro-details javascript *********************
+router.get('/v4/rle/ro-details', function (req, res) {
+  // Set URl
+  res.render('v4/rle/ro-details', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/v4/rle/ro-details', function (req, res) {
   // Create empty array and set error variables to false
   var errors = [];
+  var roDetailsError = false
 
   if (req.session.data['roName'] === '') {
-    // No value so add error to array
+    roNameError = true
+    roDetailsError = true
     errors.push({
       text: 'Enter the name of the relevant officer',
       href: '#roName'
     })
-
-    // Re-show page with error value as true so errors will show
-    res.render('v4/rle/ro-name', {
-      errorRoName: true,
-      errorList: errors
-    })
-  } else {
-      res.redirect('/v4/rle/ro-dob')
   }
-})
 
+  if (req.session.data['Dob-day'] === '') {
+    dobDayError = true
+    roDetailsError = true
+    errors.push({
+      text: 'Enter the day of birth',
+      href: '#dob'
+    })
+  }
+  
+  if (req.session.data['Dob-month'] === '') {
+    dobMonthError = true
+    roDetailsError = true
+    errors.push({
+      text: 'Enter the month of birth',
+      href: '#dob'
+    })
+  }
+  
+  if (req.session.data['Dob-year'] === '') {
+    dobYearError = true
+    roDetailsError = true
+    errors.push({
+      text: 'Enter the year of birth',
+      href: '#dob'
+    })
+  }
 
-// ******* ro-dob javascript *********************
-router.get('/v4/rle/ro-dob', function (req, res) {
-  // Set URl
-  res.render('v4/rle/ro-dob', {
-    currentUrl: req.originalUrl
+  if (req.session.data['roPersonalCode'] === '') {
+    roPersonalCodeError = true
+    roDetailsError = true
+    errors.push({
+      text: 'Enter the personal code',
+      href: '#roPersonalCode'
+    })
+  }
+
+  if (roDetailsError) {
+  res.render('v4/rle/ro-details', {
+    errorRoName: roNameError,
+    errorRoDobDay: dobDayError,
+    errorRoDobMonth: dobMonthError,
+    errorRoDobYear: dobYearError,
+    errorRoPersonalCode: roPersonalCodeError,
+    roDetailsError: roDetailsError,
+    errorList: errors
   })
-})
-
-router.post('/v4/rle/ro-dob', function (req, res) {
-  res.redirect('/v4/rle/ro-director')
+  } else {
+    // name mis-match
+    if (req.session.data['roPersonalCode'] === '111-2222-3333') {
+      res.redirect('/v4/rle/ro-why-this-name')
+    } 
+    // dob code mis-match
+    else if (req.session.data['roPersonalCode'] === '444-5555-6666') {
+      errors.push({
+      text: 'You’ve entered incorrect identity verification details. Enter the correct date of birth and Companies House personal code. You have 2 attempts left.',
+      href: '#roPersonalCode'
+      })
+      
+      res.render('v4/rle/ro-details', {
+        errorRoDobDay: true,
+        errorRoDobMonth: true,
+        errorRoDobYear: true,
+        matchError: true,
+        roDetailsError: true,
+        errorList: errors
+      })
+    } // too many attempts at dob, code
+      else if (req.session.data['roPersonalCode'] === 'aaa-bbbb-cccc') {
+      res.redirect('/v4/too-many-attempts')
+    } // Director too young
+      else if (req.session.data['Dob-year'] === '2009') {
+      errors.push({
+        text: 'The director must be at least 16 years of age',
+        href: '#Dob-year'
+        })
+        
+        res.render('v4/rle/ro-details', {
+          errorRoDobDay: true,
+          errorRoDobMonth: true,
+          errorRoDobYear: true,
+          roDetailsError: true,
+          yearError: true,
+          errorList: errors
+        })
+    } else {
+      res.redirect('/v4/rle/ro-director')
+    }
+  }
 })
 
 
@@ -211,7 +319,7 @@ router.post('/v4/rle/ro-director', function (req, res) {
     })
   } else {
     if (req.session.data['roDirector'] === 'yes') {
-      res.redirect('/v4/rle/ro-personal-code')
+      res.redirect('/v4/rle/ro-statements')
     } else {
       // User inputted value so move to next page
       res.redirect('/v4/rle/not-director-stop')
@@ -219,45 +327,6 @@ router.post('/v4/rle/ro-director', function (req, res) {
   }
 })
 
-
-
-// ******* ro-personal-code javascript *********************
-router.get('/v4/rle/ro-personal-code', function (req, res) {
-  // Set URl
-  res.render('v4/rle/ro-personal-code', {
-    currentUrl: req.originalUrl
-  })
-})
-
-router.post('/v4/rle/ro-personal-code', function (req, res) {
-  // Create empty array and set error variables to false
-  var errors = [];
-
-  if (req.session.data['roPersonalCode'] === '') {
-    // No value so add error to array
-    errors.push({
-      text: 'Enter the personal code for the relevant officer',
-      href: '#roPersonalCode'
-    })
-
-    // Re-show page with error value as true so errors will show
-    res.render('v4/rle/ro-personal-code', {
-      errorRoPersonalCode: true,
-      errorList: errors
-    })
-  } else {
-    if (req.session.data['roPersonalCode'] === '111-2222-3333') {
-      res.redirect('/v4/rle/ro-why-this-name')
-    } 
-    else if (req.session.data['roPersonalCode'] === '444-5555-6666') {
-      res.redirect('/v4/rle/non-match')
-    } else if (req.session.data['roPersonalCode'] === 'aaa-bbbb-cccc') {
-      res.redirect('/v4/too-many-attempts')
-    } else {
-      res.redirect('/v4/rle/ro-statements')
-    }
-  }
-})
 
 
 // ******* ro-why-this-name javascript ********************************
@@ -269,7 +338,7 @@ router.get('/v4/rle/ro-why-this-name', function (req, res) {
 })
 
 router.post('/v4/rle/ro-why-this-name', function (req, res) {
-  res.redirect('/v4/rle/ro-statements')
+  res.redirect('/v4/rle/ro-director')
 })
 
 
@@ -287,6 +356,118 @@ router.post('/v4/rle/ro-statements', function (req, res) {
 
 
 // **************************************************************************
+
+// ******* psc-list javascript ********************************
+router.get('/v4/individual/psc-list', function (req, res) {
+  res.render('v4/individual/psc-list', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/v4/individual/psc-list', function (req, res) {
+  var errors = []
+
+  if (typeof req.session.data['pscList'] === 'undefined') {
+    errors.push({
+      text: 'Select the PSC you providing verification details for',
+      href: '#pscList'
+    })
+    
+    res.render('v4/individual/psc-list', {
+      errorPscList: true,
+      errorList: errors
+    })
+  } else {
+      res.redirect('/v4/individual/psc-details')
+    }
+})
+
+// ******* posc-details javascript *********************
+router.get('/v4/individual/psc-details', function (req, res) {
+  // Set URl
+  res.render('v4/individual/psc-details', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/v4/individual/psc-details', function (req, res) {
+  // Create empty array and set error variables to false
+  var errors = [];
+  var pscDetailsError = false
+
+  if (req.session.data['pscDob-day'] === '') {
+    dobDayError = true
+    pscDetailsError = true
+    errors.push({
+      text: 'Enter the day of birth',
+      href: '#pscDob'
+    })
+  }
+  
+  if (req.session.data['pscDob-month'] === '') {
+    dobMonthError = true
+    pscDetailsError = true
+    errors.push({
+      text: 'Enter the month of birth',
+      href: '#pscDob'
+    })
+  }
+  
+  if (req.session.data['pscDob-year'] === '') {
+    dobYearError = true
+    pscDetailsError = true
+    errors.push({
+      text: 'Enter the year of birth',
+      href: '#pscDob'
+    })
+  }
+
+  if (req.session.data['pscPersonalCode'] === '') {
+    pscPersonalCodeError = true
+    pscDetailsError = true
+    errors.push({
+      text: 'Enter the personal code',
+      href: '#pscPersonalCode'
+    })
+  }
+
+  if (pscDetailsError) {
+  res.render('v4/individual/psc-details', {
+    errorPscDobDay: dobDayError,
+    errorPscDobMonth: dobMonthError,
+    errorPscDobYear: dobYearError,
+    errorPscPersonalCode: pscPersonalCodeError,
+    pscDetailsError: pscDetailsError,
+    errorList: errors
+  })
+  } else {
+    // name mis-match
+    if (req.session.data['pscPersonalCode'] === '111-2222-3333') {
+      res.redirect('/v4/individual/psc-why-this-name')
+    } 
+    // dob code mis-match
+    else if (req.session.data['pscPersonalCode'] === '444-5555-6666') {
+      errors.push({
+      text: 'You’ve entered incorrect identity verification details. Enter the correct date of birth and Companies House personal code. You have 2 attempts left.',
+      href: '#pscPersonalCode'
+      })
+      
+      res.render('v4/individual/psc-details', {
+        errorPscDobDay: true,
+        errorPscDobMonth: true,
+        errorPscDobYear: true,
+        pscMatchError: true,
+        pscDetailsError: true,
+        errorList: errors
+      })
+    } // too many attempts at dob, code
+      else if (req.session.data['pscPersonalCode'] === 'aaa-bbbb-cccc') {
+      res.redirect('/v4/too-many-attempts')
+    } else {
+      res.redirect('/v4/individual/psc-statement')
+    }
+  }
+})
 
 
 // ******* personal-code validation ********************************
