@@ -40,7 +40,7 @@
           </div>
           {% if pscMatchError %}
             <p id="pscDob-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span> Enter the correct date of birth and Companies House personal code.
+              <span class="govuk-visually-hidden">Error:</span> Enter the correct date of birth and Companies House personal code
             </p>
           {% elif errorPscDobDay or errorPscDobMonth or errorPscDobYear%} 
             <p id="pscDob-error" class="govuk-error-message">
@@ -106,8 +106,11 @@
             <p id="pscPersonalCode-error" class="govuk-error-message">
                 <span class="govuk-visually-hidden">Error:</span> Enter the personal code for the PSC
             </p>
-          {% endif %} 
-          {% if errorPscPersonalCode or pscMatchError %}
+            <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing govuk-input--error" id="pscPersonalCode" name="pscPersonalCode" type="text" aria-describedby="pscPersonalCode-hint" value="{{ data['pscPersonalCode']}}">
+          {% elif pscMatchError%} 
+            <p id="pscPersonalCode-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Enter the correct date of birth and Companies House personal code
+            </p>
             <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing govuk-input--error" id="pscPersonalCode" name="pscPersonalCode" type="text" aria-describedby="pscPersonalCode-hint" value="{{ data['pscPersonalCode']}}">
           {% else %}
             <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing" id="pscPersonalCode" name="pscPersonalCode" type="text" aria-describedby="pscPersonalCode-hint" value="{{ data['pscPersonalCode']}}">
