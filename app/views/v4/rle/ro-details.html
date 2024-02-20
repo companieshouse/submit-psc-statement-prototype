@@ -130,8 +130,10 @@
             <p id="roPersonalCode-error" class="govuk-error-message">
                 <span class="govuk-visually-hidden">Error:</span> Enter the personal code for the relevant officer
             </p>
-          {% endif %} 
-          {% if errorRoPersonalCode or matchError %}
+          {% elif matchError%} 
+            <p id="roPersonalCode-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Enter the personal code for the relevant officer
+            </p>
             <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing govuk-input--error" id="roPersonalCode" name="roPersonalCode" type="text" aria-describedby="roPersonalCode-hint" value="{{ data['roPersonalCode']}}">
           {% else %}
             <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing" id="roPersonalCode" name="roPersonalCode" type="text" aria-describedby="roPersonalCode-hint" value="{{ data['roPersonalCode']}}">
