@@ -41,15 +41,16 @@
             <p id="psc-type-error" class="govuk-error-message">
               <span class="govuk-visually-hidden">Error:</span> Select the PSC you providing verification details for
             </p>
+            
             {% endif %} 
-            <div id="pscList-hint" class="govuk-hint">
+            <div id="pscList-hint" class="govuk-hint">The following PSCs for
               {% if data['companyNumber'] == '12345678' %}
-                Big Shop ltd
+                Big Shop Ltd
               {% elif data['companyNumber'] == '11112222' %}
                 Contruction 123 ltd
               {% endif %}
               
-              has the following PSCs. You can only provide verification details for one PSC at a time. 
+              still need to provide their identity verification details. We will not show PSCs whose identity has been confirmed. You can only provide verification details for one PSC at a time. 
             </div>
 
             {% if data['companyNumber'] == '12345678' %}
