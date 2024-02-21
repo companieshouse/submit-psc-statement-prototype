@@ -55,9 +55,9 @@
                 </label>
                 <!-- Check for error -->
                 {% if errorPscDobDay %}
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="pscDob-day" name="pscDob-day" type="text" value="{{ data['pscDob-day']}}">
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="pscDob-day" name="pscDob-day" type="text">
                 {% else %}
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="pscDob-day" name="pscDob-day" type="text" value="{{ data['pscDob-day']}}">
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="pscDob-day" name="pscDob-day" type="text">
                 {% endif %} 
               </div>
             </div>
@@ -68,9 +68,9 @@
                 </label>
                 <!-- Check for error -->
                 {% if errorPscDobMonth %}
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="pscDob-month" name="pscDob-month" type="text" value="{{ data['pscDob-month']}}">
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="pscDob-month" name="pscDob-month" type="text">
                 {% else %}
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="pscDob-month" name="pscDob-month" type="text" value="{{ data['pscDob-month']}}">
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="pscDob-month" name="pscDob-month" type="text">
                 {% endif %} 
               </div>
             </div>
@@ -81,9 +81,9 @@
                 </label>
                 <!-- Check for error -->
                 {% if errorPscDobYear %}
-                <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="pscDob-year" name="pscDob-year" type="text" value="{{ data['pscDob-year']}}">
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="pscDob-year" name="pscDob-year" type="text">
                 {% else %}
-                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="pscDob-year" name="pscDob-year" type="text" value="{{ data['pscDob-year']}}">
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="pscDob-year" name="pscDob-year" type="text">
                 {% endif %} 
               </div>
             </div>
@@ -106,14 +106,14 @@
             <p id="pscPersonalCode-error" class="govuk-error-message">
                 <span class="govuk-visually-hidden">Error:</span> Enter the personal code for the PSC
             </p>
-            <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing govuk-input--error" id="pscPersonalCode" name="pscPersonalCode" type="text" aria-describedby="pscPersonalCode-hint" value="{{ data['pscPersonalCode']}}">
+            <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing govuk-input--error" id="pscPersonalCode" name="pscPersonalCode" type="text" aria-describedby="pscPersonalCode-hint">
           {% elif pscMatchError%} 
             <p id="pscPersonalCode-error" class="govuk-error-message">
               <span class="govuk-visually-hidden">Error:</span> Enter the correct date of birth and Companies House personal code
             </p>
-            <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing govuk-input--error" id="pscPersonalCode" name="pscPersonalCode" type="text" aria-describedby="pscPersonalCode-hint" value="{{ data['pscPersonalCode']}}">
+            <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing govuk-input--error" id="pscPersonalCode" name="pscPersonalCode" type="text" aria-describedby="pscPersonalCode-hint">
           {% else %}
-            <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing" id="pscPersonalCode" name="pscPersonalCode" type="text" aria-describedby="pscPersonalCode-hint" value="{{ data['pscPersonalCode']}}">
+            <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing" id="pscPersonalCode" name="pscPersonalCode" type="text" aria-describedby="pscPersonalCode-hint">
           {% endif %} 
       </div> 
 

@@ -192,12 +192,21 @@ router.post('/v4/rle/ro-details', function (req, res) {
   var errors = [];
   var roDetailsError = false
 
-  if (req.session.data['roName'] === '') {
-    roNameError = true
+  if (req.session.data['firstName'] === '') {
+    firstNameError = true
     roDetailsError = true
     errors.push({
-      text: 'Enter the name of the relevant officer',
-      href: '#roName'
+      text: 'Enter the first name',
+      href: '#firstName'
+    })
+  }
+
+  if (req.session.data['lastName'] === '') {
+    lastNameError = true
+    roDetailsError = true
+    errors.push({
+      text: 'Enter the last name',
+      href: '#lastName'
     })
   }
 
@@ -239,7 +248,8 @@ router.post('/v4/rle/ro-details', function (req, res) {
 
   if (roDetailsError) {
   res.render('v4/rle/ro-details', {
-    errorRoName: roNameError,
+    errorFirstName: firstNameError,
+    errorLastName: lastNameError,
     errorRoDobDay: dobDayError,
     errorRoDobMonth: dobMonthError,
     errorRoDobYear: dobYearError,
@@ -263,7 +273,7 @@ router.post('/v4/rle/ro-details', function (req, res) {
         errorRoDobDay: true,
         errorRoDobMonth: true,
         errorRoDobYear: true,
-        matchError: true,
+        rleMatchError: true,
         roDetailsError: true,
         errorList: errors
       })
