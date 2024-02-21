@@ -21,7 +21,7 @@
       }) }}
     {% endif %}
     <span class="govuk-caption-xl">{{ data ['pscList']}}</span>
-    <h1 class="govuk-heading-l">Person of significant control's details</h1>
+    <h1 class="govuk-heading-l">Person with significant control's details</h1>
 
     <form action="{{currentUrl}}" method="post">
 
@@ -40,7 +40,7 @@
           </div>
           {% if pscMatchError %}
             <p id="pscDob-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span> Enter the correct date of birth and Companies House personal code
+              <span class="govuk-visually-hidden">Error:</span> Enter the correct date of birth
             </p>
           {% elif errorPscDobDay or errorPscDobMonth or errorPscDobYear%} 
             <p id="pscDob-error" class="govuk-error-message">
@@ -109,7 +109,7 @@
             <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing govuk-input--error" id="pscPersonalCode" name="pscPersonalCode" type="text" aria-describedby="pscPersonalCode-hint">
           {% elif pscMatchError%} 
             <p id="pscPersonalCode-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span> Enter the correct date of birth and Companies House personal code
+              <span class="govuk-visually-hidden">Error:</span> Enter the correct Companies House personal code
             </p>
             <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing govuk-input--error" id="pscPersonalCode" name="pscPersonalCode" type="text" aria-describedby="pscPersonalCode-hint">
           {% else %}

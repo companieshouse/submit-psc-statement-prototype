@@ -83,7 +83,7 @@
           </div>
           {% if rleMatchError %}
             <p id="Dob-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span> Enter the correct date of birth and Companies House personal code
+              <span class="govuk-visually-hidden">Error:</span> Enter the correct date of birth
             </p>
           {% elif errorRoDobDay or errorRoDobMonth or errorRoDobYear%} 
             <p id="Dob-error" class="govuk-error-message">
@@ -156,7 +156,7 @@
             <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing govuk-input--error" id="roPersonalCode" name="roPersonalCode" type="text" aria-describedby="roPersonalCode-hint">
           {% elif rleMatchError%} 
             <p id="roPersonalCode-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span> Enter the correct date of birth and Companies House personal code
+              <span class="govuk-visually-hidden">Error:</span> Enter the correct Companies House personal code
             </p>
             <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing govuk-input--error" id="roPersonalCode" name="roPersonalCode" type="text" aria-describedby="roPersonalCode-hint">
           {% else %}
