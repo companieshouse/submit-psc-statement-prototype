@@ -32,7 +32,7 @@
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
-                Which RLE are you providing verification details for? 
+                Which RLE are you providing relevant officer details for? 
               </h1>
             </legend>
 
@@ -41,16 +41,19 @@
             <p id="psc-type-error" class="govuk-error-message">
               <span class="govuk-visually-hidden">Error:</span> Select the Rle you providing verification details for
             </p>
-            {% endif %} 
-            <div id="rleList-hint" class="govuk-hint">
+            {% endif %}
+
+            <div id="rleList-hint" class="govuk-hint"> These are the RLEs for
+
               {% if data['companyNumber'] == '12345678' %}
-                Big Shop ltd
+                Big Shop Ltd.
               {% elif data['companyNumber'] == '11112222' %}
-                Contruction 123 ltd
-              {% endif %}
-              
-              has the following RLEs. You can only provide verification details for one RLE at a time. 
+                Contruction 123 Ltd.
+                              {% endif %}
+                              
+                You can only provide verification details for one RLE at a time. 
             </div>
+
 
             {% if data['companyNumber'] == '12345678' %}
             <div class="govuk-radios" data-module="govuk-radios">
