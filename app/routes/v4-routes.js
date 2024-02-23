@@ -265,7 +265,7 @@ router.post('/v4/rle/ro-details', function (req, res) {
     // dob code mis-match
     else if (req.session.data['roPersonalCode'] === '444-5555-6666') {
       errors.push({
-      text: 'The details you’ve entered don’t match what we have on record. Enter the correct date of birth and Companies House personal code. You have 2 attempts left.',
+      text: 'You have entered incorrect verification details for this person. Check the date of birth and Companies House personal code, and try again.',
       href: '#roPersonalCode'
       })
       
@@ -405,47 +405,17 @@ router.post('/v4/individual/psc-details', function (req, res) {
   var errors = [];
   var pscDetailsError = false
 
-  if (req.session.data['pscDob-day'] === '') {
-    dobDayError = true
-    pscDetailsError = true
-    errors.push({
-      text: 'Enter the day of birth',
-      href: '#pscDob'
-    })
-  }
-  
-  if (req.session.data['pscDob-month'] === '') {
-    dobMonthError = true
-    pscDetailsError = true
-    errors.push({
-      text: 'Enter the month of birth',
-      href: '#pscDob'
-    })
-  }
-  
-  if (req.session.data['pscDob-year'] === '') {
-    dobYearError = true
-    pscDetailsError = true
-    errors.push({
-      text: 'Enter the year of birth',
-      href: '#pscDob'
-    })
-  }
-
   if (req.session.data['pscPersonalCode'] === '') {
     pscPersonalCodeError = true
     pscDetailsError = true
     errors.push({
-      text: 'Enter the personal code',
+      text: 'Enter the personal code for the PSC',
       href: '#pscPersonalCode'
     })
   }
 
   if (pscDetailsError) {
   res.render('v4/individual/psc-details', {
-    errorPscDobDay: dobDayError,
-    errorPscDobMonth: dobMonthError,
-    errorPscDobYear: dobYearError,
     errorPscPersonalCode: pscPersonalCodeError,
     pscDetailsError: pscDetailsError,
     errorList: errors
@@ -463,9 +433,6 @@ router.post('/v4/individual/psc-details', function (req, res) {
       })
       
       res.render('v4/individual/psc-details', {
-        errorPscDobDay: true,
-        errorPscDobMonth: true,
-        errorPscDobYear: true,
         pscMatchError: true,
         pscDetailsError: true,
         errorList: errors
