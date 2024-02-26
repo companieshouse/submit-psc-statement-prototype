@@ -392,7 +392,7 @@ router.post('/v4/individual/psc-list', function (req, res) {
     }
 })
 
-// ******* posc-details javascript *********************
+// ******* psc-details javascript *********************
 router.get('/v4/individual/psc-details', function (req, res) {
   // Set URl
   res.render('v4/individual/psc-details', {
