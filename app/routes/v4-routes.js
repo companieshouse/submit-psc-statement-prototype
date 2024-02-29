@@ -265,7 +265,7 @@ router.post('/v4/rle/ro-details', function (req, res) {
     // dob code mis-match
     else if (req.session.data['roPersonalCode'] === '444-5555-6666') {
       errors.push({
-      text: 'You have entered incorrect verification details for this person. Check the date of birth and Companies House personal code, and try again.',
+      text: 'The details you entered don’t match what we have on record. Check the date of birth and Companies House personal code, and try again.',
       href: '#roPersonalCode'
       })
       
@@ -428,7 +428,7 @@ router.post('/v4/individual/psc-details', function (req, res) {
     // dob code mis-match
     else if (req.session.data['pscPersonalCode'] === '444-5555-6666') {
       errors.push({
-      text: 'You have entered incorrect verification details for this person. Check the date of birth and Companies House personal code, and try again. If the date of birth we hold is wrong, you must correct the PSC’s details. ',
+      text: 'The details you entered don’t match what we have on record. Check the date of birth and Companies House personal code, and try again. If the date of birth we hold is wrong, you must correct the PSC’s details. ',
       href: '#pscPersonalCode'
       })
       
