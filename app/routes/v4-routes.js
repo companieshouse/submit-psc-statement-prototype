@@ -427,20 +427,9 @@ router.post('/v4/individual/psc-details', function (req, res) {
     } 
     // dob code mis-match
     else if (req.session.data['pscPersonalCode'] === '444-5555-6666') {
-      errors.push({
-      text: 'The details you entered don’t match what we have on record. Check the date of birth and Companies House personal code, and try again. If the date of birth we hold is wrong, you must correct the PSC’s details. ',
-      href: '#pscPersonalCode'
-      })
-      
-      res.render('v4/individual/psc-details', {
-        pscMatchError: true,
-        pscDetailsError: true,
-        errorList: errors
-      })
-    } // too many attempts at dob, code
-      else if (req.session.data['pscPersonalCode'] === 'aaa-bbbb-cccc') {
-      res.redirect('/v4/too-many-attempts')
-    } else {
+      res.redirect('/v4/individual/psc-dob-mismatch')
+    } 
+    else {
       res.redirect('/v4/individual/psc-statement')
     }
   }

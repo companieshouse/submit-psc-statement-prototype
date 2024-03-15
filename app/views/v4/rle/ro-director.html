@@ -31,7 +31,7 @@ Is the RLE a director? – {{ serviceName }} – GOV.UK Prototype Kit
       {% endif %} 
         <fieldset class="govuk-fieldset" aria-describedby="roDirector-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <span class="govuk-caption-xl">{{ data['firstName']}} {{ data['middleName']}} {{ data['lastName']}}</span>
+            <span class="govuk-caption-xl">{{ data['firstName']}} {{ data['middleName']}} {{ data['lastName']}} (Born {{ data['Dob-month'] | displayMonth}} {{ data['Dob-year']}})</span>
             <h1 class="govuk-fieldset__heading">
             Are they a director of {{ data['rleList'] }}?
             </h1>

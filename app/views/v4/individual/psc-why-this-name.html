@@ -15,7 +15,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form action="{{currentUrl}}" method="post">
-      <span class="govuk-caption-xl">{{ data ['pscList']}}</span>
+      <span class="govuk-caption-xl">{{ data ['pscList']}} (Born April 1989)</span>
       <h1 class="govuk-heading-l">Why is the name on the public register different to the verified name?</h1>
 
 
@@ -26,31 +26,38 @@
           <div class="govuk-radios" data-module="govuk-radios">
 
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="whyThisName-3" name="whyThisName" type="radio" value="marriage">
-              <label class="govuk-label govuk-radios__label" for="whyThisName-3">
+              <input class="govuk-radios__input" id="whyThisName" name="whyThisName" type="radio" value="marriage">
+              <label class="govuk-label govuk-radios__label" for="whyThisName">
                 Legally changed name (for example, marriage or divorce)
               </label>
             </div>
 
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="whyThisName-4" name="whyThisName" type="radio" value="preffered name">
-              <label class="govuk-label govuk-radios__label" for="whyThisName-4">
+              <input class="govuk-radios__input" id="whyThisName-2" name="whyThisName" type="radio" value="preffered name">
+              <label class="govuk-label govuk-radios__label" for="whyThisName-2">
                 Preferred name    
               </label>
             </div>
 
 
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="whyThisName-4" name="whyThisName" type="radio" value="legal">
-              <label class="govuk-label govuk-radios__label" for="whyThisName-4">
+              <input class="govuk-radios__input" id="whyThisName-3" name="whyThisName" type="radio" value="legal">
+              <label class="govuk-label govuk-radios__label" for="whyThisName-3">
                 Translation or a different naming convention 
               </label>
             </div>
 
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="whyThisName-2" name="whyThisName" type="radio" value="prefer">
-              <label class="govuk-label govuk-radios__label" for="whyThisName-2">
+              <input class="govuk-radios__input" id="whyThisName-4" name="whyThisName" type="radio" value="prefer">
+              <label class="govuk-label govuk-radios__label" for="whyThisName-4">
                   Prefer not to say
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whyThisName-5" name="whyThisName" type="radio" value="error">
+              <label class="govuk-label govuk-radios__label" for="whyThisName-5">
+                Error on the regiser
               </label>
             </div>
 
