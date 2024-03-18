@@ -16,8 +16,11 @@
   <div class="govuk-grid-column-two-thirds">
     <form action="{{currentUrl}}" method="post">
       <span class="govuk-caption-xl">{{ data ['pscList']}} (Born April 1989)</span>
-      <h1 class="govuk-heading-l">Why is the name on the public register different to the verified name?</h1>
+      <h1 class="govuk-heading-l">Why is the name on the public register different to the PSC's verified name?</h1>
 
+      <p class="govuk-body">Tell us why the names do not match. We may contact you if we need more information.</p>
+        
+      <p class="govuk-body">You should also consider whether this company needs to <a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" target="_blank">update the PSC name on the public register</a>.</p>
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="whyThisName-hint">       
@@ -48,16 +51,16 @@
             </div>
 
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="whyThisName-4" name="whyThisName" type="radio" value="prefer">
-              <label class="govuk-label govuk-radios__label" for="whyThisName-4">
-                  Prefer not to say
+              <input class="govuk-radios__input" id="whyThisName-5" name="whyThisName" type="radio" value="error">
+              <label class="govuk-label govuk-radios__label" for="whyThisName-5">
+                Error on the public register
               </label>
             </div>
 
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="whyThisName-5" name="whyThisName" type="radio" value="error">
-              <label class="govuk-label govuk-radios__label" for="whyThisName-5">
-                Error on the regiser
+              <input class="govuk-radios__input" id="whyThisName-4" name="whyThisName" type="radio" value="prefer">
+              <label class="govuk-label govuk-radios__label" for="whyThisName-4">
+                  Prefer not to say
               </label>
             </div>
 
@@ -65,9 +68,6 @@
         </fieldset>
       </div>
 
-      <p class="govuk-body">You should consider whether you need to update the name on the public register. We may contact you if we need more information.</p>
-
-      <p class="govuk-body">You can <a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" target="_blank">make changes to PSC information</a> with this service.</p>
 
       {{ govukButton({
         text: "Continue"
