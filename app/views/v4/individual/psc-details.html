@@ -26,7 +26,7 @@
     <form action="{{currentUrl}}" method="post">
 
       <!-- Check for error -->
-      {% if errorPscPersonalCode or pscMatchError %}
+      {% if errorPscPersonalCode %}
         <div class="govuk-form-group govuk-form-group--error">
       {% else %}
         <div class="govuk-form-group">
@@ -37,11 +37,6 @@
           {% if errorPscPersonalCode %}
             <p id="pscPersonalCode-error" class="govuk-error-message">
                 <span class="govuk-visually-hidden">Error:</span> Enter the personal code for the PSC
-            </p>
-            <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing govuk-input--error" id="pscPersonalCode" name="pscPersonalCode" type="text" aria-describedby="pscPersonalCode-hint">
-          {% elif pscMatchError%} 
-            <p id="pscPersonalCode-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span> Enter the correct Companies House personal code
             </p>
             <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing govuk-input--error" id="pscPersonalCode" name="pscPersonalCode" type="text" aria-describedby="pscPersonalCode-hint">
           {% else %}

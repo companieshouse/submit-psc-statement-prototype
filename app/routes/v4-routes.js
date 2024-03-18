@@ -263,7 +263,7 @@ router.post('/v4/rle/ro-details', function (req, res) {
       res.redirect('/v4/rle/ro-why-this-name')
     } 
     // dob code mis-match
-    else if (req.session.data['roPersonalCode'] === '444-5555-6666') {
+    else if (req.session.data['roPersonalCode'] === '777-8888-999') {
       errors.push({
       text: 'The details you entered don’t match what we have on record. Check the date of birth and Companies House personal code, and try again.',
       href: '#roPersonalCode'
