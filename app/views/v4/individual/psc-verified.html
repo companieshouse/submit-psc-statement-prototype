@@ -16,65 +16,21 @@ PSC confirmed – {{ serviceName }} – GOV.UK Prototype Kit
   <div class="govuk-grid-column-two-thirds">
     <div class="govuk-panel govuk-panel--confirmation">
       <h1 class="govuk-panel__title">
-        Identity verification details submitted 
+        Person with significant control verification details, provided 
       </h1>
-      <div class="govuk-panel__body">
-        Your reference number<br><strong>HDJ2123F</strong>
-      </div>
     </div>
-
-    <dl class="govuk-summary-list">
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Company number
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ data['companyNumber']}}
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Company name
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {% if data['companyNumber'] == '12345678' %}
-            Big Shop Ltd
-          {% elif data['companyNumber'] == '11112222' %}
-            Contruction 123 Ltd
-          {% endif %}
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          PSC name
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ data['pscList']}}
-        </dd>
-      </div>
-    </dl>
   
       <p class="govuk-body">We have sent a confirmation email to  
         <b> {{ data['signin-email']}}</b>.</p>   
-
-      <p class="govuk-body">We'll process the submission as soon as possible, and email you to let you know if it is accepted or rejected.</p>
-
-
-      <h2 class="govuk-heading-m">What do you want to do next?</h2>
+        
+      <h2 class="govuk-heading-m">Next steps</h2>
 
       <p class="govuk-body">
-        <a href="../psc-type" class="govuk-link">Provide verification details for a PSC or RLE of 
-          
-          {% if data['companyNumber'] == '12345678' %}
-            Big Shop Ltd.
-          {% elif data['companyNumber'] == '11112222' %}
-            Contruction 123 Ltd.
-          {% endif %}
-        </a>
+        <a href="../psc-type" class="govuk-link">Provide verification details for a PSC</a> in Big Shop ltd.
       </p>
 
       <p class="govuk-body">
-        <a href="../company-number" class="govuk-link">Provide verification details for a PSC of another company</a>.
+        <a href="../company-number" class="govuk-link">Provide verification details for a PSC</a> in another company.
       </p>
   </div>
 </div>

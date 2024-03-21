@@ -32,40 +32,106 @@
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
-                Are you providing verification details for a PSC or an RLE? 
+                What PSC or RLE are you providing verification details for? 
               </h1>
             </legend>
-
             <!-- Check for error -->
             {% if errorPscType %}
             <p id="psc-type-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span> Select if your providing verification details for a PSC or RLE
+              <span class="govuk-visually-hidden">Error:</span> Select the type of PSC
             </p>
             {% endif %} 
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="pscType" name="pscType" type="radio" value="psc">
-              <label class="govuk-label govuk-radios__label" for="pscType">
-                Person with significant control (PSC)
-              </label>
+            <div id="changedName-hint" class="govuk-hint">
+              The confirmed company is linked with the following PSCs / RLEs. Select the result you would like to provide verification details for.  
             </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="pscType-2" name="pscType" type="radio" value="rle">
-              <label class="govuk-label govuk-radios__label" for="pscType-2">
-                Relevant legal entity (RLE)
-              </label>
-              <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
-                  You'll need to provide the relevant officer's details
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-5">Relevant Legal Entities (RLE)</h2>
+            
+              {% if data['companyNumber'] == '12345678' %}
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscType" name="pscType" type="radio" value="Megacorp Ltd">
+                  <label class="govuk-label govuk-radios__label" for="pscType">
+                    Megacorp Ltd
+                  </label>
                 </div>
-            </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscType-2" name="pscType" type="radio" value="Omega Trading Group">
+                  <label class="govuk-label govuk-radios__label" for="pscType-2">
+                    Omega Trading Group
+                  </label>
+                </div>
+
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-7">Individual PSC</h2>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscType-3" name="pscType" type="radio" value="Paul Smith">
+                  <label class="govuk-label govuk-radios__label" for="pscType-3">
+                    Paul Smith
+                  </label>
+                  <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                    Born April 1968
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscType-4" name="pscType" type="radio" value="Susan Robinson">
+                  <label class="govuk-label govuk-radios__label" for="pscType-4">
+                    Susan Robinson
+                  </label>
+                  <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                    Born April 1990
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscType-5" name="pscType" type="radio" value="Matthew Gant">
+                  <label class="govuk-label govuk-radios__label" for="pscType-5">
+                    Matthew Gant
+                  </label>
+                  <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                    Born April 1980
+                  </div>
+                </div>
+              </div>
+
+              {% elif data['companyNumber'] == '11112222' %}
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscType" name="pscType" type="radio" value="Alpha Trading Group">
+                  <label class="govuk-label govuk-radios__label" for="pscType">
+                    Alpha Trading Group
+                  </label>
+                </div>
+
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-7">Individual PSC</h2>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscType-2" name="pscType" type="radio" value="Cho Ying">
+                  <label class="govuk-label govuk-radios__label" for="pscType-2">
+                    Cho Ying
+                  </label>
+                  <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                    Born April 2000
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscType-3" name="pscType" type="radio" value="Josh Wood">
+                  <label class="govuk-label govuk-radios__label" for="pscType-3">
+                    Josh Wood
+                  </label>
+                  <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                    Born April 1997
+                  </div>
+                </div>
+              </div>
+              {% endif %}
           </fieldset>
         </div>
 
         {{ govukDetails({
           summaryText: "What is the difference between a PSC and an RLE? ",
-          html: 'A person with significant control (PSC) is an individual who has 
-          significant control over a company. A relevant legal entity (RLE) is a corporate entity that would qualify as a PSC of 
-          a company if it were an individual.'
+          html: 'A PSC is a term used to describe an individual who has 
+          significant control over a company. An RLE is a term used to 
+          describe a corporate entity that would qualify as a PSC of 
+          another company if it were an individual.'
         }) }}
               
         {{ govukButton({

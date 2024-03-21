@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Is the RLE a director? – {{ serviceName }} – GOV.UK Prototype Kit
+Are you a director? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -31,18 +31,14 @@ Is the RLE a director? – {{ serviceName }} – GOV.UK Prototype Kit
       {% endif %} 
         <fieldset class="govuk-fieldset" aria-describedby="roDirector-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <span class="govuk-caption-xl">{{ data['firstName']}} {{ data['middleName']}} {{ data['lastName']}} (Born {{ data['Dob-month'] | displayMonth}} {{ data['Dob-year']}})</span>
             <h1 class="govuk-fieldset__heading">
-            Are they a director of {{ data['rleList'] }}?
+            Is the relevant officer a director or equivalent of {{ data['pscType'] }}?
             </h1>
-            <div id="ro-director-hint" class="govuk-hint">
-             A relevant officer must be a director of the entity, or someone whose roles and responsibilities correspond to that of a company director. 
-            </div>
           </legend>
           <!-- Check for error -->
           {% if errorDirector %}
           <p id="roDirector-error" class="govuk-error-message">
-            <span class="govuk-visually-hidden">Error:</span> Select yes if the relevant officer is a director of the entity
+            <span class="govuk-visually-hidden">Error:</span> You must select if the relevant officer is a director
           </p>
           {% endif %} 
           <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">

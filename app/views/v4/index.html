@@ -40,60 +40,6 @@
       <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
           <h2 class="govuk-summary-card__title">
-            Personal code
-          </h2>
-        </div>
-        <div class="govuk-summary-card__content">
-          <dl class="govuk-summary-list">
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                111-2222-3333
-              </dt>
-              <dd class="govuk-summary-list__value">
-                Shows the 'Why is the verified name different?' page 
-                in the RLE or PSC journey.
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                444-5555-6666
-              </dt>
-              <dd class="govuk-summary-list__value">
-                Shows the data doesn't match page in the RLE or PSC journey.
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                aaa-bbbb-cccc
-              </dt>
-              <dd class="govuk-summary-list__value">
-                Shows the too many attempts page in the PSC or RLE journey.
-              </dd>
-            </div>
-          </dl>
-        </div>
-      </div>
-
-      <div class="govuk-summary-card">
-        <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">
-            Year of birth - 2009
-          </h2>
-        </div>
-        <div class="govuk-summary-card__content">
-          <dl class="govuk-summary-list">
-            <div class="govuk-summary-list__row">
-              <dd class="govuk-summary-list__value">
-                Shows the director not old enough error in the RLE journey
-              </dd>
-            </div>
-          </dl>
-        </div>
-      </div>
-
-      <div class="govuk-summary-card">
-        <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">
             Company number - 12345678
           </h2>
         </div>
@@ -198,18 +144,17 @@
       <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
           <h2 class="govuk-summary-card__title">
-            Super secure Company number - 22223333
+            Personal code - 01010101
           </h2>
         </div>
         <div class="govuk-summary-card__content">
           <dl class="govuk-summary-list">
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Company name
+                A personal code of '01010101'
+                will show the 'Why is the verified name different?' page 
+                in the RLE or PSC journey.
               </dt>
-              <dd class="govuk-summary-list__value">
-                Supercorp ltd
-              </dd>
             </div>
           </dl>
         </div>
@@ -235,22 +180,28 @@
         </li> 
         <li>
           <a class="govuk-link govuk-link--no-visited-state" href="confirm-company">confirm-company</a>
-        </li>
+        </li> 
         <li>
           <a class="govuk-link govuk-link--no-visited-state" href="psc-type">psc-type</a>
-        </li>  
+        </li> 
       </ul>
 
       <h2 class="govuk-heading-s" id="individualScreenLinks">RLE</h2>
       <ul class="govuk-list govuk-list--bullet">
         <li>
-          <a class="govuk-link govuk-link--no-visited-state" href="rle/rle-list">rle list</a>
+          <a class="govuk-link govuk-link--no-visited-state" href="rle/employee">employee</a>
         </li> 
         <li>
-          <a class="govuk-link govuk-link--no-visited-state" href="rle/ro-details">ro-details</a>
+          <a class="govuk-link govuk-link--no-visited-state" href="rle/ro-name">ro-name</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="rle/ro-dob">ro-dob</a>
         </li> 
         <li>
           <a class="govuk-link govuk-link--no-visited-state" href="rle/ro-director">ro-director</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="rle/ro-personal-code">ro-personal-code</a>
         </li> 
         <li>
           <a class="govuk-link govuk-link--no-visited-state" href="rle/ro-statements">ro-statements</a>
@@ -279,16 +230,13 @@
           <a class="govuk-link govuk-link--no-visited-state" href="rle/not-director-stop">not-director-stop</a>
         </li> 
         <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="individual/psc-cannot-confirm-yet">psc-cannot-confirm-yet</a>
+        </li> 
+        <li>
           <a class="govuk-link govuk-link--no-visited-state" href="rle/ro-why-this-name">Different name - RLE</a>
         </li> 
         <li>
           <a class="govuk-link govuk-link--no-visited-state" href="individual/psc-why-this-name">Different name - PSC</a>
-        </li> 
-        <li>
-          <a class="govuk-link govuk-link--no-visited-state" href="individual/non-match">non-match - psc</a>
-        </li>
-        <li>
-          <a class="govuk-link govuk-link--no-visited-state" href="too-many-attempts.html">too-many-attempts</a>
         </li> 
       </ul>
 
@@ -297,27 +245,16 @@
       <h2 class="govuk-heading-m" id="authScreens">Changes this version</h2>
       <ul class="govuk-list govuk-list--bullet">      
         <li>
-          Are you an employee of company screen removed as this will not 
-          be a requirement first release until presenters goes live.
+          All screens for RLE journey added to service
         </li>
         <li>
-          RO DOB, Companies House code and name combined into one RO details 
-          page to allow data mismatch error to be displayed.
+          Content around linking removed as service name changed to 'Provide verification details for a PSC or relevant legal entity'
         </li>
         <li>
-          Individual PSC DOB and  Companies House code combined into one PSC details 
-          page to allow data mismatch error to be displayed.
+          New screen to select RLE or PSC added
         </li>
         <li>
-          Table of details added to PSc and RLE verification complete pages.
-        </li>
-        <li>
-          Are you a PSC or RLE page added ti split journey. This is to make content and flow 
-          easier to understand, as PSC list will reduce as they are verified but RLE will not. 
-          This is because the only way to update and RO is to do this process again
-        </li>
-        <li>
-          Content changes throughout.
+          New start screen content
         </li>
       </ul>
 
@@ -326,7 +263,7 @@
       <h2 class="govuk-heading-m" id="authScreens">User research</h2>
       <ul class="govuk-list govuk-list--bullet">      
         <li>
-          <a class="govuk-link govuk-link--no-visited-state" target="_blank" href="#">tbd</a>
+          <a class="govuk-link govuk-link--no-visited-state" target="_blank" href="https://companieshouse.sharepoint.com/sites/PSCstatementvideos/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FPSCstatementvideos%2FShared%20Documents%2FGeneral%2FProvide%20verification%20details%20for%20a%20PSC%20or%20RLE%2FR4&viewid=2a1c22d3%2Df1bd%2D4b07%2D822e%2D762a16eb851f">Round 4 user research videos</a>
         </li>
       </ul>
 
@@ -335,7 +272,7 @@
       <h2 class="govuk-heading-m" id="authScreens">Journey flow</h2>
       <ul class="govuk-list govuk-list--bullet">      
         <li>
-          <a class="govuk-link govuk-link--no-visited-state" target="_blank" href="https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1708082939363/554b33a6b564e87b87c38fa187c0a73596b1dffc?sender=u9bc72e5725f1871777091172">V4 screen flow diagram</a>
+          <a class="govuk-link govuk-link--no-visited-state" target="_blank" href="https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1702895598870/a125eaf48e55dd40e7f4d137e8a678a7e0448e35?sender=u9bc72e5725f1871777091172">V4 screen flow diagram</a>
         </li>
       </ul>
 
@@ -367,17 +304,6 @@
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
               <a href="https://prove-your-identity-prototype.herokuapp.com/">How people verify prototype</a>
-            </td>
-          
-            <td class="govuk-table__cell">
-              <strong class="govuk-tag govuk-tag--blue">
-                PROTOTYPE
-              </strong>
-            </td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">
-              <a href="https://submit-psc-statement-prototype-8cf558a5f32b.herokuapp.com/">Provide identity verification details for a PSC or relevant legal entity</a>
             </td>
           
             <td class="govuk-table__cell">

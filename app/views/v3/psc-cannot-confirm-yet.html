@@ -1,0 +1,40 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+You cannot confirm this person with significant control yet – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="{{currentUrl}}" method="post">
+
+
+      <h1 class="govuk-heading-l">You cannot proceed at this time</h1>
+
+      <p class="govuk-body">Due to restrictions arising from the new 
+        identity verification legislation, it’s too early to link the 
+        verified identity with the PSC record of this company.</p>
+
+      <p class="govuk-body"> The earliest date you can do this is from 
+        the anniversary of the company’s incorporation which is 
+        01 February 2024.
+      </p>
+
+      <p class="govuk-body">
+        <a href="company-number" class="govuk-link">Select a different company</a>.
+      </p>
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

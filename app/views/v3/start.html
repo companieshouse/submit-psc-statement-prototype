@@ -19,40 +19,42 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Provide verification details for a PSC or relevant legal entity 
+        Link a Person with Significant Control (PSC) to a verified identity
       </h1>
 
       <p class="govuk-body">Use this service to provide the identity verification 
-        details for a company’s person with significant control (PSC) or relevant legal entity (RLE).  
+        details for a company’s Person with Significant Control (PSC). This needs 
+        to be done within 14 days of the anniversary of the company’s incorporation 
+        date. For newly appointed PSCs this has to be done within 14 days of the appointment.
       </p>
 
-      <h2 class="govuk-heading-m">Who this service is for</h2>
+      <h2 class="govuk-heading-m">What is a PSC</h2>
       
+      <p class="govuk-body">A PSC owns or controls a company. They’re sometimes called 
+        ‘beneficial owners’. A PSC has at least one of the following: </p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>new PSCs of a new or existing company</li>
-        <li>existing PSCs</li>
-        <li>providing verified details on behalf of someone else who is a PSC 
-          or a relevant officer of an RLE (provided they are also employees of the RLE) </li>
+        <li>more than 25% of shares in the company</li>
+        <li>more than 25% of voting rights in the company</li>
+        <li>the right to appoint or remove the majority of the board of directors</li>
       </ul>
 
+      <h2 class="govuk-heading-m">Who can use this service</h2>
 
-      <h2 class="govuk-heading-m">When to provide verification details </h2>
-      
-      <p class="govuk-body">For PSCs, verification details need to be provided within 14 
-        days of the anniversary of the company’s incorporation date.  </p>
-
-      <p class="govuk-body">For newly appointed PSCs who are RLEs this has to be done 
-        within 28 days of the appointment. </p>
-
+      <p class="govuk-body">Every PSC in a company needs to be linked to a verified identity. 
+        This is why this service is for individuals who are:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>setting up a new company and need to link their verified identity with the PSC record</li>
+        <li>existing PSCs</li>
+        <li>linking another PSC’s verified identity with the company record</li>
+      </ul>
 
       <h2 class="govuk-heading-m">What you'll need</h2>
 
-      <p class="govuk-body">To complete this task for each PSC or relevant officer, you will need to: </p>
+      <p class="govuk-body">To complete this task for each PSC, you will need: </p>
       <ul class="govuk-list govuk-list--bullet">
         <li>verify your identity, if you haven’t already </li>
-        <li>have the Companies House personal code for each PSC and relevant officer of the RLE 
-          (if confirming someone else) </li>
-        <li>the company registration number </li>
+        <li>have the Companies House personal code for each PSC (if confirming someone else)</li>
+        <li>the company registration number</li>
       </ul>
 
       <details class="govuk-details" data-module="govuk-details">
@@ -66,50 +68,9 @@
         </div>
       </details>
 
-      <h2 class="govuk-heading-m">What is a PSC?</h2>
-      
-      <p class="govuk-body">A PSC owns or controls a company. They’re sometimes called ‘beneficial owners’. 
-        A PSC has at least one of the following: 
-      </p>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li>more than 25% of shares in the company </li>
-        <li>more than 25% of voting rights in the company </li>
-        <li>the right to appoint or remove the majority of the board of directors </li>
-      </ul>
-
-
-      <h2 class="govuk-heading-m">What is a RLE</h2>
-      
-      <p class="govuk-body">A corporate body or firm that owns or controls a company can also be a ‘person 
-        with significant control’ (PSC) known as a relevant legal entity (RLE).   
-      </p>
-
-      <p class="govuk-body">RLE status is determined by a number of different criteria including:  
-      </p>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li>voting rights</li>
-        <li>rights to share in surplus assets  </li>
-        <li>the right to appoint or remove the members of the company </li>
-      </ul>
-
-      <h2 class="govuk-heading-m">What is a relevant officer?</h2>
-      
-      <p class="govuk-body">'Relevant legal entities (RLEs) are now required to provide 
-        information about a relevant officer. A relevant officer needs to be:  
-      </p>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li>a director of the entity, or someone whose roles and responsibilities correspond to that of a company director </li>
-        <li>aged 16 years or over</li>
-        <li>have a personal code from verifying </li>
-      </ul>
-
-
       {{ govukButton({
         text: "Start",
-        href: "sign-in-email",
+        href: "create-or-sign-in",
         isStartButton: true
       }) }}
 

@@ -1,0 +1,115 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Provide identity verification details for a PSC or relevant legal entity – {{ serviceName }} – GOV.UK Prototype Kite
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Provide identity verification details for a PSC or relevant legal entity 
+      </h1>
+
+      <p class="govuk-body">Use this service to provide verification 
+        details for a company's person with significant control (PSC), or a relevant legal entity's (RLE) relevant officer.  
+      </p>
+
+      <h2 class="govuk-heading-m">Who can use this service</h2>
+      
+      <p class="govuk-body">This service is for:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>individual PSCs providing their own verification details</li>
+        <li>RLEs providing details of a relevant officer – this includes if they are replacing a previous relevant officer</li>
+        <li>people providing verification details on behalf of a PSC or RLE</li>
+      </ul>
+
+      <p class="govuk-body">New PSCs and RLEs should check that they are on the <a href="https://find-and-update.company-information.service.gov.uk/">Companies House register</a> before using this service.</p>
+
+     <p class="govuk-body">You cannot use this service if the PSC has their personal information protected at Companies House (or are waiting for the results of an application)</p>
+
+            <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Learn more about PSCs, RLEs and relevant officers
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+        <p class="govuk-body"><strong>People with significant control (PSCs)</strong></p>
+      
+      <p class="govuk-body">A PSC is someone who owns or controls a company. They’re sometimes called ‘beneficial owners’. A PSC has at least one of the following: 
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>more than 25% of shares in the company </li>
+        <li>more than 25% of voting rights in the company </li>
+        <li>the right to appoint or remove the majority of the board of directors </li>
+      </ul>
+
+      <p class="govuk-body"><strong>Relevant legal entities (RLEs) and relevant officers</p>
+      
+      <p class="govuk-body">If the PSC is a corporate body or firm, we refer to it as a relevant legal entity (RLE). 
+      
+      <p class="govuk-body">RLEs are required to provide information about a relevant officer. The relevant officer needs to be:  
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>a director of the entity, or someone whose roles and responsibilities correspond to that of a company director </li>
+        <li>aged 16 years or over</li>
+      </ul>
+
+        </div>
+      </details>
+
+
+      <h2 class="govuk-heading-m">When to provide verification details </h2>
+      
+      <p class="govuk-body">This depends on when you became a PSC or relevant officer. Find out more about <a href="https://prove-your-identity-prototype.herokuapp.com/release1-v6/pre-one-login/guidance-when">when you need to verify your identity.</a></p>
+
+
+      <h2 class="govuk-heading-m">Before you start</h2>
+      
+      <p class="govuk-body">The PSC or relevant officer must <a href="https://prove-your-identity-prototype.herokuapp.com/release1-v6/pre-one-login/guidance">verify their identity</a>, if they haven’t already.</p>
+
+      <p class="govuk-body">To use this service, you'll need the:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Companies House personal code for the PSC or relevant officer</li>
+        <li>company number</li>
+      </ul>
+
+      <p class="govuk-body">If you're providing verification details for a relevant officer, you'll also need their full name and date of birth.</p> 
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            What is a Companies House personal code?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          This is an 11 character code that is given to a person after they have verified their identity with Companies House. 
+        </div>
+      </details>
+
+
+      {{ govukButton({
+        text: "Start",
+        href: "sign-in-email",
+        isStartButton: true
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}

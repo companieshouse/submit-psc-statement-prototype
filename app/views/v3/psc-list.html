@@ -1,0 +1,97 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+How would you like to verify your identity with Companies House?
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/account-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- Check for error -->
+    {% if errorPscList %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+    {% endif %}
+    <form action="{{currentUrl}}" method="post">
+
+      <!-- Check for error -->
+      {% if errorPscList %}
+      <div class="govuk-form-group govuk-form-group--error">
+      {% else %}
+      <div class="govuk-form-group">
+      {% endif %} 
+        <fieldset class="govuk-fieldset" aria-describedby="psc-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Select all the PSCs to link with their verified identities
+            </h1>
+          </legend>
+          <div id="psc-hint" class="govuk-hint">
+            This list shows all PSCs for {{ data['companyName']}} that have not been linked to a verifed identity.
+          </div>
+          <!-- Check for error -->
+          {% if errorPscList %}
+          <p id="psc-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Select which PSC you want to link
+          </p>
+          {% endif %} 
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
+            {% if not data['statementAnne'] %}
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="psc" name="psc" type="checkbox" value="Anne Bereton">
+              <label class="govuk-label govuk-checkboxes__label" for="psc">
+                Anne Bereton
+              </label>
+              <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                Born April 1990
+              </div>
+            </div>
+            {% endif %}
+
+            {% if not data['statementBob'] %}
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="psc-2" name="psc" type="checkbox" value="Bob Smith">
+              <label class="govuk-label govuk-checkboxes__label" for="psc-2">
+                Bob Smith
+              </label>
+              <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                Born May 1970
+              </div>
+            </div>
+            {% endif %}
+
+            {% if not data['statementPaul'] %}
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="psc-3" name="psc" type="checkbox" value="Paul Robinson">
+              <label class="govuk-label govuk-checkboxes__label" for="psc-3">
+                Paul Robinson
+              </label>
+              <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                Born December 1988
+              </div>
+            </div>
+            {% endif %}
+
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

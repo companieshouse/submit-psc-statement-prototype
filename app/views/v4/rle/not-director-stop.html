@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-This person cannot be a relevant officer – {{ serviceName }} – GOV.UK Prototype Kit
+Are you a director? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -15,9 +15,19 @@ This person cannot be a relevant officer – {{ serviceName }} – GOV.UK Protot
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l">This person cannot be a relevant officer</h1>
+    <h1 class="govuk-heading-l">The relevant legal officer must be a director, or equivalent</h1>
 
-    <p class="govuk-body">The relevant officer must be a director of the entity, or someone whose roles and responsibilities correspond to that of a company director.</p>
+    <p class="govuk-body">It is not possible to appoint a non-director as a relevant legal 
+      officer of a relevant legal entity. Speak with the director of the company acting as 
+      a relevant legal entity before trying again.  
+    </p>
+
+    <h2 class="govuk-heading-s">Next steps</h2>
+
+    <p class="govuk-body"><a href="company-number" class="govuk-link">Provide verification details for a PSC in another company.</a>.
+    </p>
+
+    </form>
   </div>
 </div>
 

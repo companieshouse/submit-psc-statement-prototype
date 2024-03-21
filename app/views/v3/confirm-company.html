@@ -25,10 +25,10 @@
           <dt class="govuk-summary-list__key">Company name</dt>
           <dd class="govuk-summary-list__value">
             {% if data['companyNumber'] == '12345678' %}
-              Big Shop ltd
-            {% elif data['companyNumber'] == '11112222' %}
-              Contruction 123 ltd
-            {% endif %}
+            Big Shop ltd
+          {% elif data['companyNumber'] == '11112222' %}
+            Contruction 123 ltd
+          {% endif %}
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -43,13 +43,7 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Incorporation date</dt>
-          <dd class="govuk-summary-list__value">
-          {% if data['companyNumber'] == '12345678' %}
-            17 December 1999
-          {% elif data['companyNumber'] == '11112222' %}
-            1 February 1978
-          {% endif %}
-          </dd>
+          <dd class="govuk-summary-list__value">10 December 1978</dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Company type</dt>

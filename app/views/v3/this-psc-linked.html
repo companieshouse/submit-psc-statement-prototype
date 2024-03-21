@@ -1,0 +1,84 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+PSC confirmed – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="{{currentUrl}}" method="post">
+
+      <h1 class="govuk-heading-l">You have linked this PSC with the verified identity </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if not data['statementBob']  %}
+              Anne Bereton
+            {% elif not data['statementPaul'] %}
+              Bob Smith
+            {% else %}
+              Paul Robinson
+            {% endif %}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date of birth
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if not data['statementBob']  %}
+              April 1990
+            {% elif not data['statementPaul'] %}
+              May 1970
+            {% else %}
+              December 1988
+            {% endif %}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Company number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['companyNumber']}}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Company name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Big Shop ltd
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">Link the other PSCs for Big Shop ltd to a verified identity</h2>
+
+      <p class="govuk-body">You will need a Companies House personal code for every PSC that you 
+        want to link to a verified identity. The PSC will receive this code when they verify their 
+        identity for Companies House. </p>   
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button> 
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -15,7 +15,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
     <!-- Check for error -->
-    {% if errorStatement %}
+    {% if errorStatementBob %}
       {{ govukErrorSummary({
         titleText: "There is a problem",
         errorList: errorList
@@ -24,34 +24,28 @@
       <form action="{{currentUrl}}" method="post">
 
         <!-- Check for error -->
-        {% if errorStatement %}
+        {% if errorStatementBob %}
         <div class="govuk-form-group govuk-form-group--error">
         {% else %}
         <div class="govuk-form-group">
         {% endif %} 
-          <fieldset class="govuk-fieldset" aria-describedby="individualStatement-hint">
+          <fieldset class="govuk-fieldset" aria-describedby="statementBob-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
-                Confirm the verification statement
+                Confirm link between the verified ID and the company PSC record 
               </h1>
             </legend>
-            {% if errorStatement %}
-            <p id="individualStatement-error" class="govuk-error-message">
+            {% if errorStatementBob %}
+            <p id="statementBob-error" class="govuk-error-message">
               <span class="govuk-visually-hidden">Error:</span>Confirm if the verification statement is correct
             </p>
             {% endif %}
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="individualStatement" name="individualStatement" type="checkbox">
-                <label class="govuk-label govuk-checkboxes__label" for="individualStatement">
-                  I confirm that <b>{{ data['pscType']}}</b> has verified their identity and is a Person with Significant Control (PSC) for
-                  <b>
-                    {% if data['companyNumber'] == '12345678' %}
-                    Big Shop ltd
-                  {% elif data['companyNumber'] == '11112222' %}
-                    Contruction 123 ltd
-                  {% endif %}
-                  </b>.
+                <input class="govuk-checkboxes__input" id="statementBob" name="statementBob" type="checkbox">
+                <label class="govuk-label govuk-checkboxes__label" for="statementBob">
+                  I confirm that Bob Smith has verified their idenity and is a Person with Significant Control (PSC) for
+                  <strong>Big Shop ltd</strong>.
                 </label>
               </div>
             </div>

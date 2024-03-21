@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-How would you like to verify your identity with Companies House?
+  Why is the name you've provided different?
 {% endblock %}
 
 {% block beforeContent %}
@@ -15,34 +15,13 @@ How would you like to verify your identity with Companies House?
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form action="{{currentUrl}}" method="post">
-
-      <h1 class="govuk-heading-l">Why is the verified name different? </h1>
-
-      <div class="govuk-warning-text">
-        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-        <strong class="govuk-warning-text__text">
-          <span class="govuk-visually-hidden">Warning</span>
-          The PSC name on the public record is different to the verified one.
-          You should consider whether you need to update the name on the public 
-          register. We may contact you if we need more information.
-        </strong>
-      </div>
-
-      <details class="govuk-details" data-module="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            How to change the PSC name on the register 
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          <p class="govuk-body">You can <a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" target="_blank">make changes to PSC information</a> with this service.</p>
-        </div>
-      </details>
+              <span class="govuk-caption-xl">{{ data ['roName']}}</span>
+      <h1 class="govuk-heading-l">Why is the name you've provided different to the relevant officer's verified name?</h1>
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="whyThisName-hint">       
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m ">
-            <h3 class="govuk-fieldset__heading">Why is the name on the public record different to the verified name? (optional) </h3>
+
           </legend>
           <div class="govuk-radios" data-module="govuk-radios">
 
@@ -54,7 +33,7 @@ How would you like to verify your identity with Companies House?
             </div>
 
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="whyThisName-4" name="whyThisName" type="radio" value="preffered name">
+              <input class="govuk-radios__input" id="whyThisName-4" name="whyThisName" type="radio" value="preferred name">
               <label class="govuk-label govuk-radios__label" for="whyThisName-4">
                 Preferred name    
               </label>
@@ -78,6 +57,8 @@ How would you like to verify your identity with Companies House?
           </div>
         </fieldset>
       </div>
+
+      <p class="govuk-body">You should consider whether you need to <a href="ro-details" class="govuk-link">update the name you've provided</a>. If you do not update it, we may contact you if we need more information.</p>
 
       {{ govukButton({
         text: "Continue"
