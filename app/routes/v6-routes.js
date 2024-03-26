@@ -190,6 +190,13 @@ router.get('/v6/rle/ro-details', function (req, res) {
 router.post('/v6/rle/ro-details', function (req, res) {
   // Create empty array and set error variables to false
   var errors = [];
+  var firstNameError = false
+  var lastNameError = false
+  var dobDayError = false
+  var dobMonthError = false
+  var dobYearError = false
+  var roPersonalCodeError = false
+
   var roDetailsError = false
 
   if (req.session.data['firstName'] === '') {
