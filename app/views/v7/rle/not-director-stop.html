@@ -1,0 +1,24 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+This person cannot be a relevant officer – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">This person cannot be a relevant officer</h1>
+
+    <p class="govuk-body">The relevant officer must be a director of the entity, or someone whose roles and responsibilities correspond to that of a company director.</p>
+  </div>
+</div>
+
+{% endblock %}
