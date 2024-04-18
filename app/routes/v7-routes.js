@@ -118,6 +118,8 @@ router.post('/v7/confirm-company', function (req, res) {
   } else if ((req.session.data['companyNumber'] == '11112222')){
     // PSCs or RLEs are not ready to give statement yet {
     res.redirect('/v7/no-appointed-day-psc')
+  } else {
+    res.redirect('/v7/psc-type')
   }
 })
 

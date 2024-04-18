@@ -41,13 +41,12 @@ Which PSC are you providing verification details for?  – {{ serviceName }} –
             <p id="psc-type-error" class="govuk-error-message">
               <span class="govuk-visually-hidden">Error:</span> Select the PSC you providing verification details for
             </p>
-            
             {% endif %} 
             <div id="pscList-hint" class="govuk-hint">The following PSCs for
               {% if data['companyNumber'] == '12345678' %}
                 Big Shop Ltd
-              {% elif data['companyNumber'] == '11112222' %}
-                Contruction 123 ltd
+              {% elif data['companyNumber'] == '33335555' %}
+                Little Shop ltd
               {% endif %}
               
               still need to provide their identity verification details. We will not show PSCs whose identity has been confirmed. You can only provide verification details for one PSC at a time. 
@@ -84,29 +83,46 @@ Which PSC are you providing verification details for?  – {{ serviceName }} –
               </div>
             </div>
 
-            {% elif data['companyNumber'] == '11112222' %}
-            <div class="govuk-radios" data-module="govuk-radios">
-              <h2 class="govuk-heading-m govuk-!-margin-bottom-5 govuk-!-margin-top-7">People with significant control (PSCs)</h2>
-
+            {% elif data['companyNumber'] == '33335555' %}
+            <div class="govuk-radios govuk-!-margin-bottom-9" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="pscList" name="pscList" type="radio" value="Cho Ying">
                 <label class="govuk-label govuk-radios__label" for="pscList">
-                  Cho Ying
+                  Cho Ying (Born April 2000)
                 </label>
-                <div id="pscList-hint" class="govuk-hint govuk-checkboxes__hint">
-                  Born April 2000
-                </div>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="pscList-2" name="pscList" type="radio" value="Josh Wood">
                 <label class="govuk-label govuk-radios__label" for="pscList-2">
-                  Josh Wood
+                  Josh Wood (Born April 2000)
                 </label>
-                <div id="pscList-2-hint" class="govuk-hint govuk-checkboxes__hint">
-                  Born April 1997
-                </div>
               </div>
             </div>
+
+            <h2 class="govuk-heading-m">PSCs not able to provide verification details</h2>
+
+            <p class="govuk-body">The following PSCs for Little Shop Ltd are not able to provide verification details yet. The verification details for existing PSCs can only be given on or after the appointed day. </p>
+
+            <table class="govuk-table">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">PSC</th>
+                  <th scope="col" class="govuk-table__header">Appointed day</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">Mark Wood (Born April 1989)</td>
+                  <td class="govuk-table__cell">01 August 2024</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">Sarah Clark (Born December 1988)</td>
+                  <td class="govuk-table__cell">01 August 2024</td>
+                </tr>
+              </tbody>
+            </table>
+
+
             {% endif %}
           </fieldset>
         </div>

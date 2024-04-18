@@ -46,10 +46,10 @@
             <div id="rleList-hint" class="govuk-hint"> These are the RLEs for
 
               {% if data['companyNumber'] == '12345678' %}
-                Big Shop Ltd.
-              {% elif data['companyNumber'] == '11112222' %}
-                Contruction 123 Ltd.
-                              {% endif %}
+                Big Shop Ltd
+              {% elif data['companyNumber'] == '33335555' %}
+                Little Shop ltd
+              {% endif %}
                               
                 You can only provide relevant officer details for one RLE at a time. 
             </div>
@@ -71,8 +71,8 @@
               </div>
             </div>
 
-            {% elif data['companyNumber'] == '11112222' %}
-            <div class="govuk-radios" data-module="govuk-radios">
+            {% elif data['companyNumber'] == '33335555' %}
+            <div class="govuk-radios govuk-!-margin-bottom-9" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="rleList" name="rleList" type="radio" value="Alpha Trading Group">
                 <label class="govuk-label govuk-radios__label" for="rleList">
@@ -80,6 +80,27 @@
                 </label>
               </div>
             </div>
+
+            <h2 class="govuk-heading-m">RLEs not able to provide verification details</h2>
+
+            <p class="govuk-body">The following RLEs for Little Shop Ltd are not able to provide 
+              verification details yet. The verification details for existing RLEs can only be 
+              given on or after the appointed day. </p>
+
+            <table class="govuk-table">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">RLE</th>
+                  <th scope="col" class="govuk-table__header">Appointed day</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">Spicy Food ltd</td>
+                  <td class="govuk-table__cell">10 November 2024</td>
+                </tr>
+              </tbody>
+            </table>
             {% endif %}
           </fieldset>
         </div>
