@@ -42,14 +42,14 @@ Which PSC are you providing verification details for?  – {{ serviceName }} –
               <span class="govuk-visually-hidden">Error:</span> Select the PSC you providing verification details for
             </p>
             {% endif %} 
-            <div id="pscList-hint" class="govuk-hint">The following PSCs for
+            <div id="pscList-hint" class="govuk-hint">These PSCs for
               {% if data['companyNumber'] == '12345678' %}
                 Big Shop Ltd
               {% elif data['companyNumber'] == '33335555' %}
-                Little Shop ltd
+                Little Shop Ltd
               {% endif %}
               
-              still need to provide their identity verification details. We will not show PSCs whose identity has been confirmed. You can only provide verification details for one PSC at a time. 
+              still need to provide their identity verification details. We will not show PSCs that have already done this. You can only provide verification details for one PSC at a time. 
             </div>
 
             {% if data['companyNumber'] == '12345678' %}
@@ -93,15 +93,15 @@ Which PSC are you providing verification details for?  – {{ serviceName }} –
               </div>
             </div>
 
-            <h2 class="govuk-heading-m">PSCs not able to provide verification details</h2>
+            <h2 class="govuk-heading-m">PSCs that cannot provide verification details yet</h2>
 
-            <p class="govuk-body">The following PSCs for Little Shop Ltd are not able to provide verification details yet. The verification details for existing PSCs can only be given on or after the appointed day. </p>
+            <p class="govuk-body">These PSCs for Little Shop Ltd must wait until the company's confirmation statement date. They will have 14 days from this date to provide their verification details.</p>
 
             <table class="govuk-table">
               <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
                   <th scope="col" class="govuk-table__header">PSC</th>
-                  <th scope="col" class="govuk-table__header">Appointed day</th>
+                  <th scope="col" class="govuk-table__header">Confirmation statement date</th>
                 </tr>
               </thead>
               <tbody class="govuk-table__body">
