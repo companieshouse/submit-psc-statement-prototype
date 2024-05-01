@@ -5,14 +5,14 @@ const router = govukPrototypeKit.requests.setupRouter()
 module.exports=router;
 
 // ******* Sign in email validation ********************************
-router.get('/v7/sign-in-email', function (req, res) {
+router.get('/v8/sign-in-email', function (req, res) {
   // Set URl
-  res.render('v7/sign-in-email', {
+  res.render('v8/sign-in-email', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v7/sign-in-email', function (req, res) {
+router.post('/v8/sign-in-email', function (req, res) {
 // Create empty array and set error variables to false
 var errors = []
 
@@ -26,26 +26,26 @@ if (req.session.data['signin-email'] === '') {
 
 if (req.session.data['signin-email'] === '') {
   // Re-show page with error value as true so errors will show
-  res.render('v7/sign-in-email', {
+  res.render('v8/sign-in-email', {
     errorSigninEmail: true,
     errorList: errors
   })
 } else {
   // User inputted value so move to next page
-  res.redirect('/v7/sign-in-password')
+  res.redirect('/v8/sign-in-password')
 }
 })
 
 
 // ******* Sign in password validation ********************************
-router.get('/v7/sign-in-password', function (req, res) {
+router.get('/v8/sign-in-password', function (req, res) {
 // Set URl
-res.render('v7/sign-in-password', {
+res.render('v8/sign-in-password', {
   currentUrl: req.originalUrl
 })
 })
 
-router.post('/v7/sign-in-password', function (req, res) {
+router.post('/v8/sign-in-password', function (req, res) {
 // Create empty array and set error variables to false
 var errors = []
 
@@ -59,26 +59,26 @@ if (req.session.data['signin-password'] === '') {
 
 if (req.session.data['signin-password'] === '') {
   // Re-show page with error value as true so errors will show
-  res.render('v7/sign-in-password', {
+  res.render('v8/sign-in-password', {
     errorSigninPassword: true,
     errorList: errors
   })
 } else {
   // User inputted value so move to next page
-  res.redirect('/v7/company-number')
+  res.redirect('/v8/company-number')
 }
 })
 
 
 // ******* company-number javascript *********************
-router.get('/v7/company-number', function (req, res) {
+router.get('/v8/company-number', function (req, res) {
   // Set URl
-  res.render('v7/company-number', {
+  res.render('v8/company-number', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v7/company-number', function (req, res) {
+router.post('/v8/company-number', function (req, res) {
   // Create empty array and set error variables to false
   var errors = [];
 
@@ -90,49 +90,49 @@ router.post('/v7/company-number', function (req, res) {
     })
 
     // Re-show page with error value as true so errors will show
-    res.render('v7/company-number', {
+    res.render('v8/company-number', {
       errorCompanyNumber: true,
       errorList: errors
     })
   } else {
-      res.redirect('/v7/confirm-company')
+      res.redirect('/v8/confirm-company')
   }
 })
 
 
 // ******* confirm-company javascript **********************
-router.get('/v7/confirm-company', function (req, res) {
+router.get('/v8/confirm-company', function (req, res) {
   // Set URl
-  res.render('v7/confirm-company', {
+  res.render('v8/confirm-company', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v7/confirm-company', function (req, res) {
+router.post('/v8/confirm-company', function (req, res) {
   if ((req.session.data['companyNumber'] == '22223333')) {
     // Super secure
-    res.redirect('/v7/super-secure')
+    res.redirect('/v8/super-secure')
   } else if ((req.session.data['companyNumber'] == '66667777')){
     // No PSCs or RLEs
-    res.redirect('/v7/no-pscs')
+    res.redirect('/v8/no-pscs')
   } else if ((req.session.data['companyNumber'] == '11112222')){
     // PSCs or RLEs are not ready to give statement yet {
-    res.redirect('/v7/no-appointed-day-psc')
+    res.redirect('/v8/no-appointed-day-psc')
   } else {
-    res.redirect('/v7/psc-type')
+    res.redirect('/v8/psc-type')
   }
 })
 
 
 // ******* psc-type javascript ********************************
-router.get('/v7/psc-type', function (req, res) {
+router.get('/v8/psc-type', function (req, res) {
   // Set URl
-  res.render('v7/psc-type', {
+  res.render('v8/psc-type', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v7/psc-type', function (req, res) {
+router.post('/v8/psc-type', function (req, res) {
   var errors = []
 
   if (typeof req.session.data['pscType'] === 'undefined') {
@@ -141,27 +141,34 @@ router.post('/v7/psc-type', function (req, res) {
       href: '#pscType'
     })
     
-    res.render('v7/psc-type', {
+    res.render('v8/psc-type', {
       errorPscType: true,
       errorList: errors
     })
   } else {
     if ((req.session.data['pscType'] == 'rle')) {
-      res.redirect('/v7/rle/rle-list')
+      res.redirect('/v8/rle/rle-list')
+    } else if ((req.session.data['paul_smith'] === 'yes')
+            && (req.session.data['susan_robinson'] === 'yes')
+            && (req.session.data['matthew_gant'] === 'yes')){
+      res.redirect('/v8/no-pscs')
     } else {
-      res.redirect('/v7/individual/psc-list')
+      res.redirect('/v8/individual/psc-list')
     }
   }
 })
 
+
+// ******* rle javascript *******************************************************************
+
 // ******* rle-list javascript ********************************
-router.get('/v7/rle/rle-list', function (req, res) {
-  res.render('v7/rle/rle-list', {
+router.get('/v8/rle/rle-list', function (req, res) {
+  res.render('v8/rle/rle-list', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v7/rle/rle-list', function (req, res) {
+router.post('/v8/rle/rle-list', function (req, res) {
   var errors = []
 
   if (typeof req.session.data['rleList'] === 'undefined') {
@@ -170,24 +177,24 @@ router.post('/v7/rle/rle-list', function (req, res) {
       href: '#rleList'
     })
     
-    res.render('v7/rle/rle-list', {
+    res.render('v8/rle/rle-list', {
       errorRleList: true,
       errorList: errors
     })
   } else {
-      res.redirect('/v7/rle/ro-details')
+      res.redirect('/v8/rle/ro-details')
     }
 })
 
 // ******* ro-details javascript *********************
-router.get('/v7/rle/ro-details', function (req, res) {
+router.get('/v8/rle/ro-details', function (req, res) {
   // Set URl
-  res.render('v7/rle/ro-details', {
+  res.render('v8/rle/ro-details', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v7/rle/ro-details', function (req, res) {
+router.post('/v8/rle/ro-details', function (req, res) {
   // Create empty array and set error variables to false
   var errors = [];
   var firstNameError = false
@@ -254,7 +261,7 @@ router.post('/v7/rle/ro-details', function (req, res) {
   }
 
   if (roDetailsError) {
-  res.render('v7/rle/ro-details', {
+  res.render('v8/rle/ro-details', {
     errorFirstName: firstNameError,
     errorLastName: lastNameError,
     errorRoDobDay: dobDayError,
@@ -267,7 +274,7 @@ router.post('/v7/rle/ro-details', function (req, res) {
   } else {
     // name mis-match
     if (req.session.data['roPersonalCode'] === '111-2222-3333') {
-      res.redirect('/v7/rle/ro-why-this-name')
+      res.redirect('/v8/rle/ro-why-this-name')
     } 
     // dob code mis-match
     else if (req.session.data['roPersonalCode'] === '777-8888-999') {
@@ -276,7 +283,7 @@ router.post('/v7/rle/ro-details', function (req, res) {
       href: '#roPersonalCode'
       })
       
-      res.render('v7/rle/ro-details', {
+      res.render('v8/rle/ro-details', {
         errorRoDobDay: true,
         errorRoDobMonth: true,
         errorRoDobYear: true,
@@ -286,7 +293,7 @@ router.post('/v7/rle/ro-details', function (req, res) {
       })
     } // too many attempts at dob, code
       else if (req.session.data['roPersonalCode'] === 'aaa-bbbb-cccc') {
-      res.redirect('/v7/too-many-attempts')
+      res.redirect('/v8/too-many-attempts')
     } // Director too young
       else if (req.session.data['Dob-year'] === '2009') {
       errors.push({
@@ -294,7 +301,7 @@ router.post('/v7/rle/ro-details', function (req, res) {
         href: '#Dob-year'
         })
         
-        res.render('v7/rle/ro-details', {
+        res.render('v8/rle/ro-details', {
           errorRoDobDay: true,
           errorRoDobMonth: true,
           errorRoDobYear: true,
@@ -303,21 +310,21 @@ router.post('/v7/rle/ro-details', function (req, res) {
           errorList: errors
         })
     } else {
-      res.redirect('/v7/rle/ro-director')
+      res.redirect('/v8/rle/ro-director')
     }
   }
 })
 
 
 // ******* ro-director javascript *********************
-router.get('/v7/rle/ro-director', function (req, res) {
+router.get('/v8/rle/ro-director', function (req, res) {
   // Set URl
-  res.render('v7/rle/ro-director', {
+  res.render('v8/rle/ro-director', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v7/rle/ro-director', function (req, res) {
+router.post('/v8/rle/ro-director', function (req, res) {
   // Create empty array and set error variables to false
   var errors = [];
   
@@ -330,16 +337,16 @@ router.post('/v7/rle/ro-director', function (req, res) {
     })
 
     // Re-show page with error value as true so errors will show
-    res.render('v7/rle/ro-director', {
+    res.render('v8/rle/ro-director', {
       errorDirector: true,
       errorList: errors
     })
   } else {
     if (req.session.data['roDirector'] === 'yes') {
-      res.redirect('/v7/rle/ro-statements')
+      res.redirect('/v8/rle/ro-statements')
     } else {
       // User inputted value so move to next page
-      res.redirect('/v7/rle/not-director-stop')
+      res.redirect('/v8/rle/not-director-stop')
     }
   }
 })
@@ -347,41 +354,41 @@ router.post('/v7/rle/ro-director', function (req, res) {
 
 
 // ******* ro-why-this-name javascript ********************************
-router.get('/v7/rle/ro-why-this-name', function (req, res) {
+router.get('/v8/rle/ro-why-this-name', function (req, res) {
   // Set URl
-  res.render('v7/rle/ro-why-this-name', {
+  res.render('v8/rle/ro-why-this-name', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v7/rle/ro-why-this-name', function (req, res) {
-  res.redirect('/v7/rle/ro-director')
+router.post('/v8/rle/ro-why-this-name', function (req, res) {
+  res.redirect('/v8/rle/ro-director')
 })
 
 
 // ******* ro-statements javascript ********************************
-router.get('/v7/rle/ro-statements', function (req, res) {
+router.get('/v8/rle/ro-statements', function (req, res) {
   // Set URl
-  res.render('v7/rle/ro-statements', {
+  res.render('v8/rle/ro-statements', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v7/rle/ro-statements', function (req, res) {
-  res.redirect('/v7/rle/rle-verified')
+router.post('/v8/rle/ro-statements', function (req, res) {
+  res.redirect('/v8/rle/rle-verified')
 })
 
 
 // **************************************************************************
 
 // ******* psc-list javascript ********************************
-router.get('/v7/individual/psc-list', function (req, res) {
-  res.render('v7/individual/psc-list', {
+router.get('/v8/individual/psc-list', function (req, res) {
+  res.render('v8/individual/psc-list', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v7/individual/psc-list', function (req, res) {
+router.post('/v8/individual/psc-list', function (req, res) {
   var errors = []
 
   if (typeof req.session.data['pscList'] === 'undefined') {
@@ -390,24 +397,24 @@ router.post('/v7/individual/psc-list', function (req, res) {
       href: '#pscList'
     })
     
-    res.render('v7/individual/psc-list', {
+    res.render('v8/individual/psc-list', {
       errorPscList: true,
       errorList: errors
     })
   } else {
-      res.redirect('/v7/individual/psc-details')
+      res.redirect('/v8/individual/psc-details')
     }
 })
 
 // ******* psc-details javascript *********************
-router.get('/v7/individual/psc-details', function (req, res) {
+router.get('/v8/individual/psc-details', function (req, res) {
   // Set URl
-  res.render('v7/individual/psc-details', {
+  res.render('v8/individual/psc-details', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v7/individual/psc-details', function (req, res) {
+router.post('/v8/individual/psc-details', function (req, res) {
   // Create empty array and set error variables to false
   var errors = [];
   var pscDetailsError = false
@@ -422,7 +429,7 @@ router.post('/v7/individual/psc-details', function (req, res) {
   }
 
   if (pscDetailsError) {
-  res.render('v7/individual/psc-details', {
+  res.render('v8/individual/psc-details', {
     errorPscPersonalCode: pscPersonalCodeError,
     pscDetailsError: pscDetailsError,
     errorList: errors
@@ -430,28 +437,28 @@ router.post('/v7/individual/psc-details', function (req, res) {
   } else {
     // name mis-match
     if (req.session.data['pscPersonalCode'] === '111-2222-3333') {
-      res.redirect('/v7/individual/psc-why-this-name')
+      res.redirect('/v8/individual/psc-why-this-name')
     } 
     // dob code mis-match
     else if (req.session.data['pscPersonalCode'] === '444-5555-6666') {
-      res.redirect('/v7/individual/psc-dob-mismatch')
+      res.redirect('/v8/individual/psc-dob-mismatch')
     } 
     else {
-      res.redirect('/v7/individual/psc-statement')
+      res.redirect('/v8/individual/psc-statement')
     }
   }
 })
 
 
 // ******* personal-code validation ********************************
-router.get('/v7/individual/personal-code', function (req, res) {
+router.get('/v8/individual/personal-code', function (req, res) {
   // Set URl
-  res.render('v7/individual/personal-code', {
+  res.render('v8/individual/personal-code', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v7/individual/personal-code', function (req, res) {
+router.post('/v8/individual/personal-code', function (req, res) {
 // Create empty array and set error variables to false
 var errors = []
 
@@ -465,48 +472,48 @@ if (req.session.data['personalCode'] === '') {
 
 if (req.session.data['personalCode'] === '') {
   // Re-show page with error value as true so errors will show
-  res.render('v7/individual/personal-code', {
+  res.render('v8/individual/personal-code', {
     errorCode: true,
     errorList: errors
   })
   } else {
     if (req.session.data['personalCode'] === '111-2222-3333') {
-      res.redirect('/v7/individual/psc-why-this-name')
+      res.redirect('/v8/individual/psc-why-this-name')
     } 
     else if (req.session.data['personalCode'] === '777-8888-9999') {
-      res.redirect('/v7/individual/non-match')
+      res.redirect('/v8/individual/non-match')
     } else if (req.session.data['personalCode'] === 'aaa-bbbb-cccc') {
-      res.redirect('/v7/too-many-attempts')
+      res.redirect('/v8/too-many-attempts')
     } else {
-      res.redirect('/v7/individual/psc-statement')
+      res.redirect('/v8/individual/psc-statement')
     }
   }
 })
 
 
 // ******* psc-why-this-name javascript ********************************
-router.get('/v7/individual/psc-why-this-name', function (req, res) {
+router.get('/v8/individual/psc-why-this-name', function (req, res) {
   // Set URl
-  res.render('v7/individual/psc-why-this-name', {
+  res.render('v8/individual/psc-why-this-name', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v7/individual/psc-why-this-name', function (req, res) {
-  res.redirect('/v7/individual/psc-statement')
+router.post('/v8/individual/psc-why-this-name', function (req, res) {
+  res.redirect('/v8/individual/psc-statement')
 })
 
 
 
 // ******* psc-statement javascript ********************************
-router.get('/v7/individual/psc-statement', function (req, res) {
+router.get('/v8/individual/psc-statement', function (req, res) {
   // Set URl
-  res.render('v7/individual/psc-statement', {
+  res.render('v8/individual/psc-statement', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v7/individual/psc-statement', function (req, res) {
+router.post('/v8/individual/psc-statement', function (req, res) {
   // Create empty array
   var errors = []
 
@@ -518,12 +525,12 @@ router.post('/v7/individual/psc-statement', function (req, res) {
     })
 
     // Re-show page with error value as true so errors will show
-    res.render('v7/individual/psc-statement', {
+    res.render('v8/individual/psc-statement', {
       errorStatement: true,
       errorList: errors
     })
   } else {
-      res.redirect('/v7/individual/psc-verified')
+      res.redirect('/v8/individual/psc-verified')
   }
 })
 
