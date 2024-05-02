@@ -28,7 +28,7 @@ Confirm all the relevant officer statements – {{ serviceName }} – GOV.UK Pro
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="rleStatements" name="rleStatements" type="checkbox">
                 <label class="govuk-label govuk-checkboxes__label" for="rleStatements">
-                  I confirm that <strong>{{ data['firstName']}} {{ data['middleName']}} {{ data['lastName']}}</strong> has verified their identity</strong>.
+                  I confirm that <strong>{{ data['firstName']}} {{ data['middleName']}} {{ data['lastName']}}</strong> has verified their identity for Companies House.
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
@@ -50,6 +50,15 @@ Confirm all the relevant officer statements – {{ serviceName }} – GOV.UK Pro
         <button class="govuk-button" data-module="govuk-button">
           Confirm and continue
         </button> 
+
+        {% if data['rleList'] == 'Megacorp Ltd' %}
+          <input type="hidden" name="megacorp" id="megacorp_ltd" value="yes" />
+        {% endif %}
+
+        {% if data['rleList'] == 'Omega Trading Group' %}
+          <input type="hidden" name="omega" id="omega_trading" value="yes" />
+        {% endif %}
+
       </form>
 
     </div>

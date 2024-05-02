@@ -178,6 +178,32 @@ Relevant officer's details – {{ serviceName }} – GOV.UK Prototype Kit
         </div>
       </details>
 
+      <!-- Check for error -->
+      {% if errorRoDirector %}
+      <div class="govuk-form-group govuk-form-group--error">
+      {% else %}
+      <div class="govuk-form-group">
+      {% endif %} 
+        <fieldset class="govuk-fieldset" aria-describedby="roDirector">
+          <label class="govuk-label govuk-date-input__label" for="roDirector">
+          </label>
+          <!-- Check for error -->
+          {% if errorRoDirector %}
+          <p id="roDirector-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span>Confirm if the relevant officer is a director of the relevant legal entity, or someone whose roles and responsibilities correspond to that of a company director. 
+          </p>
+          {% endif %} 
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="roDirector" name="roDirector" type="checkbox">
+              <label class="govuk-label govuk-checkboxes__label" for="roDirector">
+                The relevant officer is a director of the relevant legal entity, or someone whose roles and responsibilities correspond to that of a company director.
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
 
       {{ govukButton({
         text: "Save and continue"

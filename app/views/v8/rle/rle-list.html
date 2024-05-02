@@ -52,34 +52,49 @@
               {% endif %}
                               
                 still need to provide their relevant officer's details. We will not show RLEs that have already done this. You can only provide relevant officer details for one RLE at a time.
-            </div>
+                {{ data['megacorp_ltd']}}
+              </div>
 
+            <div class="govuk-radios govuk-!-margin-bottom-7" data-module="govuk-radios">
 
-            {% if data['companyNumber'] == '12345678' %}
-            <div class="govuk-radios" data-module="govuk-radios">
+              {% if data['megacorp'] != 'yes' %}
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="rleList" name="rleList" type="radio" value="Megacorp Ltd">
                 <label class="govuk-label govuk-radios__label" for="rleList">
                   Megacorp Ltd
                 </label>
               </div>
+              {% endif %}
+
+              {% if data['omega'] != 'yes' %}
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="rleList-2" name="rleList" type="radio" value="Omega Trading Group">
                 <label class="govuk-label govuk-radios__label" for="rleList-2">
                   Omega Trading Group
                 </label>
               </div>
+              {% endif %}
             </div>
 
-            {% elif data['companyNumber'] == '33335555' %}
-            <div class="govuk-radios govuk-!-margin-bottom-9" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="rleList" name="rleList" type="radio" value="Alpha Trading Group">
-                <label class="govuk-label govuk-radios__label" for="rleList">
-                  Alpha Trading Group
-                </label>
-              </div>
-            </div>
+            {% if data['rleList'] %}
+            <h2 class="govuk-heading-m">RLEs that have already provided verification details</h2>
+
+            <table class="govuk-table govuk-!-margin-bottom-9">
+              <tbody class="govuk-table__body">
+                {% if data['megacorp'] == 'yes' %}
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">Megacorp Ltd</td>
+                  </tr>
+                {% endif %}
+
+                {% if data['omega'] == 'yes' %}
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">Susan Robinson (Born May 1989)</td>
+                  </tr>
+                {% endif %}
+              </tbody>
+            </table>
+          {% endif %}
 
             <h2 class="govuk-heading-m">RLEs that cannot provide relevant officer details yet</h2>
 
@@ -92,7 +107,6 @@
                 </tr>
               </tbody>
             </table>
-            {% endif %}
           </fieldset>
         </div>
               

@@ -149,9 +149,8 @@ router.post('/v8/psc-type', function (req, res) {
     if ((req.session.data['pscType'] == 'rle')) {
       res.redirect('/v8/rle/rle-list')
     } else if ((req.session.data['paul_smith'] === 'yes')
-            && (req.session.data['susan_robinson'] === 'yes')
-            && (req.session.data['matthew_gant'] === 'yes')){
-      res.redirect('/v8/no-pscs')
+            && (req.session.data['susan_robinson'] === 'yes')){
+      res.redirect('/v8/individual/psc-list-complete')
     } else {
       res.redirect('/v8/individual/psc-list')
     }
@@ -260,6 +259,15 @@ router.post('/v8/rle/ro-details', function (req, res) {
     })
   }
 
+  if (typeof req.session.data['roDirector'] === 'undefined') {
+    roDirectorsError = true
+    roDetailsError = true
+    errors.push({
+      text: 'Confirm if the relevant officer is a director of the relevant legal entity, or someone whose roles and responsibilities correspond to that of a company director.',
+      href: '#roDirector'
+    })
+  }
+
   if (roDetailsError) {
   res.render('v8/rle/ro-details', {
     errorFirstName: firstNameError,
@@ -268,6 +276,7 @@ router.post('/v8/rle/ro-details', function (req, res) {
     errorRoDobMonth: dobMonthError,
     errorRoDobYear: dobYearError,
     errorRoPersonalCode: roPersonalCodeError,
+    errorRoDirector: roDirectorsError,
     roDetailsError: roDetailsError,
     errorList: errors
   })
@@ -291,9 +300,6 @@ router.post('/v8/rle/ro-details', function (req, res) {
         roDetailsError: true,
         errorList: errors
       })
-    } // too many attempts at dob, code
-      else if (req.session.data['roPersonalCode'] === 'aaa-bbbb-cccc') {
-      res.redirect('/v8/too-many-attempts')
     } // Director too young
       else if (req.session.data['Dob-year'] === '2009') {
       errors.push({
@@ -310,47 +316,10 @@ router.post('/v8/rle/ro-details', function (req, res) {
           errorList: errors
         })
     } else {
-      res.redirect('/v8/rle/ro-director')
-    }
-  }
-})
-
-
-// ******* ro-director javascript *********************
-router.get('/v8/rle/ro-director', function (req, res) {
-  // Set URl
-  res.render('v8/rle/ro-director', {
-    currentUrl: req.originalUrl
-  })
-})
-
-router.post('/v8/rle/ro-director', function (req, res) {
-  // Create empty array and set error variables to false
-  var errors = [];
-  
-  // Check if user has filled out a value
-  if (typeof req.session.data['roDirector'] === 'undefined') {
-    // No value so add error to array
-    errors.push({
-      text: 'You must select if the relevant officer is a director',
-      href: '#roDirector'
-    })
-
-    // Re-show page with error value as true so errors will show
-    res.render('v8/rle/ro-director', {
-      errorDirector: true,
-      errorList: errors
-    })
-  } else {
-    if (req.session.data['roDirector'] === 'yes') {
       res.redirect('/v8/rle/ro-statements')
-    } else {
-      // User inputted value so move to next page
-      res.redirect('/v8/rle/not-director-stop')
     }
   }
 })
-
 
 
 // ******* ro-why-this-name javascript ********************************
