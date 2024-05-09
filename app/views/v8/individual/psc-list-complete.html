@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Which PSC are you providing verification details for?  – {{ serviceName }} – GOV.UK Prototype Kit
+PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,106 +13,56 @@ Which PSC are you providing verification details for?  – {{ serviceName }} –
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <!-- Check for error -->
-      {% if errorPscList %}
-      {{ govukErrorSummary({
-        titleText: "There is a problem",
-        errorList: errorList
-      }) }}
+
+      <h1 class="govuk-heading-l">PSCs verification status</h1>
+
+      <p class="govuk-body">
+        We've received verification details for all 
+  
+        {% if data['companyNumber'] == '12345678' %}
+        <strong>Big Shop Ltd</strong>'s
+      {% elif data['companyNumber'] == '33335555' %}
+        <strong>Little Shop ltd</strong>'s
+      {% elif data['companyNumber'] == '66667777' %}
+        <strong>Cafe Happy ltd</strong>'s
       {% endif %}
+        
+        people with significant control (PSCs). The companies PSCs are shown below.
+      </p>
 
-      <form action="{{currentUrl}}" method="post">
+      <table class="govuk-table">
+        <tbody class="govuk-table__body">
 
-        <!-- Check for error -->
-        {% if errorPscList %}
-          <div class="govuk-form-group govuk-form-group--error">
-        {% else %}
-          <div class="govuk-form-group">
-        {% endif %} 
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                Which PSC are you providing verification details for?
-              </h1>
-            </legend>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Paul Smith (Born April 1989)</td>
+            </tr>
 
-            <!-- Check for error -->
-            {% if errorPscList %}
-            <p id="psc-type-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span> Select the PSC you providing verification details for
-            </p>
-            {% endif %} 
-            <div id="pscList-hint" class="govuk-hint">These PSCs for
-              <strong>Big Shop Ltd</strong> still need to provide their identity verification details. We will not show PSCs that have already done this. You can only provide verification details for one PSC at a time. 
-            </div>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Susan Robinson (Born May 1989)</td>
+            </tr>
+        </tbody>
+      </table>
+  
+      <p class="govuk-body">
+        If the company has recently notified Companies House of a new PSC, you'll need to wait until the filing is accepted and the new PSC appears on the public register before you can use this service. 
+      </p>
+  
+      <p class="govuk-body govuk-!-margin-bottom-7">
+        <a href="../company-number" class="govuk-link">Provide verification details for a PSC of another company</a>.
+      </p>
 
-            <div class="govuk-radios govuk-!-margin-bottom-9" data-module="govuk-radios">
-              
-              {% if data['paul_smith'] != 'yes' %}
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="pscList" name="pscList" type="radio" value="Paul Smith">
-                <label class="govuk-label govuk-radios__label" for="pscList">
-                  Paul Smith
-                </label>
-                <div id="pscList-hint" class="govuk-hint govuk-checkboxes__hint">
-                  Born in April 1989
-                </div>
-              </div>
-              {% endif %}
+        <h2 class="govuk-heading-m">PSCs that cannot provide verification details yet</h2>
 
-              {% if data['susan_robinson'] != 'yes' %}
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="pscList-2" name="pscList" type="radio" value="Susan Robinson">
-                <label class="govuk-label govuk-radios__label" for="pscList-2">
-                  Susan Robinson
-                </label>
-                <div id="pscList-2-hint" class="govuk-hint govuk-checkboxes__hint"  value="Born in May 1989">
-                  Born in May 1989
-                </div>
-              </div>
-              {% endif %}
-            </div>
+        <p class="govuk-body">These PSCs for Little Shop Ltd must wait until <strong>1 August 2024</strong>. They will have 14 days from this date to provide their verification details.</p>
 
-            {% if data['pscList'] %}
-              <h2 class="govuk-heading-m">PSCs that have already provided verification details</h2>
-
-              <table class="govuk-table govuk-!-margin-bottom-9">
-                <tbody class="govuk-table__body">
-                  {% if data['paul_smith'] == 'yes' %}
-                    <tr class="govuk-table__row">
-                      <td class="govuk-table__cell">Paul Smith (Born April 1989)</td>
-                    </tr>
-                  {% endif %}
-
-                  {% if data['susan_robinson'] == 'yes' %}
-                    <tr class="govuk-table__row">
-                      <td class="govuk-table__cell">Susan Robinson (Born May 1989)</td>
-                    </tr>
-                  {% endif %}
-                </tbody>
-              </table>
-            {% endif %}
-
-            <h2 class="govuk-heading-m">PSCs that cannot provide verification details yet</h2>
-
-            <p class="govuk-body">These PSCs for Little Shop Ltd must wait until <strong>1 August 2024</strong>. They will have 14 days from this date to provide their verification details.</p>
-
-            <table class="govuk-table">
-              <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-                  <td class="govuk-table__cell">Mark Wood (Born May 1979)</td>
-                </tr>
-              </tbody>
-            </table>
-          </fieldset>
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Mark Wood (Born May 1979)</td>
+            </tr>
+          </tbody>
+        </table>
           
-        </div>
-              
-        {{ govukButton({
-          text: "Continue"
-        }) }}
-
-      </form>
     </div>
   </div>
 {% endblock %}

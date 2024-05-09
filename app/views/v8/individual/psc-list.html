@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Which PSC are you providing verification details for?  – {{ serviceName }} – GOV.UK Prototype Kit
+PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -23,6 +23,8 @@ Which PSC are you providing verification details for?  – {{ serviceName }} –
 
       <form action="{{currentUrl}}" method="post">
 
+        <h1 class="govuk-heading-l">PSCs verification status</h1>
+
         <!-- Check for error -->
         {% if errorPscList %}
           <div class="govuk-form-group govuk-form-group--error">
@@ -31,9 +33,9 @@ Which PSC are you providing verification details for?  – {{ serviceName }} –
         {% endif %} 
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                Which PSC are you providing verification details for?
-              </h1>
+              <h2 class="govuk-heading-m">
+                PSCs that need to provide verification details
+              </h2>
             </legend>
 
             <!-- Check for error -->
@@ -43,11 +45,10 @@ Which PSC are you providing verification details for?  – {{ serviceName }} –
             </p>
             {% endif %} 
             <div id="pscList-hint" class="govuk-hint">These PSCs for
-              <strong>Big Shop Ltd</strong> still need to provide their identity verification details. We will not show PSCs that have already done this. You can only provide verification details for one PSC at a time. 
+              <strong>Big Shop Ltd</strong> still need to provide their identity verification details. You can only provide verification details for one PSC at a time. 
             </div>
 
             <div class="govuk-radios govuk-!-margin-bottom-9" data-module="govuk-radios">
-              
               {% if data['paul_smith'] != 'yes' %}
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="pscList" name="pscList" type="radio" value="Paul Smith">
@@ -73,11 +74,17 @@ Which PSC are you providing verification details for?  – {{ serviceName }} –
               {% endif %}
             </div>
 
-            {% if data['pscList'] %}
               <h2 class="govuk-heading-m">PSCs that have already provided verification details</h2>
 
               <table class="govuk-table govuk-!-margin-bottom-9">
                 <tbody class="govuk-table__body">
+                  {% if data['paul_smith'] != 'yes' 
+                  and data['paul_smith'] != 'yes' %}
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">No PSCs have provided their identity verification details.</td>
+                    </tr>
+                  {% endif %}
+
                   {% if data['paul_smith'] == 'yes' %}
                     <tr class="govuk-table__row">
                       <td class="govuk-table__cell">Paul Smith (Born April 1989)</td>
@@ -91,7 +98,6 @@ Which PSC are you providing verification details for?  – {{ serviceName }} –
                   {% endif %}
                 </tbody>
               </table>
-            {% endif %}
 
             <h2 class="govuk-heading-m">PSCs that cannot provide verification details yet</h2>
 
