@@ -44,9 +44,9 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
               <span class="govuk-visually-hidden">Error:</span> Select the PSC you providing verification details for
             </p>
             {% endif %} 
-            <div id="pscList-hint" class="govuk-hint">These PSCs for
-              <strong>Big Shop Ltd</strong> still need to provide their identity verification details. You can only provide verification details for one PSC at a time. 
-            </div>
+            <p class="govuk-body">These PSCs for <strong>Big Shop Ltd</strong> still need to provide their 
+              relevant officer's details. You can only provide relevant officer details for one RLE at a time.
+            </p>
 
             <div class="govuk-radios govuk-!-margin-bottom-9" data-module="govuk-radios">
               {% if data['paul_smith'] != 'yes' %}
@@ -99,17 +99,18 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                 </tbody>
               </table>
 
-            <h2 class="govuk-heading-m">PSCs that cannot provide verification details yet</h2>
+              <h2 class="govuk-heading-m">PSCs that cannot provide verification details yet</h2>
 
-            <p class="govuk-body">These PSCs for Little Shop Ltd must wait until <strong>1 August 2024</strong>. They will have 14 days from this date to provide their verification details.</p>
+              <p class="govuk-body">These PSCs for <strong>Big Shop Ltd</strong> must wait until <strong>1 August 2024</strong>. They will have 14 days from this date to provide their verification details.</p>
 
-            <table class="govuk-table">
-              <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-                  <td class="govuk-table__cell">Mark Wood (Born May 1979)</td>
-                </tr>
-              </tbody>
-            </table>
+              <table class="govuk-table">
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">Mark Wood (Born May 1979)</td>
+                  </tr>
+                </tbody>
+              </table>
+
           </fieldset>
           
         </div>

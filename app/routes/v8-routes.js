@@ -112,12 +112,6 @@ router.post('/v8/confirm-company', function (req, res) {
   if ((req.session.data['companyNumber'] == '22223333')) {
     // Super secure
     res.redirect('/v8/super-secure')
-  } else if ((req.session.data['companyNumber'] == '66667777')){
-    // No PSCs or RLEs
-    res.redirect('/v8/no-pscs')
-  } else if ((req.session.data['companyNumber'] == '11112222')){
-    // PSCs or RLEs are not ready to give statement yet {
-    res.redirect('/v8/no-appointed-day-psc')
   } else {
     res.redirect('/v8/psc-type')
   }
@@ -147,7 +141,12 @@ router.post('/v8/psc-type', function (req, res) {
     })
   } else {
     if ((req.session.data['pscType'] == 'rle')) {
+      if ((req.session.data['megacorp_ltd'] === 'yes')
+            && (req.session.data['omega_trading'] === 'yes')){
+      res.redirect('/v8/rle/rle-list-complete')
+    } else {
       res.redirect('/v8/rle/rle-list')
+    } 
     } else if ((req.session.data['paul_smith'] === 'yes')
             && (req.session.data['susan_robinson'] === 'yes')){
       res.redirect('/v8/individual/psc-list-complete')
