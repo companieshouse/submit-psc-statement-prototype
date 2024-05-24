@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  All the PSCS have been verified
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">This company's PSCs have already provided verification details</h1>
+
+    <p class="govuk-body">
+      We've received verification details for all 
+
+      {% if data['companyNumber'] == '12345678' %}
+      <strong>Big Shop Ltd</strong>'s
+    {% elif data['companyNumber'] == '33335555' %}
+      <strong>Little Shop ltd</strong>'s
+    {% elif data['companyNumber'] == '66667777' %}
+      <strong>Cafe Happy ltd</strong>'s
+    {% endif %}
+      
+      people with significant control (PSCs).
+    </p>
+
+    <p class="govuk-body">
+      If the company has recently notified Companies House of a new PSC, you'll need to wait until the filing is accepted and the new PSC appears on the public register before you can use this service. 
+    </p>
+
+    <p class="govuk-body">
+      <a href="../company-number" class="govuk-link">Provide verification details for a PSC of another company</a>.
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

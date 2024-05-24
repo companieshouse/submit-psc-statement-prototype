@@ -1,0 +1,75 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Confirm the identity verification statement – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/account-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    <!-- Check for error -->
+    {% if errorStatement %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+    {% endif %}
+      <form action="{{currentUrl}}" method="post">
+
+        <!-- Check for error -->
+        {% if errorStatement %}
+        <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
+        <div class="govuk-form-group">
+        {% endif %} 
+          <fieldset class="govuk-fieldset" aria-describedby="individualStatement-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <span class="govuk-caption-l">{{ data ['pscList']}} (Born April 1989)</span>
+              <h1 class="govuk-fieldset__heading">
+                Confirm the identity verification statement
+              </h1>
+            </legend>
+            {% if errorStatement %}
+            <p id="individualStatement-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span>Confirm if the identity verification statement is correct
+            </p>
+            {% endif %}
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="individualStatement" name="individualStatement" type="checkbox">
+                <label class="govuk-label govuk-checkboxes__label" for="individualStatement">
+                  I confirm that <strong>{{ data['pscList']}}</strong> has verified their identity for Companies House.
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Confirm and continue
+        </button> 
+
+        {% if data['pscList'] == 'Paul Smith' %}
+          <input type="hidden" name="paul_smith" id="paul_smith" value="yes" />
+        {% endif %}
+
+        {% if data['pscList'] == 'Susan Robinson' %}
+          <input type="hidden" name="susan_robinson" id="susan_robinson" value="yes" />
+        {% endif %}
+
+        {% if data['pscList'] == 'Matthew Gant' %}
+          <input type="hidden" name="matthew_gant" id="matthew_gant" value="yes" />
+        {% endif %}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Confirm all the relevant officer statements – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/account-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="{{currentUrl}}" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="rleStatements-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <span class="govuk-caption-l">{{ data ['rleList']}}</span>
+              <h1 class="govuk-fieldset__heading">
+                Confirm all the relevant officer statements
+              </h1>
+            </legend>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="rleStatements" name="rleStatements" type="checkbox">
+                <label class="govuk-label govuk-checkboxes__label" for="rleStatements">
+                  I confirm that <strong>{{ data['firstName']}} {{ data['middleName']}} {{ data['lastName']}}</strong> has verified their identity for Companies House.
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="rleStatements" name="rleStatements-2" type="checkbox">
+                <label class="govuk-label govuk-checkboxes__label" for="rleStatements-2">
+                  <strong>{{ data['rleList']}}</strong> has confirmed that <strong>{{ data['firstName']}} {{ data['middleName']}} {{ data['lastName']}}</strong> is the relevant officer.
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="rleStatements" name="rleStatements-3" type="checkbox">
+                <label class="govuk-label govuk-checkboxes__label" for="rleStatements-3">
+                  <strong>{{ data['firstName']}} {{ data['middleName']}} {{ data['lastName']}}</strong> has confirmed that they are the relevant officer of <strong>{{ data['rleList']}}</strong>.
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Confirm and continue
+        </button> 
+
+        {% if data['rleList'] == 'Megacorp Ltd' %}
+          <input type="hidden" name="megacorp_ltd" id="megacorp_ltd" value="yes" />
+        {% endif %}
+
+        {% if data['rleList'] == 'Omega Trading Group' %}
+          <input type="hidden" name="omega_trading" id="omega_trading" value="yes" />
+        {% endif %}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
