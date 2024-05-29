@@ -4,6 +4,17 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 module.exports=router;
 
+// Show session data and URLs in the terminal  
+router.use((req, res, next) => {  
+  const log = {  
+    method: req.method,  
+    url: req.originalUrl,  
+    data: req.session.data  
+  }  
+  console.log(JSON.stringify(log, null, 2))  
+  next()  
+}) 
+
 // ******* Sign in email validation ********************************
 router.get('/v4/sign-in-email', function (req, res) {
   // Set URl
