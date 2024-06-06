@@ -152,15 +152,7 @@ router.post('/v8/psc-type', function (req, res) {
     })
   } else {
     if ((req.session.data['pscType'] == 'rle')) {
-      if ((req.session.data['megacorp_ltd'] === 'yes')
-            && (req.session.data['omega_trading'] === 'yes')){
-      res.redirect('/v8/rle/rle-list-complete')
-    } else {
       res.redirect('/v8/rle/rle-list')
-    } 
-    } else if ((req.session.data['paul_smith'] === 'yes')
-            && (req.session.data['susan_robinson'] === 'yes')){
-      res.redirect('/v8/individual/psc-list-complete')
     } else {
       res.redirect('/v8/individual/psc-list')
     }

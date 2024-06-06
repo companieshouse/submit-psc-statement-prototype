@@ -11,101 +11,181 @@ RLE verification status – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <!-- Check for error -->
-      {% if errorRleList %}
-      {{ govukErrorSummary({
-        titleText: "There is a problem",
-        errorList: errorList
-      }) }}
-      {% endif %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- Check for error -->
+    {% if errorPscList %}
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: errorList
+    }) }}
+    {% endif %}
 
-      <form action="{{currentUrl}}" method="post">
-        <h1 class="govuk-heading-l">RLEs verification status</h1>
-
-        <h2 class="govuk-heading-m">
+      <h1 class="govuk-heading-l">RLEs verification status</h1>
+      <p class="govuk-body">
+        If the company has recently notified Companies House of a new RLE, 
+        you'll need to wait until the filing is accepted and the new RLE 
+        appears on the public register before you can use this service for that RLE. 
+      </p>
+  
+      {% if (data['megacorp_ltd'] != 'yes') 
+      or (data['omega_trading'] != 'yes') %}
+        <h2 class="govuk-heading-m govuk-!-margin-top-7">
           RLEs that need to provide verification details
         </h2>
-
+    
         <p class="govuk-body">These RLEs for <strong>Big Shop Ltd</strong> still need to provide their 
           relevant officer's details. You can only provide relevant officer details for one RLE at a time.
         </p>
-
-        <!-- Check for error -->
-        {% if errorRleList %}
-          <div class="govuk-form-group govuk-form-group--error">
-        {% else %}
-          <div class="govuk-form-group">
-        {% endif %} 
-          <fieldset class="govuk-fieldset">
-            <!-- Check for error -->
-            {% if errorRleList %}
-            <p id="psc-type-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span> Select the Rle you providing verification details for
-            </p>
-            {% endif %}
-
-            <div class="govuk-radios govuk-!-margin-bottom-7" data-module="govuk-radios">
-
-              {% if data['megacorp_ltd'] != 'yes' %}
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="rleList" name="rleList" type="radio" value="Megacorp Ltd">
-                <label class="govuk-label govuk-radios__label" for="rleList">
-                  Megacorp Ltd
-                </label>
+      {% endif %}
+    
+      {% if data['megacorp_ltd'] != 'yes' %}
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Megacorp Ltd
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                  <form id="megacorp" action="ro-details">
+                    <!-- Set up psc variables **************************************** -->
+                    <input type="hidden" name="rleList" id="rleList" value="Megacorp Ltd" />
+                    <a href="#" onclick="document.getElementById('megacorp').submit();">
+                      Provide verification details</a>
+                  </form>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Verification status
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <strong class="govuk-tag govuk-tag--blue">
+                    Details not given
+                  </strong>
+                </dd>
               </div>
-              {% endif %}
-
-              {% if data['omega_trading'] != 'yes' %}
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="rleList-2" name="rleList" type="radio" value="Omega Trading Group">
-                <label class="govuk-label govuk-radios__label" for="rleList-2">
-                  Omega Trading Group
-                </label>
-              </div>
-              {% endif %}
-            </div>
-          </fieldset>
+            </dl>
+          </div>
         </div>
+      {% endif %}
+      
+      {% if data['omega_trading'] != 'yes' %}
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Omega Trading Group
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <form id="omega" action="ro-details">
+                  <!-- Set up psc variables **************************************** -->
+                  <input type="hidden" name="rleList" id="rleList" value="Omega Trading Group" />
+                  <a href="#" onclick="document.getElementById('omega').submit();">
+                    Provide verification details</a>
+                </form>
+            </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Verification status
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <strong class="govuk-tag govuk-tag--blue">
+                    Details not given
+                  </strong>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      {% endif %}
+      
+      <h2 class="govuk-heading-m govuk-!-margin-top-9">RLEs that cannot provide verification details yet</h2>
+  
+      <p class="govuk-body">These RLEs for <strong>Big Shop Ltd</strong> must wait until <strong>1 August 2024</strong>. They 
+        will have 14 days from this date to provide their verification details.</p>
+        
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Spicy Food Ltd
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Verification status
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <strong class="govuk-tag govuk-tag--red">
+                  Cannot give details 
+                </strong>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+  
+      {% if (data['megacorp_ltd'] == 'yes') 
+         or (data['omega_trading'] == 'yes') %}
+        <h2 class="govuk-heading-m govuk-!-margin-top-9">RLEs that have already provided verification details</h2>
+      {% endif %}
 
-        {% if data['rleList'] %}
-          <h2 class="govuk-heading-m">RLEs that have already provided verification details</h2>
+      {% if data['megacorp_ltd'] == 'yes' %}
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Megacorp Ltd
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Verification status
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <strong class="govuk-tag govuk-tag--green">
+                    Details given 
+                  </strong>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      {% endif %}
 
-          <table class="govuk-table govuk-!-margin-bottom-9">
-            <tbody class="govuk-table__body">
-              {% if data['megacorp_ltd'] == 'yes' %}
-                <tr class="govuk-table__row">
-                  <td class="govuk-table__cell">Megacorp Ltd</td>
-                </tr>
-              {% endif %}
-
-              {% if data['omega_trading'] == 'yes' %}
-                <tr class="govuk-table__row">
-                  <td class="govuk-table__cell">Susan Robinson (Born May 1989)</td>
-                </tr>
-              {% endif %}
-            </tbody>
-          </table>
-        {% endif %}
-
-        <h2 class="govuk-heading-m">RLEs that cannot provide relevant officer details yet</h2>
-
-        <p class="govuk-body">These RLEs for <strong>Big Shop Ltd</strong> must wait until <strong>1 August 2024</strong>. They will have 28 days from this date to provide their relevant officer's details.</p>
-
-        <table class="govuk-table">
-          <tbody class="govuk-table__body">
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Spicy Food Ltd</td>
-            </tr>
-          </tbody>
-        </table>
-              
-        {{ govukButton({
-          text: "Continue"
-        }) }}
-
-      </form>
+      {% if data['omega_trading'] == 'yes' %}
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Omega Trading Group
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Verification status
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <strong class="govuk-tag govuk-tag--green">
+                    Details given 
+                  </strong>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      {% endif %}
     </div>
   </div>
 {% endblock %}

@@ -31,7 +31,7 @@ Confirm the identity verification statement – {{ serviceName }} – GOV.UK Pro
         {% endif %} 
           <fieldset class="govuk-fieldset" aria-describedby="individualStatement-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <span class="govuk-caption-l">{{ data ['pscList']}} (Born April 1989)</span>
+              <span class="govuk-caption-l">{{ data ['pscList']}} (Born {{ data ['pscBithday']}})</span>
               <h1 class="govuk-fieldset__heading">
                 Confirm the identity verification statement
               </h1>
@@ -64,8 +64,8 @@ Confirm the identity verification statement – {{ serviceName }} – GOV.UK Pro
           <input type="hidden" name="susan_robinson" id="susan_robinson" value="yes" />
         {% endif %}
 
-        {% if data['pscList'] == 'Matthew Gant' %}
-          <input type="hidden" name="matthew_gant" id="matthew_gant" value="yes" />
+        {% if data['pscList'] == 'Lisa Carr' %}
+          <input type="hidden" name="lisa_carr" id="lisa_carr" value="yes" />
         {% endif %}
 
       </form>
