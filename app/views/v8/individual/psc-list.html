@@ -21,11 +21,9 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
       }) }}
       {% endif %}
 
-        <h1 class="govuk-heading-l">PSCs verification status</h1>
+        <h1 class="govuk-heading-l">PSC identity verification status</h1>
         <p class="govuk-body">
-          If the company has recently notified Companies House of a new PSC, 
-          you'll need to wait until the filing is accepted and the new PSC 
-          appears on the public register before you can use this service for that PSC. 
+          An overview of which PSCs still need to provide their verification details, and who has done it already. 
         </p>
     
         {% if (data['paul_smith'] != 'yes') 
@@ -34,8 +32,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
             PSCs that need to provide verification details
           </h2>
       
-          <p class="govuk-body">These PSCs for <strong>Big Shop Ltd</strong> still need to provide their identity 
-            verification details. You can only provide verification details for one PSC at a time.
+          <p class="govuk-body">These PSCs for <strong>Big Shop Ltd</strong> can provide their verification details now. You can only provide details for one PSC at a time.
           </p>
         {% endif %}
       
@@ -73,7 +70,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                   </dt>
                   <dd class="govuk-summary-list__value">
                     <strong class="govuk-tag govuk-tag--blue">
-                      Details not given
+                      Details not provided
                     </strong>
                   </dd>
                 </div>
@@ -116,7 +113,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                   </dt>
                   <dd class="govuk-summary-list__value">
                     <strong class="govuk-tag govuk-tag--blue">
-                      Details not given
+                      Details not provided
                     </strong>
                   </dd>
                 </div>
@@ -152,7 +149,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                 </dt>
                 <dd class="govuk-summary-list__value">
                   <strong class="govuk-tag govuk-tag--red">
-                    Cannot give details 
+                    Cannot provide details yet
                   </strong>
                 </dd>
               </div>
@@ -188,7 +185,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                   </dt>
                   <dd class="govuk-summary-list__value">
                     <strong class="govuk-tag govuk-tag--green">
-                      Details given 
+                      Details provided 
                     </strong>
                   </dd>
                 </div>
@@ -220,7 +217,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                   </dt>
                   <dd class="govuk-summary-list__value">
                     <strong class="govuk-tag govuk-tag--green">
-                      Details given 
+                      Details provided 
                     </strong>
                   </dd>
                 </div>
@@ -229,6 +226,19 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
           </div>
         {% endif %}
 
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      I can't find the PSC I'm looking for
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+          <p class="govuk-body">You can only use this service to provide verification details for PSCs that are shown on the Companies House register. 
+          <p>If the company has recently notified Companies House of a new PSC, 
+          you must wait until that filing is accepted and the new PSC 
+          appears on the public register. 
+  </div>
+</details>
 
         <!-- <h1 class="govuk-heading-l">PSCs verification status</h1>
 
