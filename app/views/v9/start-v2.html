@@ -1,0 +1,122 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Provide identity verification details for a PSC or relevant legal entity - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Provide identity verification details for a person with significant control (PSC) 
+      </h1>
+
+      <p class="govuk-body-l">Use this service to provide a Companies House personal code for an individual PSC, or to provide a relevant officer's details for a relevant legal entity (RLE).  
+      </p>
+
+      <div class="govuk-inset-text">
+        You can also use this service to check when a company's PSCs and RLEs need to provide their verification details, and who has already done it. 
+      </div>
+
+
+     <p class="govuk-body">You cannot use this service if the PSC has their personal information protected at Companies House (or is waiting for the results of an application)</p>
+
+<!--
+      <h2 class="govuk-heading-s">Identity verification for PSCs</h2>
+
+      <p class="govuk-body">All individual PSCs of a company need to <a href="#">verify their identity for Companies House</a>. 
+      
+      <p class="govuk-body">Relevant legal entities (RLEs) need to provide details of a relevant officer, who must verify their identity for Companies House.</p>
+
+      <p class="govuk-body">When a person has successfully verified their identity, they'll receive their Companies House personal code. They must provide the code in this service, so that we can connect their verified identity to the name on our records.</p>
+      -->
+
+
+      <h2 class="govuk-heading-m">When you need to provide verification details</h2>
+      
+      <p class="govuk-body">Each PSC and RLE has a specific date from which they can provide their verification details. They will not be able to do it early.</p>
+
+      <p class="govuk-body">Sign in to the service to find out exactly when a company's PSCs and RLEs need to provide their details, or read the <a href="https://prove-your-identity-prototype.herokuapp.com/release2-v4/pre-one-login/guidance-when">guidance on when to verify</a>.</p>    
+
+
+<!--
+      <p class="govuk-body">If the PSC was added to the Companies House register before [date], they must wait until the company's confirmation statement date. They will then have 14 days to provide their personal code. RLEs will have 28 days to provide their relevant officer's details. 
+
+      <p class="govuk-body">If the PSC was added to the Companies House register after [date], they need to provide their personal code within 14 days of the date their notification filing was accepted. RLEs must provide their relevant officer's details within 28 days. 
+
+-->
+
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+    If a PSC or relevant legal entity does not comply with identity verification requirements, they will be committing an offence and may have to pay a fine.
+  </strong>
+</div>
+
+<!--
+      <h3 class="govuk-heading-s">Individual PSCs</h3>
+
+            <p class="govuk-body">If you were added to the Companies House register before [date], you must provide your verification details within 14 days of company's confirmation statement date.</p>
+
+            <p class="govuk-body">If you were added after [date], you must provide your verification details within 14 days of the date Companies House accepted your PSC notification filing.</p>
+
+
+
+      <h3 class="govuk-heading-s">Relevant legal entities</h3>
+
+            <p class="govuk-body">If the RLE was added to the Companies House register before [date], you must provide its relevant officer's details within 28 days of company's confirmation statement date.</p>
+
+            <p class="govuk-body">If the RLE was added after [date], you must provide its relevant officer's details within 28 days of the date Companies House accepted the RLE notification filing.</p>
+      -->
+
+      <h2 class="govuk-heading-m">Before you start</h2>
+      
+      <p class="govuk-body">The PSC or relevant officer must <a href="https://prove-your-identity-prototype.herokuapp.com/release1-v8/pre-one-login/guidance">verify their identity</a>, if they haven’t already.</p>
+
+      <p class="govuk-body">To use this service, you'll need:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>to sign into or create a GOV.UK One Login account</li>
+        <li>the Companies House personal code for the PSC or relevant officer</li>
+        <li>the company number for the company they are a PSC or RLE of</li>
+      </ul>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            What is a Companies House personal code?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          This is an 11 character code that is given to a person after they have verified their identity with Companies House. 
+        </div>
+      </details>
+
+      <p class="govuk-body"><b>If you're providing verification details for a relevant officer</b>
+      <p class="govuk-body">You'll also need their full name and date of birth. 
+
+      <p class="govuk-body">The relevant officer must be a director of the RLE, or someone whose roles and responsibilities correspond to that of a company director. They must be aged 16 or over.
+
+     <p class="govuk-body">For more information on PSCs, RLEs and relevant officers, <a href="#">read the guidance on people with significant control</a>.</p>
+
+      {{ govukButton({
+        text: "Start",
+        href: "create-or-sign-in",
+        isStartButton: true
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}
