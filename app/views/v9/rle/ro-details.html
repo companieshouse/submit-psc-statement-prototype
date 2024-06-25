@@ -92,7 +92,7 @@ Relevant officer's details – {{ serviceName }} – GOV.UK Prototype Kit
           {% elif errorRoDobDay or errorRoDobMonth or errorRoDobYear%} 
             <p id="Dob-error" class="govuk-error-message">
               {% if yearError %}
-              <span class="govuk-visually-hidden">Error:</span> The director must be at least 16 years of age
+              <span class="govuk-visually-hidden">Error:</span> The director must be aged 16 or over
               {% else %}
               <span class="govuk-visually-hidden">Error:</span> The date must include a day, month and year
               {% endif %} 
@@ -155,7 +155,7 @@ Relevant officer's details – {{ serviceName }} – GOV.UK Prototype Kit
           <!-- Check for error -->
           {% if errorRoPersonalCode %}
             <p id="roPersonalCode-error" class="govuk-error-message">
-                <span class="govuk-visually-hidden">Error:</span> Enter the personal code for the relevant officer
+                <span class="govuk-visually-hidden">Error:</span> Enter the Companies House personal code 
             </p>
             <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing govuk-input--error" id="roPersonalCode" name="roPersonalCode" type="text" aria-describedby="roPersonalCode-hint">
           {% elif rleMatchError%} 

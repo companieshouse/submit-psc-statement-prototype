@@ -36,7 +36,7 @@
           <!-- Check for error -->
           {% if errorPscPersonalCode %}
             <p id="pscPersonalCode-error" class="govuk-error-message">
-                <span class="govuk-visually-hidden">Error:</span> Enter the personal code for the PSC
+                <span class="govuk-visually-hidden">Error:</span> Enter the Companies House personal code for {{ data ['pscList']}}
             </p>
             <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing govuk-input--error" id="pscPersonalCode" name="pscPersonalCode" type="text" aria-describedby="pscPersonalCode-hint">
           {% else %}

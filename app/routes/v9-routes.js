@@ -142,7 +142,7 @@ router.post('/v9/psc-type', function (req, res) {
 
   if (typeof req.session.data['pscType'] === 'undefined') {
     errors.push({
-      text: 'Select if your providing verification details for a PSC or RLE',
+      text: 'Select if you are providing verification details for a PSC or an RLE',
       href: '#pscType'
     })
     
@@ -256,7 +256,7 @@ router.post('/v9/rle/ro-details', function (req, res) {
     roPersonalCodeError = true
     roDetailsError = true
     errors.push({
-      text: 'Enter the personal code',
+      text: 'Enter the Companies House personal code',
       href: '#roPersonalCode'
     })
   }
@@ -305,7 +305,7 @@ router.post('/v9/rle/ro-details', function (req, res) {
     } // Director too young
       else if (req.session.data['Dob-year'] === '2009') {
       errors.push({
-        text: 'The director must be at least 16 years of age',
+        text: 'The director must be aged 16 or over',
         href: '#Dob-year'
         })
         
@@ -394,7 +394,7 @@ router.post('/v9/individual/psc-details', function (req, res) {
     pscPersonalCodeError = true
     pscDetailsError = true
     errors.push({
-      text: 'Enter the personal code for the PSC',
+      text: 'Enter the personal code for this PSC',
       href: '#pscPersonalCode'
     })
   }
@@ -491,7 +491,7 @@ router.post('/v9/individual/psc-statement', function (req, res) {
   if (typeof req.session.data['individualStatement'] === 'undefined') {
     // No value so add error to array
     errors.push({
-      text: 'Confirm if the verification statement is correct',
+      text: 'Select the identity verification statement for this PSC',
       href: '#individualStatement'
     })
 
