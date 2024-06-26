@@ -204,6 +204,7 @@ router.post('/v9/rle/ro-details', function (req, res) {
   var dobMonthError = false
   var dobYearError = false
   var roPersonalCodeError = false
+  var roDirectorsError = false
 
   var roDetailsError = false
 
@@ -410,8 +411,11 @@ router.post('/v9/individual/psc-details', function (req, res) {
   if (req.session.data['pscPersonalCode'] === '') {
     pscPersonalCodeError = true
     pscDetailsError = true
+    let pscName = (req.session.data['pscList'] );
+    let errorText = 'Enter the Companies House personal code for ';
+    let combinedErrorText = errorText.concat(pscName);
     errors.push({
-      text: 'Enter the personal code for this PSC',
+      text:  combinedErrorText,
       href: '#pscPersonalCode'
     })
   }
@@ -507,8 +511,11 @@ router.post('/v9/individual/psc-statement', function (req, res) {
 
   if (typeof req.session.data['individualStatement'] === 'undefined') {
     // No value so add error to array
+    let pscName = (req.session.data['pscList'] );
+    let errorText = 'Select the identity verification statement for ';
+    let combinedErrorText = errorText.concat(pscName);
     errors.push({
-      text: 'Select the identity verification statement for this PSC',
+      text: combinedErrorText,
       href: '#individualStatement'
     })
 
