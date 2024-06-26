@@ -14,9 +14,21 @@ Confirm all the relevant officer statements – {{ serviceName }} – GOV.UK Pro
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      <!-- Check for error -->
+      {% if errorStatements %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+      {% endif %}
       <form action="{{currentUrl}}" method="post">
 
+        <!-- Check for error -->
+        {% if errorStatements %}
+        <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
         <div class="govuk-form-group">
+        {% endif %} 
           <fieldset class="govuk-fieldset" aria-describedby="rleStatements-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <span class="govuk-caption-l">{{ data ['rleList']}}</span>
@@ -25,21 +37,29 @@ Confirm all the relevant officer statements – {{ serviceName }} – GOV.UK Pro
               </h1>
             </legend>
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <!-- Check for error -->
+              {% if errorStatements %}
+              <p id="rleStatementOne-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span>Select all three relevant officer statements
+              </p>
+              {% endif %}
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="rleStatements" name="rleStatements" type="checkbox">
-                <label class="govuk-label govuk-checkboxes__label" for="rleStatements">
+                <input class="govuk-checkboxes__input" id="rleStatementOne" name="rleStatementOne" type="checkbox">
+                <label class="govuk-label govuk-checkboxes__label" for="rleStatementOne">
                   I confirm that <strong>{{ data['firstName']}} {{ data['middleName']}} {{ data['lastName']}}</strong> has verified their identity for Companies House.
                 </label>
               </div>
+
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="rleStatements" name="rleStatements-2" type="checkbox">
-                <label class="govuk-label govuk-checkboxes__label" for="rleStatements-2">
+                <input class="govuk-checkboxes__input" id="rleStatementTwo" name="rleStatementTwo" type="checkbox">
+                <label class="govuk-label govuk-checkboxes__label" for="rleStatementTwo">
                   <strong>{{ data['rleList']}}</strong> has confirmed that <strong>{{ data['firstName']}} {{ data['middleName']}} {{ data['lastName']}}</strong> is the relevant officer.
                 </label>
               </div>
+
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="rleStatements" name="rleStatements-3" type="checkbox">
-                <label class="govuk-label govuk-checkboxes__label" for="rleStatements-3">
+                <input class="govuk-checkboxes__input" id="rleStatementThree" name="rleStatementThree" type="checkbox">
+                <label class="govuk-label govuk-checkboxes__label" for="rleStatementThree">
                   <strong>{{ data['firstName']}} {{ data['middleName']}} {{ data['lastName']}}</strong> has confirmed that they are the relevant officer of <strong>{{ data['rleList']}}</strong>.
                 </label>
               </div>

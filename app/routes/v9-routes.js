@@ -333,7 +333,7 @@ router.get('/v9/rle/ro-why-this-name', function (req, res) {
 })
 
 router.post('/v9/rle/ro-why-this-name', function (req, res) {
-  res.redirect('/v9/rle/ro-director')
+  res.redirect('/v9/rle/ro-statements')
 })
 
 
@@ -346,7 +346,24 @@ router.get('/v9/rle/ro-statements', function (req, res) {
 })
 
 router.post('/v9/rle/ro-statements', function (req, res) {
-  res.redirect('/v9/rle/rle-verified')
+  var errors = [];
+
+  if (typeof req.session.data['rleStatementOne'] === 'undefined' || 
+      typeof req.session.data['rleStatementTwo'] === 'undefined' ||
+      typeof req.session.data['rleStatementThree'] === 'undefined')  {
+    errors.push({
+      text: 'Select all three relevant officer statements',
+      href: '#rleStatementOne'
+    })
+
+    // Re-show page with error value as true so errors will show
+    res.render('v9/rle/ro-statements', {
+      errorStatements: true,
+      errorList: errors
+    })
+  } else {
+    res.redirect('/v9/rle/rle-verified')
+  }
 })
 
 
