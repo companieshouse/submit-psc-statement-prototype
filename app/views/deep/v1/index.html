@@ -1,0 +1,361 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+  {{ govukTag({
+    classes: "govuk-tag--blue govuk-!-margin-bottom-4",
+    text: "DEEP version 1"
+  }) }}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">
+       {{serviceName}}<span class="govuk-caption-xl"></span>
+      </h1>
+
+      <a href="start-v2" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+        Start now
+      </a>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-6">
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l">Prototype data</h2>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Personal code
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                111-2222-3333
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Shows the 'Why is the verified name different?' page 
+                in the RLE or PSC journey.
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                444-5555-6666
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Shows the data doesn't match page in the PSC journey.
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                777-8888-999
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Shows the data doesn't match page in the RLE journey.
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Company number - 12345678 (Mix of PCS that can and cannot give statement yet)
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Company name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Big Shop ltd
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                RLE one
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Megacorp Ltd
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                RLE two
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Omega Trading Group
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                PSC one
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Paul Smith
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                PSC two
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Susan Robinson
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                PSC three
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Matthew Gant
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Super secure Company number - 22223333
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Company name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Supercorp ltd
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Year of birth - 2009
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Shows the director not old enough error in the RLE journey
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <h2 class="govuk-heading-m" id="individualScreenLinks">Individual screen links</h2>
+      <ul class="govuk-list govuk-list--bullet">
+    
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="start">Start</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="create-or-sign-in">Create or sign in</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="sign-in-email">sign-in-email</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="sign-in-password">sign-in-password</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="company-number">company-number</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="confirm-company">confirm-company</a>
+        </li>
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="psc-type">psc-type</a>
+        </li>  
+      </ul>
+
+      <h2 class="govuk-heading-s" id="individualScreenLinks">RLE</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="rle/rle-list">rle list</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="rle/ro-details">ro-details</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="rle/rle-verified">rle-verified</a>
+        </li>
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="rle/ro-statements">ro-statements</a>
+        </li>
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="rle/rle-verified">rle-verified</a>
+        </li>
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="rle/ro-why-this-name">ro-why-this-name</a>
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-s" id="individualScreenLinks">Individual PSC</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="individual/psc-list">psc-list</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="individual/psc-details">psc-details</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="individual/psc-statement">psc-statements</a>
+        </li>
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="individual/psc-verified">psc-verified</a>
+        </li>
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="individual/psc-dob-mismatch">psc-dob-mismatch</a>
+        </li>
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="individual/rp01-guidance">rp01-guidance</a>
+        </li>
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="individual/psc-why-this-name">psc-why-this-name</a>
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-s" id="individualScreenLinks">Stop/ error screens</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="rle/ro-why-this-name">Different name - RLE</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="individual/psc-why-this-name">Different name - PSC</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="individual/non-match">non-match - psc</a>
+        </li>
+      </ul>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-6">
+
+      <h2 class="govuk-heading-m" id="authScreens">Changes this version</h2>
+      <ul class="govuk-list govuk-list--bullet">      
+        <li>
+          'For Companies House.' added to the PSC statement so it now says 
+          'I confirm that Paul Smith has verified their identity for Companies House.'
+        </li>
+        <li>
+          'Is RO a director' page removed and replaced by a checkbox on the RO details page
+        </li>
+        <li>
+          PSC/RLE list page changed to show -
+          <br> - all PSCs/RLEs that need to give statement, 
+          <br> - all PSCs/RLEs that have given statement 
+          <br> - all PSCs/RLEs that cannot give statement
+        </li>
+        <li>
+          Span showing the current RLE added above H1 on RO details page and RO statements page
+        </li>
+      </ul>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-6">
+
+      <h2 class="govuk-heading-m" id="authScreens">User research</h2>
+      <ul class="govuk-list govuk-list--bullet">      
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" target="_blank" href="https://companieshouse-my.sharepoint.com/personal/nbatchelor_companieshouse_gov_uk/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fnbatchelor%5Fcompanieshouse%5Fgov%5Fuk%2FDocuments%2FShared%20with%20Everyone%2FAlpha%20UR%20Letter%20and%20Panel%20test&ga=1">Round 8 ur videos and transcripts</a>
+        </li>
+      </ul>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-6">
+
+      <h2 class="govuk-heading-m" id="authScreens">Journey flow</h2>
+      <ul class="govuk-list govuk-list--bullet">      
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" target="_blank" href="https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1718873380280/03d4129f76db2abf7b2c870156f2880d16abb8f5?sender=u9bc72e5725f1871777091172">V8 flow diagram</a>
+        </li>
+      </ul>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-6">
+
+      <h2 class="govuk-heading-m">
+        IDV services
+      </h2>
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col">Links</th>
+
+            <th class="govuk-table__header" scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="https://register-an-acsp-prototype.herokuapp.com/">Register as an Authorised Corporate Service Provider</a>
+            </td>
+          
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">
+                PROTOTYPE
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="https://prove-your-identity-prototype.herokuapp.com/">How people verify prototype</a>
+            </td>
+          
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">
+                PROTOTYPE
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="https://submit-psc-statement-prototype-8cf558a5f32b.herokuapp.com/">Provide identity verification details for a PSC or relevant legal entity</a>
+            </td>
+          
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">
+                PROTOTYPE
+              </strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+
+        
+    </div>
+  </div>
+
+
+
+
+
+{% endblock %}

@@ -12,7 +12,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block content %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-three-quarters">
       <!-- Check for error -->
       {% if errorPscList %}
       {{ govukErrorSummary({
@@ -51,6 +51,9 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                       <a href="#" onclick="document.getElementById('paulSmith').submit();">
                         Provide verification details</a>
                     </form>
+                </li>
+                <li class="govuk-summary-card__action">
+                  <a class="govuk-link" href="#">Request extension<span class="govuk-visually-hidden"></span></a>
                 </li>
               </ul>
             </div>
@@ -94,6 +97,9 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                     <a href="#" onclick="document.getElementById('susanRobinson').submit();">
                       Provide verification details</a>
                   </form>
+                </li>
+                <li class="govuk-summary-card__action">
+                  <a class="govuk-link" href="#">Request extension<span class="govuk-visually-hidden"></span></a>
                 </li>
               </ul>
             </div>

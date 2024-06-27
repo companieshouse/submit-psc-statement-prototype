@@ -18,4 +18,10 @@ router.use('/', require('./routes/v7-routes.js'))
 router.use('/', require('./routes/v8-routes.js'))
 router.use('/', require('./routes/v9-routes.js'))
 
+// DEEP
+
+router.use('/', require('./routes/v1-deep-routes.js'))
+
+// Test
+
 router.use('/', require('./routes/test-routes.js'))
