@@ -14,7 +14,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <!-- Check for error -->
-      {% if errorPscType %}
+      {% if errorExtRelationship %}
       {{ govukErrorSummary({
         titleText: "There is a problem",
         errorList: errorList
@@ -24,7 +24,7 @@
       <form action="{{currentUrl}}" method="post">
 
         <!-- Check for error -->
-        {% if errorPscType %}
+        {% if errorExtRelationship %}
           <div class="govuk-form-group govuk-form-group--error">
         {% else %}
           <div class="govuk-form-group">
@@ -32,41 +32,31 @@
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
-                Are you providing verification details for a PSC or an RLE? 
+                Are you the PSC that needs an extension? 
               </h1>
             </legend>
 
             <!-- Check for error -->
-            {% if errorPscType %}
+            {% if errorExtRelationship %}
             <p id="psc-type-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span> Select if you are providing verification details for a PSC or an RLE
+              <span class="govuk-visually-hidden">Error:</span> Select if you are the PSC that needs an extension
             </p>
             {% endif %} 
 
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="pscType" name="pscType" type="radio" value="PSC">
-              <label class="govuk-label govuk-radios__label" for="pscType">
-                Person with significant control (PSC)
+              <input class="govuk-radios__input" id="extRelationship" name="extRelationship" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="extRelationship">
+                Yes
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="pscType-2" name="pscType" type="radio" value="RLE">
-              <label class="govuk-label govuk-radios__label" for="pscType-2">
-                Relevant legal entity (RLE)
+              <input class="govuk-radios__input" id="extRelationship-2" name="extRelationship" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="extRelationship-2">
+                No
               </label>
-              <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
-                  You'll need to provide the relevant officer's details
-                </div>
             </div>
           </fieldset>
         </div>
-
-        {{ govukDetails({
-          summaryText: "What is the difference between a PSC and an RLE? ",
-          html: 'A person with significant control (PSC) is an individual who has 
-          significant control over a company. A relevant legal entity (RLE) is a corporate entity that would qualify as a PSC of 
-          a company if it were an individual.'
-        }) }}
               
         {{ govukButton({
           text: "Continue"

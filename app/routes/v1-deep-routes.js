@@ -529,4 +529,65 @@ router.post('/deep/v1/individual/psc-statement', function (req, res) {
   }
 })
 
+// ******* extension relationship javascript ********************************
+router.get('/deep/v1/extensions/extension-relationship', function (req, res) {
+  // Set URl
+  res.render('deep/v1/extensions/extension-relationship', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/deep/v1/extensions/extension-relationship', function (req, res) {
+  // Create empty array
+  var errors = []
+
+  // Check if user has filled out a value
+  if (typeof req.session.data['extRelationship'] === 'undefined') {
+    // No value so add error to array
+    errors.push({
+      text: 'Select if you are the PSC that needs an extension',
+      href: '#extRelationship'
+    })
+
+    // Re-show page with error value as true so errors will show
+    res.render('deep/v1/extensions/extension-relationship', {
+      errorExtRelationship: true,
+      errorList: errors
+    })
+  } else {
+    res.redirect('/deep/v1/extensions/extension-reason')
+  }
+})
+
+
+// ******* extension reason javascript ********************************
+router.get('/deep/v1/extensions/extension-reason', function (req, res) {
+  // Set URl
+  res.render('deep/v1/extensions/extension-reason', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/deep/v1/extensions/extension-reason', function (req, res) {
+  // Create empty array
+  var errors = []
+
+  // Check if user has filled out a value
+  if (typeof req.session.data['extReason'] === 'undefined') {
+    // No value so add error to array
+    errors.push({
+      text: 'Select why you want to request a extension for the PSC',
+      href: '#extReason'
+    })
+
+    // Re-show page with error value as true so errors will show
+    res.render('deep/v1/extensions/extension-relationship', {
+      errorExtReason: true,
+      errorList: errors
+    })
+  } else {
+    res.redirect('/deep/v1/extensions/extension-confirmation')
+  }
+})
+
 

@@ -57,15 +57,15 @@ Confirm the identity verification statement – {{ serviceName }} – GOV.UK Pro
         </button> 
 
         {% if data['pscList'] == 'Paul Smith' %}
-          <input type="hidden" name="paul_smith" id="paul_smith" value="yes" />
+          <input type="hidden" name="paul_smith" id="paul_smith" value="verified" />
         {% endif %}
 
         {% if data['pscList'] == 'Susan Robinson' %}
-          <input type="hidden" name="susan_robinson" id="susan_robinson" value="yes" />
+          <input type="hidden" name="susan_robinson" id="susan_robinson" value="verified" />
         {% endif %}
 
         {% if data['pscList'] == 'Lisa Carr' %}
-          <input type="hidden" name="lisa_carr" id="lisa_carr" value="yes" />
+          <input type="hidden" name="lisa_carr" id="lisa_carr" value="verified" />
         {% endif %}
 
       </form>

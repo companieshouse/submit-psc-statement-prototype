@@ -1,0 +1,106 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Why do you want an extension? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- Check for error -->
+      {% if errorExtReason %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+      {% endif %}
+
+      <form action="{{currentUrl}}" method="post">
+
+        <!-- Check for error -->
+        {% if errorExtReason %}
+          <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
+          <div class="govuk-form-group">
+        {% endif %} 
+          <fieldset class="govuk-fieldset" aria-describedby="extReason-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Why do you want to request an extension for the PSC?
+              </h1>
+            </legend>
+            <div id="extReason-hint" class="govuk-hint">
+              ...
+            </div>
+            <!-- Check for error -->
+            {% if errorExtReason %}
+            <p id="extReason-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Select why you want to request a extension for the PSC
+            </p>
+            {% endif %} 
+
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="extReason" name="extReason" type="radio" value="documents">
+                <label class="govuk-label govuk-radios__label" for="extReason">
+                  The PSC does not currently have the required identification documents to verify
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="extReason-2" name="extReason" type="radio" value="birthday">
+                <label class="govuk-label govuk-radios__label" for="extReason-2">
+                  The PSC's birthdate is currently incorrect on the Companies House register
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="extReason-3" name="extReason" type="radio" value="health">
+                <label class="govuk-label govuk-radios__label" for="extReason-3">
+                  The PSC has not been able to verify their identity due to ill health
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="extReason-4" name="extReason" type="radio" value="location">
+                <label class="govuk-label govuk-radios__label" for="extReason-4">
+                  The PSC has not been able to verify their identity as they are not currently in the UK
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="extReason-5" name="extReason" type="radio" value="no" data-aria-controls="conditional-contact">
+                <label class="govuk-label govuk-radios__label" for="extReason-5">
+                  Another reason
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="more-detail">
+                    Can you provide more detail?
+                  </label>
+                  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        {% if data['pscList'] == 'Paul Smith' %}
+          <input type="hidden" name="paul_smith" id="paul_smith" value="extension" />
+        {% endif %}
+
+        {% if data['pscList'] == 'Susan Robinson' %}
+          <input type="hidden" name="susan_robinson" id="susan_robinson" value="extension" />
+        {% endif %}
+                
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
