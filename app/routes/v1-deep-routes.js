@@ -545,7 +545,7 @@ router.post('/deep/v1/extensions/extension-relationship', function (req, res) {
   if (typeof req.session.data['extRelationship'] === 'undefined') {
     // No value so add error to array
     errors.push({
-      text: 'Select if you are the PSC that needs an extension',
+      text: 'Select yes if you are the PSC that is requesting an extension',
       href: '#extRelationship'
     })
 

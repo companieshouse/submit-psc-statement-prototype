@@ -32,14 +32,14 @@
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
-                Are you the PSC that needs an extension? 
+                Are you the PSC that is requesting an extension? 
               </h1>
             </legend>
 
             <!-- Check for error -->
             {% if errorExtRelationship %}
             <p id="psc-type-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span> Select if you are the PSC that needs an extension
+              <span class="govuk-visually-hidden">Error:</span> Select yes if you are the PSC that is requesting an extension
             </p>
             {% endif %} 
 
@@ -52,7 +52,7 @@
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="extRelationship-2" name="extRelationship" type="radio" value="no">
               <label class="govuk-label govuk-radios__label" for="extRelationship-2">
-                No
+                No, I am requesting it on behalf of someone else
               </label>
             </div>
           </fieldset>
