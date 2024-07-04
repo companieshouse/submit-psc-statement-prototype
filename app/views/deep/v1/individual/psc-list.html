@@ -57,7 +57,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                 <!-- Show if not got extension -->
                 {% if data['paul_smith'] != 'extension' %}
                 <li class="govuk-summary-card__action">
-                  <form id="paulSmithExtension" action="../extensions/extension-reason">
+                  <form id="paulSmithExtension" action="../extensions/extension-relationship">
                     <!-- Set up psc variables **************************************** -->
                     <input type="hidden" name="pscList" id="pscList" value="Paul Smith" />
                     <input type="hidden" name="pscBithday" id="pscBithday" value="April 1989" />
@@ -129,7 +129,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                 <!-- Show if not got extension -->
                 {% if data['susan_robinson'] != 'extension' %}
                 <li class="govuk-summary-card__action">
-                  <form id="susanRobinsonExtension" action="../extensions/extension-reason">
+                  <form id="susanRobinsonExtension" action="../extensions/extension-relationship">
                     <!-- Set up psc variables **************************************** -->
                     <input type="hidden" name="pscList" id="pscList" value="Susan Robinson" />
                     <input type="hidden" name="pscBithday" id="pscBithday" value="May 1980" />
@@ -163,19 +163,17 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                     Verification status
                   </dt>
                   <dd class="govuk-summary-list__value">
+                    <!-- Show if not extension -->
+                    {% if data['susan_robinson'] != 'extension' %}
                     <strong class="govuk-tag govuk-tag--blue">
-                      <!-- Show if not extension -->
-                      {% if data['susan_robinson'] != 'extension' %}
-                      <strong class="govuk-tag govuk-tag--blue">
-                        Details not provided
-                      </strong>
-                      {% else %}
-                      <!-- Show if extension -->
-                      <strong class="govuk-tag govuk-tag--yellow">
-                        Extension requested
-                      </strong>
-                      {% endif %}
+                      Details not provided
                     </strong>
+                    {% else %}
+                    <!-- Show if extension -->
+                    <strong class="govuk-tag govuk-tag--yellow">
+                      Extension requested
+                    </strong>
+                    {% endif %}
                   </dd>
                 </div>
               </dl>
