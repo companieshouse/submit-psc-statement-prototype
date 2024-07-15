@@ -151,10 +151,11 @@ router.post('/deep/v1/psc-type', function (req, res) {
       errorList: errors
     })
   } else {
-    if ((req.session.data['pscType'] == 'rle')) {
+    if ((req.session.data['pscType'] == 'RLE')) {
       res.redirect('/deep/v1/rle/rle-list')
-    } else {
-      res.redirect('/deep/v1/individual/psc-list')
+    } 
+    else {
+      res.redirect('/deep/v1/rle/rle-list')
     }
   }
 })
