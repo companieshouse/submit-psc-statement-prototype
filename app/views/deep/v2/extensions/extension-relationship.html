@@ -1,0 +1,69 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Are you providing verification details for as PSC or RLE? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- Check for error -->
+      {% if errorExtRelationship %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+      {% endif %}
+
+      <form action="{{currentUrl}}" method="post">
+
+        <!-- Check for error -->
+        {% if errorExtRelationship %}
+          <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
+          <div class="govuk-form-group">
+        {% endif %} 
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <span class="govuk-caption-l">{{ data ['pscList']}} (Born {{ data ['pscBithday']}})</span>
+              <h1 class="govuk-fieldset__heading">
+                Are you the PSC that is requesting an extension? 
+              </h1>
+            </legend>
+
+            <!-- Check for error -->
+            {% if errorExtRelationship %}
+            <p id="psc-type-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Select yes if you are the PSC that is requesting an extension
+            </p>
+            {% endif %} 
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="extRelationship" name="extRelationship" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="extRelationship">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="extRelationship-2" name="extRelationship" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="extRelationship-2">
+                No, I am requesting it on behalf of someone else
+              </label>
+            </div>
+          </fieldset>
+        </div>
+              
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

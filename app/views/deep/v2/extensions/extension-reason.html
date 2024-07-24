@@ -1,0 +1,107 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Why do you want an extension? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- Check for error -->
+      {% if errorExtReason %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+      {% endif %}
+
+      <form action="{{currentUrl}}" method="post">
+
+        <!-- Check for error -->
+        {% if errorExtReason %}
+          <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
+          <div class="govuk-form-group">
+        {% endif %} 
+          <fieldset class="govuk-fieldset" aria-describedby="extReason-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="govuk-caption-l">{{ data ['pscList']}} (Born {{ data ['pscBithday']}})</span>
+              <h1 class="govuk-fieldset__heading">
+                Why do you need to request an extension for this PSC?
+              </h1>
+            </legend>
+            <!--<div id="extReason-hint" class="govuk-hint">
+              ...
+            </div>-->
+            <!-- Check for error -->
+            {% if errorExtReason %}
+            <p id="extReason-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Select why you want to request a extension for this PSC
+            </p>
+            {% endif %} 
+
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="extReason" name="extReason" type="radio" value="documents">
+                <label class="govuk-label govuk-radios__label" for="extReason">
+                  They need more time to get the identity documents required to verify their identity for Companies House
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="extReason-3" name="extReason" type="radio" value="health">
+                <label class="govuk-label govuk-radios__label" for="extReason-3">
+                  They're unable to verify their identity by the deadline due to ill health
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="extReason-4" name="extReason" type="radio" value="location">
+                <label class="govuk-label govuk-radios__label" for="extReason-4">
+                  They're unable to verify their identity by the deadline as they are currently not in the UK 
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="extReason-2" name="extReason" type="radio" value="birthday">
+                <label class="govuk-label govuk-radios__label" for="extReason-2">
+                  Their date of birth needs to be corrected on the Companies House register
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="extReason-5" name="extReason" type="radio" value="no" data-aria-controls="conditional-contact">
+                <label class="govuk-label govuk-radios__label" for="extReason-5">
+                  Other
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="more-detail">
+                    Tell us why you need to request an extension
+                  </label>
+                  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        {% if data['pscList'] == 'Paul Smith' %}
+          <input type="hidden" name="paul_smith" id="paul_smith" value="extension" />
+        {% endif %}
+
+        {% if data['pscList'] == 'Susan Robinson' %}
+          <input type="hidden" name="susan_robinson" id="susan_robinson" value="extension" />
+        {% endif %}
+                
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

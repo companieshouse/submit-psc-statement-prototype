@@ -1,0 +1,226 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+RLE verification status – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <!-- Check for error -->
+    {% if errorPscList %}
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: errorList
+    }) }}
+    {% endif %}
+
+      <h1 class="govuk-heading-l">RLE identity verification status</h1>
+        <p class="govuk-body">
+          An overview of which relevant legal entities (RLEs) still need to provide their relevant officer details, and which ones have done it already. 
+        </p>
+  
+      {% if (data['megacorp_ltd'] != 'verified') 
+      or (data['omega_trading'] != 'verified') %}
+        <h2 class="govuk-heading-m govuk-!-margin-top-7">
+          RLEs that need to provide relevant officer details
+        </h2>
+    
+        <p class="govuk-body">These RLEs for <strong>Big Shop Ltd</strong> can provide their 
+          relevant officer's details now. You can only provide details for one RLE at a time.
+        </p>
+      {% endif %}
+    
+      {% if data['megacorp_ltd'] != 'verified' %}
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Megacorp Ltd
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                  <form id="megacorp" action="ro-details">
+                    <!-- Set up psc variables **************************************** -->
+                    <input type="hidden" name="rleList" id="rleList" value="Megacorp Ltd" />
+                    <a href="#" onclick="document.getElementById('megacorp').submit();">
+                      Provide relevant officer details</a>
+                  </form>
+              </li>
+              <!-- Show if not got extension -->
+              {% if data['megacorp_ltd'] != 'extension' %}
+              <li class="govuk-summary-card__action">
+                <form id="megacorpExtension" action="../extensions/extension-relationship">
+                  <!-- Set up psc variables **************************************** -->
+                  <input type="hidden" name="rleList" id="rleList" value="Megacorp Ltd" />
+                  <a href="#" onclick="document.getElementById('megacorpExtension').submit();">
+                    Request extension</a>
+                </form>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Verification deadline
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  22 July 2024
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Verification status
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <strong class="govuk-tag govuk-tag--blue">
+                    Details not provided
+                  </strong>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      {% endif %}
+      
+      {% if data['omega_trading'] != 'verified' %}
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Omega Trading Group
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <form id="omega" action="ro-details">
+                  <!-- Set up psc variables **************************************** -->
+                  <input type="hidden" name="rleList" id="rleList" value="Omega Trading Group" />
+                  <a href="#" onclick="document.getElementById('omega').submit();">
+                    Provide relevant officer details</a>
+                </form>
+            </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Verification status
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <strong class="govuk-tag govuk-tag--blue">
+                    Details not provided
+                  </strong>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      {% endif %}
+      
+      <h2 class="govuk-heading-m govuk-!-margin-top-9">RLEs that cannot provide relevant officer details yet</h2>
+  
+      <p class="govuk-body">These RLEs for <strong>Big Shop Ltd</strong> must wait until <strong>1 August 2024</strong>. They 
+        will have 28 days from this date to provide their relevant officer details.</p>
+        
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Spicy Food Ltd
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Verification status
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <strong class="govuk-tag govuk-tag--red">
+                  Cannot provide details yet
+                </strong>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+  
+      {% if (data['megacorp_ltd'] == 'verified') 
+         or (data['omega_trading'] == 'verified') %}
+        <h2 class="govuk-heading-m govuk-!-margin-top-9">RLEs that have already provided verification details</h2>
+      {% endif %}
+
+      {% if data['megacorp_ltd'] == 'verified' %}
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Megacorp Ltd
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Verification status
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <strong class="govuk-tag govuk-tag--green">
+                    Details provided 
+                  </strong>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if data['omega_trading'] == 'verified' %}
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Omega Trading Group
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Verification status
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <strong class="govuk-tag govuk-tag--green">
+                    Details provided 
+                  </strong>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      {% endif %}
+
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      I can't find the RLE I'm looking for
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+          <p class="govuk-body">You can only use this service to provide relevant officer details for RLEs that are shown on the Companies House register. 
+          <p>If the company has recently notified Companies House of a new RLE, 
+          you must wait until that filing is accepted and the new RLE 
+          appears on the public register. 
+  </div>
+</details>
+
+
+    </div>
+  </div>
+{% endblock %}
+

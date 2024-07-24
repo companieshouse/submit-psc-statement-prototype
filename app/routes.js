@@ -21,6 +21,7 @@ router.use('/', require('./routes/v9-routes.js'))
 // DEEP
 
 router.use('/', require('./routes/v1-deep-routes.js'))
+router.use('/', require('./routes/v2-deep-routes.js'))
 
 // Test
 
