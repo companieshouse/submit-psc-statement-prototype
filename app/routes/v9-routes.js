@@ -120,12 +120,7 @@ router.get('/v9/confirm-company', function (req, res) {
 })
 
 router.post('/v9/confirm-company', function (req, res) {
-  if ((req.session.data['companyNumber'] == '22223333')) {
-    // Super secure
-    res.redirect('/v9/super-secure')
-  } else {
-    res.redirect('/v9/psc-type')
-  }
+    res.redirect('/v9/individual/psc-list')
 })
 
 
