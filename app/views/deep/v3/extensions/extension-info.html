@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Extension information – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="{{currentUrl}}" method="post">
+
+      <h1 class="govuk-heading-l">Extension information</h1>
+
+      <p class="govuk-body">Text</p>
+
+      <h2 class="govuk-heading-s">Sub title</h2>
+      <p class="govuk-body">Text</p>
+
+      <h2 class="govuk-heading-s">Sub title</h2>
+      <p class="govuk-body">Text</p>
+
+      <h2 class="govuk-heading-s">Sub title</h2>
+      <p class="govuk-body">Text</p>
+
+      {% if data['pscList'] == 'Paul Smith' %}
+        <input type="hidden" name="paul_smith" id="paul_smith" value="extension" />
+      {% endif %}
+
+      {% if data['pscList'] == 'Susan Robinson' %}
+        <input type="hidden" name="susan_robinson" id="susan_robinson" value="extension" />
+      {% endif %}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}
