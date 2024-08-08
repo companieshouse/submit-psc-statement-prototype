@@ -25,14 +25,6 @@ Identity verification details submitted – {{ serviceName }} – GOV.UK Prototy
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          Company number
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ data['companyNumber']}}
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
           Company name
         </dt>
         <dd class="govuk-summary-list__value">
@@ -41,6 +33,14 @@ Identity verification details submitted – {{ serviceName }} – GOV.UK Prototy
           {% elif data['companyNumber'] == '33335555' %}
             Little Shop ltd
           {% endif %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Company number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['companyNumber']}}
         </dd>
       </div>
       <div class="govuk-summary-list__row">
