@@ -20,12 +20,15 @@
 
       <p class="govuk-body">If you request an extension, <strong>{{ data ['pscList']}}</strong> will be given an extra 14 days to provide their verification details.</p>
 
+      <p class="govuk-body">You must submit your request before their current verification deadline has passed.</p>
+
       <p class="govuk-body">The extension will only apply to their role as a PSC of Big Shop Ltd, not to any other PSC or company director roles they hold.</p>
            
-      <p class="govuk-body">You must submit your request before their current verification deadline has passed.</p>
-      
-      <p class="govuk-body">If the PSC cannot meet their new deadline, you can return to this service and submit another request. Each PSC can have a maximum of X extensions.</p>
 
+      
+      <!--
+      <p class="govuk-body">If the PSC cannot meet their new deadline, you can return to this service and submit another request. Each PSC can have a maximum of X extensions.</p>
+      -->
 
 
 
@@ -38,7 +41,7 @@
       {% endif %}
 
       {{ govukButton({
-        text: "Request an extension"
+        text: "Submit request"
       }) }}
 
     </form>
