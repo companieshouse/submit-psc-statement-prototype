@@ -59,7 +59,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                   </form>
                 </li>
                 <li class="govuk-summary-card__action">
-                  <form id="paulSmithExtension" action="../extensions/extension-stop">
+                  <form id="paulSmithExtension" action="../extensions/extension-info">
                     <!-- Set up psc variables **************************************** -->
                     <input type="hidden" name="pscList" id="pscList" value="Paul Smith" />
                     <input type="hidden" name="pscBithday" id="pscBithday" value="April 1989" />
@@ -81,10 +81,22 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                 </div>
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
+                    <!-- Show if not extension -->
+                    {% if data['paul_smith'] != 'extension' %}
                       Verification deadline
+                    {% else %}
+                    <!-- Show if extension -->
+                      Verification deadline extended to
+                    {% endif %}
                   </dt>
                   <dd class="govuk-summary-list__value">
+                    <!-- Show if not extension -->
+                    {% if data['paul_smith'] != 'extension' %}
                       29 October 2024
+                    {% else %}
+                    <!-- Show if extension -->
+                      13 November 2024
+                    {% endif %}
                   </dd>
                 </div>
                 <div class="govuk-summary-list__row">
@@ -145,7 +157,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                       Verification deadline
                   </dt>
                   <dd class="govuk-summary-list__value">
-                      29 October 2024
+                      20 October 2024
                   </dd>
                 </div>
                 <div class="govuk-summary-list__row">
