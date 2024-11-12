@@ -1,0 +1,64 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  What is the company number? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- Check for error -->
+      {% if errorAuthCode %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+      {% endif %}
+
+      <h1 class="govuk-heading-l">Company authentication</h1>
+
+      <p class="govuk-body">To file company information you will need an authentication code</p>
+
+      <p class="govuk-body">Authenticating for<br>
+        <span class="govuk-heading-l">BIG SHOP LTD (12345678)</span>
+      </p>
+      
+
+      <form action="{{currentUrl}}" method="post">
+
+        <!-- Check for error -->
+        {% if errorAuthCode %}
+          <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
+          <div class="govuk-form-group">
+        {% endif %} 
+          <label class="govuk-label govuk-!-font-weight-bold" for="authCode">
+            Authenticiation code
+          </label>
+          <!-- Check for error -->
+          {% if errorAuthCode %}
+          <p id="authCode-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Enter the authentication code
+          </p>
+          {% endif %} 
+          <input class="govuk-input govuk-input--width-10" id="authCode" name="authCode" type="text" aria-describedby="authCode-hint">
+        </div>      
+              
+        {{ govukButton({
+          text: "Authenticate"
+        }) }}
+
+        <p class="govuk-body">
+          <a href="#" class="govuk-link">Request an authentication code</a>
+        </p>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

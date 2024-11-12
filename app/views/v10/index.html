@@ -12,7 +12,7 @@
 {% block content %}
   {{ govukTag({
     classes: "govuk-tag--blue govuk-!-margin-bottom-4",
-    text: "version 9"
+    text: "version 10"
   }) }}
 
 
@@ -24,7 +24,7 @@
        {{serviceName}}<span class="govuk-caption-xl"></span>
       </h1>
 
-      <a href="start-v2" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+      <a href="start" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
         Start now
       </a>
 
@@ -156,6 +156,9 @@
           <a class="govuk-link govuk-link--no-visited-state" href="individual/psc-list">psc-list</a>
         </li> 
         <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="individual/auth-code">auth-code</a>
+        </li> 
+        <li>
           <a class="govuk-link govuk-link--no-visited-state" href="individual/psc-details">psc-details</a>
         </li> 
         <li>
@@ -190,32 +193,7 @@
       <h2 class="govuk-heading-m" id="authScreens">Changes this version</h2>
       <ul class="govuk-list govuk-list--bullet">      
         <li>
-          Content changes to Start page
-        </li>
-        <li>
-          New content on PSC list page to explain why user 
-          cannot verify now and has to wait till confirmation statement date
-        </li>
-        <li>
-          Error message content changed 
-        </li>
-        <li>
-          Verification deadline added to psc cards on psc list page 
-        </li>
-        <li>
-          verification status's changed to simply say 'Verfied' or 'unverified' 
-        </li>
-        <li>
-          PSC type page removed as RLE have been temporily removed from scope 
-        </li>
-        <li>
-          New details componant on psc list page explaining that super secure PSCs will not show. 
-        </li>
-        <li>
-          RLEs removed
-        </li>
-        <li>
-          Verification statement wording changed
+          Auth code screen added to service
         </li>
       </ul>
 

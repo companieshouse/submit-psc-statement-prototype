@@ -1,0 +1,88 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Provide identity verification details for a PSC or relevant legal entity - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Provide identity verification details for a person with significant control
+      </h1>
+
+      <p class="govuk-body-l">Use this service to provide a Companies House personal code for a person with significant control (PSC). 
+      </p>
+
+<div class="govuk-inset-text">
+  You can also use this service to check when a company's PSCs need to provide their personal codes.
+</div>
+   
+
+     <p class="govuk-body">You cannot use this service if the PSC has their personal information protected at Companies House (or is waiting for the results of an application)</p>
+
+      <h2 class="govuk-heading-m">When you need to provide verification details</h2>
+        
+      <p class="govuk-body">This depends on whether the PSC was registered with Companies House before or after identity verification requirements were introduced on [date].</p>
+
+      <p class="govuk-body">If they were registered as a PSC before [date], they have 14 days starting from the company’s confirmation statement date. They cannot do it before then.</p>
+
+      <p class="govuk-body">If they were registered as a PSC after [date], they have 14 days starting from the date they were registered.</p>
+
+
+
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+    If a PSC does not comply with identity verification requirements, they will be committing an offence and may have to pay a financial penalty or fine. 
+  </strong>
+</div>
+
+
+      <h2 class="govuk-heading-m">Before you start</h2>
+
+      <p class="govuk-body">To use this service, you'll need:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>to sign in, or create sign in details</li>
+        <li>the company number</li>
+        <li>the PSC's Companies House personal code</li>      
+      </ul>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            What is a Companies House personal code?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">This is an 11 character code that is given to a person after they have verified their identity for Companies House. 
+          
+
+          <p class="govuk-body">Find out more about <a href="https://prove-your-identity-prototype.herokuapp.com/release2-v5/pre-one-login/guidance">verifying your identity for Companies House</a>.</p>
+        </div>
+      </details>
+
+      <p class="govuk-body">It can take up to 10 minutes to provide verification details for a PSC.</p>
+
+      {{ govukButton({
+        text: "Start",
+        href: "create-or-sign-in",
+        isStartButton: true
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}
