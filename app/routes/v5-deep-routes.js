@@ -301,3 +301,36 @@ router.post('/deep/v5/extensions/extension-info', function (req, res) {
 })
 
 
+// ******* auth code ********************************
+router.get('/deep/v5/individual/auth-code', function (req, res) {
+  // Set URl
+  res.render('/deep/v5/individual/auth-code', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/deep/v5/individual/auth-code', function (req, res) {
+// Create empty array and set error variables to false
+var errors = []
+
+if (req.session.data['authCode'] === '') {
+  // No value so add error to array
+  errors.push({
+    text: 'Enter the authentication code',
+    href: '#authCode'
+  })
+}
+
+if (req.session.data['authCode'] === '') {
+  // Re-show page with error value as true so errors will show
+  res.render('/deep/v5/individual/auth-code', {
+    errorAuthCode: true,
+    errorList: errors
+  })
+} else {
+  // User inputted value so move to next page
+  res.redirect('/deep/v5/individual/psc-details')
+}
+})
+
+
