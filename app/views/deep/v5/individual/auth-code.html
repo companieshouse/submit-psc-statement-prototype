@@ -42,11 +42,16 @@
             Authenticiation code
           </label>
           <!-- Check for error -->
-          {% if errorAuthCode %}
-          <p id="authCode-error" class="govuk-error-message">
-            <span class="govuk-visually-hidden">Error:</span> Enter the authentication code
-          </p>
+          {% if errorNoAuthCode %}
+            <p id="authCode-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Enter the authentication code
+            </p>
+          {% elif errorWrongAuthCode %}
+            <p id="authCode-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Authentication code is incorrect
+            </p>
           {% endif %} 
+
           <input class="govuk-input govuk-input--width-10" id="authCode" name="authCode" type="text" aria-describedby="authCode-hint">
         </div>      
               

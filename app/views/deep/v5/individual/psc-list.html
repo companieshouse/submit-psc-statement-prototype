@@ -38,6 +38,23 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
           </h2>
       
           <p class="govuk-body">These PSCs for <strong>Big Shop Ltd</strong> can provide their verification details now. You'll need the company authentication code. You can only provide details for one PSC at a time. 
+
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                I don't have the company authentication code
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <p class="govuk-body">The authentication code is a 6 character code that we give each company to authorise them to file online. 
+              <p class="govuk-body">If you do not have it, you'll need to do one of the following:
+              <ul class="govuk-list govuk-list--bullet">
+                <li>ask someone who does have the authentication code to provide the PSC's personal code</li>
+                <li>provide the personal code using the <a href="#">VS01 paper form</a></li>     
+              </ul>
+            </div>
+          </details>
+
           <p class="govuk-body">You will not be able to request an extension for a PSC once their verification deadline has passed. 
           </p>
         {% endif %}
@@ -280,26 +297,6 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
           </p>
           </div>
         </details>
-
-      <details class="govuk-details" data-module="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            I don't have the company authentication code
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          <p class="govuk-body">The authentication code is a 6 character code that we give each company to authorise them to file online. 
-          
-          <p class="govuk-body">If you do not have it, you'll need to do one of the following:
-          
-      <ul class="govuk-list govuk-list--bullet">
-        <li>ask someone who does have the authentication code to provide the PSC's personal code</li>
-        <li>provide the personal code using the <a href="#">VS01 paper form</a></li>     
-      </ul>
-
-        </div>
-      </details>
-
 
     </div>
   </div>

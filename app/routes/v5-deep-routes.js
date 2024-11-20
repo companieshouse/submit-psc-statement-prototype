@@ -312,19 +312,35 @@ router.get('/deep/v5/individual/auth-code', function (req, res) {
 router.post('/deep/v5/individual/auth-code', function (req, res) {
 // Create empty array and set error variables to false
 var errors = []
+var wrongCodeError = false
+var noCodeError = false
+var authCodeError = false
+
 
 if (req.session.data['authCode'] === '') {
   // No value so add error to array
+  noCodeError = true
+  authCodeError = true
   errors.push({
     text: 'Enter the authentication code',
     href: '#authCode'
   })
+} else if (req.session.data['authCode'] != '222222') {
+  // Incorrect auth code error
+  wrongCodeError = true
+  authCodeError = true
+  errors.push({
+    text: 'Authentication code is incorrect',
+    href: '#authCode'
+  })
 }
 
-if (req.session.data['authCode'] === '') {
+if (authCodeError) {
   // Re-show page with error value as true so errors will show
   res.render('/deep/v5/individual/auth-code', {
-    errorAuthCode: true,
+    errorNoAuthCode: noCodeError,
+    errorWrongAuthCode: wrongCodeError,
+    errorAuthCode: authCodeError,
     errorList: errors
   })
 } else {
