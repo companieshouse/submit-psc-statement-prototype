@@ -33,6 +33,10 @@
               Cafe Happy ltd
             {% elif data['companyNumber'] == '33335555' %}
               Little Shop ltd
+            {% elif data['companyNumber'] == '99990000' %}
+              Dance studio ltd
+            {% elif data['companyNumber'] == '00001111' %}
+              Big Park Limited
             {% endif %}
           </dd>
         </div>
@@ -43,7 +47,11 @@
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Status</dt>
           <dd class="govuk-summary-list__value">
-            Active
+            {% if data['companyNumber'] == '99990000' %}
+              Dissolved
+            {% else %}
+              Active
+            {% endif %}
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -54,7 +62,13 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Company type</dt>
-          <dd class="govuk-summary-list__value">Private limited company</dd>
+          <dd class="govuk-summary-list__value">
+            {% if data['companyNumber'] == '00001111' %}
+              Limited Liability Partnership
+            {% else %}
+              Private limited company
+            {% endif %}
+          </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Registered office address</dt>
