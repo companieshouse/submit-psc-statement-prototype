@@ -129,10 +129,6 @@ router.post('/v9/confirm-company', function (req, res) {
   } else {
     res.redirect('/v9/individual/psc-list')
 }
-
-
-
-    
 })
 
 
@@ -173,25 +169,16 @@ router.get('/v9/individual/psc-details', function (req, res) {
 router.post('/v9/individual/psc-details', function (req, res) {
   // Create empty array and set error variables to false
   var errors = [];
-  var pscDetailsError = false
 
   if (req.session.data['pscPersonalCode'] === '') {
-    pscPersonalCodeError = true
-    pscDetailsError = true
-    let pscName = (req.session.data['pscList'] );
-    let errorText = 'Enter the Companies House personal code for ';
-    let combinedErrorText = errorText.concat(pscName);
     errors.push({
-      text:  combinedErrorText,
+      text: 'Enter the Companies House personal code',
       href: '#pscPersonalCode'
     })
-  }
 
-  if (pscDetailsError) {
-  res.render('v9/individual/psc-details', {
-    errorPscPersonalCode: pscPersonalCodeError,
-    pscDetailsError: pscDetailsError,
-    errorList: errors
+    res.render('v9/individual/psc-details', {
+      errorPscPersonalCode: true,
+      errorList: errors
   })
   } else {
     // name mis-match
@@ -273,19 +260,18 @@ router.post('/v9/individual/psc-statement', function (req, res) {
 
   if (typeof req.session.data['individualStatement'] === 'undefined') {
     // No value so add error to array
-    let pscName = (req.session.data['pscList'] );
-    let errorText = 'Select the identity verification statement for ';
-    let combinedErrorText = errorText.concat(pscName);
     errors.push({
-      text: combinedErrorText,
+      text: 'Select the identity verification statement',
       href: '#individualStatement'
     })
+  }
 
-    // Re-show page with error value as true so errors will show
+  if (typeof req.session.data['individualStatement'] === 'undefined') {
+  // Re-show page with error value as true so errors will show
     res.render('v9/individual/psc-statement', {
       errorStatement: true,
       errorList: errors
-    })
+  })
   } else {
       res.redirect('/v9/individual/psc-verified')
   }
