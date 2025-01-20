@@ -126,7 +126,10 @@ router.post('/v9/confirm-company', function (req, res) {
   } else if (req.session.data['companyNumber'] === '99990000') {
     // disolved company
     res.redirect('/v9/company-status-stop')
-  } else {
+  } else if (req.session.data['companyNumber'] === '98989898') {
+    // no psc company
+    res.redirect('/v9/individual/empty-psc-list')
+  }else {
     res.redirect('/v9/individual/psc-list')
 }
 })
