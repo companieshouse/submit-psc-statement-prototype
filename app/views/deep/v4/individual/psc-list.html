@@ -84,7 +84,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                       Verification deadline
                   </dt>
                   <dd class="govuk-summary-list__value">
-                      16 September 2024
+                      6 February 2025
                   </dd>
                 </div>
                 <div class="govuk-summary-list__row">
@@ -120,7 +120,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                   </form>
                 </li>
                 <li class="govuk-summary-card__action">
-                  <form id="susanRobinsonExtension" action="../extensions/extension-stop">
+                  <form id="susanRobinsonExtension" action="../extensions/extension-info">
                     <!-- Set up psc variables **************************************** -->
                     <input type="hidden" name="pscList" id="pscList" value="Susan Robinson" />
                     <input type="hidden" name="pscBithday" id="pscBithday" value="May 1980" />
@@ -142,10 +142,22 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                 </div>
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
+                    <!-- Show if not extension -->
+                    {% if data['susan_robinson'] != 'extension' %}
                       Verification deadline
+                    {% else %}
+                    <!-- Show if extension -->
+                      Verification deadline extended to
+                    {% endif %}
                   </dt>
                   <dd class="govuk-summary-list__value">
-                      16 September 2024
+                    <!-- Show if not extension -->
+                    {% if data['susan_robinson'] != 'extension' %}
+                      6 February 2025
+                    {% else %}
+                    <!-- Show if extension -->
+                      20 February 2025
+                    {% endif %}
                   </dd>
                 </div>
                 <div class="govuk-summary-list__row">
@@ -192,7 +204,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                    Verification details provided on
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    21 August 2024
+                    23 January 2025
                   </dd>
                 </div>
                 <div class="govuk-summary-list__row">
