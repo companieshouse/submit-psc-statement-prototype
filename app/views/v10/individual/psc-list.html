@@ -40,67 +40,6 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
           <p class="govuk-body">These PSCs for <strong>Big Shop Ltd</strong> can provide their verification details now. You can only provide details for one PSC at a time. You will not be able to request an extension for a PSC once their verification deadline has passed. 
           </p>
         {% endif %}
-      
-        <!-- Don't show in unverified section if verified -->
-        {% if data['paul_smith'] != 'verified' %}
-          <div class="govuk-summary-card">
-            <div class="govuk-summary-card__title-wrapper">
-              <h2 class="govuk-summary-card__title">
-                Paul Smith
-              </h2>
-              <ul class="govuk-summary-card__actions">
-                <li class="govuk-summary-card__action">
-                  <form id="paulSmithProvide" action="psc-details">
-                    <!-- Set up psc variables **************************************** -->
-                    <input type="hidden" name="pscList" id="pscList" value="Paul Smith" />
-                    <input type="hidden" name="pscBithday" id="pscBithday" value="April 1989" />
-                    <a href="#" onclick="document.getElementById('paulSmithProvide').submit();">
-                      Provide verification details</a>
-                  </form>
-                </li>
-                <li class="govuk-summary-card__action">
-                  <form id="paulSmithExtension" action="../extensions/extension-stop">
-                    <!-- Set up psc variables **************************************** -->
-                    <input type="hidden" name="pscList" id="pscList" value="Paul Smith" />
-                    <input type="hidden" name="pscBithday" id="pscBithday" value="April 1989" />
-                    <a href="#" onclick="document.getElementById('paulSmithExtension').submit();">
-                      Request extension</a>
-                  </form>
-                </li>
-              </ul>
-            </div>
-            <div class="govuk-summary-card__content">
-              <dl class="govuk-summary-list">
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Date of birth
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    April 1989
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                      Verification deadline
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                      6 February 2025
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Verification status
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    <strong class="govuk-tag govuk-tag--red">
-                      Unverified
-                    </strong>
-                  </dd>
-                </div>
-              </dl>
-            </div>
-          </div>
-        {% endif %}
         
         <!-- Don't show in unverified section if verified -->
         {% if data['susan_robinson'] != 'verified' %}
@@ -174,6 +113,68 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
             </div>
           </div>
         {% endif %}
+
+
+                <!-- Don't show in unverified section if verified -->
+                {% if data['paul_smith'] != 'verified' %}
+                <div class="govuk-summary-card">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">
+                      Paul Smith
+                    </h2>
+                    <ul class="govuk-summary-card__actions">
+                      <li class="govuk-summary-card__action">
+                        <form id="paulSmithProvide" action="psc-details">
+                          <!-- Set up psc variables **************************************** -->
+                          <input type="hidden" name="pscList" id="pscList" value="Paul Smith" />
+                          <input type="hidden" name="pscBithday" id="pscBithday" value="April 1989" />
+                          <a href="#" onclick="document.getElementById('paulSmithProvide').submit();">
+                            Provide verification details</a>
+                        </form>
+                      </li>
+                      <li class="govuk-summary-card__action">
+                        <form id="paulSmithExtension" action="../extensions/extension-stop">
+                          <!-- Set up psc variables **************************************** -->
+                          <input type="hidden" name="pscList" id="pscList" value="Paul Smith" />
+                          <input type="hidden" name="pscBithday" id="pscBithday" value="April 1989" />
+                          <a href="#" onclick="document.getElementById('paulSmithExtension').submit();">
+                            Request extension</a>
+                        </form>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="govuk-summary-card__content">
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          Date of birth
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          April 1989
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Verification deadline
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            6 February 2025
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          Verification status
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <strong class="govuk-tag govuk-tag--red">
+                            Unverified
+                          </strong>
+                        </dd>
+                      </div>
+                    </dl>
+                  </div>
+                </div>
+              {% endif %}
 
         <h2 class="govuk-heading-m govuk-!-margin-top-7">PSCs that cannot provide verification details yet</h2>
     
