@@ -19,21 +19,36 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Provide identity verification details for a PSC, or request an extension
+        Provide identity verification details for a person with significant control (PSC)
       </h1>
 
-      <p class="govuk-body">Use this service to provide a Companies House personal 
-        code for a person with significant control (PSC). This is to confirm that the PSC on our records has verified their identity.
+      <p class="govuk-body">If you are a PSC, use this service to provide your Companies House personal 
+        code and verification statement, or to request an extension if you need more time.</p>
+        
+      <p class="govuk-body">You can also use this service if you're filing on behalf of a PSC.
       </p>
 
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            What is a Companies House personal code?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">This is an 11 character code that is given to a person after they have verified their identity for Companies House. 
+          <p class="govuk-body">Find out more about <a href="https://prove-your-identity-prototype.herokuapp.com/release2-v5/pre-one-login/guidance">verifying your identity for Companies House</a>.</p>
+        </div>
+      </details>
+
+
+ <!--     
       <p class="govuk-body">You can also use this service to:</p> 
       
       <ul class="govuk-list govuk-list--bullet">
-      <li>check when a company's PSCs need to provide their personal codes</li>
+      <li>check when a PSC needs to provide their personal code</li>
       <li>request an extension, if a PSC needs more time</li>
       </ul>
-  
-  <!--
+ 
       <p class="govuk-body">You can use this service if you are a PSC, or you are acting on behalf of one.
       </p>
 -->
@@ -43,14 +58,19 @@
 
       <h2 class="govuk-heading-m">When you need to provide verification details</h2>
         
-      <p class="govuk-body">This is different for everyone, and depends on whether the PSC was registered with Companies House before or after identity verification requirements were introduced on [date].</p>
+      <p class="govuk-body">Every PSC has a 14 day period during which they must provide their Companies House personal code and verification statement. The dates of this 14 day period are different for each PSC.</p>
 
-      <p class="govuk-body">If they were registered as a PSC before [date], they have 14 days starting from the company’s confirmation statement date to provide their personal code. They cannot do it before then.</p>
+      <h3 class="govuk-heading-s">If you were already a PSC on 1 Month 2025</h3>
 
-      <p class="govuk-body">If they were registered as a PSC after [date], they have 14 days starting from the date they were registered.</p>
+      <p class="govuk-body">If you’re also a director of the company, your 14 day period starts from the company’s confirmation statement date.</p>
+
+      <p class="govuk-body">If you're not a director of the company, your 14 day period starts from the first day of your month of birth, as it's shown on the Companies House register. For example, if your date of birth is shown on the register as March 1990, your 14 day period will start on 1 March 2026.</p>
+
+      <h3 class="govuk-heading-s">If you were registered as a PSC after 1 Month 2025</h3>
+      <p class="govuk-body">Your 14 day period starts from the date they were added to the Companies House register.</p>
 
 <div class="govuk-inset-text">
-  To see the deadline dates for a company's PSCs, select the ‘Start’ button and sign in to this service. 
+  Check when you need to provide your details by selecting 'Start' and signing in to this service. 
 </div>
 
 
@@ -62,7 +82,7 @@
         <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
         <strong class="govuk-warning-text__text">
           <span class="govuk-visually-hidden">Warning</span>
-          If a PSC does not comply with identity verification requirements, they will be committing an offence and may have to pay a financial penalty or fine. We may also display a note against their name on the public register.
+          If you do not comply with identity verification requirements, you will be committing an offence and may have to pay a financial penalty or fine. We may also display a note against your name on the public register.
         </strong>
       </div>
 
@@ -70,10 +90,10 @@
       <h2 class="govuk-heading-m">Requesting an extension</h2>
       
       <p class="govuk-body">
-        If a PSC cannot provide their verification details by their deadline, you may be able to request an extension of 14 days. You need to do this before the PSC's deadline has passed.
+        If you cannot provide your verification details on time, you may be able to request an extension of 14 days. You need to do this before your verification deadline has passed.
 
 <div class="govuk-inset-text">
-  To request an extension, select the ‘Start’ button and sign in to this service.
+  Request an extension by selecting ‘Start’ and signing in to this service.
 </div>
         
 
@@ -82,31 +102,15 @@
       <p class="govuk-body">To use this service, you'll need:</p>
 
       <ul class="govuk-list govuk-list--bullet">
-        <li>to sign in to a GOV.UK One Login account – if you do not have one, you can create one on the next screen</li>
+        <li>to sign in, or create sign in details</li>
         <li>the company number</li>
       </ul>
 
-      <p class="govuk-body">If you’re providing verification details for a PSC, you’ll need their Companies House personal code. </p>
+      <p class="govuk-body">If you’re a PSC providing identity verification details, you’ll need your Companies House personal code. You'll also be asked to tick a statement confirming that you’ve verified your identity.</p>
 
       <p class="govuk-body">It can take up to 10 minutes to provide verification details or request an extension.</p>
 
-      <details class="govuk-details" data-module="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            What is a Companies House personal code?
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          <p class="govuk-body">This is an 11 character code that is given to a person after they have verified their identity for Companies House. 
-          
-
-          <p class="govuk-body">Find out more about <a href="https://prove-your-identity-prototype.herokuapp.com/release2-v5/pre-one-login/guidance">verifying your identity for Companies House</a>.</p>
-        </div>
-      </details>
-
-
-
-
+      
       {{ govukButton({
         text: "Start",
         href: "create-or-sign-in",
