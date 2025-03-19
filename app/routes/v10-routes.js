@@ -137,31 +137,6 @@ router.post('/v10/confirm-company', function (req, res) {
 }
 })
 
-// ******* psc-list javascript ********************************
-router.get('/v10/individual/psc-list', function (req, res) {
-  res.render('/v10/individual/psc-list', {
-    currentUrl: req.originalUrl
-  })
-})
-
-router.post('/v10/individual/psc-list', function (req, res) {
-  var errors = []
-
-  if (typeof req.session.data['pscList'] === 'undefined') {
-    errors.push({
-      text: 'Select the PSC you providing verification details for',
-      href: '#pscList'
-    })
-    
-    res.render('/v10/individual/psc-list', {
-      errorPscList: true,
-      errorList: errors
-    })
-  } else {
-      res.redirect('/v10/individual/psc-details')
-    }
-})
-
 // ******* psc-details javascript *********************
 router.get('/v10/individual/psc-details', function (req, res) {
   // Set URl

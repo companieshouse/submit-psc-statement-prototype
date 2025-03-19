@@ -20,7 +20,7 @@
         errorList: errorList
       }) }}
     {% endif %}
-    <span class="govuk-caption-l">{{ data ['pscList']}} (Born April 1989)</span>
+    <span class="govuk-caption-l">{{ data ['pscList']}} ({{ data ['pscBithday']}})</span>
     <h1 class="govuk-heading-l">What is their Companies House personal code?</h1>
 
     <form action="{{currentUrl}}" method="post">
