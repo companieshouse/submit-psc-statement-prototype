@@ -19,26 +19,27 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
     <div class="govuk-grid-column-three-quarters">
       <h1 class="govuk-heading-l">PSC identity verification status</h1>
       <p class="govuk-body">
-        This overview shows when each PSC needs to provide their verification details (including their appointed day), and who has done it already. 
+        This overview shows the 14 day period in which each PSC needs to provide their verification details, and who has done it already. 
       </p>
 
       <details class="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
-            What is the 'appointed day'?
+            Why are there different dates for some PSCs?
           </span>
         </summary>
         <div class="govuk-details__text">
-          <p class="govuk-body">Every PSC has a 14 day period during which they must provide their Companies House personal code and verification statement. The first day of this period is referred to as the 'appointed day'. 
+          <p class="govuk-body">Every PSC has a 14 day period during which they must provide their Companies House personal code and verification statement. 
             
-          <p class="govuk-body">The date of your appointed day depends on whether:</p>
+          <p class="govuk-body">The dates of your 14 day period depend on whether:</p>
           <ul class="govuk-list govuk-list--bullet">
             <li>you were registered with Companies House before [date]</li>
-            <li>you're also a director of the company</li>
+            <li>you're also a director of this company</li>
             </ul>
+
             <p class="govuk-body">For more information, <a href="#">read the guidance on when PSCs need to verify</a></p>
   </div>
-      </details>      
+      </details>           
 
       <!-- If at least one hasn't verifed show unverified title -->
       {% if (data['paul_smith'] != 'verified') 
@@ -49,6 +50,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
     
         <p class="govuk-body">These PSCs for <strong>Big Shop Ltd</strong> can provide their verification details now. You can only provide details for one PSC at a time. You will not be able to request an extension for a PSC once their verification deadline has passed. 
         </p>
+  
       {% endif %}
 
       <!-- PSC 1 - Director PSC ***************************************************** -->
@@ -78,7 +80,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Appointed day
+                Period start date
               </dt>
               <dd class="govuk-summary-list__value">
                 8 April 2025
@@ -147,7 +149,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Appointed day
+                Period start date
               </dt>
               <dd class="govuk-summary-list__value">
                 8 April 2025
@@ -217,7 +219,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Appointed day
+                Period start date
               </dt>
               <dd class="govuk-summary-list__value">
                 1 April 2025
@@ -260,7 +262,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
 
       <h2 class="govuk-heading-m govuk-!-margin-top-7">PSCs that cannot provide verification details yet</h2>
     
-      <p class="govuk-body">These PSCs for <strong>Big Shop Ltd</strong> must wait for their appointed day before they can provide their identity verification details.</p>
+      <p class="govuk-body">These PSCs for <strong>Big Shop Ltd</strong> must wait for their 14 day period to start before they can provide their identity verification details.</p>
         
       <!-- PSC 4 ******************************************************************* -->
       <div class="govuk-summary-card">
@@ -281,7 +283,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Appointed day
+                Period start date
               </dt>
               <dd class="govuk-summary-list__value">
                 1 December 2025
@@ -328,7 +330,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Appointed day
+                Period start date
               </dt>
               <dd class="govuk-summary-list__value">
                 1 February 2025
@@ -375,7 +377,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Appointed day
+                Period start date
               </dt>
               <dd class="govuk-summary-list__value">
                 1 September 2025
@@ -422,7 +424,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Appointed day
+                Period start date
               </dt>
               <dd class="govuk-summary-list__value">
                 1 June 2025
@@ -469,7 +471,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Appointed day
+                Period start date
               </dt>
               <dd class="govuk-summary-list__value">
                 1 October 2025
@@ -516,7 +518,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Appointed day
+                Period start date
               </dt>
               <dd class="govuk-summary-list__value">
                 1 July 2025
@@ -563,7 +565,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Appointed day
+                Period start date
               </dt>
               <dd class="govuk-summary-list__value">
                 1 November 2025
