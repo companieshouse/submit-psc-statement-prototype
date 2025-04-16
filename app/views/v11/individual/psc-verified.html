@@ -1,0 +1,82 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Identity verification details submitted – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Identity verification details submitted 
+      </h1>
+      <div class="govuk-panel__body">
+        Your reference number<br><strong>HDJ2123F</strong>
+      </div>
+    </div>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Company number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['companyNumber']}}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Company name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['companyNumber'] == '12345678' %}
+            Big Shop Ltd
+          {% elif data['companyNumber'] == '33335555' %}
+            Little Shop ltd
+          {% endif %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          PSC name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['pscList']}}
+        </dd>
+      </div>
+    </dl>
+  
+      <p class="govuk-body">We have sent a confirmation email to  
+        <strong> {{ data['signin-email']}}</strong>.</p>   
+
+      <p class="govuk-body">We'll process the submission as soon as possible, and email you to let you know if it is accepted or rejected.</p>
+
+
+      <h2 class="govuk-heading-m">What do you want to do next?</h2>
+      <p class="govuk-body">Provide identity verification details or request an extension for:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <p class="govuk-body"><a href="../individual/psc-list" class="govuk-link">another PSC of 
+            {% if data['companyNumber'] == '12345678' %}
+              Big Shop Ltd
+            {% elif data['companyNumber'] == '11112222' %}
+              Contruction 123 Ltd
+            {% endif %}
+          </a></p>
+        </li>
+
+        <li>
+          <p class="govuk-body"><a href="../company-number" class="govuk-link">a PSC of a different company</a></p>
+        </li>
+      </ul>
+  </div>
+</div>
+
+{% endblock %}

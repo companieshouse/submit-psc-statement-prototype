@@ -1,0 +1,78 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Are you providing verification details for as PSC or RLE? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- Check for error -->
+      {% if errorPscType %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+      {% endif %}
+
+      <form action="{{currentUrl}}" method="post">
+
+        <!-- Check for error -->
+        {% if errorPscType %}
+          <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
+          <div class="govuk-form-group">
+        {% endif %} 
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Are you providing verification details for a PSC or an RLE? 
+              </h1>
+            </legend>
+
+            <!-- Check for error -->
+            {% if errorPscType %}
+            <p id="psc-type-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Select if you are providing verification details for a PSC or an RLE
+            </p>
+            {% endif %} 
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="pscType" name="pscType" type="radio" value="PSC">
+              <label class="govuk-label govuk-radios__label" for="pscType">
+                Person with significant control (PSC)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="pscType-2" name="pscType" type="radio" value="RLE">
+              <label class="govuk-label govuk-radios__label" for="pscType-2">
+                Relevant legal entity (RLE)
+              </label>
+              <div id="psc-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                  You'll need to provide the relevant officer's details
+                </div>
+            </div>
+          </fieldset>
+        </div>
+
+        {{ govukDetails({
+          summaryText: "What is the difference between a PSC and an RLE? ",
+          html: 'A person with significant control (PSC) is an individual who has 
+          significant control over a company. A relevant legal entity (RLE) is a corporate entity that would qualify as a PSC of 
+          a company if it were an individual.'
+        }) }}
+              
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
