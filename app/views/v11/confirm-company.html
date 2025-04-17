@@ -25,12 +25,8 @@
           <dd class="govuk-summary-list__value">
             {% if data['companyNumber'] == '12345678' %}
               Big Shop ltd
-            {% elif data['companyNumber'] == '99990000' %}
+            {% elif data['companyNumber'] == '22223333' %}
               Contruction 123 ltd
-            {% elif data['companyNumber'] == '98989898' %}
-              Dance studio ltd
-            {% elif data['companyNumber'] == '00001111' %}
-              Big Park Limited
             {% endif %}
           </dd>
         </div>
@@ -47,7 +43,12 @@
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Incorporation date</dt>
           <dd class="govuk-summary-list__value">
+            {% if data['companyNumber'] == '12345678' %}
             8 April 2010
+          {% elif data['companyNumber'] == '22223333' %}
+            12 August 2001
+          {% endif %}
+            
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -56,7 +57,13 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Registered office address</dt>
-          <dd class="govuk-summary-list__value">72 Guild Street <br> London <br> SE23 6FH</dd>
+          <dd class="govuk-summary-list__value">
+            {% if data['companyNumber'] == '12345678' %}
+            72 Guild Street <br> London <br> SE23 6FH</dd>
+          {% elif data['companyNumber'] == '22223333' %}
+            5 High Street <br> Plymouth <br> PL3 6DD</dd>
+          {% endif %}
+            
         </div>
       </dl>
 

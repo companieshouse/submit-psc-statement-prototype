@@ -266,58 +266,6 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
       </div>
       {% endif %}
 
-      <h2 class="govuk-heading-m govuk-!-margin-top-7">PSCs that cannot provide verification details yet</h2>
-    
-      <p class="govuk-body">These PSCs for <strong>Big Shop Ltd</strong> must wait for their 14 day period to start before they can provide their identity verification details.</p>
-        
-      <!-- PSC 4 ******************************************************************* -->
-      <div class="govuk-summary-card">
-        <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">
-            Amelia O'Brien
-          </h2>
-        </div>
-        <div class="govuk-summary-card__content">
-          <dl class="govuk-summary-list">
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Date of birth
-              </dt>
-              <dd class="govuk-summary-list__value">
-                December 1975
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Period start date
-              </dt>
-              <dd class="govuk-summary-list__value">
-                1 December 2025
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                  Verification deadline
-              </dt>
-              <dd class="govuk-summary-list__value">
-                  14 December 2025
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Verification status
-              </dt>
-              <dd class="govuk-summary-list__value">
-                <strong class="govuk-tag govuk-tag--red">
-                  Unverified
-                </strong>
-              </dd>
-            </div>
-          </dl>
-        </div>
-      </div>
-      
-
       <!-- Show verified section title  if either verified -->
       {% if (data['paul_smith'] == 'verified') 
           or (data['susan_robinson'] == 'verified') %}
@@ -380,15 +328,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                   Date of birth
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  May 1980
-                </dd>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Verification details provided on
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  21 August 2024
+                  April 1980
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
