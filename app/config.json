@@ -1,3 +1,8 @@
 {
-  "serviceName": "Provide identity verification details for a person with significant control (PSC)"
+  "serviceName": "Provide identity verification details for a person with significant control (PSC)",
+  "plugins": {
+    "govuk-frontend": {
+      "rebrand": true
+    }
+  }
 }
