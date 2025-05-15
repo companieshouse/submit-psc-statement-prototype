@@ -24,20 +24,19 @@
 
       <p class="govuk-body">The extension will only apply to their role as a PSC of Big Shop Ltd, not to any other PSC or company director roles they hold.</p>
            
-
-      
-      <!--
-      <p class="govuk-body">If the PSC cannot meet their new deadline, you can return to this service and submit another request. Each PSC can have a maximum of X extensions.</p>
-      -->
-
-
-
       {% if data['pscList'] == 'Paul Smith' %}
         <input type="hidden" name="paul_smith" id="paul_smith" value="extension" />
       {% endif %}
 
       {% if data['pscList'] == 'Susan Robinson' %}
         <input type="hidden" name="susan_robinson" id="susan_robinson" value="extension" />
+      {% endif %}
+
+      <!-- hidden variable set up to go to stop screen on second extension request  -->
+      {% if data['extension_number'] == '0' %}
+        <input type="hidden" name="extension_number" id="extension_number" value="1" />
+      {% elif data['extension_number'] == '1' %}
+        <input type="hidden" name="extension_number" id="extension_number" value="2" />
       {% endif %}
 
       {{ govukButton({

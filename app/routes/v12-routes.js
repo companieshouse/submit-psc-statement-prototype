@@ -273,7 +273,43 @@ router.get('/v12/extensions/extension-info', function (req, res) {
 })
 
 router.post('/v12/extensions/extension-info', function (req, res) {
-    res.redirect('/v12/extensions/extension-confirmation')
+    res.redirect('/v12/extensions/extension-reason')
+})
+
+
+// ******* extension-reason javascript ********************************
+router.get('/v12/extensions/extension-reason', function (req, res) {
+  // Set URl
+  res.render('v12/extensions/extension-reason', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/v12/extensions/extension-reason', function (req, res) {
+  // Create empty array
+  var errors = []
+
+  // Check if user has filled out a value
+  if (typeof req.session.data['extensionReason'] === 'undefined') {
+    // No value so add error to array
+    errors.push({
+      text: 'Select why you are requesting an extension',
+      href: '#extensionReason'
+    })
+
+    // Re-show page with error value as true so errors will show
+    res.render('v12/extensions/extension-reason', {
+      errorExtensionReason: true,
+      errorList: errors
+    })
+  } else {
+    if (req.session.data['extension_number'] === '1') {
+      res.redirect('/v12/extensions/extension-confirmation')
+    } else {
+      // User inputted value so move to next page
+      res.redirect('/v12/extensions/extension-review')
+    }
+  }
 })
 
 
