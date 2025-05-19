@@ -19,7 +19,7 @@ Identity verification details submitted – {{ serviceName }} – GOV.UK Prototy
         Extension request successful 
       </h1>
       <div class="govuk-panel__body">
-        Your reference number<br><strong>HDJ2123F</strong>
+        Verification deadline extended to<br><strong>20 February 2025</strong>
       </div>
     </div>
 
@@ -54,20 +54,21 @@ Identity verification details submitted – {{ serviceName }} – GOV.UK Prototy
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          Verification deadline extended to
+          Extension request reference number
         </dt>
         <dd class="govuk-summary-list__value">
-          20 February 2025
+          HDJ2123F
         </dd>
       </div>
     </dl>
   
-      <p class="govuk-body">We have sent a confirmation email to  
-        <strong> {{ data['signin-email']}}</strong>.</p>   
-
       <p class="govuk-body">This PSC has been given an additional 14 days to provide their verification details. 
-        
-      <p class="govuk-body">If you need to request another extension, you must do so before the new deadline has passed. This PSC can only request 3 more extensions.</p>
+      
+      <p class="govuk-body">We've sent a confirmation email to  
+        <strong> {{ data['signin-email']}}</strong>. We'll also send a letter to the PSC to inform them of their new deadline.</p>   
+
+        <h2 class="govuk-heading-m">If you need to request another extension</h2>        
+      <p class="govuk-body">You must do so before the new deadline has passed. Next time, your request will not be automatically accepted. It will be reviewed by a Companies House examiner, who will ask you to provide evidence to support your request.</p>
 
 
       <h2 class="govuk-heading-m">What do you want to do next?</h2>
