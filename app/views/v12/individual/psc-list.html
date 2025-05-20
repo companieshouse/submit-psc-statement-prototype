@@ -84,7 +84,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                 Period start date
               </dt>
               <dd class="govuk-summary-list__value">
-                8 April 2025
+                8 June 2025
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -92,7 +92,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                   Verification deadline
               </dt>
               <dd class="govuk-summary-list__value">
-                  22 April 2025
+                  22 June 2025
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -153,7 +153,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                 Period start date
               </dt>
               <dd class="govuk-summary-list__value">
-                8 April 2025
+                8 June 2025
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -161,7 +161,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                   Verification deadline
               </dt>
               <dd class="govuk-summary-list__value">
-                  22 April 2025
+                  22 June 2025
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -192,7 +192,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
               <form id="susanRobinson" action="psc-details">
                 <!-- Set up psc variables **************************************** -->
                 <input type="hidden" name="pscList" id="pscList" value="Susan Robinson" />
-                <input type="hidden" name="pscBithday" id="pscBithday" value="April 1980" />
+                <input type="hidden" name="pscBithday" id="pscBithday" value="June 1980" />
                 <a href="#" onclick="document.getElementById('susanRobinson').submit();">
                   Provide verification details</a>
               </form>
@@ -201,7 +201,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
               <form id="susanRobinsonExtension" action="../extensions/extension-info">
                 <!-- Set up psc variables **************************************** -->
                 <input type="hidden" name="pscList" id="pscList" value="Susan Robinson" />
-                <input type="hidden" name="pscBithday" id="pscBithday" value="April 1980" />
+                <input type="hidden" name="pscBithday" id="pscBithday" value="June 1980" />
                 <a href="#" onclick="document.getElementById('susanRobinsonExtension').submit();">
                   Request extension</a>
               </form>
@@ -215,7 +215,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                 Date of birth
               </dt>
               <dd class="govuk-summary-list__value">
-                April 1980
+                June 1980
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -223,7 +223,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                 Period start date
               </dt>
               <dd class="govuk-summary-list__value">
-                1 April 2025
+                1 June 2025
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -239,10 +239,10 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
               <dd class="govuk-summary-list__value">
                 <!-- Show if not extension -->
                 {% if data['susan_robinson'] != 'extension' %}
-                  14 April 2025
+                  14 June 2025
                 {% else %}
                 <!-- Show if extension -->
-                  28 May 2025
+                  28 June 2025
                 {% endif %}
               </dd>
             </div>
