@@ -312,4 +312,16 @@ router.post('/v12/extensions/extension-reason', function (req, res) {
   }
 })
 
+// ******* extension-reason-second javascript ********************************
+router.get('/v12/extensions/extension-info-second', function (req, res) {
+  // Set URl
+  res.render('/v12/extensions/extension-info-second', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/v12/extensions/extension-info-second', function (req, res) {
+    res.redirect('/v12/extensions/extension-reason')
+})
+
 

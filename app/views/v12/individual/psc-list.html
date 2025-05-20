@@ -198,13 +198,23 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
               </form>
             </li>
             <li class="govuk-summary-card__action">
-              <form id="susanRobinsonExtension" action="../extensions/extension-info">
-                <!-- Set up psc variables **************************************** -->
-                <input type="hidden" name="pscList" id="pscList" value="Susan Robinson" />
-                <input type="hidden" name="pscBithday" id="pscBithday" value="June 1980" />
-                <a href="#" onclick="document.getElementById('susanRobinsonExtension').submit();">
-                  Request extension</a>
-              </form>
+              {% if data['extension_number'] == '1' %}
+                <form id="susanRobinsonExtension" action="../extensions/extension-info-second">
+                  <!-- Set up psc variables **************************************** -->
+                  <input type="hidden" name="pscList" id="pscList" value="Susan Robinson" />
+                  <input type="hidden" name="pscBithday" id="pscBithday" value="June 1980" />
+                  <a href="#" onclick="document.getElementById('susanRobinsonExtension').submit();">
+                    Request extension</a>
+                </form>
+              {% else %} 
+                <form id="susanRobinsonExtension" action="../extensions/extension-info">
+                  <!-- Set up psc variables **************************************** -->
+                  <input type="hidden" name="pscList" id="pscList" value="Susan Robinson" />
+                  <input type="hidden" name="pscBithday" id="pscBithday" value="June 1980" />
+                  <a href="#" onclick="document.getElementById('susanRobinsonExtension').submit();">
+                    Request extension</a>
+                </form>
+              {% endif %}
             </li>
           </ul>
         </div>
