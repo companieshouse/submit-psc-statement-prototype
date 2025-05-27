@@ -34,12 +34,16 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
         </summary>
         <div class="govuk-details__text">
           <p class="govuk-body">The dates of your 14 day period depend on when you were registered as a PSC with Companies House, and whether you're also a director of this company.
-          <h3 class="govuk-heading-s">If you were already a PSC on [date]</h3>
-          <p class="govuk-body">If you’re also a director of this company, your 14 day period starts from the company’s confirmation statement date.</p>
-          <p class="govuk-body">If you're not also a director of this company, your 14 day period starts from the first day of your birth month. For example, if your date of birth is 22 May 1980, your 14 day period starts on 1 May 2026.</p>
-          <h3 class="govuk-heading-s">If you were registered as a PSC after [date]</h3>
-          <p class="govuk-body">When you were added to the Companies House register, we sent you a letter directing you to verify your identity. Your 14 day period started on the date of that letter.</p>
-        </div>
+            
+            <h3 class="govuk-heading-s">If you were already a PSC on [IDV go live date]</h3>
+
+            <p class="govuk-body">If you’re also a director of this company, your 14 day period starts from the company’s confirmation statement date, as it was on [IDV go live date].</p>
+      
+            <p class="govuk-body">If you're not also a director of this company, your 14 day period starts from the first day of your birth month. For example, if your date of birth is 22 May 1980, your 14 day period starts on 1 May 2026.</p>
+      
+            <h3 class="govuk-heading-s">If you were registered as a PSC after [IDV go live date]</h3>
+            <p class="govuk-body">When you were added to the Companies House register, we sent you a letter directing you to verify your identity. Your 14 day period started on the date of that letter.</p>
+            </div>
       </details>           
 
       <!-- If at least one hasn't verifed show unverified title -->
@@ -84,7 +88,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                 Period start date
               </dt>
               <dd class="govuk-summary-list__value">
-                8 June 2025
+                8 April 2025
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -92,7 +96,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                   Verification deadline
               </dt>
               <dd class="govuk-summary-list__value">
-                  22 June 2025
+                  22 April 2025
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -153,7 +157,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                 Period start date
               </dt>
               <dd class="govuk-summary-list__value">
-                8 June 2025
+                8 April 2025
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -161,7 +165,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                   Verification deadline
               </dt>
               <dd class="govuk-summary-list__value">
-                  22 June 2025
+                  22 April 2025
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -192,29 +196,19 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
               <form id="susanRobinson" action="psc-details">
                 <!-- Set up psc variables **************************************** -->
                 <input type="hidden" name="pscList" id="pscList" value="Susan Robinson" />
-                <input type="hidden" name="pscBithday" id="pscBithday" value="June 1980" />
+                <input type="hidden" name="pscBithday" id="pscBithday" value="April 1980" />
                 <a href="#" onclick="document.getElementById('susanRobinson').submit();">
                   Provide verification details</a>
               </form>
             </li>
             <li class="govuk-summary-card__action">
-              {% if data['extension_number'] == '1' %}
-                <form id="susanRobinsonExtension" action="../extensions/extension-info-second">
-                  <!-- Set up psc variables **************************************** -->
-                  <input type="hidden" name="pscList" id="pscList" value="Susan Robinson" />
-                  <input type="hidden" name="pscBithday" id="pscBithday" value="June 1980" />
-                  <a href="#" onclick="document.getElementById('susanRobinsonExtension').submit();">
-                    Request extension</a>
-                </form>
-              {% else %} 
-                <form id="susanRobinsonExtension" action="../extensions/extension-info">
-                  <!-- Set up psc variables **************************************** -->
-                  <input type="hidden" name="pscList" id="pscList" value="Susan Robinson" />
-                  <input type="hidden" name="pscBithday" id="pscBithday" value="June 1980" />
-                  <a href="#" onclick="document.getElementById('susanRobinsonExtension').submit();">
-                    Request extension</a>
-                </form>
-              {% endif %}
+              <form id="susanRobinsonExtension" action="../extensions/extension-info">
+                <!-- Set up psc variables **************************************** -->
+                <input type="hidden" name="pscList" id="pscList" value="Susan Robinson" />
+                <input type="hidden" name="pscBithday" id="pscBithday" value="April 1980" />
+                <a href="#" onclick="document.getElementById('susanRobinsonExtension').submit();">
+                  Request extension</a>
+              </form>
             </li>
           </ul>
         </div>
@@ -225,7 +219,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                 Date of birth
               </dt>
               <dd class="govuk-summary-list__value">
-                June 1980
+                April 1980
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -233,7 +227,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                 Period start date
               </dt>
               <dd class="govuk-summary-list__value">
-                1 June 2025
+                1 April 2025
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -249,10 +243,10 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
               <dd class="govuk-summary-list__value">
                 <!-- Show if not extension -->
                 {% if data['susan_robinson'] != 'extension' %}
-                  14 June 2025
+                  14 April 2025
                 {% else %}
                 <!-- Show if extension -->
-                  28 June 2025
+                  28 May 2025
                 {% endif %}
               </dd>
             </div>
