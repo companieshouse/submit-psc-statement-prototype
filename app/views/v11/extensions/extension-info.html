@@ -29,8 +29,9 @@
       <!--
       <p class="govuk-body">If the PSC cannot meet their new deadline, you can return to this service and submit another request. Each PSC can have a maximum of X extensions.</p>
       -->
-
-
+      {% if data['pscList'] == 'Lisa Franklin' %}
+        <input type="hidden" name="lisa_franklin" id="lisa_franklin" value="extension" />
+      {% endif %}
 
       {% if data['pscList'] == 'Paul Smith' %}
         <input type="hidden" name="paul_smith" id="paul_smith" value="extension" />
