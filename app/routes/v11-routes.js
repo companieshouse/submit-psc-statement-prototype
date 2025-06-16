@@ -120,11 +120,17 @@ router.get('/v11/confirm-company', function (req, res) {
 })
 
 router.post('/v11/confirm-company', function (req, res) {
+  // Super secure
   if ((req.session.data['companyNumber'] == '22223333')) {
-    // Super secure
-    res.redirect('/v11/individual/psc-list-v3')
+    res.redirect('/v11/super-secure')
     // invalid company
-  } else {
+  } else if (req.session.data['companyNumber'] === '00001111') {
+    res.redirect('/v11/company-type-stop')
+    // disolved company
+  } else if (req.session.data['companyNumber'] === '99990000') {
+    res.redirect('/v11/company-status-stop')
+    // no psc company
+  }else {
     res.redirect('/v11/individual/psc-list')
 }
 })
