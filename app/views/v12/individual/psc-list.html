@@ -58,62 +58,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
   
       {% endif %}
 
-      <!-- PSC 1 - Director PSC ***************************************************** -->
-      <div class="govuk-summary-card">
-        <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">
-            Lisa Franklin
-          </h2>
-          <ul class="govuk-summary-card__actions">
-            <li class="govuk-summary-card__action">
-                <a href="#">Provide verification details</a>
-            </li>
-            <li class="govuk-summary-card__action">
-                <a href="#">Request extension</a>
-            </li>
-          </ul>
-        </div>
-        <div class="govuk-summary-card__content">
-          <dl class="govuk-summary-list">
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Date of birth
-              </dt>
-              <dd class="govuk-summary-list__value">
-                August 2000
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Period start date
-              </dt>
-              <dd class="govuk-summary-list__value">
-                8 April 2025
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                  Verification deadline
-              </dt>
-              <dd class="govuk-summary-list__value">
-                  22 April 2025
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Verification status
-              </dt>
-              <dd class="govuk-summary-list__value">
-                <strong class="govuk-tag govuk-tag--red">
-                  Unverified
-                </strong>
-              </dd>
-            </div>
-          </dl>
-        </div>
-      </div>
-
-      <!-- PSC 2 - Birth month is April ******************************************************************* -->
+      <!-- PSC 1 - Director psc ******************************************************************* -->
       <!-- Don't show in unverified section if verified -->
       {% if data['paul_smith'] != 'verified' %}
       <div class="govuk-summary-card">
@@ -162,10 +107,22 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
+                <!-- Show if not extension -->
+                {% if data['paul_smith'] != 'extension' %}
                   Verification deadline
+                {% else %} 
+                <!-- Show if extension -->
+                  Verification deadline extended to
+                {% endif %}
               </dt>
               <dd class="govuk-summary-list__value">
-                  22 April 2025
+                <!-- Show if not extension -->
+                {% if data['paul_smith'] != 'extension' %}
+                  14 April 2025
+                {% else %}
+                <!-- Show if extension -->
+                  28 May 2025
+                {% endif %}
               </dd>
             </div>
             <div class="govuk-summary-list__row">
