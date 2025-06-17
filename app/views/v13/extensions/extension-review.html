@@ -1,0 +1,47 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Requesting an extension – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">{{ data ['pscList']}} (Born {{ data ['pscBithday']}})</span>
+      <h1 class="govuk-heading-l">Your extension request has been submitted</h1>
+
+      <p class="govuk-body">It will be reviewed by a Companies House examiner. They'll email you at <strong>{{ data['signin-email']}}</strong> within X days and ask you to provide evidence to support your request.</p>
+
+      <p class="govuk-body">After they've reviewed the evidence provided, they'll contact you to let you know if your request has been accepted or rejected.</p>
+
+      <p class="govuk-body">If it's accepted, {{ data ['pscList']}} will have an extra 14 days to provide their verification details. If it's rejected, they'll need to do this by their current verification deadline.</p>
+
+      <h2 class="govuk-heading-m">What do you want to do next?</h2>
+      <p class="govuk-body">Provide identity verification details or request an extension for:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <p class="govuk-body"><a href="../individual/psc-list" class="govuk-link">another PSC of 
+            {% if data['companyNumber'] == '12345678' %}
+              Big Shop Ltd
+            {% elif data['companyNumber'] == '11112222' %}
+              Contruction 123 Ltd
+            {% endif %}
+          </a></p>
+        </li>
+
+        <li>
+          <p class="govuk-body"><a href="../company-number" class="govuk-link">a PSC of a different company</a></p>
+        </li>
+      </ul>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Requesting an extension – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="{{currentUrl}}" method="post">
+
+      <span class="govuk-caption-l">{{ data ['pscList']}} (Born {{ data ['pscBithday']}})</span>
+      <h1 class="govuk-heading-l">Requesting an extension</h1>
+
+      <p class="govuk-body"><strong>{{ data ['pscList']}}</strong> has already been given one 14 day extension.</p>
+
+      <p class="govuk-body">If they need more time, you can request another extension. You must submit your request before their current verification deadline has passed.</p>
+
+      <p class="govuk-body">This time it will be reviewed by a Companies House examiner, who will ask you to provide evidence to support your request.</p>
+
+      <p class="govuk-body">If your request is accepted, the extension will only apply to {{ data ['pscList']}}'s role as a PSC of Big Shop Ltd. It will not apply to any other PSC or company director roles they hold.</p>
+           
+      {% if data['pscList'] == 'Paul Smith' %}
+        <input type="hidden" name="paul_smith" id="paul_smith" value="extension" />
+      {% endif %}
+
+      {% if data['pscList'] == 'Susan Robinson' %}
+        <input type="hidden" name="susan_robinson" id="susan_robinson" value="extension" />
+      {% endif %}
+
+      <!-- hidden variable set up to go to stop screen on second extension request  -->
+      {% if data['extension_number'] == '0' %}
+        <input type="hidden" name="extension_number" id="extension_number" value="1" />
+      {% elif data['extension_number'] == '1' %}
+        <input type="hidden" name="extension_number" id="extension_number" value="2" />
+      {% endif %}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}
