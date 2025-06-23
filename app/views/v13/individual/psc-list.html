@@ -77,6 +77,15 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
               </form>
             </li>
             <li class="govuk-summary-card__action">
+              {% if data['paul_smith'] == 'extension' %}
+              <form id="paulSmithExtension" action="../extensions/extension-info-second">
+                <!-- Set up psc variables **************************************** -->
+                <input type="hidden" name="pscList" id="pscList" value="Paul Smith" />
+                <input type="hidden" name="pscBithday" id="pscBithday" value="May 1989" />
+                <a href="#" onclick="document.getElementById('paulSmithExtension').submit();">
+                  Request extension</a>
+              </form>
+              {% else %}
               <form id="paulSmithExtension" action="../extensions/extension-info">
                 <!-- Set up psc variables **************************************** -->
                 <input type="hidden" name="pscList" id="pscList" value="Paul Smith" />
@@ -84,6 +93,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                 <a href="#" onclick="document.getElementById('paulSmithExtension').submit();">
                   Request extension</a>
               </form>
+              {% endif %}
             </li>
           </ul>
         </div>
@@ -107,21 +117,23 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                <!-- Show if not extension -->
-                {% if data['paul_smith'] != 'extension' %}
-                  Verification deadline
-                {% else %} 
                 <!-- Show if extension -->
+                {% if (data['paul_smith'] == 'extension') 
+                or (data['paul_smith'] == 'extension-two') %}
                   Verification deadline extended to
+                {% else %} 
+                <!-- Show if not extension -->
+                  Verification deadline 
                 {% endif %}
               </dt>
               <dd class="govuk-summary-list__value">
-                <!-- Show if not extension -->
-                {% if data['paul_smith'] != 'extension' %}
-                  14 April 2025
-                {% else %}
                 <!-- Show if extension -->
-                  28 May 2025
+                {% if (data['paul_smith'] == 'extension') 
+                or (data['paul_smith'] == 'extension-two') %}
+                  6 May 2025
+                {% else %}
+                <!-- Show if not extension -->
+                  22 April 2025
                 {% endif %}
               </dd>
             </div>
@@ -159,6 +171,15 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
               </form>
             </li>
             <li class="govuk-summary-card__action">
+              {% if data['susan_robinson'] == 'extension' %}
+              <form id="susanRobinsonExtension" action="../extensions/extension-info-second">
+                <!-- Set up psc variables **************************************** -->
+                <input type="hidden" name="pscList" id="pscList" value="Susan Robinson" />
+                <input type="hidden" name="pscBithday" id="pscBithday" value="April 1980" />
+                <a href="#" onclick="document.getElementById('susanRobinsonExtension').submit();">
+                  Request extension</a>
+              </form>
+              {% else %}
               <form id="susanRobinsonExtension" action="../extensions/extension-info">
                 <!-- Set up psc variables **************************************** -->
                 <input type="hidden" name="pscList" id="pscList" value="Susan Robinson" />
@@ -166,6 +187,7 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
                 <a href="#" onclick="document.getElementById('susanRobinsonExtension').submit();">
                   Request extension</a>
               </form>
+              {% endif %}
             </li>
           </ul>
         </div>
@@ -189,21 +211,23 @@ PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                <!-- Show if not extension -->
-                {% if data['susan_robinson'] != 'extension' %}
-                  Verification deadline
-                {% else %} 
                 <!-- Show if extension -->
+                {% if data['susan_robinson'] == 'extension' 
+                or (data['susan_robinson'] == 'extension-two') %}
                   Verification deadline extended to
+                {% else %} 
+                <!-- Show if not extension -->
+                  Verification deadline
                 {% endif %}
               </dt>
               <dd class="govuk-summary-list__value">
-                <!-- Show if not extension -->
-                {% if data['susan_robinson'] != 'extension' %}
-                  14 April 2025
-                {% else %}
                 <!-- Show if extension -->
-                  28 May 2025
+                {% if data['susan_robinson'] == 'extension' 
+                or (data['susan_robinson'] == 'extension-two') %}
+                  28 April 2025
+                {% else %}
+                <!-- Show if not extension -->
+                  14 April 2025
                 {% endif %}
               </dd>
             </div>

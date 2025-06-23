@@ -303,11 +303,20 @@ router.post('/v13/extensions/extension-reason', function (req, res) {
       errorList: errors
     })
   } else {
-    if (req.session.data['extension_number'] === '1') {
-      res.redirect('/v13/extensions/extension-confirmation')
-    } else {
-      // User inputted value so move to next page
-      res.redirect('/v13/extensions/extension-review')
+    if (req.session.data['pscList'] === 'Paul Smith') {
+      if (req.session.data['paul_smith'] === 'extension') {
+        res.redirect('/v13/extensions/extension-confirmation')
+      } else if (req.session.data['paul_smith'] === 'extension-two') {
+        // User inputted value so move to next page
+        res.redirect('/v13/extensions/extension-review')
+      }
+    } else if (req.session.data['pscList'] === 'Susan Robinson') {
+      if (req.session.data['susan_robinson'] === 'extension') {
+        res.redirect('/v13/extensions/extension-confirmation')
+      } else if (req.session.data['susan_robinson'] === 'extension-two') {
+        // User inputted value so move to next page
+        res.redirect('/v13/extensions/extension-review')
+      }
     }
   }
 })
