@@ -15,48 +15,52 @@ router.use((req, res, next) => {
   next()  
 }) 
 
-// ******* Sign in email validation ********************************
-router.get('/v13/sign-in-email', function (req, res) {
-  // Set URl
-  res.render('/v13/sign-in-email', {
-    currentUrl: req.originalUrl
-  })
+
+
+router.post('/v14/sign-in-email', function(request, response) {
+    response.redirect('/v14/sign-in-password')
 })
 
-router.post('/v13/sign-in-email', function (req, res) {
-// Create empty array and set error variables to false
-var errors = []
+// // ******* Sign in email validation ********************************
+// router.get('/v14/sign-in-email', function (req, res) {
+//   // Set URl
+//   res.render('/v14/sign-in-password')
+// })
 
-if (req.session.data['signin-email'] === '') {
-  // No value so add error to array
-  errors.push({
-    text: 'Enter your email address',
-    href: '#signin-email'
-  })
-}
+// router.post('/v14/sign-in-email', function (req, res) {
+// // Create empty array and set error variables to false
+// var errors = []
 
-if (req.session.data['signin-email'] === '') {
-  // Re-show page with error value as true so errors will show
-  res.render('/v13/sign-in-email', {
-    errorSigninEmail: true,
-    errorList: errors
-  })
-} else {
-  // User inputted value so move to next page
-  res.redirect('/v13/sign-in-password')
-}
-})
+// if (req.session.data['signin-email'] === '') {
+//   // No value so add error to array
+//   errors.push({
+//     text: 'Enter your email address',
+//     href: '#signin-email'
+//   })
+// }
+
+// if (req.session.data['signin-email'] === '') {
+//   // Re-show page with error value as true so errors will show
+//   res.render('/v14/sign-in-email', {
+//     errorSigninEmail: true,
+//     errorList: errors
+//   })
+// } else {
+//   // User inputted value so move to next page
+//   res.redirect('/v14/sign-in-password')
+// }
+// })
 
 
 // ******* Sign in password validation ********************************
-router.get('/v13/sign-in-password', function (req, res) {
+router.get('/v14/sign-in-password', function (req, res) {
 // Set URl
-res.render('/v13/sign-in-password', {
+res.render('/v14/sign-in-password', {
   currentUrl: req.originalUrl
 })
 })
 
-router.post('/v13/sign-in-password', function (req, res) {
+router.post('/v14/sign-in-password', function (req, res) {
 // Create empty array and set error variables to false
 var errors = []
 
@@ -70,26 +74,26 @@ if (req.session.data['signin-password'] === '') {
 
 if (req.session.data['signin-password'] === '') {
   // Re-show page with error value as true so errors will show
-  res.render('/v13/sign-in-password', {
+  res.render('/v14/sign-in-password', {
     errorSigninPassword: true,
     errorList: errors
   })
 } else {
   // User inputted value so move to next page
-  res.redirect('/v13/company-number')
+  res.redirect('/v14/company-number')
 }
 })
 
 
 // ******* company-number javascript *********************
-router.get('/v13/company-number', function (req, res) {
+router.get('/v14/company-number', function (req, res) {
   // Set URl
-  res.render('/v13/company-number', {
+  res.render('/v14/company-number', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v13/company-number', function (req, res) {
+router.post('/v14/company-number', function (req, res) {
   // Create empty array and set error variables to false
   var errors = [];
 
@@ -101,43 +105,43 @@ router.post('/v13/company-number', function (req, res) {
     })
 
     // Re-show page with error value as true so errors will show
-    res.render('/v13/company-number', {
+    res.render('/v14/company-number', {
       errorCompanyNumber: true,
       errorList: errors
     })
   } else {
-      res.redirect('/v13/confirm-company')
+      res.redirect('/v14/confirm-company')
   }
 })
 
 
 // ******* confirm-company javascript **********************
-router.get('/v13/confirm-company', function (req, res) {
+router.get('/v14/confirm-company', function (req, res) {
   // Set URl
-  res.render('/v13/confirm-company', {
+  res.render('/v14/confirm-company', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v13/confirm-company', function (req, res) {
+router.post('/v14/confirm-company', function (req, res) {
   if ((req.session.data['companyNumber'] == '22223333')) {
     // Super secure
-    res.redirect('/v13/individual/psc-list-v3')
+    res.redirect('/v14/individual/psc-list-v3')
     // invalid company
   } else {
-    res.redirect('/v13/individual/psc-list')
+    res.redirect('/v14/individual/psc-list')
 }
 })
 
 // ******* psc-details javascript *********************
-router.get('/v13/individual/psc-details', function (req, res) {
+router.get('/v14/individual/psc-details', function (req, res) {
   // Set URl
-  res.render('/v13/individual/psc-details', {
+  res.render('/v14/individual/psc-details', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v13/individual/psc-details', function (req, res) {
+router.post('/v14/individual/psc-details', function (req, res) {
   // Create empty array and set error variables to false
   var errors = [];
   var pscDetailsError = false
@@ -155,7 +159,7 @@ router.post('/v13/individual/psc-details', function (req, res) {
   }
 
   if (pscDetailsError) {
-  res.render('/v13/individual/psc-details', {
+  res.render('/v14/individual/psc-details', {
     errorPscPersonalCode: pscPersonalCodeError,
     pscDetailsError: pscDetailsError,
     errorList: errors
@@ -163,28 +167,28 @@ router.post('/v13/individual/psc-details', function (req, res) {
   } else {
     // name mis-match
     if (req.session.data['pscPersonalCode'] === '111-2222-3333') {
-      res.redirect('/v13/individual/psc-why-this-name')
+      res.redirect('/v14/individual/psc-why-this-name')
     } 
     // dob code mis-match
     else if (req.session.data['pscPersonalCode'] === '444-5555-6666') {
-      res.redirect('/v13/individual/psc-dob-mismatch')
+      res.redirect('/v14/individual/psc-dob-mismatch')
     } 
     else {
-      res.redirect('/v13/individual/psc-statement')
+      res.redirect('/v14/individual/psc-statement')
     }
   }
 })
 
 
 // ******* personal-code validation ********************************
-router.get('/v13/individual/personal-code', function (req, res) {
+router.get('/v14/individual/personal-code', function (req, res) {
   // Set URl
-  res.render('/v13/individual/personal-code', {
+  res.render('/v14/individual/personal-code', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v13/individual/personal-code', function (req, res) {
+router.post('/v14/individual/personal-code', function (req, res) {
 // Create empty array and set error variables to false
 var errors = []
 
@@ -198,48 +202,48 @@ if (req.session.data['personalCode'] === '') {
 
 if (req.session.data['personalCode'] === '') {
   // Re-show page with error value as true so errors will show
-  res.render('/v13/individual/personal-code', {
+  res.render('/v14/individual/personal-code', {
     errorCode: true,
     errorList: errors
   })
   } else {
     if (req.session.data['personalCode'] === '111-2222-3333') {
-      res.redirect('/v13/individual/psc-why-this-name')
+      res.redirect('/v14/individual/psc-why-this-name')
     } 
     else if (req.session.data['personalCode'] === '777-8888-9999') {
-      res.redirect('/v13/individual/non-match')
+      res.redirect('/v14/individual/non-match')
     } else if (req.session.data['personalCode'] === 'aaa-bbbb-cccc') {
-      res.redirect('/v13/too-many-attempts')
+      res.redirect('/v14/too-many-attempts')
     } else {
-      res.redirect('/v13/individual/psc-statement')
+      res.redirect('/v14/individual/psc-statement')
     }
   }
 })
 
 
 // ******* psc-why-this-name javascript ********************************
-router.get('/v13/individual/psc-why-this-name', function (req, res) {
+router.get('/v14/individual/psc-why-this-name', function (req, res) {
   // Set URl
-  res.render('/v13/individual/psc-why-this-name', {
+  res.render('/v14/individual/psc-why-this-name', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v13/individual/psc-why-this-name', function (req, res) {
-  res.redirect('/v13/individual/psc-statement')
+router.post('/v14/individual/psc-why-this-name', function (req, res) {
+  res.redirect('/v14/individual/psc-statement')
 })
 
 
 
 // ******* psc-statement javascript ********************************
-router.get('/v13/individual/psc-statement', function (req, res) {
+router.get('/v14/individual/psc-statement', function (req, res) {
   // Set URl
-  res.render('/v13/individual/psc-statement', {
+  res.render('/v14/individual/psc-statement', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v13/individual/psc-statement', function (req, res) {
+router.post('/v14/individual/psc-statement', function (req, res) {
   // Create empty array
   var errors = []
 
@@ -254,38 +258,38 @@ router.post('/v13/individual/psc-statement', function (req, res) {
     })
 
     // Re-show page with error value as true so errors will show
-    res.render('/v13/individual/psc-statement', {
+    res.render('/v14/individual/psc-statement', {
       errorStatement: true,
       errorList: errors
     })
   } else {
-      res.redirect('/v13/individual/psc-verified')
+      res.redirect('/v14/individual/psc-verified')
   }
 })
 
 
 // ******* extension reason javascript ********************************
-router.get('/v13/extensions/extension-info', function (req, res) {
+router.get('/v14/extensions/extension-info', function (req, res) {
   // Set URl
-  res.render('/v13/extensions/extension-info', {
+  res.render('/v14/extensions/extension-info', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v13/extensions/extension-info', function (req, res) {
-    res.redirect('/v13/extensions/extension-reason')
+router.post('/v14/extensions/extension-info', function (req, res) {
+    res.redirect('/v14/extensions/extension-reason')
 })
 
 
 // ******* extension-reason javascript ********************************
-router.get('/v13/extensions/extension-reason', function (req, res) {
+router.get('/v14/extensions/extension-reason', function (req, res) {
   // Set URl
-  res.render('v13/extensions/extension-reason', {
+  res.render('v14/extensions/extension-reason', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v13/extensions/extension-reason', function (req, res) {
+router.post('/v14/extensions/extension-reason', function (req, res) {
   // Create empty array
   var errors = []
 
@@ -298,39 +302,39 @@ router.post('/v13/extensions/extension-reason', function (req, res) {
     })
 
     // Re-show page with error value as true so errors will show
-    res.render('v13/extensions/extension-reason', {
+    res.render('v14/extensions/extension-reason', {
       errorExtensionReason: true,
       errorList: errors
     })
   } else {
     if (req.session.data['pscList'] === 'Paul Smith') {
       if (req.session.data['paul_smith'] === 'extension') {
-        res.redirect('/v13/extensions/extension-confirmation')
+        res.redirect('/v14/extensions/extension-confirmation')
       } else if (req.session.data['paul_smith'] === 'extension-two') {
         // User inputted value so move to next page
-        res.redirect('/v13/extensions/extension-review')
+        res.redirect('/v14/extensions/extension-review')
       }
     } else if (req.session.data['pscList'] === 'Susan Robinson') {
       if (req.session.data['susan_robinson'] === 'extension') {
-        res.redirect('/v13/extensions/extension-confirmation')
+        res.redirect('/v14/extensions/extension-confirmation')
       } else if (req.session.data['susan_robinson'] === 'extension-two') {
         // User inputted value so move to next page
-        res.redirect('/v13/extensions/extension-review')
+        res.redirect('/v14/extensions/extension-review')
       }
     }
   }
 })
 
 // ******* extension-reason-second javascript ********************************
-router.get('/v13/extensions/extension-info-second', function (req, res) {
+router.get('/v14/extensions/extension-info-second', function (req, res) {
   // Set URl
-  res.render('/v13/extensions/extension-info-second', {
+  res.render('/v14/extensions/extension-info-second', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v13/extensions/extension-info-second', function (req, res) {
-    res.redirect('/v13/extensions/extension-reason')
+router.post('/v14/extensions/extension-info-second', function (req, res) {
+    res.redirect('/v14/extensions/extension-reason')
 })
 
 
