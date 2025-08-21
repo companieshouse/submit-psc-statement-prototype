@@ -273,19 +273,19 @@ router.get('/v13/extensions/extension-info', function (req, res) {
 })
 
 router.post('/v13/extensions/extension-info', function (req, res) {
-    res.redirect('/v13/extensions/extension-reason')
+    res.redirect('/v13/extensions/extension-reason-final')
 })
 
 
 // ******* extension-reason javascript ********************************
-router.get('/v13/extensions/extension-reason', function (req, res) {
+router.get('/v13/extensions/extension-reason-final', function (req, res) {
   // Set URl
-  res.render('v13/extensions/extension-reason', {
+  res.render('v13/extensions/extension-reason-final', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v13/extensions/extension-reason', function (req, res) {
+router.post('/v13/extensions/extension-reason-final', function (req, res) {
   // Create empty array
   var errors = []
 
@@ -298,7 +298,7 @@ router.post('/v13/extensions/extension-reason', function (req, res) {
     })
 
     // Re-show page with error value as true so errors will show
-    res.render('v13/extensions/extension-reason', {
+    res.render('v13/extensions/extension-reason-final', {
       errorExtensionReason: true,
       errorList: errors
     })
@@ -330,7 +330,7 @@ router.get('/v13/extensions/extension-info-second', function (req, res) {
 })
 
 router.post('/v13/extensions/extension-info-second', function (req, res) {
-    res.redirect('/v13/extensions/extension-reason')
+    res.redirect('/v13/extensions/extension-reason-final')
 })
 
 
