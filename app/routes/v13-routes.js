@@ -285,40 +285,44 @@ router.get('/v13/extensions/extension-reason-final', function (req, res) {
   })
 })
 
+// router.post('/v13/extensions/extension-reason-final', function (req, res) {
+//   // Create empty array
+//   var errors = []
+
+//   // Check if user has filled out a value
+//   if (typeof req.session.data['extensionReason'] === 'undefined') {
+//     // No value so add error to array
+//     errors.push({
+//       text: 'Select why you are requesting an extension',
+//       href: '#extensionReason'
+//     })
+
+//     // Re-show page with error value as true so errors will show
+//     res.render('v13/extensions/extension-reason-final', {
+//       errorExtensionReason: true,
+//       errorList: errors
+//     })
+//   } else {
+//     if (req.session.data['pscList'] === 'Paul Smith') {
+//       if (req.session.data['paul_smith'] === 'extension') {
+//         res.redirect('/v13/extensions/extension-confirmation')
+//       } else if (req.session.data['paul_smith'] === 'extension-two') {
+//         // User inputted value so move to next page
+//         res.redirect('/v13/extensions/extension-review')
+//       }
+//     } else if (req.session.data['pscList'] === 'Susan Robinson') {
+//       if (req.session.data['susan_robinson'] === 'extension') {
+//         res.redirect('/v13/extensions/extension-confirmation')
+//       } else if (req.session.data['susan_robinson'] === 'extension-two') {
+//         // User inputted value so move to next page
+//         res.redirect('/v13/extensions/extension-review')
+//       }
+//     }
+//   }
+// })
+
 router.post('/v13/extensions/extension-reason-final', function (req, res) {
-  // Create empty array
-  var errors = []
-
-  // Check if user has filled out a value
-  if (typeof req.session.data['extensionReason'] === 'undefined') {
-    // No value so add error to array
-    errors.push({
-      text: 'Select why you are requesting an extension',
-      href: '#extensionReason'
-    })
-
-    // Re-show page with error value as true so errors will show
-    res.render('v13/extensions/extension-reason-final', {
-      errorExtensionReason: true,
-      errorList: errors
-    })
-  } else {
-    if (req.session.data['pscList'] === 'Paul Smith') {
-      if (req.session.data['paul_smith'] === 'extension') {
-        res.redirect('/v13/extensions/extension-confirmation')
-      } else if (req.session.data['paul_smith'] === 'extension-two') {
-        // User inputted value so move to next page
-        res.redirect('/v13/extensions/extension-review')
-      }
-    } else if (req.session.data['pscList'] === 'Susan Robinson') {
-      if (req.session.data['susan_robinson'] === 'extension') {
-        res.redirect('/v13/extensions/extension-confirmation')
-      } else if (req.session.data['susan_robinson'] === 'extension-two') {
-        // User inputted value so move to next page
-        res.redirect('/v13/extensions/extension-review')
-      }
-    }
-  }
+    res.redirect('/v13/extensions/extension-review')
 })
 
 // ******* extension-reason-second javascript ********************************
