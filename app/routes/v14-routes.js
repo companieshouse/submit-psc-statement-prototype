@@ -326,7 +326,7 @@ router.get('/v14/extensions/extension-reason-final', function (req, res) {
 // })
 
 router.post('/v14/extensions/extension-reason-final', function (req, res) {
-    res.redirect('/v14/extensions/extension-review')
+    res.redirect('/v14/extensions/extension-confirmation-first')
 })
 
 // ******* extension-reason-second javascript ********************************
