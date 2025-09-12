@@ -43,17 +43,24 @@
             <span class="govuk-visually-hidden">Error:</span> Enter the company number
           </p>
           {% endif %} 
-          <input class="govuk-input govuk-input--width-10" id="companyNumber" name="companyNumber" type="text" aria-describedby="event-name-hint">
-        </div>  
-        
-        <div class="govuk-inset-text">
-          If you have a company number that's 7 characters or less, enter zeros at the start so that it's 8 characters in total. For example, if it's 12345, enter 00012345.
-        </div>
+          <input 
+    class="govuk-input govuk-input--width-10" 
+    id="companyNumber" 
+    name="companyNumber" 
+    type="text" 
+    aria-describedby="companyNumber-hint companyNumber-inset"
+  />
 
-        {{ govukDetails({
-          summaryText: "How do I find the company number",
-          html: 'You can find this by searching for the company on the <a class="govuk-link" href="https://find-and-update.company-information.service.gov.uk/">Companies House register (Opens in a new tab)</a>.'
-        }) }}
+<div id="companyNumber-inset" class="govuk-inset-text">
+  If you have a company number that's 7 characters or less, enter zeros at the start so that it's 8 characters in total. 
+  For example, if it's 12345, enter 00012345.
+</div>
+
+{{ govukDetails({
+  summaryText: "How do I find the company number",
+  html: 'You can find this by searching for the company on the <a class="govuk-link" href="https://find-and-update.company-information.service.gov.uk/">Companies House register (Opens in a new tab)</a>.'
+}) }}
+
               
         {{ govukButton({
           text: "Continue"
