@@ -1,0 +1,141 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Provide identity verification details for a PSC or relevant legal entity - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l">Guidance</span>
+    <h1 class="govuk-heading-l">Provide identity verification details for a person with significant control (PSC)</h1>
+
+
+<p class="gem-c-lead-paragraph">Use this service to provide the Companies House personal code and identity verification statement for a PSC, or to request an extension.</p>
+    <aside class="govuk-prototype-kit-common-templates-mainstream-guide-contents-list" role="complementary">
+      <nav class="govuk-prototype-kit-common-templates-contents-list" aria-label="Pages in this guide" role="navigation">
+        <h2 class="govuk-prototype-kit-common-templates-contents-list__title">
+          Contents
+        </h2>
+        <ol class="govuk-prototype-kit-common-templates-contents-list__list">
+          <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed govuk-prototype-kit-common-templates-contents-list__list-item--active">
+            <a href="#content-1">
+              Who can use this service
+            </a>
+          </li>
+          <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+            <a href="#content-2">
+              When you need to provide identity verification details
+            </a>
+          </li>
+          <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+            <a href="#content-3">
+              Requesting an extension
+            </a>
+          </li>
+          <li class="govuk-prototype-kit-common-templates-contents-list__list-item
+          govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+            <a href="#content-4">
+              Before you start
+            </a>
+          <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed
+          govuk-prototype-kit-common-templates-contents-list__list-item--active">
+            <a href="#content-5">
+              Adapt your device to meet your needs
+            </a>
+          </li>
+        </ol>
+      </nav>
+    </aside>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-prototype-kit-common-templates-mainstream-guide-body">
+
+
+  <p>If you're a PSC of a company, there's a new legal requirement for you to <a href="https://www.gov.uk/guidance/verify-your-identity-for-companies-house">verify your identity for Companies House</a>.</p>
+
+  <p>When you've verified, you’ll get a unique identifier known as a Companies House personal code.</p>
+
+  <p>You must provide your Companies House personal code using this service. This is so we can connect your verified identity to our records. You'll also be asked to tick a statement confirming your identity is verified.</p>
+
+
+    <h2 id="content-1" class="govuk-heading-m">Who can use this service</h2>
+<p>You can use this service if you are a PSC, or providing identity verification details on behalf of a PSC.</p>
+<p>
+  You cannot use this service if the PSC has their personal information protected at Companies House (or is waiting for the results of an application).
+</p>
+
+
+
+    <h2 id="content-2" class="govuk-heading-m">When you need to provide identity verification details</h2>
+    <p>Every PSC has a 14 day period during which they must provide their Companies House personal code and verification statement.</p>
+
+    <p>The dates of your 14 day period depend on whether:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>you were registered with Companies House before 18 November 2025</li>
+      <li>you’re also a director of this company</li>
+    </ul>
+
+    <p>For more information, <a href="https://www.gov.uk/guidance/when-you-need-to-verify-your-identity-for-companies-house">read the guidance on when to verify</a>.</p>
+
+    <div class="govuk-inset-text">
+       Check the dates of your 14 day period by selecting ‘Start’ and signing in to this service.
+    </div>
+
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-visually-hidden">Warning</span>
+          If you do not comply with identity verification requirements, you may be committing an offence and have to pay a financial penalty or fine. We will also display a note against your name on the public register.
+        </strong>
+      </div>
+
+
+
+  <h2 id="content-3" class="govuk-heading-m">Requesting an extension</h2>
+  <p class="govuk-body">If you cannot provide your verification details on time, you can use this service to request a 14 day extension. You need to do this before your verification deadline has passed.
+
+     <div class="govuk-inset-text">
+       Request an extension by selecting ‘Start’ and signing in to this service.
+    </div>
+
+
+  <h2 id="content-4" class="govuk-heading-m">Before you start</h2>
+
+  <p class="govuk-body">To use this service, you'll need:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>to sign in, or create sign in details</li>
+        <li>the company number</li>
+      </ul>
+
+      <p class="govuk-body">If you’re providing identity verification details, you’ll need your <a href="https://www.gov.uk/guidance/companies-house-personal-codes-for-identity-verification">Companies House personal code</a>.</p>
+
+      <p class="govuk-body">It can take up to 10 minutes to complete this service.</p>
+
+      {{ govukButton({
+        text: "Start",
+        href: "create-or-sign-in",
+        isStartButton: true
+      }) }}
+
+  <h2 id="content-5" class="govuk-heading-m">Adapt your device to meet your needs</h2>
+      <p class="govuk-body"><a href="https://mcmw.abilitynet.org.uk/">Read advice from AbilityNet on how to adapt your device to meet your needs</a>. For example, changing the background colour or text size.</p>
+
+
+    </div>
+
+
+{% endblock %}
