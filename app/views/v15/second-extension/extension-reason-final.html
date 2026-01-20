@@ -1,0 +1,100 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  What is the reason for the extension request? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- Check for error -->
+      {% if errorExtensionReason %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+      {% endif %}
+
+      <form action="{{currentUrl}}" method="post">
+
+        <!-- Check for error -->
+        {% if errorExtensionReason %}
+        <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
+        <div class="govuk-form-group">
+        {% endif %} 
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <span class="govuk-caption-l">Paul Smith (Born April 1989)</span>
+              <h1 class="govuk-fieldset__heading">
+                What is the reason for the extension request?
+              </h1>
+            </legend>
+
+    <div class="govuk-hint">
+      If more than one reason applies, choose the main one.
+    </div>
+
+            <!-- Check for error -->
+            {% if errorExtensionReason %}
+            <p id="extensionReason-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Select why you are requesting an extension
+            </p>
+            {% endif %} 
+
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="extensionReason" name="extensionReason" type="radio" value="waiting_for_idv">
+                <label class="govuk-label govuk-radios__label" for="extensionReason">
+                  Have applied for the identity documents needed for verification, but they’ve not arrived yet
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="extensionReason-2" name="extensionReason" type="radio" value="dob_mismatch">
+                <label class="govuk-label govuk-radios__label" for="extensionReason-2">
+                  Have arranged through GOV.UK One Login to verify identity at the Post Office
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="extensionReason-3" name="extensionReason" type="radio" value="medical">
+                <label class="govuk-label govuk-radios__label" for="extensionReason-3">
+                  Undergoing medical treatment that means identity cannot be verified on time
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="extensionReason-4" name="extensionReason" type="radio" value="rerasonable_adjustments">
+                <label class="govuk-label govuk-radios__label" for="extensionReason-4">
+                  Unable to verify identity without assistance, and have arranged additional support
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="extensionReason-5" name="extensionReason" type="radio" value="post_office">
+                <label class="govuk-label govuk-radios__label" for="extensionReason-5">
+                  Experiencing technical issues for a prolonged period of time, which means identity cannot be verified on time
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="extensionReason-6" name="extensionReason" type="radio" value="no_one_login">
+                <label class="govuk-label govuk-radios__label" for="extensionReason-6">
+                  The PSC details on the company record are wrong, and more time is needed to file a correction
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        {{ govukButton({
+          text: "Continue",
+          href: "/v15/second-extension/extension-confirmation-second"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

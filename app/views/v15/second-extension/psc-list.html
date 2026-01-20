@@ -1,0 +1,194 @@
+
+{# stripping out complex data bits - simple routing for first extension! #}
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+PSC verification status  – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block pageScripts %}
+  <script src="/public/javascripts/application.js"></script>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <h1 class="govuk-heading-l">PSC identity verification status</h1>
+      <p class="govuk-body">
+        This overview shows the 14 day period in which each PSC needs to provide their verification details, and who has done it already. 
+      </p>
+
+      <p class="govuk-body">
+        You can only provide details for one PSC at a time. You cannot request an extension for a PSC before their 14 day period has started, or after their verification deadline has passed.
+      </p>      
+
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Why might some PSCs have different dates?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">The dates of your 14 day period depend on when you were registered as a PSC with Companies House, and whether you're also a director of this company.
+            
+            <h3 class="govuk-heading-s">If you were already a PSC on [IDV go live date]</h3>
+
+            <p class="govuk-body">If you’re also a director of this company, your 14 day period starts from the company’s confirmation statement date, as it was on [IDV go live date].</p>
+      
+            <p class="govuk-body">If you're not also a director of this company, your 14 day period starts from the first day of your birth month. For example, if your date of birth is 22 May 1980, your 14 day period starts on 1 May 2026.</p>
+      
+            <h3 class="govuk-heading-s">If you were registered as a PSC after [IDV go live date]</h3>
+            <p class="govuk-body">When you were added to the Companies House register, we sent you a letter directing you to verify your identity. Your 14 day period started on the date of that letter.</p>
+            </div>
+      </details>           
+
+     
+        <h2 class="govuk-heading-m">
+          PSCs that can provide verification details now
+        </h2>
+    
+        <p class="govuk-body">These PSCs for <strong>Big Shop Ltd</strong> can provide their verification details now.
+        </p>
+  
+
+  <div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Paul Smith
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="#">Provide verification details<span class="govuk-visually-hidden"> for Paul Smith</span></a>
+      </li>
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="extension-info-second">Request extension<span class="govuk-visually-hidden"> for Paul Smith</span></a>
+      </li>
+    </ul>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Date of birth
+        </dt>
+        <dd class="govuk-summary-list__value">
+         May 1989
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Period start date
+        </dt>
+        <dd class="govuk-summary-list__value">
+         1 April 2026
+        </dd>
+      </div>
+       <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Verification deadline extended to
+        </dt>
+        <dd class="govuk-summary-list__value">
+         28 April 2026
+        </dd>
+      </div>
+        <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Verification status
+        </dt>
+        <dd class="govuk-summary-list__value">
+        <strong class="govuk-tag govuk-tag--red">
+                  Unverified
+                </strong>
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+
+
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Susan Robinson
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="#">Provide verification details<span class="govuk-visually-hidden"> for Susan Robinson</span></a>
+      </li>
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="extension-info">Request extension<span class="govuk-visually-hidden"> for Susan Robinson</span></a>
+      </li>
+    </ul>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Date of birth
+        </dt>
+        <dd class="govuk-summary-list__value">
+         June 1989
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Period start date
+        </dt>
+        <dd class="govuk-summary-list__value">
+         1 May 2026
+        </dd>
+      </div>
+       <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Verification deadline
+        </dt>
+        <dd class="govuk-summary-list__value">
+         14 May 2026
+        </dd>
+      </div>
+        <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Verification status
+        </dt>
+        <dd class="govuk-summary-list__value">
+        <strong class="govuk-tag govuk-tag--red">
+                  Unverified
+                </strong>
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+      
+    
+
+
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            I can't find the PSC I'm looking for
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+        <p class="govuk-body">There are several reasons you might not be able to find a PSC on this list:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>the company may need to check that its PSC information is up to date on the Companies House register</li>
+          <li>if the company has recently notified us of a new PSC, you must wait until that filing is accepted and the new PSC 
+            appears on the public register </li>
+          <li>if a PSC has successfully applied for their information to be protected from appearing on the public register, you'll need to file a paper form instead. Email <a href="#">dsr@companieshouse.gov.uk</a> or call 02921 507 370, and provide the company name and number. </li>
+        </ul>
+
+        </div>
+      </details>
+
+    </div>
+  </div>
+{% endblock %}
+

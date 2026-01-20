@@ -1,0 +1,110 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Extension request successful – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Extension request accepted 
+      </h1>
+      <div class="govuk-panel__body">
+        Verification deadline extended to<br><strong>28 April 2025</strong>
+      </div>
+    </div>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Company name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['companyNumber'] == '12345678' %}
+            Big Shop Ltd
+          {% elif data['companyNumber'] == '33335555' %}
+            Little Shop ltd
+          {% endif %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Company number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['companyNumber']}}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          PSC name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['pscList']}}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Extension request reference number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          HDJ2123F
+        </dd>
+      </div>
+    </dl>
+  
+      <p class="govuk-body">You've been given an additional 14 days to provide your identity verification details. 
+      
+      <p class="govuk-body">We've sent an email to  
+        <strong> {{ data['signin-email']}}</strong> to confirm that you submitted a request. 
+
+      <p class="govuk-body">It will take a few minutes for the service to update with your new deadline. You'll then receive another email confirming the new deadline. We'll also send a letter to the PSC address on our records.</p>
+
+        <h2 class="govuk-heading-m">Verifying your identity</h2>    
+      <p class="govuk-body">You need to verify your identity and provide your Companies House personal code and verification statement by the new deadline.
+        </p>
+      <p class="govuk-body">For information on how to do this, <a href="https://www.gov.uk/guidance/verifying-your-identity-for-companies-house">read the guidance on verifying your identity for Companies House</a>.</p>
+
+        <h2 class="govuk-heading-m">If you need to request another extension</h2>        
+      <p class="govuk-body">You'll need to provide supporting evidence. You must <a href="https://submit.forms.service.gov.uk/form/262187/request-an-identity-verification-extension-for-a-person-with-significant-control-psc">submit your request and evidence using this online form</a>.
+      </p>
+
+      <p class="govuk-body">You must do this before the new deadline has passed.</p>
+
+      <p class="govuk-body">You cannot request another extension using this service.</p>
+
+      <h2 class="govuk-heading-m">What do you want to do next?</h2>
+      <p class="govuk-body">Provide identity verification details or request an extension for:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <p class="govuk-body"><a href="../individual/psc-list" class="govuk-link">another PSC of 
+            {% if data['companyNumber'] == '12345678' %}
+              Big Shop Ltd
+            {% elif data['companyNumber'] == '11112222' %}
+              Contruction 123 Ltd
+            {% endif %}
+          </a></p>
+        </li>
+
+        <li>
+          <p class="govuk-body"><a href="../company-number" class="govuk-link">a PSC of a different company</a></p>
+        </li>
+      </ul>
+
+     <h2 class="govuk-heading-m">Feedback</h2>
+
+      <p class="govuk-body">Help us improve this service. <a href="https://www.smartsurvey.co.uk/s/provide-idv-for-psc-legal-ent-conf/" class="govuk-link">Complete our quick survey (opens in new tab)</a>.</p>
+      
+  </div>
+</div>
+
+{% endblock %}

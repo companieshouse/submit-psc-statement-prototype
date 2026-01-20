@@ -52,6 +52,41 @@ router.post('/v15/first-extension/extension-reason-final', function(request, res
 
 
 
+// second request journey!
+router.post('/v15/second-extension/start-v2', function(request, response) {
+    response.redirect('/v15/second-extension/create-or-sign-in')
+})
+
+router.post('/v15/second-extension/create-or-sign-in', function(request, response) {
+    response.redirect('/v15/second-extension/sign-in-email')
+})
+
+router.post('/v15/second-extension/sign-in-email', function(request, response) {
+    response.redirect('/v15/second-extension/sign-in-password')
+})
+
+router.post('/v15/second-extension/sign-in-password', function(request, response) {
+    response.redirect('/v15/second-extension/company-number')
+})
+
+router.post('/v15/second-extension/company-number', function(request, response) {
+    response.redirect('/v15/second-extension/confirm-company')
+})
+
+router.post('/v15/second-extension/confirm-company', function(request, response) {
+    response.redirect('/v15/second-extension/psc-list')
+})
+
+router.post('/v15/second-extension/extension-info-second', function(request, response) {
+    response.redirect('/v15/second-extension/extension-reason-final')
+})
+
+router.post('/v15/second-extension/extension-reason-final', function(request, response) {
+    response.redirect('/v15/second-extension/extension-confirmation-second')
+})
+
+
+
 
 
 
