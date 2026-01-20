@@ -39,25 +39,27 @@ router.post('/v15/first-extension/company-number', function(request, response) {
 })
 
 router.post('/v15/first-extension/confirm-company', function(request, response) {
-    response.redirect('/v15/first-extension/individual/psc-list')
+    response.redirect('/v15/first-extension/psc-list')
 })
 
 
 
 
 
-router.post('/v15/sign-in-email', function(request, response) {
-    response.redirect('/v15/sign-in-password')
-})
-
-router.post('/v15/sign-in-password', function(request, response) {
-    response.redirect('/v15/company-number')
-})
 
 
-router.post('/v15/company-number', function(request, response) {
-    response.redirect('/v15/confirm-company')
-})
+// router.post('/v15/sign-in-email', function(request, response) {
+//     response.redirect('/v15/sign-in-password')
+// })
+
+// router.post('/v15/sign-in-password', function(request, response) {
+//     response.redirect('/v15/company-number')
+// })
+
+
+// router.post('/v15/company-number', function(request, response) {
+//     response.redirect('/v15/confirm-company')
+// })
 
 
 
