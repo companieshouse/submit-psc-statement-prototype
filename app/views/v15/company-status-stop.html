@@ -1,0 +1,37 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Companies that are dissolved, converted or closed cannot use this service
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Companies that are dissolved, converted or closed cannot use this service</h1>
+
+    <p class="govuk-body">
+      Big Shop Ltd's status on the Companies House register is currently either dissolved, converted or closed.  
+    </p>
+
+    <p class="govuk-body">
+      This means its PSCs do not need to provide their verification details.  
+    </p>
+
+    <p class="govuk-body">
+      If this is the wrong company, <a href="#">go back and enter a different company number</a>.  
+      
+    <p class="govuk-body"><a href="#">Contact us</a> if you have any questions.  
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

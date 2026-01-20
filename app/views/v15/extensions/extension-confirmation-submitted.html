@@ -1,0 +1,98 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Extension request submitted – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Extension request submitted 
+      </h1>
+      <div class="govuk-panel__body">
+        Reference number<br><strong>HDJ2123F</strong>
+      </div>
+    </div>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Company name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['companyNumber'] == '12345678' %}
+            Big Shop Ltd
+          {% elif data['companyNumber'] == '33335555' %}
+            Little Shop ltd
+          {% endif %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Company number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['companyNumber']}}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          PSC name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['pscList']}}
+        </dd>
+      </div>
+    </dl>
+  
+      
+      <p class="govuk-body">We've sent a confirmation email to  
+        <strong> {{ data['signin-email']}}</strong>.</p>
+        
+      <h2 class="govuk-heading-m">What happens next?</h2>   
+
+      <p class="govuk-body">We'll contact you within 1 hour to let you know if your request has been accepted.</p>
+        
+      <p class="govuk-body">If it's accepted, you'll be given an additional 14 days to provide identity verification details. The new deadline will be <strong>28 April 2025</strong>.</p>
+
+      <p class="govuk-body">We'll also send a confirmation letter with the new deadline to the PSC address on our records.</p>
+
+      <p class="govuk-body">If your request is rejected, you'll need to provide identity verification details by the current deadline.</p>
+        
+
+       <p class="govuk-body"><a href="https://www.gov.uk/guidance/verifying-your-identity-for-companies-house">Read the guidance on verifying your identity for Companies House</a>.</p>
+
+        <h2 class="govuk-heading-m">If you can't verify your identity by the new deadline</h2>        
+      <p class="govuk-body">You can request another extension, but you must do so before the new deadline has passed. Next time, you'll need to provide evidence to support your request.</p>
+
+
+      <h2 class="govuk-heading-m">What do you want to do next?</h2>
+      <p class="govuk-body">Provide identity verification details or request an extension for:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <p class="govuk-body"><a href="../individual/psc-list" class="govuk-link">another PSC of 
+            {% if data['companyNumber'] == '12345678' %}
+              Big Shop Ltd
+            {% elif data['companyNumber'] == '11112222' %}
+              Contruction 123 Ltd
+            {% endif %}
+          </a></p>
+        </li>
+
+        <li>
+          <p class="govuk-body"><a href="../company-number" class="govuk-link">a PSC of a different company</a></p>
+        </li>
+      </ul>
+  </div>
+</div>
+
+{% endblock %}

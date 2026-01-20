@@ -1,0 +1,40 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  You cannot provide verification details for this company through this service
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Only certain company types can use this service</h1>
+
+    <p class="govuk-body">
+      You can only provide verification details for PSCs of Big Shop Ltd if it is: 
+    </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>a private limited company</li>
+        <li>a public limited company</li>
+        <li>an unlimited company</li> 
+        <li>a Community Interest Company (CIC)</li>      
+      </ul>
+
+    <p class="govuk-body">
+      If this is the wrong company, <a href="#">go back and enter a different company number</a>.  
+      
+    <p class="govuk-body"><a href="#">Contact us</a> if you have any questions.  
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

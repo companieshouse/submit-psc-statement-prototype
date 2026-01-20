@@ -1,0 +1,366 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+  {{ govukTag({
+    classes: "govuk-tag--blue govuk-!-margin-bottom-4",
+    text: "Version 15"
+  }) }}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">
+       {{serviceName}}<span class="govuk-caption-xl"></span>
+      </h1>
+
+      <a href="start-v2" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+        Start now
+      </a>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-6">
+
+    </div>
+  </div>
+
+  {# <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l">Prototype data</h2>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Personal code
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                111-2222-3333
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Shows the 'Why is the verified name different?' page 
+                in the RLE or PSC journey.
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                444-5555-6666
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Shows the data doesn't match page in the PSC journey.
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Company number - 12345678 
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Company name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Big Shop ltd
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                PSC one
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Paul Smith (Request extension goes to extension stop page)
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                PSC two
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Susan Robinson (Request extension goes to extension stop page)
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Company number - 22223333 (Super secure)
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Company name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Supercorp ltd
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Company number - 00001111
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Incorrect company type
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Company number - 99990000
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Dissolved company
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div> #}
+
+      <h2 class="govuk-heading-m" id="individualScreenLinks">Individual screen links</h2>
+      <ul class="govuk-list govuk-list--bullet">
+    
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="start-v2">Start</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="create-or-sign-in">Create or sign in</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="sign-in-email">sign-in-email</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="sign-in-password">sign-in-password</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="company-number">company-number</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="confirm-company">confirm-company</a>
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-s" id="individualScreenLinks">Individual PSC</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="individual/psc-list">psc-list</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="individual/empty-psc-list">no psc</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="individual/psc-details">psc-details</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="individual/psc-statement">psc-statements</a>
+        </li>
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="individual/psc-verified">psc-verified</a>
+        </li>
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="individual/psc-dob-mismatch">psc-dob-mismatch</a>
+        </li>
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="individual/rp01-guidance">rp01-guidance</a>
+        </li>
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="individual/psc-why-this-name">psc-why-this-name</a>
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-s" id="individualScreenLinks">Extensions screens</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="extensions/extension-info">Extensions info – 1st request</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="extensions/extension-reason-final">Extension reasons - final wording</a>
+        </li> 
+       <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="extensions/extension-confirmation-first">Confirmation screen – 1st extension request accepted</a>
+        </li> 
+       <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="extensions/extension-confirmation-second">Confirmation screen – 2nd extension request accepted</a>
+        </li> 
+
+
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="extensions/extension-stop">Extensions stop screen (old)</a>
+        </li>
+
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="extensions/extension-stop-new">Extensions stop screen (new)</a>
+        </li>
+
+      </ul>
+
+      <h2 class="govuk-heading-s" id="individualScreenLinks">Not needed</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="extensions/extension-info-second">Extensions info – 2nd request</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="extensions/extension-reason-2">Extension reasons - updated text (for user testing)</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="extensions/extension-reason">Extension reasons - original text (for user testing)</a>
+        </li>         
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="extensions/extension-email">Extension accepted email - 1st request</a>
+        </li>
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="extensions/extension-confirmation">Extension request accepted confirmation</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="extensions/extension-review">Extension request pending - 2nd request</a>
+        </li> 
+      </ul>
+
+      <h2 class="govuk-heading-s" id="individualScreenLinks">Stop screens</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="company-status-stop">Company status error</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="company-type-stop">Company type error</a>
+        </li> 
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="extensions/extension-confirmation-back">Extensions confirmation back stop screen</a>
+        </li>
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="individual/verified-confirmation-back">Verified confirmation back stop screen</a>
+        </li>
+      </ul>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-6">
+
+      <h2 class="govuk-heading-m" id="authScreens">Changes this version</h2>
+
+      <ul class="govuk-list govuk-list--bullet">      
+        <li>
+          Confirmation screen for 1st extension request updated to explain how to request a 2nd extension.
+        </li>
+        <li>
+          Confirmation screen created for 2nd extension request – includes guidance on requesting another extension.
+        </li>
+       </ul>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-6">
+
+      <h2 class="govuk-heading-m" id="authScreens">User research</h2>
+      <ul class="govuk-list govuk-list--bullet">      
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" target="_blank" href="#">tbd</a>
+        </li>
+      </ul>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-6">
+
+      <h2 class="govuk-heading-m" id="authScreens">Journey flow</h2>
+      <ul class="govuk-list govuk-list--bullet">      
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" target="_blank" href="https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1741790337511/f3ffa2ee1f8076d142894175c576c0ff459ad850">Provide identity verification details for a PSC Flow diagrams</a>
+        </li>
+      </ul>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-6">
+
+      <h2 class="govuk-heading-m">
+        IDV services
+      </h2>
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col">Links</th>
+
+            <th class="govuk-table__header" scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="https://register-an-acsp-prototype.herokuapp.com/">Register as an Authorised Corporate Service Provider</a>
+            </td>
+          
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">
+                PROTOTYPE
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="https://prove-your-identity-prototype.herokuapp.com/">How people verify prototype</a>
+            </td>
+          
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">
+                PROTOTYPE
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="https://submit-psc-statement-prototype-8cf558a5f32b.herokuapp.com/">Provide identity verification details for a PSC or relevant legal entity</a>
+            </td>
+          
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">
+                PROTOTYPE
+              </strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+
+        
+    </div>
+  </div>
+
+
+
+
+
+{% endblock %}
