@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Extension request has been submitted – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">{{ data ['pscList']}} (Born {{ data ['pscBithday']}})</span>
+      <h1 class="govuk-heading-l">Your extension request has been submitted and will be reviewed</h1>
+
+      <p class="govuk-body">Your reference number is: <strong>ABC123XYZ0</strong></p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p class="govuk-body">You'll need to provide evidence to support your request. We'll email you at <strong>{{ data['signin-email']}}</strong> within X days to let you know what evidence to provide.</p>
+
+      <p class="govuk-body">After we've reviewed the evidence, we'll email to let you know if your request has been accepted or rejected.</p>
+
+      <p class="govuk-body">If it's accepted, you'll have an extra 14 days to provide your identity verification details, starting from the end of your current 14 day period.</p>
+      
+      <p class="govuk-body">If it's rejected, you'll need to provide your identity verification details by your current deadline.</p>
+
+      <h2 class="govuk-heading-m">While we review your request</h2>
+
+      <p class="govuk-body">You should still try to verify your identity and provide your personal code and statement as soon as possible. You should do this even if your deadline passes.
+
+      <p class="govuk-body">For more information on how to do this, read the <a href="https://www.gov.uk/guidance/verifying-your-identity-for-companies-house">guidance on verifying your identity for Companies House</a>.</p>
+
+      <h2 class="govuk-heading-m">What do you want to do now?</h2>
+      <p class="govuk-body">Provide identity verification details or request an extension for:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <p class="govuk-body"><a href="../individual/psc-list" class="govuk-link">another PSC of 
+            {% if data['companyNumber'] == '12345678' %}
+              Big Shop Ltd
+            {% elif data['companyNumber'] == '11112222' %}
+              Contruction 123 Ltd
+            {% endif %}
+          </a></p>
+        </li>
+
+        <li>
+          <p class="govuk-body"><a href="../company-number" class="govuk-link">a PSC of a different company</a></p>
+        </li>
+      </ul>
+
+  </div>
+</div>
+
+{% endblock %}
