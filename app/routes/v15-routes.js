@@ -42,6 +42,15 @@ router.post('/v15/first-extension/confirm-company', function(request, response) 
     response.redirect('/v15/first-extension/psc-list')
 })
 
+router.post('/v15/first-extension/extension-info', function(request, response) {
+    response.redirect('/v15/first-extension/extension-reason-final')
+})
+
+router.post('/v15/first-extension/extension-reason-final', function(request, response) {
+    response.redirect('/v15/first-extension/extension-confirmation-first')
+})
+
+
 
 
 
