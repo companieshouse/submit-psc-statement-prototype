@@ -23,6 +23,7 @@ router.use('/', require('./routes/v12-routes.js'))
 router.use('/', require('./routes/v13-routes.js'))
 router.use('/', require('./routes/v14-routes.js'))
 router.use('/', require('./routes/assessment-routes.js'))
+router.use('/', require('./routes/v15-routes.js'))
 
 // DEEP
 

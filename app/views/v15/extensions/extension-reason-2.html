@@ -1,0 +1,94 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Why do you need an extension? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- Check for error -->
+      {% if errorExtensionReason %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+      {% endif %}
+
+      <form action="{{currentUrl}}" method="post">
+
+        <!-- Check for error -->
+        {% if errorExtensionReason %}
+        <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
+        <div class="govuk-form-group">
+        {% endif %} 
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <span class="govuk-caption-l">{{ data ['pscList']}} (Born {{ data ['pscBithday']}})</span>
+              <h1 class="govuk-fieldset__heading">
+                Why does {{ data ['pscList']}} need an extension?
+              </h1>
+            </legend>
+            <!-- Check for error -->
+            {% if errorExtensionReason %}
+            <p id="extensionReason-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Select why you are requesting an extension
+            </p>
+            {% endif %} 
+
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="extensionReason" name="extensionReason" type="radio" value="waiting_for_idv">
+                <label class="govuk-label govuk-radios__label" for="extensionReason">
+                  The identity documents required to complete ID Verification have been applied for but not yet arrived
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="extensionReason-2" name="extensionReason" type="radio" value="dob_mismatch">
+                <label class="govuk-label govuk-radios__label" for="extensionReason-2">
+                  Making corrections to information on the register so that they match with ID documents
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="extensionReason-3" name="extensionReason" type="radio" value="medical">
+                <label class="govuk-label govuk-radios__label" for="extensionReason-3">
+                  Undergoing medical treatment now or imminently that prevents access to and ability to undertake the task, including no persons able to assist you
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="extensionReason-4" name="extensionReason" type="radio" value="rerasonable_adjustments">
+                <label class="govuk-label govuk-radios__label" for="extensionReason-4">
+                  Technical downtime or failure that has recently occurred and will continue for a prolonged period of time
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="extensionReason-5" name="extensionReason" type="radio" value="post_office">
+                <label class="govuk-label govuk-radios__label" for="extensionReason-5">
+                  Additional support or reasonable adjustments are required and being arranged
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="extensionReason-6" name="extensionReason" type="radio" value="no_one_login">
+                <label class="govuk-label govuk-radios__label" for="extensionReason-6">
+                  Arranging to identity verify at the Post Office
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

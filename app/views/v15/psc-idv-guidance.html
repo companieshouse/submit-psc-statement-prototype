@@ -1,0 +1,127 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Provide identity verification details for a PSC or relevant legal entity - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Guidance</span>
+      <h1 class="govuk-heading-l">
+        Identity verification for people with significant control (PSCs) 
+      </h1>
+
+      <p class="govuk-body-l">What PSCs need to do to comply with identity verification requirements for Companies House.  
+      </p>
+
+      <p class="govuk-body-s govuk-!-margin-bottom-2">Contents</p>
+      <ul class="govuk-list govuk-list govuk-!-margin-bottom-8">
+        <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+          <a class="govuk-link govuk-body-s govuk-link--no-underline" href="#content-1">– What identity verification means for PSCs</a>
+        </li>
+        <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+          <a class="govuk-link govuk-body-s govuk-link--no-underline" href="#content-2">– When and how to verify your identity</a>
+        </li>
+        <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+          <a class="govuk-link govuk-body-s govuk-link--no-underline" href="#content-3">– When you need to provide your Companies House personal code</a>
+        </li>
+        <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+          <a class="govuk-link govuk-body-s govuk-link--no-underline" href="#content-4">– What identity verification is needed if the PSC is a company</a>
+        </li>
+      </ul>
+
+      <hr>
+      <br>
+      <h2 id="content-1" class="govuk-heading-m">What identity verification means for PSCs</h2>
+
+      <p class="govuk-body">If you are a <a href="https://www.gov.uk/guidance/people-with-significant-control-pscs">person with significant control (PSC)</a> of a company, you need to verify your identity for Companies House. This is to confirm that you are who you say you are.</p> 
+      <p class="govuk-body">When you’ve successfully verified, you’ll be given a Companies House personal code. You must provide this code so that we can link your verified identity to the correct PSC name on our records.</p> 
+      <p class="govuk-body">You only need to verify your identity and get a Companies House personal code once. </p> 
+      <p class="govuk-body">However, you need to provide your personal code separately for each role you have at a company. For example, for: </p> 
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>each role you hold at the same company (for example, if you are both a director and a PSC) </li>
+        <li>any roles you hold at other companies</li>
+      </ul>
+
+      <h2 id="content-2" class="govuk-heading-m">When and how to verify your identity</h2>
+      
+      <p class="govuk-body">You can verify your identity for Companies House at any time.</p>
+      <p class="govuk-body">There are different ways to do this, including: </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>online using GOV.UK One Login</li>
+        <li>in person at the Post Office</li>
+        <li>using a Companies House authorised agent (such as an accountant or solicitor)</li>
+      </ul>
+
+      <p class="govuk-body">For more information on each of these methods, read the <a href="https://prove-your-identity-prototype.herokuapp.com/release2-v5/pre-one-login/guidance">guidance on verifying your identity for Companies House</a>.</p>    
+
+      <h2 id="content-3" class="govuk-heading-m">When you need to provide your Companies House personal code</h2>
+      
+      <p class="govuk-body">
+        There’s a specific time period for providing your personal code to link your verified identity to the correct PSC name on our records.  
+      </p>
+        
+      <p class="govuk-body">This is different for everyone, and it depends on whether you became a PSC of the company before or after identity verification for Companies House was first introduced on [date].</p>
+
+      <p class="govuk-body"><strong>If you became a PSC before [IDV go live date]</strong></p>
+
+      <p class="govuk-body">You need to wait until the company’s confirmation statement date. You will not be able to provide your personal code before this date.</p>
+
+      <p class="govuk-body">You will then have 14 days from the confirmation statement date to provide your personal code.</p>
+
+      <p class="govuk-body"><strong>If you became a PSC after [IDV go live date]</strong></p>
+
+      <p class="govuk-body">You’ll need to provide your personal code within 14 days of the date Companies House accepted your PSC notification filing.</p>
+      
+      <p class="govuk-body">You can see the deadline dates for a company’s PSCs by signing in to the <a href="start-v2">Provide verification details for a PSC service</a>.</p>
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-visually-hidden">Warning</span>
+          If a PSC does not comply with identity verification requirements, they will be committing an offence and may have to pay a financial penalty or fine. We may also display an annotation against their name on the public register.
+        </strong>
+      </div>
+
+      <!-- <h2 id="content-4" class="govuk-heading-m">What identity verification is needed if the PSC is a company</h2>
+      
+      <p class="govuk-body">If the PSC is a company, we refer to it as a relevant legal entity (RLE).</p>
+      <p class="govuk-body">RLEs need to provide details of a relevant officer, who will need to verify their identity with Companies House.</p>
+      <p class="govuk-body">The relevant officer must be a director of the entity, or someone whose roles and responsibilities correspond to that of a company director. They must be aged 16 or over.</p>
+      <p class="govuk-body">The RLE will need to provide the relevant officer’s:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>full name</li>
+        <li>date of birth</li>
+        <li>Companies House personal code</li>
+      </ul>
+
+      <p class="govuk-body">You can do this using the <a href="start-v2">Provide verification details for a PSC or relevant legal entity service</a>.</p>
+
+      <p class="govuk-body">Relevant officer information will not be shown on the public register.</p>
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-visually-hidden">Warning</span>
+          If an RLE does not comply with the requirement to provide information about its relevant officer, all its company directors (or equivalent) will be committing a criminal offence and may have to pay a financial penalty or fine. We may also display an annotation against their name on the public register.
+        </strong>
+      </div> -->
+
+    </div>
+  </div>
+{% endblock %}

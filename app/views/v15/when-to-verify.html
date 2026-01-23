@@ -1,0 +1,122 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Provide identity verification details for a PSC or relevant legal entity - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l">Guidance</span>
+    <h1 class="govuk-heading-l">When you need to verify your identity for Companies House</h1>
+<p>When you need to verify depends on your role, and when you started that role.</p>
+    <aside class="govuk-prototype-kit-common-templates-mainstream-guide-contents-list" role="complementary">
+      <nav class="govuk-prototype-kit-common-templates-contents-list" aria-label="Pages in this guide" role="navigation">
+        <h2 class="govuk-prototype-kit-common-templates-contents-list__title">
+          Contents
+        </h2>
+        <ol class="govuk-prototype-kit-common-templates-contents-list__list">
+          <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed govuk-prototype-kit-common-templates-contents-list__list-item--active">
+            <a href="#content-1">
+              Authorised Corporate Service Providers (ACSPs)
+            </a>
+          </li>
+          <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+            <a href="#content-2">
+              Directors
+            </a>
+          </li>
+          <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+            <a href="#content-3">
+              People with significant control (PSCs)
+            </a>
+          </li>
+              <!--
+          <li class="govuk-prototype-kit-common-templates-contents-list__list-item
+          govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+            <a href="#content-4">
+              Relevant legal entities (RLEs)
+            </a>
+          </li>-->
+          <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed
+          govuk-prototype-kit-common-templates-contents-list__list-item--active">
+            <a href="#content-5">
+              People who file at Companies House
+            </a>
+          </li>
+        </ol>
+      </nav>
+    </aside>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-prototype-kit-common-templates-mainstream-guide-body">
+    <!-- *********** Authorised agents **************-->
+    <h2 id="content-1" class="govuk-heading-m">Authorised Corporate Service Providers (ACSPs)</h2>
+<p> These are also known as Companies House authorised agents, and usually have roles such as accountants, solicitors or company formation agents.</p>
+<div class="govuk-inset-text">
+  You need to verify your identity if you want to apply to register as a Companies House authorised agent.
+ </div>
+<p>
+  If you want to be able to verify your clients' identities, you can do this from 25 March 2025 as long as you are registered as an authorised agent. In the future, businesses will also need to register as an authorised agent to be able to file on behalf of clients.
+</p>
+<!--<a href="https://register-an-acsp-prototype.herokuapp.com/v7/start-page" class="govuk-link">apply to register as a Companies House authorised agent</a>-->
+    <!-- ***************************************************************-->
+
+
+    <!-- *********** Directors **************-->
+    <h2 id="content-2" class="govuk-heading-m">Directors</h2>
+    <p>You will need to provide your Companies House personal code and verification statement as part of your company's next confirmation statement.</p>
+
+    <p>If you are a director of more than one company, you will need to do this for each company.</p>
+
+    <p>If you're registering a new company, you'll be asked to provide the Companies House personal code for each director as part of the registration filing.</p>
+  <!-- ***************************************************************-->
+
+
+  <!-- ************* People with significant control (PSCs) **************-->
+
+  <h2 id="content-3" class="govuk-heading-m">People with significant control (PSCs)</h2>
+  <p class="govuk-body">Every PSC has a 14 day period during which they must provide their Companies House personal code and verification statement. 
+  
+  <p class="govuk-body">The dates of your 14 day period depend on when you were registered as a PSC with Companies House, and whether you're also a director of the same company.</p>
+
+  <h3 class="govuk-heading-s">If you were already a PSC on [date]</h3>
+
+  <p class="govuk-body">If you’re both a director and a PSC of the same company, your 14 day period starts from the company’s confirmation statement date.</p>
+
+  <p class="govuk-body">If you're a PSC but not a director of the same company, your 14 day period starts from the first day of your month of birth. For example, if your date of birth is 22 November 1980, your 14 day period will start on 1 November 2025.</p>
+
+  <h3 class="govuk-heading-s">If you were registered as a PSC after [date]</h3>
+
+  <p class="govuk-body">We'll ask for your Companies House personal code and verification statement as part of the filing to register you with Companies House.</p>
+
+  <p class="govuk-body">If you cannot provide it at that time, you will have a 14 day period in which to do so. Your 14 day period starts from the next working day after you're added to the Companies House register.</p>
+
+
+  <!-- ***************************************************************-->
+  <!-- ************* Relevant legal entities (RLEs) **************-->
+<!--<h2 id="content-4" class="govuk-heading-m">Relevant legal entities (RLEs)</h2>
+  <div class="govuk-inset-text">
+    RLEs are not required to verify their identity yet. When this becomes a requirement, the following guidance explains when you’ll need to verify.
+  </div>
+  <h3 class="govuk-heading-s">Current RLEs of existing companies </h3>
+  <p>Relevant legal entities (RLEs) must identify a relevant officer (the equivalent of a director). As a relevant officer, when it becomes a requirement, you'll need to verify no later than 28 days after the due date of the next confirmation statement. </p>
+  <h3 class="govuk-heading-s">New RLEs of existing companies </h3>
+  <p>Relevant legal entities (RLEs) must identify a relevant officer (the equivalent of a director). As a relevant officer, when it becomes a requirement, you'll need to verify no later than 28 days after the company gives notice to Companies House. </p>
+  <h3 class="govuk-heading-s">RLEs of new companies</h3>
+  <p>When it becomes a requirement, you'll have 28 days from the day the company was incorporated to verify. </p>-->
+  <!-- ***************************************************************-->
+  <!-- ************* People who file at Companies House **************-->
+    <h2 id="content-5" class="govuk-heading-m">People who file at Companies House </h2>
+    <p>You are not required to verify your identity yet. In the future, it will be a legal requirement.</p>
+{% endblock %}
