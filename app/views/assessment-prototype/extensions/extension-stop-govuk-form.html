@@ -1,0 +1,33 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  You cannot request an extension using this service – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="{{currentUrl}}" method="post">
+
+      <span class="govuk-caption-l">{{ data ['pscList']}} (Born {{ data ['pscBithday']}})</span>
+      <h1 class="govuk-heading-l">You cannot request another extension using this service</h1>
+
+      <p class="govuk-body">You have requested and been given 2 extensions. You cannot request any more using this service.</p>      
+
+      <p class="govuk-body">If you want to request another extension, you'll need to provide supporting evidence. You must do this before your current deadline has passed.</p>
+      
+      <p class="govuk-body"><a href="https://submit.forms.service.gov.uk/form/262187/request-an-identity-verification-extension-for-a-person-with-significant-control-psc">Submit your request and supporting evidence using this online form</a>. 
+      </p>
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

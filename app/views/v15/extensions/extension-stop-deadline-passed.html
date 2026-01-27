@@ -1,0 +1,41 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  You cannot request an extension – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="{{currentUrl}}" method="post">
+
+      <span class="govuk-caption-l">{{ data ['pscList']}} (Born {{ data ['pscBithday']}})</span>
+      <h1 class="govuk-heading-l">You cannot request an extension</h1>
+
+      <p class="govuk-body">Your verification deadline has passed. This means you cannot request an extension.</p>
+
+      <p class="govuk-body">You now need to verify your identity as soon as possible. After you've verified, you must return to this service and provide your Companies House personal code, to confirm your identity has been verified.</p>
+      
+      <p class="govuk-body">For more information, read the <a href="https://prove-your-identity-prototype.herokuapp.com/release2-v5/pre-one-login/guidance">guidance on verifying your identity for Companies House</a>.</p>
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-visually-hidden">Warning</span>
+          If you do not comply with identity verification requirements, you may face prosecution and a fine through the courts, or a financial penalty. We may also display a note against your name on the public register.
+        </strong>
+      </div>
+
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}
