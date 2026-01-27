@@ -98,6 +98,12 @@ router.post('/assessment-prototype/individual/psc-statement', function(request, 
 })
 
 
+// verification DOB mismatch 
+
+router.post('/assessment-prototype/individual/psc-details-dob-mismatch-route', function(request, response) {
+    response.redirect('/assessment-prototype/individual/psc-dob-mismatch')
+})
+
 
 
 
