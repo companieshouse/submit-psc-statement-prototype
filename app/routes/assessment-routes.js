@@ -18,7 +18,7 @@ router.use((req, res, next) => {
 
 // first journey!
 
-router.post('/assessment-prototype/first-extension/start-v2', function(request, response) {
+router.post('/assessment-prototype/first-extension/start-whitehall', function(request, response) {
     response.redirect('/assessment-prototype/first-extension/create-or-sign-in')
 })
 
@@ -53,7 +53,7 @@ router.post('/assessment-prototype/first-extension/extension-reason-final', func
 
 
 // second request journey!
-router.post('/assessment-prototype/second-extension/start-v2', function(request, response) {
+router.post('/assessment-prototype/second-extension/start-whitehall', function(request, response) {
     response.redirect('/assessment-prototype/second-extension/create-or-sign-in')
 })
 
@@ -87,7 +87,22 @@ router.post('/assessment-prototype/second-extension/extension-reason-final', fun
 
 
 
+// verification journey happy path
 
+router.post('/assessment-prototype/individual/psc-details', function(request, response) {
+    response.redirect('/assessment-prototype/individual/psc-statement')
+})
+
+router.post('/assessment-prototype/individual/psc-statement', function(request, response) {
+    response.redirect('/assessment-prototype/individual/psc-verified')
+})
+
+
+// verification DOB mismatch 
+
+router.post('/assessment-prototype/individual/psc-details-dob-mismatch-route', function(request, response) {
+    response.redirect('/assessment-prototype/individual/psc-dob-mismatch')
+})
 
 
 
