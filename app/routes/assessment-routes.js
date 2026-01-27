@@ -87,6 +87,15 @@ router.post('/assessment-prototype/second-extension/extension-reason-final', fun
 
 
 
+// verification journey happy path
+
+router.post('/assessment-prototype/individual/psc-details', function(request, response) {
+    response.redirect('/assessment-prototype/individual/psc-statement')
+})
+
+router.post('/assessment-prototype/individual/psc-statement', function(request, response) {
+    response.redirect('/assessment-prototype/individual/psc-verified')
+})
 
 
 
