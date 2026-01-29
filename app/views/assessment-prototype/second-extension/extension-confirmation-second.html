@@ -18,9 +18,7 @@
       <h1 class="govuk-panel__title">
         Extension request accepted 
       </h1>
-      <div class="govuk-panel__body">
-        Verification deadline extended to<br><strong>28 April 2025</strong>
-      </div>
+      
     </div>
 
     <dl class="govuk-summary-list">
@@ -29,11 +27,9 @@
           Company name
         </dt>
         <dd class="govuk-summary-list__value">
-          {% if data['companyNumber'] == '12345678' %}
+          
             Big Shop Ltd
-          {% elif data['companyNumber'] == '33335555' %}
-            Little Shop ltd
-          {% endif %}
+          
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -41,7 +37,7 @@
           Company number
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['companyNumber']}}
+          012345678
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -49,7 +45,7 @@
           PSC name
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['pscList']}}
+          Paul Smith
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -65,7 +61,7 @@
       <p class="govuk-body">You've been given an additional 14 days to provide your identity verification details. 
       
       <p class="govuk-body">We've sent an email to  
-        <strong> {{ data['signin-email']}}</strong> to confirm that you submitted a request. 
+        <strong> email@example.com</strong> to confirm that you submitted a request. 
 
       <p class="govuk-body">It will take a few minutes for the service to update with your new deadline.</p>
         
@@ -89,11 +85,9 @@
       <ul class="govuk-list govuk-list--bullet">
         <li>
           <p class="govuk-body"><a href="../individual/psc-list" class="govuk-link">another PSC of 
-            {% if data['companyNumber'] == '12345678' %}
+           
               Big Shop Ltd
-            {% elif data['companyNumber'] == '11112222' %}
-              Contruction 123 Ltd
-            {% endif %}
+           
           </a></p>
         </li>
 
