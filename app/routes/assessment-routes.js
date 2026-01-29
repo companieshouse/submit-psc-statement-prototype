@@ -105,6 +105,13 @@ router.post('/assessment-prototype/individual/psc-details-dob-mismatch-route', f
 })
 
 
+// verification name mismatch
+
+router.post('/assessment-prototype/individual/psc-why-this-name', function(request, response) {
+    response.redirect('/assessment-prototype/individual/psc-statement')
+})
+
+
 
 
 // router.post('/assessment-prototype/sign-in-email', function(request, response) {

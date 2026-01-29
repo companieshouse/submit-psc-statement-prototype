@@ -15,57 +15,37 @@ Confirm the identity verification statement – {{ serviceName }} – GOV.UK Pro
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
     <!-- Check for error -->
-    {% if errorStatement %}
-      {{ govukErrorSummary({
-        titleText: "There is a problem",
-        errorList: errorList
-      }) }}
-    {% endif %}
+   
       <form action="{{currentUrl}}" method="post">
 
         <!-- Check for error -->
-        {% if errorStatement %}
-        <div class="govuk-form-group govuk-form-group--error">
-        {% else %}
-        <div class="govuk-form-group">
-        {% endif %} 
+        
           <fieldset class="govuk-fieldset" aria-describedby="individualStatement-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <span class="govuk-caption-l">Paul Smith (Born April 1989)</span>
+              <span class="govuk-caption-l">Jack Murray (Born November 1995)</span>
               <h1 class="govuk-fieldset__heading">
                 Confirm the identity verification statement
               </h1>
             </legend>
-            {% if errorStatement %}
-            <p id="individualStatement-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span>Select the identity verification statement for {{ data ['pscList']}}
-            </p>
-            {% endif %}
+            
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="individualStatement" name="individualStatement" type="checkbox">
                 <label class="govuk-label govuk-checkboxes__label" for="individualStatement">
-                  I confirm that <strong>Paul Smith</strong> has verified their identity in accordance with the Companies Act 2006.
+                  I confirm that <strong>Jack Murray</strong> has verified their identity in accordance with the Companies Act 2006.
                 </label>
               </div>
             </div>
           </fieldset>
-        </div>
+        <br>
 
         <button class="govuk-button" data-module="govuk-button">
           Confirm and submit
         </button> 
 
-        {% if data['pscList'] == 'Paul Smith' %}
-          <input type="hidden" name="paul_smith" id="paul_smith" value="verified" />
-        {% endif %}
-
-        {% if data['pscList'] == 'Susan Robinson' %}
-          <input type="hidden" name="susan_robinson" id="susan_robinson" value="verified" />
-        {% endif %}
-
+       
       </form>
-
+</div>
     </div>
-  </div>
+  
 {% endblock %}
